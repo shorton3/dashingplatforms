@@ -1,0 +1,33 @@
+\section{Message\+Buffer\+Initializer Struct Reference}
+\label{structMessageBufferInitializer}\index{Message\+Buffer\+Initializer@{Message\+Buffer\+Initializer}}
+
+
+{\ttfamily \#include $<$Message\+Buffer.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned short {\bfseries buffer\+Size}\label{structMessageBufferInitializer_a98d14ac0f6da552c2c55f5103d3b6a1f}
+
+\item 
+bool {\bfseries perform\+Network\+Conversion}\label{structMessageBufferInitializer_a996b4366f8ccfdb2be36b7c464dfa402}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Message\+Buffer}{p.}{classMessageBuffer} is a wrapper abstraction for the underlying buffer contained within the message. 
+
+This class provides convenience mechanisms to aid developers in marshalling and demarshalling messages. It does not support marshalling of \textquotesingle{}long\textquotesingle{} values. By examining /usr/include/bits/types.h and /usr/include/bits/wordsize.h, we learn that \textquotesingle{}long\textquotesingle{} is a 32 bit type and is the same as an integer, but that this is not consistent across platforms. Thus, for portability, long types should be avoided. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+Initializer structure to pass init params for \doxyref{Message\+Buffer}{p.}{classMessageBuffer} into the \doxyref{O\+PM}{p.}{classOPM} create\+Pool routine 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Message\+Buffer.\+h\end{DoxyCompactItemize}

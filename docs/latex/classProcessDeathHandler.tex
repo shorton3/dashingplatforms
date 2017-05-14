@@ -1,0 +1,119 @@
+\section{Process\+Death\+Handler Class Reference}
+\label{classProcessDeathHandler}\index{Process\+Death\+Handler@{Process\+Death\+Handler}}
+Inheritance diagram for Process\+Death\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classProcessDeathHandler}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Process\+Death\+Handler} ({\bf Restart\+Process\+Method} \&restart\+Process\+Method)
+\item 
+virtual {\bf $\sim$\+Process\+Death\+Handler} ()
+\item 
+virtual int {\bf handle\+\_\+exit} (A\+C\+E\+\_\+\+Process $\ast$process)
+\item 
+virtual int {\bf handle\+\_\+input} (A\+C\+E\+\_\+\+H\+A\+N\+D\+LE pid)
+\item 
+virtual int {\bf handle\+\_\+close} (A\+C\+E\+\_\+\+H\+A\+N\+D\+LE handle, A\+C\+E\+\_\+\+Reactor\+\_\+\+Mask close\+\_\+mask)
+\item 
+virtual int {\bf handle\+\_\+signal} (int signum, siginfo\+\_\+t $\ast$=0, ucontext\+\_\+t $\ast$=0)
+\item 
+void {\bf set\+Process\+Identity} (pid\+\_\+t process\+ID, string \&process\+Name)
+\item 
+void {\bf set\+Terminated\+Flag} (bool has\+Been\+Terminated)
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Process\+Death\+Handler@{Process\+Death\+Handler}!Process\+Death\+Handler@{Process\+Death\+Handler}}
+\index{Process\+Death\+Handler@{Process\+Death\+Handler}!Process\+Death\+Handler@{Process\+Death\+Handler}}
+\subsubsection[{Process\+Death\+Handler(\+Restart\+Process\+Method \&restart\+Process\+Method)}]{\setlength{\rightskip}{0pt plus 5cm}Process\+Death\+Handler\+::\+Process\+Death\+Handler (
+\begin{DoxyParamCaption}
+\item[{{\bf Restart\+Process\+Method} \&}]{restart\+Process\+Method}
+\end{DoxyParamCaption}
+)}\label{classProcessDeathHandler_a4ec4d0380de6600901507b668223adde}
+Constructor \index{Process\+Death\+Handler@{Process\+Death\+Handler}!````~Process\+Death\+Handler@{$\sim$\+Process\+Death\+Handler}}
+\index{````~Process\+Death\+Handler@{$\sim$\+Process\+Death\+Handler}!Process\+Death\+Handler@{Process\+Death\+Handler}}
+\subsubsection[{$\sim$\+Process\+Death\+Handler()}]{\setlength{\rightskip}{0pt plus 5cm}Process\+Death\+Handler\+::$\sim$\+Process\+Death\+Handler (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classProcessDeathHandler_ac56c7140e1cfdc4077a1b440b6c4dd9a}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Process\+Death\+Handler@{Process\+Death\+Handler}!handle\+\_\+close@{handle\+\_\+close}}
+\index{handle\+\_\+close@{handle\+\_\+close}!Process\+Death\+Handler@{Process\+Death\+Handler}}
+\subsubsection[{handle\+\_\+close(\+A\+C\+E\+\_\+\+H\+A\+N\+D\+L\+E handle, A\+C\+E\+\_\+\+Reactor\+\_\+\+Mask close\+\_\+mask)}]{\setlength{\rightskip}{0pt plus 5cm}int Process\+Death\+Handler\+::handle\+\_\+close (
+\begin{DoxyParamCaption}
+\item[{A\+C\+E\+\_\+\+H\+A\+N\+D\+LE}]{handle, }
+\item[{A\+C\+E\+\_\+\+Reactor\+\_\+\+Mask}]{close\+\_\+mask}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classProcessDeathHandler_a95b8cff8b5e593d3b79c1b7a88ac10d7}
+A\+CE Event Handler implementation \index{Process\+Death\+Handler@{Process\+Death\+Handler}!handle\+\_\+exit@{handle\+\_\+exit}}
+\index{handle\+\_\+exit@{handle\+\_\+exit}!Process\+Death\+Handler@{Process\+Death\+Handler}}
+\subsubsection[{handle\+\_\+exit(\+A\+C\+E\+\_\+\+Process $\ast$process)}]{\setlength{\rightskip}{0pt plus 5cm}int Process\+Death\+Handler\+::handle\+\_\+exit (
+\begin{DoxyParamCaption}
+\item[{A\+C\+E\+\_\+\+Process $\ast$}]{process}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classProcessDeathHandler_aee0b76ee7bd35f5b56c426cfb4c85391}
+A\+CE Event Handler implementation \index{Process\+Death\+Handler@{Process\+Death\+Handler}!handle\+\_\+input@{handle\+\_\+input}}
+\index{handle\+\_\+input@{handle\+\_\+input}!Process\+Death\+Handler@{Process\+Death\+Handler}}
+\subsubsection[{handle\+\_\+input(\+A\+C\+E\+\_\+\+H\+A\+N\+D\+L\+E pid)}]{\setlength{\rightskip}{0pt plus 5cm}int Process\+Death\+Handler\+::handle\+\_\+input (
+\begin{DoxyParamCaption}
+\item[{A\+C\+E\+\_\+\+H\+A\+N\+D\+LE}]{pid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classProcessDeathHandler_ae729c5d52820829ed606ca27970e9b03}
+A\+CE Event Handler implementation \index{Process\+Death\+Handler@{Process\+Death\+Handler}!handle\+\_\+signal@{handle\+\_\+signal}}
+\index{handle\+\_\+signal@{handle\+\_\+signal}!Process\+Death\+Handler@{Process\+Death\+Handler}}
+\subsubsection[{handle\+\_\+signal(int signum, siginfo\+\_\+t $\ast$=0, ucontext\+\_\+t $\ast$=0)}]{\setlength{\rightskip}{0pt plus 5cm}int Process\+Death\+Handler\+::handle\+\_\+signal (
+\begin{DoxyParamCaption}
+\item[{int}]{signum, }
+\item[{siginfo\+\_\+t $\ast$}]{ = {\ttfamily 0}, }
+\item[{ucontext\+\_\+t $\ast$}]{ = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classProcessDeathHandler_a853a323df72c9938d3873b9a2a5a9930}
+A\+CE Event Handler implementation \index{Process\+Death\+Handler@{Process\+Death\+Handler}!set\+Process\+Identity@{set\+Process\+Identity}}
+\index{set\+Process\+Identity@{set\+Process\+Identity}!Process\+Death\+Handler@{Process\+Death\+Handler}}
+\subsubsection[{set\+Process\+Identity(pid\+\_\+t process\+I\+D, string \&process\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}void Process\+Death\+Handler\+::set\+Process\+Identity (
+\begin{DoxyParamCaption}
+\item[{pid\+\_\+t}]{process\+ID, }
+\item[{string \&}]{process\+Name}
+\end{DoxyParamCaption}
+)}\label{classProcessDeathHandler_ad6d5a61c7bce3fc86da031c27c001dfe}
+Initialize the process identity info (ID and Name) 
+
+Referenced by Process\+Controller\+::init(), and Process\+Controller\+::restart\+Process().
+
+\index{Process\+Death\+Handler@{Process\+Death\+Handler}!set\+Terminated\+Flag@{set\+Terminated\+Flag}}
+\index{set\+Terminated\+Flag@{set\+Terminated\+Flag}!Process\+Death\+Handler@{Process\+Death\+Handler}}
+\subsubsection[{set\+Terminated\+Flag(bool has\+Been\+Terminated)}]{\setlength{\rightskip}{0pt plus 5cm}void Process\+Death\+Handler\+::set\+Terminated\+Flag (
+\begin{DoxyParamCaption}
+\item[{bool}]{has\+Been\+Terminated}
+\end{DoxyParamCaption}
+)}\label{classProcessDeathHandler_ab6ad5574b4eda7b204a78350c67d29d1}
+Method to set/reset whether or not this process has been manually terminated 
+
+Referenced by Process\+Controller\+::fini(), and Process\+Controller\+::init().
+
+\index{Process\+Death\+Handler@{Process\+Death\+Handler}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Process\+Death\+Handler@{Process\+Death\+Handler}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Process\+Death\+Handler\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classProcessDeathHandler_afa6e550cf356da15b3cdbd705cafa0fd}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Process\+Death\+Handler.\+h\item 
+Process\+Death\+Handler.\+cpp\end{DoxyCompactItemize}

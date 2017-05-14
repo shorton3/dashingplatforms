@@ -1,0 +1,222 @@
+\section{Log\+Message Struct Reference}
+\label{structLogMessage}\index{Log\+Message@{Log\+Message}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Log\+Message} ()
+\item 
+{\bf Log\+Message} (const {\bf Log\+Message} \&rhs)
+\item 
+{\bf $\sim$\+Log\+Message} (void)
+\item 
+void {\bf reset} (void)
+\item 
+{\bf Log\+Message} \& {\bf operator=} (const {\bf Log\+Message} \&rhs)
+\item 
+bool {\bf operator==} (const {\bf Log\+Message} \&rhs)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bf is\+String\+Log}
+\item 
+unsigned char {\bf sequence\+Id}
+\item 
+int {\bf subsystem}
+\item 
+int {\bf severity\+Level}
+\item 
+int {\bf pid}
+\item 
+int {\bf source\+Line}
+\item 
+long {\bf time\+Stamp}
+\item 
+char {\bf source\+File} [L\+O\+G\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+F\+I\+L\+E\+\_\+\+S\+I\+ZE]
+\item 
+A\+C\+E\+\_\+\+Based\+\_\+\+Pointer\+\_\+\+Basic$<$ char $>$ {\bf source\+File\+PI}
+\item 
+char {\bf log\+Message} [L\+O\+G\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE]
+\item 
+A\+C\+E\+\_\+\+Based\+\_\+\+Pointer\+\_\+\+Basic$<$ char $>$ {\bf log\+Message\+PI}
+\item 
+int {\bf arg1}
+\item 
+int {\bfseries arg2}\label{structLogMessage_af58d2512c67111e21c6185921caf2074}
+
+\item 
+int {\bfseries arg3}\label{structLogMessage_a08bde8bf5d5418ed7a6eaccd528b065e}
+
+\item 
+int {\bfseries arg4}\label{structLogMessage_aba912c0df549b6b2e260c1996a04a408}
+
+\item 
+int {\bfseries arg5}\label{structLogMessage_a1c16e8c49ca7420d975e121a9d689ff7}
+
+\item 
+int {\bfseries arg6}\label{structLogMessage_a0354124eb2d34c0d8c0698b1dc92e293}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Log\+Message@{Log\+Message}!Log\+Message@{Log\+Message}}
+\index{Log\+Message@{Log\+Message}!Log\+Message@{Log\+Message}}
+\subsubsection[{Log\+Message()}]{\setlength{\rightskip}{0pt plus 5cm}Log\+Message\+::\+Log\+Message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{structLogMessage_a4839b5003c888431a491b118c9962596}
+Default Constructor 
+
+References log\+Message, log\+Message\+PI, source\+File, and source\+File\+PI.
+
+\index{Log\+Message@{Log\+Message}!Log\+Message@{Log\+Message}}
+\index{Log\+Message@{Log\+Message}!Log\+Message@{Log\+Message}}
+\subsubsection[{Log\+Message(const Log\+Message \&rhs)}]{\setlength{\rightskip}{0pt plus 5cm}Log\+Message\+::\+Log\+Message (
+\begin{DoxyParamCaption}
+\item[{const {\bf Log\+Message} \&}]{rhs}
+\end{DoxyParamCaption}
+)}\label{structLogMessage_a2c0746ba095e1c4db77db101fed24013}
+Copy Constructor 
+
+References arg1, is\+String\+Log, log\+Message, log\+Message\+PI, pid, sequence\+Id, severity\+Level, source\+File, source\+File\+PI, source\+Line, subsystem, and time\+Stamp.
+
+\index{Log\+Message@{Log\+Message}!````~Log\+Message@{$\sim$\+Log\+Message}}
+\index{````~Log\+Message@{$\sim$\+Log\+Message}!Log\+Message@{Log\+Message}}
+\subsubsection[{$\sim$\+Log\+Message(void)}]{\setlength{\rightskip}{0pt plus 5cm}Log\+Message\+::$\sim$\+Log\+Message (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{structLogMessage_a1f00b2f959d9ddddaf67c9c1177f97da}
+Destructor 
+
+\subsection{Member Function Documentation}
+\index{Log\+Message@{Log\+Message}!operator=@{operator=}}
+\index{operator=@{operator=}!Log\+Message@{Log\+Message}}
+\subsubsection[{operator=(const Log\+Message \&rhs)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Log\+Message} \& Log\+Message\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Log\+Message} \&}]{rhs}
+\end{DoxyParamCaption}
+)}\label{structLogMessage_a1c31d1e38e92b464b253bf6bfc683181}
+Overloaded assignment operator 
+
+References arg1, is\+String\+Log, log\+Message, log\+Message\+PI, pid, sequence\+Id, severity\+Level, source\+File, source\+File\+PI, source\+Line, subsystem, and time\+Stamp.
+
+\index{Log\+Message@{Log\+Message}!operator==@{operator==}}
+\index{operator==@{operator==}!Log\+Message@{Log\+Message}}
+\subsubsection[{operator==(const Log\+Message \&rhs)}]{\setlength{\rightskip}{0pt plus 5cm}bool Log\+Message\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Log\+Message} \&}]{rhs}
+\end{DoxyParamCaption}
+)}\label{structLogMessage_a39e707cfccaaec97c9a5bbd8e8156daa}
+Overloaded equality operator 
+
+References arg1, is\+String\+Log, log\+Message\+PI, pid, sequence\+Id, severity\+Level, source\+File\+PI, source\+Line, subsystem, and time\+Stamp.
+
+\index{Log\+Message@{Log\+Message}!reset@{reset}}
+\index{reset@{reset}!Log\+Message@{Log\+Message}}
+\subsubsection[{reset(void)}]{\setlength{\rightskip}{0pt plus 5cm}void Log\+Message\+::reset (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{structLogMessage_a108ad0a373de4e5add76b883b51e3398}
+Reset data members 
+
+References arg1, is\+String\+Log, log\+Message, log\+Message\+PI, pid, sequence\+Id, severity\+Level, source\+File, source\+File\+PI, source\+Line, subsystem, and time\+Stamp.
+
+
+
+\subsection{Member Data Documentation}
+\index{Log\+Message@{Log\+Message}!arg1@{arg1}}
+\index{arg1@{arg1}!Log\+Message@{Log\+Message}}
+\subsubsection[{arg1}]{\setlength{\rightskip}{0pt plus 5cm}int Log\+Message\+::arg1}\label{structLogMessage_a56caf084416bd4d99429ddb88cc2ee38}
+Arguments passed in for automatic formatting into the log 
+
+Referenced by Logger\+Common\+::format\+Log\+Message(), Log\+Message(), operator=(), operator==(), reset(), and Logger\+::trace\+Log().
+
+\index{Log\+Message@{Log\+Message}!is\+String\+Log@{is\+String\+Log}}
+\index{is\+String\+Log@{is\+String\+Log}!Log\+Message@{Log\+Message}}
+\subsubsection[{is\+String\+Log}]{\setlength{\rightskip}{0pt plus 5cm}bool Log\+Message\+::is\+String\+Log}\label{structLogMessage_a2deae6c7b68d84b09f5b077a8006ce3d}
+Indicates this is a String Log (stracelog) message.
+
+I\+M\+P\+O\+R\+T\+A\+N\+T!!!! Whenever creating a \doxyref{Log\+Message}{p.}{structLogMessage} structure anywhere (stack or heap), this boolean must be set. It cannot be passed in the constructor because a default constructor is needed for template instantiation 
+
+Referenced by Logger\+Common\+::format\+Log\+Message(), Log\+Message(), operator=(), operator==(), reset(), Logger\+::strace\+Log(), and Logger\+::trace\+Log().
+
+\index{Log\+Message@{Log\+Message}!log\+Message@{log\+Message}}
+\index{log\+Message@{log\+Message}!Log\+Message@{Log\+Message}}
+\subsubsection[{log\+Message}]{\setlength{\rightskip}{0pt plus 5cm}char Log\+Message\+::log\+Message[L\+O\+G\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE]}\label{structLogMessage_a81a4226369aa000771cdd51da9f7e19c}
+Log Message payload string 
+
+Referenced by Log\+Message(), operator=(), reset(), Logger\+::strace\+Log(), and Logger\+::trace\+Log().
+
+\index{Log\+Message@{Log\+Message}!log\+Message\+PI@{log\+Message\+PI}}
+\index{log\+Message\+PI@{log\+Message\+PI}!Log\+Message@{Log\+Message}}
+\subsubsection[{log\+Message\+PI}]{\setlength{\rightskip}{0pt plus 5cm}A\+C\+E\+\_\+\+Based\+\_\+\+Pointer\+\_\+\+Basic$<$char$>$ Log\+Message\+::log\+Message\+PI}\label{structLogMessage_afe1eebdbc14335eb03fe64e5fa338774}
+Position Independent A\+CE Pointer to the log Message payload string. N\+O\+TE\+: there is no allocated memory here 
+
+Referenced by Logger\+Common\+::format\+Log\+Message(), Log\+Message(), operator=(), operator==(), reset(), Logger\+::strace\+Log(), and Logger\+::trace\+Log().
+
+\index{Log\+Message@{Log\+Message}!pid@{pid}}
+\index{pid@{pid}!Log\+Message@{Log\+Message}}
+\subsubsection[{pid}]{\setlength{\rightskip}{0pt plus 5cm}int Log\+Message\+::pid}\label{structLogMessage_ad436083214cabf673c173a23c0a4029f}
+OS Process ID originating the log message 
+
+Referenced by Logger\+Common\+::format\+Log\+Message(), Log\+Message(), operator=(), operator==(), reset(), Logger\+::strace\+Log(), and Logger\+::trace\+Log().
+
+\index{Log\+Message@{Log\+Message}!sequence\+Id@{sequence\+Id}}
+\index{sequence\+Id@{sequence\+Id}!Log\+Message@{Log\+Message}}
+\subsubsection[{sequence\+Id}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char Log\+Message\+::sequence\+Id}\label{structLogMessage_ad6f05455e82eb9ca3a7549d44a16b993}
+Sequence in which logs are enqueued for processing 
+
+Referenced by Logger\+Common\+::format\+Log\+Message(), Log\+Message(), operator=(), operator==(), reset(), Logger\+::strace\+Log(), and Logger\+::trace\+Log().
+
+\index{Log\+Message@{Log\+Message}!severity\+Level@{severity\+Level}}
+\index{severity\+Level@{severity\+Level}!Log\+Message@{Log\+Message}}
+\subsubsection[{severity\+Level}]{\setlength{\rightskip}{0pt plus 5cm}int Log\+Message\+::severity\+Level}\label{structLogMessage_ac2e0c3f6ad92f879e98e0b54c9474d30}
+Log severity level (D\+E\+B\+UG, E\+R\+R\+OR...) 
+
+Referenced by Logger\+Common\+::format\+Log\+Message(), Log\+Message(), operator=(), operator==(), Log\+Processor\+::process\+Logs(), reset(), Logger\+::strace\+Log(), and Logger\+::trace\+Log().
+
+\index{Log\+Message@{Log\+Message}!source\+File@{source\+File}}
+\index{source\+File@{source\+File}!Log\+Message@{Log\+Message}}
+\subsubsection[{source\+File}]{\setlength{\rightskip}{0pt plus 5cm}char Log\+Message\+::source\+File[L\+O\+G\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+F\+I\+L\+E\+\_\+\+S\+I\+ZE]}\label{structLogMessage_a149e34d4378f939eea8d72fc1b1548f9}
+Source file name where the log originated 
+
+Referenced by Log\+Message(), operator=(), reset(), Logger\+::strace\+Log(), and Logger\+::trace\+Log().
+
+\index{Log\+Message@{Log\+Message}!source\+File\+PI@{source\+File\+PI}}
+\index{source\+File\+PI@{source\+File\+PI}!Log\+Message@{Log\+Message}}
+\subsubsection[{source\+File\+PI}]{\setlength{\rightskip}{0pt plus 5cm}A\+C\+E\+\_\+\+Based\+\_\+\+Pointer\+\_\+\+Basic$<$char$>$ Log\+Message\+::source\+File\+PI}\label{structLogMessage_a36c25d6066af276c23b3ce120dc2fcae}
+Position Independent A\+CE Pointer to the source file name. N\+O\+TE\+: there is no allocated memory here 
+
+Referenced by Logger\+Common\+::format\+Log\+Message(), Log\+Message(), operator=(), operator==(), reset(), Logger\+::strace\+Log(), and Logger\+::trace\+Log().
+
+\index{Log\+Message@{Log\+Message}!source\+Line@{source\+Line}}
+\index{source\+Line@{source\+Line}!Log\+Message@{Log\+Message}}
+\subsubsection[{source\+Line}]{\setlength{\rightskip}{0pt plus 5cm}int Log\+Message\+::source\+Line}\label{structLogMessage_a35446a13522b100e02f1652d9bda5538}
+Source file line where the log originated 
+
+Referenced by Logger\+Common\+::format\+Log\+Message(), Log\+Message(), operator=(), operator==(), reset(), Logger\+::strace\+Log(), and Logger\+::trace\+Log().
+
+\index{Log\+Message@{Log\+Message}!subsystem@{subsystem}}
+\index{subsystem@{subsystem}!Log\+Message@{Log\+Message}}
+\subsubsection[{subsystem}]{\setlength{\rightskip}{0pt plus 5cm}int Log\+Message\+::subsystem}\label{structLogMessage_a89f21f82971d2313256689e176e53870}
+Log subsystem type (M\+S\+G\+M\+GR, \doxyref{O\+PM}{p.}{classOPM}...) 
+
+Referenced by Logger\+Common\+::format\+Log\+Message(), Log\+Message(), operator=(), operator==(), reset(), Logger\+::strace\+Log(), and Logger\+::trace\+Log().
+
+\index{Log\+Message@{Log\+Message}!time\+Stamp@{time\+Stamp}}
+\index{time\+Stamp@{time\+Stamp}!Log\+Message@{Log\+Message}}
+\subsubsection[{time\+Stamp}]{\setlength{\rightskip}{0pt plus 5cm}long Log\+Message\+::time\+Stamp}\label{structLogMessage_aca760ef27907fa27358c73584bfac941}
+Time stamp for log origination 
+
+Referenced by Logger\+Common\+::format\+Log\+Message(), Log\+Message(), operator=(), operator==(), reset(), Logger\+::strace\+Log(), and Logger\+::trace\+Log().
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Log\+Message.\+h\item 
+Log\+Message.\+cpp\end{DoxyCompactItemize}

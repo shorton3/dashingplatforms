@@ -1,0 +1,328 @@
+\section{Object\+Pool Class Reference}
+\label{classObjectPool}\index{Object\+Pool@{Object\+Pool}}
+
+
+{\ttfamily \#include $<$Object\+Pool.\+h$>$}
+
+Inheritance diagram for Object\+Pool\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classObjectPool}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Object\+Pool} (int object\+Pool\+ID, int initial\+Capacity, double threshold\+Percentage, int capacity\+Increment, const char $\ast$object\+Type, long object\+Init\+Param, O\+P\+M\+\_\+\+I\+N\+I\+T\+\_\+\+P\+TR boot\+Strap\+Method, O\+P\+M\+Growth\+Mode\+Type growth\+Mode)
+\item 
+virtual {\bf $\sim$\+Object\+Pool} ()
+\item 
+virtual {\bf O\+P\+M\+Base} $\ast$ {\bf reserve} (bool block\+Waiting\+For\+Access=true)
+\item 
+virtual bool {\bf release} ({\bf O\+P\+M\+Base} $\ast$object, const char $\ast$calling\+File\+Name, int calling\+Line\+Numb)
+\item 
+int {\bf get\+Current\+Capacity} ()
+\item 
+int {\bf get\+Current\+Used\+Objects} ()
+\item 
+const char $\ast$ {\bf get\+Object\+Type} ()
+\item 
+int {\bf get\+Capacity\+Increment} ()
+\item 
+double {\bf get\+Threshold\+Percentage} ()
+\item 
+long {\bf get\+Object\+Init\+Param} ()
+\item 
+virtual bool {\bf is\+Empty} ()
+\item 
+virtual bool {\bf contains\+Object} ({\bf O\+P\+M\+Base} $\ast$object)
+\item 
+virtual void {\bf set\+Capacity\+Increment} (int capacity\+Increment)
+\item 
+virtual void {\bfseries print\+Usage\+Summary} ()\label{classObjectPool_a316340dce42a2a093c51bac60397899c}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int {\bf capacity\+Increment\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Object\+Pool}{p.}{classObjectPool} stores objects of a particular type in the \doxyref{O\+PM}{p.}{classOPM} and keeps track of which objects are free and which are in use. 
+
+Object pool contains methods for reserving and releasing pooled objects and for manipulating the capacity increments of the data structures (pool supports both growing and shrinking based on increment size), computing the count of free objects, setting the threshold and increment values, and performing cleanup. 
+
+This class is currently N\+OT T\+H\+R\+E\+AD S\+A\+FE.
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Object\+Pool@{Object\+Pool}!Object\+Pool@{Object\+Pool}}
+\index{Object\+Pool@{Object\+Pool}!Object\+Pool@{Object\+Pool}}
+\subsubsection[{Object\+Pool(int object\+Pool\+I\+D, int initial\+Capacity, double threshold\+Percentage, int capacity\+Increment, const char $\ast$object\+Type, long object\+Init\+Param, O\+P\+M\+\_\+\+I\+N\+I\+T\+\_\+\+P\+T\+R boot\+Strap\+Method, O\+P\+M\+Growth\+Mode\+Type growth\+Mode)}]{\setlength{\rightskip}{0pt plus 5cm}Object\+Pool\+::\+Object\+Pool (
+\begin{DoxyParamCaption}
+\item[{int}]{object\+Pool\+ID, }
+\item[{int}]{initial\+Capacity, }
+\item[{double}]{threshold\+Percentage, }
+\item[{int}]{capacity\+Increment, }
+\item[{const char $\ast$}]{object\+Type, }
+\item[{long}]{object\+Init\+Param, }
+\item[{O\+P\+M\+\_\+\+I\+N\+I\+T\+\_\+\+P\+TR}]{boot\+Strap\+Method, }
+\item[{O\+P\+M\+Growth\+Mode\+Type}]{growth\+Mode}
+\end{DoxyParamCaption}
+)}\label{classObjectPool_a8a795488aeb97b2d7e43e82fbf7f27b1}
+Constructor initializes the pool to a configurable size and sets the individual object\textquotesingle{}s initializer to be stored in the Pool. 
+\begin{DoxyParams}{Parameters}
+{\em object\+Pool\+ID} & Object Pool\+ID that identifies this object pool in the \doxyref{O\+PM}{p.}{classOPM} \\
+\hline
+{\em initial\+Capacity} & Starting size of the pool in objects \\
+\hline
+{\em threshold\+Percentage} & Percentage of current capacity to trigger automatic growth. \\
+\hline
+{\em capacity\+Increment} & Number of objects to add to the current size when increasing capacity \\
+\hline
+{\em object\+Type} & const char$\ast$ describing the class object stored in this pool \\
+\hline
+{\em object\+Init\+Param} & -\/ Integer parameter or pointer to initialization data needed by the object or 0(N\+U\+LL) if not needed (passed to \doxyref{O\+P\+M\+Base\+::initialize}{p.}{classOPMBase_a0de2f47a2f34606fe4379a81d0cc5c18}). \\
+\hline
+{\em boot\+Strap\+Method} & pointer to a function or method (\doxyref{O\+P\+M\+Base\+::initialize}{p.}{classOPMBase_a0de2f47a2f34606fe4379a81d0cc5c18}) that will create the object and return a pointer to it \\
+\hline
+{\em growth\+Mode} & Either N\+O\+\_\+\+G\+R\+O\+W\+TH, G\+R\+O\+W\+T\+H\+\_\+\+A\+L\+L\+O\+W\+ED, or G\+R\+O\+W\+\_\+\+A\+N\+D\+\_\+\+S\+H\+R\+I\+NK \\
+\hline
+\end{DoxyParams}
+
+
+References capacity\+Increment\+\_\+, Logger\+::get\+Subsystem\+Log\+Level(), and O\+P\+M\+Linked\+List\+::insert\+First().
+
+\index{Object\+Pool@{Object\+Pool}!````~Object\+Pool@{$\sim$\+Object\+Pool}}
+\index{````~Object\+Pool@{$\sim$\+Object\+Pool}!Object\+Pool@{Object\+Pool}}
+\subsubsection[{$\sim$\+Object\+Pool()}]{\setlength{\rightskip}{0pt plus 5cm}Object\+Pool\+::$\sim$\+Object\+Pool (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classObjectPool_ae45acbed251b192f83bc68ef277a7a3f}
+Virtual Destructor 
+
+References O\+P\+M\+Linked\+List\+::delete\+List\+Contents().
+
+
+
+\subsection{Member Function Documentation}
+\index{Object\+Pool@{Object\+Pool}!contains\+Object@{contains\+Object}}
+\index{contains\+Object@{contains\+Object}!Object\+Pool@{Object\+Pool}}
+\subsubsection[{contains\+Object(\+O\+P\+M\+Base $\ast$object)}]{\setlength{\rightskip}{0pt plus 5cm}bool Object\+Pool\+::contains\+Object (
+\begin{DoxyParamCaption}
+\item[{{\bf O\+P\+M\+Base} $\ast$}]{object}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classObjectPool_a548146baa4b62ca937fc7582d25a1e3d}
+Method to check if a specified object is in the Free Linked List or the Used Linked List. This method traverses both lists looking for pointer equality. \begin{DoxyReturn}{Returns}
+{\ttfamily true} if the Object is in the list~\newline
+ {\ttfamily false} if the Object is N\+OT in the list 
+\end{DoxyReturn}
+
+
+Reimplemented in {\bf Sync\+Object\+Pool} \doxyref{}{p.}{classSyncObjectPool_a68ee3b71cae88e89753854e9cc681ab3}.
+
+
+
+References O\+P\+M\+Linked\+List\+::contains\+Object().
+
+
+
+Referenced by Sync\+Object\+Pool\+::contains\+Object(), O\+P\+M\+::is\+Created\+By\+O\+P\+M(), and release().
+
+\index{Object\+Pool@{Object\+Pool}!get\+Capacity\+Increment@{get\+Capacity\+Increment}}
+\index{get\+Capacity\+Increment@{get\+Capacity\+Increment}!Object\+Pool@{Object\+Pool}}
+\subsubsection[{get\+Capacity\+Increment()}]{\setlength{\rightskip}{0pt plus 5cm}int Object\+Pool\+::get\+Capacity\+Increment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classObjectPool_a462ce7c2103a90cbfa4532ffe4999cb6}
+Return the capacity increment size for this pool 
+
+References capacity\+Increment\+\_\+.
+
+
+
+Referenced by O\+P\+M\+::get\+Pool\+Capacity\+Increment().
+
+\index{Object\+Pool@{Object\+Pool}!get\+Current\+Capacity@{get\+Current\+Capacity}}
+\index{get\+Current\+Capacity@{get\+Current\+Capacity}!Object\+Pool@{Object\+Pool}}
+\subsubsection[{get\+Current\+Capacity()}]{\setlength{\rightskip}{0pt plus 5cm}int Object\+Pool\+::get\+Current\+Capacity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classObjectPool_a25f0117ffaf2d5f8cf7df196957c398a}
+Return the current capacity of this pool 
+
+Referenced by O\+P\+M\+::check\+For\+Unreleased\+Objects().
+
+\index{Object\+Pool@{Object\+Pool}!get\+Current\+Used\+Objects@{get\+Current\+Used\+Objects}}
+\index{get\+Current\+Used\+Objects@{get\+Current\+Used\+Objects}!Object\+Pool@{Object\+Pool}}
+\subsubsection[{get\+Current\+Used\+Objects()}]{\setlength{\rightskip}{0pt plus 5cm}int Object\+Pool\+::get\+Current\+Used\+Objects (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classObjectPool_a5f6f055cab09e8bab548016fd3fe0e26}
+Return the current number of Used Objects in this pool 
+
+Referenced by O\+P\+M\+::check\+For\+Unreleased\+Objects().
+
+\index{Object\+Pool@{Object\+Pool}!get\+Object\+Init\+Param@{get\+Object\+Init\+Param}}
+\index{get\+Object\+Init\+Param@{get\+Object\+Init\+Param}!Object\+Pool@{Object\+Pool}}
+\subsubsection[{get\+Object\+Init\+Param()}]{\setlength{\rightskip}{0pt plus 5cm}long Object\+Pool\+::get\+Object\+Init\+Param (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classObjectPool_a870bb1da891ff84be349505b8f2b286a}
+Return the initializer for the objects in this pool (if there is one) 
+
+Referenced by O\+P\+M\+::get\+Pool\+Object\+Init\+Param().
+
+\index{Object\+Pool@{Object\+Pool}!get\+Object\+Type@{get\+Object\+Type}}
+\index{get\+Object\+Type@{get\+Object\+Type}!Object\+Pool@{Object\+Pool}}
+\subsubsection[{get\+Object\+Type()}]{\setlength{\rightskip}{0pt plus 5cm}const char $\ast$ Object\+Pool\+::get\+Object\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classObjectPool_a1869c1334a7881840c3d0b1b6ebea6f2}
+Return the object type String being held in this pool 
+
+Referenced by O\+P\+M\+::check\+For\+Unreleased\+Objects().
+
+\index{Object\+Pool@{Object\+Pool}!get\+Threshold\+Percentage@{get\+Threshold\+Percentage}}
+\index{get\+Threshold\+Percentage@{get\+Threshold\+Percentage}!Object\+Pool@{Object\+Pool}}
+\subsubsection[{get\+Threshold\+Percentage()}]{\setlength{\rightskip}{0pt plus 5cm}double Object\+Pool\+::get\+Threshold\+Percentage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classObjectPool_aae004a1c8f7886799768795b80c3055e}
+Return the threshold percentage for this pool 
+
+Referenced by O\+P\+M\+::get\+Pool\+Threshold\+Percentage().
+
+\index{Object\+Pool@{Object\+Pool}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!Object\+Pool@{Object\+Pool}}
+\subsubsection[{is\+Empty()}]{\setlength{\rightskip}{0pt plus 5cm}bool Object\+Pool\+::is\+Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classObjectPool_a24f063d95d3dc8a3c06f80dbc21c904e}
+Method to test if this pool is empty \begin{DoxyReturn}{Returns}
+{\ttfamily true} if the Free List is empty~\newline
+ {\ttfamily false} if the Free List is N\+OT empty 
+\end{DoxyReturn}
+
+
+Reimplemented in {\bf Sync\+Object\+Pool} \doxyref{}{p.}{classSyncObjectPool_a56e69756fd2e4be9a83dae45e700d2e1}.
+
+
+
+References O\+P\+M\+Linked\+List\+::is\+Empty().
+
+
+
+Referenced by Sync\+Object\+Pool\+::is\+Empty().
+
+\index{Object\+Pool@{Object\+Pool}!release@{release}}
+\index{release@{release}!Object\+Pool@{Object\+Pool}}
+\subsubsection[{release(\+O\+P\+M\+Base $\ast$object, const char $\ast$calling\+File\+Name, int calling\+Line\+Numb)}]{\setlength{\rightskip}{0pt plus 5cm}bool Object\+Pool\+::release (
+\begin{DoxyParamCaption}
+\item[{{\bf O\+P\+M\+Base} $\ast$}]{object, }
+\item[{const char $\ast$}]{calling\+File\+Name, }
+\item[{int}]{calling\+Line\+Numb}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classObjectPool_a9c8eb89d39afd8f30b94181fea0c9a18}
+Release an object back into the pool after using it. This makes the object available again for use in other tasks. This method automatically monitors the number of in-\/use objects and will shrink the pool when the number drops below the previous increment\textquotesingle{}s threshold value. 
+\begin{DoxyParams}{Parameters}
+{\em object} & Object to release back into the pool. \\
+\hline
+{\em calling\+File\+Name} & -\/ Specifies the source file from which the object is being released (this will be printed as a D\+E\+B\+UG log using a M\+A\+C\+RO) \\
+\hline
+{\em calling\+Line\+Numb} & -\/ Specifies the source line from which the object is being released (this will be printed as a D\+E\+B\+UG log using a M\+A\+C\+RO) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the specified Object was successfully released~\newline
+ {\ttfamily false} if the Object Reference was not found in the U\+S\+ED data structure (could be wrong pool, is already released, or was not created via \doxyref{O\+PM}{p.}{classOPM}) 
+\end{DoxyReturn}
+
+
+References capacity\+Increment\+\_\+, contains\+Object(), O\+P\+M\+Base\+::get\+Pool\+I\+D(), Logger\+::get\+Subsystem\+Log\+Level(), O\+P\+M\+Linked\+List\+::insert\+First(), O\+P\+M\+Linked\+List\+::remove(), O\+P\+M\+Linked\+List\+::remove\+First(), and O\+P\+M\+Base\+::set\+Pool\+I\+D().
+
+
+
+Referenced by O\+P\+M\+::get\+Pool\+Capacity\+Increment(), O\+P\+M\+::get\+Pool\+Object\+Init\+Param(), O\+P\+M\+::get\+Pool\+Threshold\+Percentage(), O\+P\+M\+::is\+Created\+By\+O\+P\+M(), O\+P\+M\+::print\+Pool\+Summary(), Sync\+Object\+Pool\+::release(), O\+P\+M\+::release\+Object(), O\+P\+M\+::reserve\+Object(), and O\+P\+M\+::set\+Pool\+Capacity\+Increment().
+
+\index{Object\+Pool@{Object\+Pool}!reserve@{reserve}}
+\index{reserve@{reserve}!Object\+Pool@{Object\+Pool}}
+\subsubsection[{reserve(bool block\+Waiting\+For\+Access=true)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf O\+P\+M\+Base} $\ast$ Object\+Pool\+::reserve (
+\begin{DoxyParamCaption}
+\item[{bool}]{block\+Waiting\+For\+Access = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classObjectPool_a2765719206bbe45d887e0bf0cf57715f}
+Reserve an object for use, thus making it unavailable for other tasks. This method automatically monitors the number of in-\/use objects and will grow the pool when the number exceeds the threshold. If the object pool is specified to be non-\/resizable, then an error will be displayed and N\+U\+LL returned if no available objects exist. 
+\begin{DoxyParams}{Parameters}
+{\em block\+Waiting\+For\+Access} & If true, this method will block until an object becomes available if they are all in use. Otherwise, if false, this method will return N\+U\+LL if all objects are in use. Note that this parameter is used O\+N\+LY with \doxyref{Sync\+Object\+Pool}{p.}{classSyncObjectPool}. It has no meaning here, other than for inheritance. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in {\bf Sync\+Object\+Pool} \doxyref{}{p.}{classSyncObjectPool_a1286b5bb4b981e803d261c88bb2d4e65}.
+
+
+
+References Logger\+::get\+Subsystem\+Log\+Level(), O\+P\+M\+Linked\+List\+::insert\+First(), O\+P\+M\+Linked\+List\+::is\+Empty(), and O\+P\+M\+Linked\+List\+::remove\+First().
+
+
+
+Referenced by Sync\+Object\+Pool\+::reserve(), and O\+P\+M\+::reserve\+Object().
+
+\index{Object\+Pool@{Object\+Pool}!set\+Capacity\+Increment@{set\+Capacity\+Increment}}
+\index{set\+Capacity\+Increment@{set\+Capacity\+Increment}!Object\+Pool@{Object\+Pool}}
+\subsubsection[{set\+Capacity\+Increment(int capacity\+Increment)}]{\setlength{\rightskip}{0pt plus 5cm}void Object\+Pool\+::set\+Capacity\+Increment (
+\begin{DoxyParamCaption}
+\item[{int}]{capacity\+Increment}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classObjectPool_abd8b0f99d68c723f4fd923f3c631eecd}
+Method to set or reset the capacity increment of this Object Pool 
+\begin{DoxyParams}{Parameters}
+{\em capacity\+Increment} & The new capacity increment value \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in {\bf Sync\+Object\+Pool} \doxyref{}{p.}{classSyncObjectPool_aa8a3809cc62c991b67d2ef541a4e688d}.
+
+
+
+References capacity\+Increment\+\_\+.
+
+
+
+Referenced by O\+P\+M\+::set\+Pool\+Capacity\+Increment().
+
+
+
+\subsection{Member Data Documentation}
+\index{Object\+Pool@{Object\+Pool}!capacity\+Increment\+\_\+@{capacity\+Increment\+\_\+}}
+\index{capacity\+Increment\+\_\+@{capacity\+Increment\+\_\+}!Object\+Pool@{Object\+Pool}}
+\subsubsection[{capacity\+Increment\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int Object\+Pool\+::capacity\+Increment\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classObjectPool_adba889c0d008d3ed71b1cbf7794c967b}
+Pool Increment Size which is the number of objects to add when growing 
+
+Referenced by get\+Capacity\+Increment(), Object\+Pool(), release(), Sync\+Object\+Pool\+::set\+Capacity\+Increment(), and set\+Capacity\+Increment().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Object\+Pool.\+h\item 
+Object\+Pool.\+cpp\end{DoxyCompactItemize}

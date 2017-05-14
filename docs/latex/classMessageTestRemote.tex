@@ -1,0 +1,347 @@
+\section{Message\+Test\+Remote Class Reference}
+\label{classMessageTestRemote}\index{Message\+Test\+Remote@{Message\+Test\+Remote}}
+
+
+{\ttfamily \#include $<$Message\+Test\+Remote.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Message\+Test\+Remote} (string \&local\+Mailbox\+Name, int local\+Port\+Number)
+\item 
+virtual {\bf $\sim$\+Message\+Test\+Remote} ()
+\item 
+void {\bf process\+Mailbox} ()
+\item 
+Mailbox\+Owner\+Handle $\ast$ {\bf get\+Owner\+Handle} ()
+\item 
+Mailbox\+Address \& {\bf get\+Local\+Mailbox\+Address} ()
+\item 
+string {\bf to\+String} ()
+\item 
+{\bf Message\+Test\+Remote} ()
+\item 
+virtual {\bf $\sim$\+Message\+Test\+Remote} ()
+\item 
+void {\bf process\+Mailbox} ()
+\item 
+Mailbox\+Owner\+Handle $\ast$ {\bf get\+Owner\+Handle} ()
+\item 
+string {\bf to\+String} ()
+\item 
+{\bf Message\+Test\+Remote} ()
+\item 
+virtual {\bf $\sim$\+Message\+Test\+Remote} ()
+\item 
+void {\bf process\+Mailbox} ()
+\item 
+Mailbox\+Owner\+Handle $\ast$ {\bf get\+Owner\+Handle} ()
+\item 
+string {\bf to\+String} ()
+\item 
+{\bf Message\+Test\+Remote} ()
+\item 
+virtual {\bf $\sim$\+Message\+Test\+Remote} ()
+\item 
+void {\bf process\+Mailbox} ()
+\item 
+Mailbox\+Owner\+Handle $\ast$ {\bf get\+Owner\+Handle} ()
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf Message\+Test\+Remote} $\ast$ {\bf get\+Instance} ()
+\item 
+static {\bf Message\+Test\+Remote} $\ast$ {\bf get\+Instance} ()
+\item 
+static {\bf Message\+Test\+Remote} $\ast$ {\bf get\+Instance} ()
+\item 
+static {\bf Message\+Test\+Remote} $\ast$ {\bf get\+Instance} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Message\+Test\+Remote}{p.}{classMessageTestRemote} is a collection of unit test procedures for the Msg\+Mgr framework. This class deals exclusively with Distributed Mailboxes when using the Discovery functionality. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\doxyref{Message\+Test\+Remote}{p.}{classMessageTestRemote} is a collection of unit test procedures for the Msg\+Mgr framework. This class deals exclusively with Distributed Mailboxes (in this case multithreaded send / recv) 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\doxyref{Message\+Test\+Remote}{p.}{classMessageTestRemote} is a collection of unit test procedures for the Msg\+Mgr framework. This class deals exclusively with Distributed Mailboxes. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\doxyref{Message\+Test\+Remote}{p.}{classMessageTestRemote} is a collection of unit test procedures for the Msg\+Mgr framework. This class deals exclusively with Local Shared Memory Mailboxes. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Message\+Test\+Remote@{Message\+Test\+Remote}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\index{Message\+Test\+Remote@{Message\+Test\+Remote}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{Message\+Test\+Remote(string \&local\+Mailbox\+Name, int local\+Port\+Number)}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Test\+Remote\+::\+Message\+Test\+Remote (
+\begin{DoxyParamCaption}
+\item[{string \&}]{local\+Mailbox\+Name, }
+\item[{int}]{local\+Port\+Number}
+\end{DoxyParamCaption}
+)}\label{classMessageTestRemote_a63c1cc4bc331db78dc0ea249efcb48f1}
+Constructor \index{Message\+Test\+Remote@{Message\+Test\+Remote}!````~Message\+Test\+Remote@{$\sim$\+Message\+Test\+Remote}}
+\index{````~Message\+Test\+Remote@{$\sim$\+Message\+Test\+Remote}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{$\sim$\+Message\+Test\+Remote()}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Test\+Remote\+::$\sim$\+Message\+Test\+Remote (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMessageTestRemote_ac8f8a31250f80bfc9c6851a000b10dad}
+Virtual Destructor 
+
+Referenced by Message\+Test\+Remote().
+
+\index{Message\+Test\+Remote@{Message\+Test\+Remote}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\index{Message\+Test\+Remote@{Message\+Test\+Remote}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{Message\+Test\+Remote()}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Test\+Remote\+::\+Message\+Test\+Remote (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestRemote_a29ecafb76b8f6ecd4e3861b8c7aceed4}
+Constructor 
+
+References Message\+Test\+Remote\+Message\+::deserialize(), get\+Instance(), get\+Owner\+Handle(), process\+Mailbox(), Message\+Test1\+Message\+::to\+String(), to\+String(), Message\+Test\+Remote\+Message\+::to\+String(), and $\sim$\+Message\+Test\+Remote().
+
+
+
+Referenced by to\+String().
+
+\index{Message\+Test\+Remote@{Message\+Test\+Remote}!````~Message\+Test\+Remote@{$\sim$\+Message\+Test\+Remote}}
+\index{````~Message\+Test\+Remote@{$\sim$\+Message\+Test\+Remote}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{$\sim$\+Message\+Test\+Remote()}]{\setlength{\rightskip}{0pt plus 5cm}virtual Message\+Test\+Remote\+::$\sim$\+Message\+Test\+Remote (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMessageTestRemote_a79a9df3bfee030493bc59629b791a3a2}
+Virtual Destructor \index{Message\+Test\+Remote@{Message\+Test\+Remote}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\index{Message\+Test\+Remote@{Message\+Test\+Remote}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{Message\+Test\+Remote()}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Test\+Remote\+::\+Message\+Test\+Remote (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestRemote_a29ecafb76b8f6ecd4e3861b8c7aceed4}
+Constructor \index{Message\+Test\+Remote@{Message\+Test\+Remote}!````~Message\+Test\+Remote@{$\sim$\+Message\+Test\+Remote}}
+\index{````~Message\+Test\+Remote@{$\sim$\+Message\+Test\+Remote}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{$\sim$\+Message\+Test\+Remote()}]{\setlength{\rightskip}{0pt plus 5cm}virtual Message\+Test\+Remote\+::$\sim$\+Message\+Test\+Remote (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMessageTestRemote_a79a9df3bfee030493bc59629b791a3a2}
+Virtual Destructor \index{Message\+Test\+Remote@{Message\+Test\+Remote}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\index{Message\+Test\+Remote@{Message\+Test\+Remote}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{Message\+Test\+Remote()}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Test\+Remote\+::\+Message\+Test\+Remote (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestRemote_a29ecafb76b8f6ecd4e3861b8c7aceed4}
+Constructor \index{Message\+Test\+Remote@{Message\+Test\+Remote}!````~Message\+Test\+Remote@{$\sim$\+Message\+Test\+Remote}}
+\index{````~Message\+Test\+Remote@{$\sim$\+Message\+Test\+Remote}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{$\sim$\+Message\+Test\+Remote()}]{\setlength{\rightskip}{0pt plus 5cm}virtual Message\+Test\+Remote\+::$\sim$\+Message\+Test\+Remote (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMessageTestRemote_a79a9df3bfee030493bc59629b791a3a2}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Message\+Test\+Remote@{Message\+Test\+Remote}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{get\+Instance()}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Message\+Test\+Remote}$\ast$ Message\+Test\+Remote\+::get\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMessageTestRemote_a6d05eedf83fd751a0f62073d2596bf95}
+Returns static singleton instance \index{Message\+Test\+Remote@{Message\+Test\+Remote}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{get\+Instance()}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Message\+Test\+Remote}$\ast$ Message\+Test\+Remote\+::get\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMessageTestRemote_a6d05eedf83fd751a0f62073d2596bf95}
+Returns static singleton instance \index{Message\+Test\+Remote@{Message\+Test\+Remote}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{get\+Instance()}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Message\+Test\+Remote}$\ast$ Message\+Test\+Remote\+::get\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMessageTestRemote_a6d05eedf83fd751a0f62073d2596bf95}
+Returns static singleton instance \index{Message\+Test\+Remote@{Message\+Test\+Remote}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{get\+Instance()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Message\+Test\+Remote} $\ast$ Message\+Test\+Remote\+::get\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMessageTestRemote_ae155f213a852416faaf30c4ac60665ed}
+Returns static singleton instance 
+
+Referenced by Message\+Test\+Remote(), and to\+String().
+
+\index{Message\+Test\+Remote@{Message\+Test\+Remote}!get\+Local\+Mailbox\+Address@{get\+Local\+Mailbox\+Address}}
+\index{get\+Local\+Mailbox\+Address@{get\+Local\+Mailbox\+Address}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{get\+Local\+Mailbox\+Address()}]{\setlength{\rightskip}{0pt plus 5cm}Mailbox\+Address \& Message\+Test\+Remote\+::get\+Local\+Mailbox\+Address (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestRemote_a08c25f34a65d9411130c43eb8cdfcb72}
+Returns a reference to the local Mailbox Address 
+
+References Message\+Test\+Remote\+Message\+::deserialize().
+
+
+
+Referenced by to\+String().
+
+\index{Message\+Test\+Remote@{Message\+Test\+Remote}!get\+Owner\+Handle@{get\+Owner\+Handle}}
+\index{get\+Owner\+Handle@{get\+Owner\+Handle}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{get\+Owner\+Handle()}]{\setlength{\rightskip}{0pt plus 5cm}Mailbox\+Owner\+Handle$\ast$ Message\+Test\+Remote\+::get\+Owner\+Handle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestRemote_ac2ead865033fe0a196468156831f92dd}
+Returns pointer to the owner handle of the main mailbox \index{Message\+Test\+Remote@{Message\+Test\+Remote}!get\+Owner\+Handle@{get\+Owner\+Handle}}
+\index{get\+Owner\+Handle@{get\+Owner\+Handle}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{get\+Owner\+Handle()}]{\setlength{\rightskip}{0pt plus 5cm}Mailbox\+Owner\+Handle$\ast$ Message\+Test\+Remote\+::get\+Owner\+Handle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestRemote_ac2ead865033fe0a196468156831f92dd}
+Returns pointer to the owner handle of the main mailbox \index{Message\+Test\+Remote@{Message\+Test\+Remote}!get\+Owner\+Handle@{get\+Owner\+Handle}}
+\index{get\+Owner\+Handle@{get\+Owner\+Handle}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{get\+Owner\+Handle()}]{\setlength{\rightskip}{0pt plus 5cm}Mailbox\+Owner\+Handle$\ast$ Message\+Test\+Remote\+::get\+Owner\+Handle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestRemote_ac2ead865033fe0a196468156831f92dd}
+Returns pointer to the owner handle of the main mailbox \index{Message\+Test\+Remote@{Message\+Test\+Remote}!get\+Owner\+Handle@{get\+Owner\+Handle}}
+\index{get\+Owner\+Handle@{get\+Owner\+Handle}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{get\+Owner\+Handle()}]{\setlength{\rightskip}{0pt plus 5cm}Mailbox\+Owner\+Handle $\ast$ Message\+Test\+Remote\+::get\+Owner\+Handle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestRemote_a35b07f973fcb62d9806f90588ce2879b}
+Returns pointer to the owner handle of the main mailbox 
+
+Referenced by Message\+Test\+Remote(), and to\+String().
+
+\index{Message\+Test\+Remote@{Message\+Test\+Remote}!process\+Mailbox@{process\+Mailbox}}
+\index{process\+Mailbox@{process\+Mailbox}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{process\+Mailbox()}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Test\+Remote\+::process\+Mailbox (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestRemote_a2eefa08a1351b318ab8188b8e78d1b1a}
+Start the mailbox processing loop \index{Message\+Test\+Remote@{Message\+Test\+Remote}!process\+Mailbox@{process\+Mailbox}}
+\index{process\+Mailbox@{process\+Mailbox}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{process\+Mailbox()}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Test\+Remote\+::process\+Mailbox (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestRemote_a2eefa08a1351b318ab8188b8e78d1b1a}
+Start the mailbox processing loop \index{Message\+Test\+Remote@{Message\+Test\+Remote}!process\+Mailbox@{process\+Mailbox}}
+\index{process\+Mailbox@{process\+Mailbox}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{process\+Mailbox()}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Test\+Remote\+::process\+Mailbox (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestRemote_a2eefa08a1351b318ab8188b8e78d1b1a}
+Start the mailbox processing loop \index{Message\+Test\+Remote@{Message\+Test\+Remote}!process\+Mailbox@{process\+Mailbox}}
+\index{process\+Mailbox@{process\+Mailbox}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{process\+Mailbox()}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Test\+Remote\+::process\+Mailbox (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestRemote_a2eefa08a1351b318ab8188b8e78d1b1a}
+Start the mailbox processing loop 
+
+References Message\+Test1\+Message\+::to\+String(), and Message\+Test\+Remote\+Message\+::to\+String().
+
+
+
+Referenced by Message\+Test\+Remote(), and to\+String().
+
+\index{Message\+Test\+Remote@{Message\+Test\+Remote}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Message\+Test\+Remote\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestRemote_a518cc4ec1f5f5b018357141ccedf35cf}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+\index{Message\+Test\+Remote@{Message\+Test\+Remote}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Message\+Test\+Remote\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestRemote_a518cc4ec1f5f5b018357141ccedf35cf}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+\index{Message\+Test\+Remote@{Message\+Test\+Remote}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Message\+Test\+Remote\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestRemote_a518cc4ec1f5f5b018357141ccedf35cf}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+\index{Message\+Test\+Remote@{Message\+Test\+Remote}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Message\+Test\+Remote@{Message\+Test\+Remote}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Message\+Test\+Remote\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestRemote_a518cc4ec1f5f5b018357141ccedf35cf}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+References get\+Instance(), get\+Local\+Mailbox\+Address(), get\+Owner\+Handle(), Message\+Test\+Remote(), and process\+Mailbox().
+
+
+
+Referenced by Message\+Test\+Remote().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+discoverytest1/\+Message\+Test\+Remote.\+h\item 
+discoverytest1/\+Message\+Test\+Remote.\+cpp\end{DoxyCompactItemize}

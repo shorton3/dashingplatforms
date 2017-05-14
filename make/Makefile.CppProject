@@ -1,0 +1,21 @@
+Packages = \
+	no/geosoft/directory \
+	no/geosoft/user \
+	no/geosoft/util \
+
+LocalCppOptions =
+
+IncludeDirs = \
+	/usr/include \
+	/usr/include/g++-2 \
+	/usr/X11R6/include \
+	
+LibraryDirs = \
+	/usr/lib \
+	/usr/X11R6/lib \
+
+Libraries = \
+	mysql \
+
+
+include $(DEV_ROOT)/make/Makefile

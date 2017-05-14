@@ -1,0 +1,170 @@
+\section{Logger Class Reference}
+\label{classLogger}\index{Logger@{Logger}}
+
+
+{\ttfamily \#include $<$Logger.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf $\sim$\+Logger} ()
+\item 
+int {\bf initialize} (bool send\+Output\+To\+Local)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bf trace\+Log} (Log\+Entry\+Sub\+System\+Type subsystem, Log\+Entry\+Severity\+Type severity, int pid, const char $\ast$source\+File, int source\+Line, const char $\ast$p\+\_\+log\+Message, long arg1, long arg2, long arg3, long arg4, long arg5, long arg6)
+\item 
+static void {\bf strace\+Log} (Log\+Entry\+Sub\+System\+Type subsystem, Log\+Entry\+Severity\+Type severity, int pid, const char $\ast$source\+File, int source\+Line, const char $\ast$p\+\_\+log\+Message)
+\item 
+static Log\+Entry\+Severity\+Type {\bf get\+Subsystem\+Log\+Level} (Log\+Entry\+Sub\+System\+Type subsystem)
+\item 
+static void {\bf set\+Subsystem\+Log\+Level} (Log\+Entry\+Sub\+System\+Type subsystem, Log\+Entry\+Severity\+Type severity\+Level)
+\item 
+static {\bf Logger} $\ast$ {\bf get\+Instance} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Logger}{p.}{classLogger} provides the main logging mechanism and A\+PI to the developers. 
+
+Developers use the Log M\+A\+C\+R\+OS to issue logs. These macros hide the A\+PI mechanism for enqueuing the logs for output. In this way, the logger subsystem can be transparently modified to send output to a.) stdout, b.) the Linux syslog facility, or even c.) the A\+CE logger framework without impact to the application developers. 
+
+The key goal for implementing and maintaining this logger is to allow applications to issue trace logs with the M\+I\+N\+I\+M\+AL amount of buffer copying possible. This is the key motivator behind supporting a custom implementation.
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Logger@{Logger}!````~Logger@{$\sim$\+Logger}}
+\index{````~Logger@{$\sim$\+Logger}!Logger@{Logger}}
+\subsubsection[{$\sim$\+Logger()}]{\setlength{\rightskip}{0pt plus 5cm}Logger\+::$\sim$\+Logger (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classLogger_acb668a9e186a25fbaad2e4af6d1ed00a}
+Destructor 
+
+\subsection{Member Function Documentation}
+\index{Logger@{Logger}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Logger@{Logger}}
+\subsubsection[{get\+Instance()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Logger} $\ast$ Logger\+::get\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classLogger_afec28ae6d7bdf8f6a0734cb20756de10}
+Return a singleton instance 
+
+Referenced by Fault\+Manager\+::process\+Mailbox(), Resource\+Monitor\+::to\+String(), and Process\+Manager\+::to\+String().
+
+\index{Logger@{Logger}!get\+Subsystem\+Log\+Level@{get\+Subsystem\+Log\+Level}}
+\index{get\+Subsystem\+Log\+Level@{get\+Subsystem\+Log\+Level}!Logger@{Logger}}
+\subsubsection[{get\+Subsystem\+Log\+Level(\+Log\+Entry\+Sub\+System\+Type subsystem)}]{\setlength{\rightskip}{0pt plus 5cm}Log\+Entry\+Severity\+Type Logger\+::get\+Subsystem\+Log\+Level (
+\begin{DoxyParamCaption}
+\item[{Log\+Entry\+Sub\+System\+Type}]{subsystem}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classLogger_a2aaaf252e237ed402757b57c41386997}
+Method to retrieve the current logging severity level for a particular subsystem \begin{DoxyReturn}{Returns}
+int severity\+Level 
+\end{DoxyReturn}
+
+
+Referenced by Mailbox\+Lookup\+Service\+::deregister\+Mailbox(), Mailbox\+Lookup\+Service\+::find(), Mailbox\+Lookup\+Service\+::get\+Debug\+For\+All\+Mailbox\+Addresses(), O\+S\+Resource\+::initialize(), Object\+Pool\+::\+Object\+Pool(), Mailbox\+Lookup\+Service\+::register\+Mailbox(), Object\+Pool\+::release(), and Object\+Pool\+::reserve().
+
+\index{Logger@{Logger}!initialize@{initialize}}
+\index{initialize@{initialize}!Logger@{Logger}}
+\subsubsection[{initialize(bool send\+Output\+To\+Local)}]{\setlength{\rightskip}{0pt plus 5cm}int Logger\+::initialize (
+\begin{DoxyParamCaption}
+\item[{bool}]{send\+Output\+To\+Local}
+\end{DoxyParamCaption}
+)}\label{classLogger_a413870d30fad2fcdb8456047ee3e26d7}
+Perform initialization of shared memory queue, etc. 
+\begin{DoxyParams}{Parameters}
+{\em send\+Output\+To\+Local} & If true, output is redirected to local stdout/stderr rather than enqueued for the \doxyref{Log\+Processor}{p.}{classLogProcessor} process. This is for developer debugging. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK on success; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+Referenced by Fault\+Manager\+::process\+Mailbox(), Resource\+Monitor\+::to\+String(), and Process\+Manager\+::to\+String().
+
+\index{Logger@{Logger}!set\+Subsystem\+Log\+Level@{set\+Subsystem\+Log\+Level}}
+\index{set\+Subsystem\+Log\+Level@{set\+Subsystem\+Log\+Level}!Logger@{Logger}}
+\subsubsection[{set\+Subsystem\+Log\+Level(\+Log\+Entry\+Sub\+System\+Type subsystem, Log\+Entry\+Severity\+Type severity\+Level)}]{\setlength{\rightskip}{0pt plus 5cm}void Logger\+::set\+Subsystem\+Log\+Level (
+\begin{DoxyParamCaption}
+\item[{Log\+Entry\+Sub\+System\+Type}]{subsystem, }
+\item[{Log\+Entry\+Severity\+Type}]{severity\+Level}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classLogger_a53fbd683a924ffb16c7876d160602cd8}
+Method to set subsystem log severity levels. This method controls the allowable logs output. 
+
+References trace\+Log().
+
+
+
+Referenced by Fault\+Manager\+::process\+Mailbox(), Resource\+Monitor\+::to\+String(), and Process\+Manager\+::to\+String().
+
+\index{Logger@{Logger}!strace\+Log@{strace\+Log}}
+\index{strace\+Log@{strace\+Log}!Logger@{Logger}}
+\subsubsection[{strace\+Log(\+Log\+Entry\+Sub\+System\+Type subsystem, Log\+Entry\+Severity\+Type severity, int pid, const char $\ast$source\+File, int source\+Line, const char $\ast$p\+\_\+log\+Message)}]{\setlength{\rightskip}{0pt plus 5cm}void Logger\+::strace\+Log (
+\begin{DoxyParamCaption}
+\item[{Log\+Entry\+Sub\+System\+Type}]{subsystem, }
+\item[{Log\+Entry\+Severity\+Type}]{severity, }
+\item[{int}]{pid, }
+\item[{const char $\ast$}]{source\+File, }
+\item[{int}]{source\+Line, }
+\item[{const char $\ast$}]{p\+\_\+log\+Message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classLogger_a784d10e112e4f1f465048a97a89d8a1d}
+Method to handle enqueuing of the log messages 
+
+Enqueue a string log message for output (make a copy before inserting in the queue. Memory Management here\+: p\+\_\+log\+Message gets deleted when the calling method goes out of scope since it was probably a stack variable there. This is why we make a copy of p\+\_\+log\+Message before enqueuing it to our Log Server. The \textquotesingle{}log\+Message\textquotesingle{} struct that we create on the first line here will be deleted (including its log\+Message buffer--deleted by its destructor) when this method goes out of scope.
+
+A performance optimization for this logger should be to create pool of log\+Message structs on the heap and reuse them\+: reserve one here and fill its contents, then pass it into the log queue where it gets deleted on the other side once it is output to where-\/ever. N\+O\+TE\+: this pool should not use \doxyref{O\+PM}{p.}{classOPM} (circular dependency). 
+
+References Logger\+Common\+::format\+Log\+Message(), Log\+Message\+::is\+String\+Log, Log\+Message\+::log\+Message, Log\+Message\+::log\+Message\+PI, Log\+Message\+::pid, Log\+Message\+::sequence\+Id, Log\+Message\+::severity\+Level, Log\+Message\+::source\+File, Log\+Message\+::source\+File\+PI, Log\+Message\+::source\+Line, Log\+Message\+::subsystem, Log\+Message\+::time\+Stamp, and Logger\+Common\+::wrap\+Formatted\+Log\+Text().
+
+\index{Logger@{Logger}!trace\+Log@{trace\+Log}}
+\index{trace\+Log@{trace\+Log}!Logger@{Logger}}
+\subsubsection[{trace\+Log(\+Log\+Entry\+Sub\+System\+Type subsystem, Log\+Entry\+Severity\+Type severity, int pid, const char $\ast$source\+File, int source\+Line, const char $\ast$p\+\_\+log\+Message, long arg1, long arg2, long arg3, long arg4, long arg5, long arg6)}]{\setlength{\rightskip}{0pt plus 5cm}void Logger\+::trace\+Log (
+\begin{DoxyParamCaption}
+\item[{Log\+Entry\+Sub\+System\+Type}]{subsystem, }
+\item[{Log\+Entry\+Severity\+Type}]{severity, }
+\item[{int}]{pid, }
+\item[{const char $\ast$}]{source\+File, }
+\item[{int}]{source\+Line, }
+\item[{const char $\ast$}]{p\+\_\+log\+Message, }
+\item[{long}]{arg1, }
+\item[{long}]{arg2, }
+\item[{long}]{arg3, }
+\item[{long}]{arg4, }
+\item[{long}]{arg5, }
+\item[{long}]{arg6}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classLogger_ab7b3537f39aa51be0da7f9e91c08791d}
+Method to handle enqueuing of the log messages. 
+
+Enqueue a log message for output Memory Management here\+: p\+\_\+log\+Message is assumed to be statically allocated memory when this method is used (printf style formatting arguments are passed in as well). For this reason, we only need to make a copy of the buffer for shared memory allocation. The \textquotesingle{}log\+Message\textquotesingle{} struct that we create on the first line here will be deleted (including its log\+Message buffer--deleted by its destructor) when this method goes out of scope.
+
+A performance optimization for this logger should be to create pool of log\+Message structs on the heap and reuse them\+: reserve one here and fill its contents, then pass it into the log queue where it gets deleted on the other side once it is output to where-\/ever. N\+O\+TE\+: this pool should not use \doxyref{O\+PM}{p.}{classOPM} (circular dependency). 
+
+References Log\+Message\+::arg1, Logger\+Common\+::format\+Log\+Message(), Log\+Message\+::is\+String\+Log, Log\+Message\+::log\+Message, Log\+Message\+::log\+Message\+PI, Log\+Message\+::pid, Log\+Message\+::sequence\+Id, Log\+Message\+::severity\+Level, Log\+Message\+::source\+File, Log\+Message\+::source\+File\+PI, Log\+Message\+::source\+Line, Log\+Message\+::subsystem, Log\+Message\+::time\+Stamp, and Logger\+Common\+::wrap\+Formatted\+Log\+Text().
+
+
+
+Referenced by set\+Subsystem\+Log\+Level().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Logger.\+h\item 
+Logger.\+cpp\end{DoxyCompactItemize}

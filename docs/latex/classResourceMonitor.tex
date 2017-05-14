@@ -1,0 +1,106 @@
+\section{Resource\+Monitor Class Reference}
+\label{classResourceMonitor}\index{Resource\+Monitor@{Resource\+Monitor}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Resource\+Monitor} ()
+\item 
+virtual {\bf $\sim$\+Resource\+Monitor} ()
+\item 
+void {\bf process\+Mailbox} ()
+\item 
+int {\bf initialize} (int argc, A\+C\+E\+\_\+\+T\+C\+H\+AR $\ast$argv[$\,$])
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bf catch\+Shutdown\+Signal} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Resource\+Monitor@{Resource\+Monitor}!Resource\+Monitor@{Resource\+Monitor}}
+\index{Resource\+Monitor@{Resource\+Monitor}!Resource\+Monitor@{Resource\+Monitor}}
+\subsubsection[{Resource\+Monitor()}]{\setlength{\rightskip}{0pt plus 5cm}Resource\+Monitor\+::\+Resource\+Monitor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classResourceMonitor_a60ea6bd3770f9a4925b55a8611ec1b85}
+Constructor 
+
+Referenced by to\+String().
+
+\index{Resource\+Monitor@{Resource\+Monitor}!````~Resource\+Monitor@{$\sim$\+Resource\+Monitor}}
+\index{````~Resource\+Monitor@{$\sim$\+Resource\+Monitor}!Resource\+Monitor@{Resource\+Monitor}}
+\subsubsection[{$\sim$\+Resource\+Monitor()}]{\setlength{\rightskip}{0pt plus 5cm}Resource\+Monitor\+::$\sim$\+Resource\+Monitor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classResourceMonitor_a8668100d2921f67fc991771826ead44a}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Resource\+Monitor@{Resource\+Monitor}!catch\+Shutdown\+Signal@{catch\+Shutdown\+Signal}}
+\index{catch\+Shutdown\+Signal@{catch\+Shutdown\+Signal}!Resource\+Monitor@{Resource\+Monitor}}
+\subsubsection[{catch\+Shutdown\+Signal()}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\+Monitor\+::catch\+Shutdown\+Signal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classResourceMonitor_a25c02a1c3d3c6683451cb8e3339e3aad}
+Catch the shutdown signal and begin the graceful shutdown 
+
+Referenced by initialize().
+
+\index{Resource\+Monitor@{Resource\+Monitor}!initialize@{initialize}}
+\index{initialize@{initialize}!Resource\+Monitor@{Resource\+Monitor}}
+\subsubsection[{initialize(int argc, A\+C\+E\+\_\+\+T\+C\+H\+A\+R $\ast$argv[])}]{\setlength{\rightskip}{0pt plus 5cm}int Resource\+Monitor\+::initialize (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{A\+C\+E\+\_\+\+T\+C\+H\+AR $\ast$}]{argv[$\,$]}
+\end{DoxyParamCaption}
+)}\label{classResourceMonitor_a64f01887447b742b08184891ca06e5c2}
+Perform \doxyref{Resource\+Monitor}{p.}{classResourceMonitor} initialization 
+
+References Data\+Manager\+::activate\+Connection\+Set(), catch\+Shutdown\+Signal(), Thread\+Manager\+::create\+Thread(), System\+Info\+::get\+Local\+N\+E\+I\+D(), Mailbox\+Address\+::inet\+Address, O\+S\+Resource\+::initialize(), Data\+Manager\+::initialize(), Mailbox\+Address\+::location\+Type, Mailbox\+Address\+::mailbox\+Name, Mailbox\+Address\+::neid, and Mailbox\+Owner\+Handle\+::schedule\+Timer().
+
+
+
+Referenced by to\+String().
+
+\index{Resource\+Monitor@{Resource\+Monitor}!process\+Mailbox@{process\+Mailbox}}
+\index{process\+Mailbox@{process\+Mailbox}!Resource\+Monitor@{Resource\+Monitor}}
+\subsubsection[{process\+Mailbox()}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\+Monitor\+::process\+Mailbox (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classResourceMonitor_ae4e55fca0d8af331761854be84c6d215}
+Start the mailbox processing loop 
+
+References Mailbox\+Owner\+Handle\+::activate(), and Mailbox\+Processor\+::process\+Mailbox().
+
+
+
+Referenced by to\+String().
+
+\index{Resource\+Monitor@{Resource\+Monitor}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Resource\+Monitor@{Resource\+Monitor}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Resource\+Monitor\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classResourceMonitor_a101836c5b839e812464aa4b84242a5e6}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+References Message\+Handler\+List\+::add(), O\+S\+Resource\+::check\+C\+P\+U\+Usage(), O\+S\+Resource\+::check\+Disk\+Usage(), O\+S\+Resource\+::check\+Memory\+Usage(), Distributed\+Mailbox\+::create\+Mailbox(), Faults\+::get\+Instance(), Logger\+::get\+Instance(), initialize(), O\+P\+M\+::initialize(), Faults\+::initialize(), Logger\+::initialize(), process\+Mailbox(), Resource\+Monitor(), and Logger\+::set\+Subsystem\+Log\+Level().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Resource\+Monitor.\+h\item 
+Resource\+Monitor.\+cpp\end{DoxyCompactItemize}

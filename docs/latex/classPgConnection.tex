@@ -1,0 +1,511 @@
+\section{Pg\+Connection Class Reference}
+\label{classPgConnection}\index{Pg\+Connection@{Pg\+Connection}}
+Inheritance diagram for Pg\+Connection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classPgConnection}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bf $\sim$\+Pg\+Connection} ()
+\item 
+void {\bf clean} ()
+\item 
+int {\bf check\+Connection\+Health} ()
+\item 
+int {\bf execute\+Command} (string \&command)
+\item 
+int {\bf execute\+Command} (const char $\ast$command)
+\item 
+int {\bf execute\+Command\+With\+Params} (const char $\ast$command, int number\+Params, const char $\ast$const $\ast$param\+Values, const int $\ast$param\+Lengths, const int $\ast$is\+Binary)
+\item 
+int {\bf begin\+Transaction} ()
+\item 
+int {\bf rollback\+Transaction} ()
+\item 
+int {\bf commit\+Transaction} ()
+\item 
+int {\bf initialize\+Prepared\+Command} (const char $\ast$statement\+Name, const char $\ast$sql\+Command, int number\+Params, const Data\+Manager\+Field\+Type $\ast$param\+Type\+Array)
+\item 
+int {\bf execute\+Prepared\+Command} (const char $\ast$statement\+Name, int number\+Params, const char $\ast$const $\ast$param\+Values, const int $\ast$param\+Lengths, const int $\ast$is\+Binary)
+\item 
+int {\bf close\+Command\+Result} ()
+\item 
+int {\bf get\+Column\+Count} ()
+\item 
+string {\bf get\+Column\+Name} (int column\+Index)
+\item 
+int {\bf get\+Column\+Index} (const char $\ast$column\+Name)
+\item 
+int {\bf get\+Row\+Count} ()
+\item 
+const char $\ast$ {\bf get\+String\+Value\+At} (int row\+Index, int column\+Index)
+\item 
+short {\bf get\+Short\+Value\+At} (int row\+Index, int column\+Index)
+\item 
+int {\bf get\+Int\+Value\+At} (int row\+Index, int column\+Index)
+\item 
+bool {\bf get\+Boolean\+Value\+At} (int row\+Index, int column\+Index)
+\item 
+const char $\ast$ {\bf get\+Timestamp\+Value\+At} (int row\+Index, int column\+Index)
+\item 
+bool {\bf is\+Value\+N\+U\+LL} (int row\+Index, int column\+Index)
+\item 
+int {\bf get\+Value\+Length} (int row\+Index, int column\+Index)
+\item 
+void {\bf shutdown} ()
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf O\+P\+M\+Base} $\ast$ {\bf initialize} (int initializer)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Pg\+Connection} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Pg\+Connection@{Pg\+Connection}!````~Pg\+Connection@{$\sim$\+Pg\+Connection}}
+\index{````~Pg\+Connection@{$\sim$\+Pg\+Connection}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{$\sim$\+Pg\+Connection()}]{\setlength{\rightskip}{0pt plus 5cm}Pg\+Connection\+::$\sim$\+Pg\+Connection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_ad18f5f5602375852a537ec3c1a86cfc4}
+Virtual Destructor \index{Pg\+Connection@{Pg\+Connection}!Pg\+Connection@{Pg\+Connection}}
+\index{Pg\+Connection@{Pg\+Connection}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{Pg\+Connection()}]{\setlength{\rightskip}{0pt plus 5cm}Pg\+Connection\+::\+Pg\+Connection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classPgConnection_a5f07b2ef892d6fd5595b808e19b46054}
+Constructor 
+
+Referenced by initialize().
+
+
+
+\subsection{Member Function Documentation}
+\index{Pg\+Connection@{Pg\+Connection}!begin\+Transaction@{begin\+Transaction}}
+\index{begin\+Transaction@{begin\+Transaction}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{begin\+Transaction()}]{\setlength{\rightskip}{0pt plus 5cm}int Pg\+Connection\+::begin\+Transaction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_a49a80f8d30f323195087af648982af49}
+Begin a transaction on this connection. Autocommit is E\+N\+A\+B\+L\+ED for all executed commands U\+N\+L\+E\+SS begin\+Transaction has been called--that is, begin\+Transaction disabled autocommit until either rollback\+Transaction or commit\+Transaction is called. Postgresql optionally supports the passing of the following isolation levels when the transaction is begun. Support for these can be added to this interface in the future\+: I\+S\+O\+L\+A\+T\+I\+ON L\+E\+V\+EL \{ S\+E\+R\+I\+A\+L\+I\+Z\+A\+B\+LE $\vert$ R\+E\+P\+E\+A\+T\+A\+B\+LE R\+E\+AD $\vert$ R\+E\+AD C\+O\+M\+M\+I\+T\+T\+ED $\vert$ R\+E\+AD U\+N\+C\+O\+M\+M\+I\+T\+T\+ED \} R\+E\+AD W\+R\+I\+TE $\vert$ R\+E\+AD O\+N\+LY 
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_a96c41ce2103f3c8773b85edc87f1a636}.
+
+
+
+References execute\+Command().
+
+\index{Pg\+Connection@{Pg\+Connection}!check\+Connection\+Health@{check\+Connection\+Health}}
+\index{check\+Connection\+Health@{check\+Connection\+Health}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{check\+Connection\+Health()}]{\setlength{\rightskip}{0pt plus 5cm}int Pg\+Connection\+::check\+Connection\+Health (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_aab4d85a2424a612ff3e7d864d8a7018d}
+Check the health of the database connection. \begin{DoxyReturn}{Returns}
+OK if the connection is valid; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_a2be956ac44bafb13f437d3896c84caf0}.
+
+
+
+Referenced by clean().
+
+\index{Pg\+Connection@{Pg\+Connection}!clean@{clean}}
+\index{clean@{clean}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{clean()}]{\setlength{\rightskip}{0pt plus 5cm}void Pg\+Connection\+::clean (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_a1ad1676fa4fd96ac7f27ec6b9341f71d}
+Inherited from \doxyref{O\+P\+M\+Base}{p.}{classOPMBase}. Pure Virtual method will be called before releasing the object back into the \doxyref{O\+PM}{p.}{classOPM} pool. 
+
+Implements {\bf O\+P\+M\+Base} \doxyref{}{p.}{classOPMBase_ad9ff8bb1ca9a1edfaaeb702f341713e9}.
+
+
+
+References check\+Connection\+Health(), and close\+Command\+Result().
+
+\index{Pg\+Connection@{Pg\+Connection}!close\+Command\+Result@{close\+Command\+Result}}
+\index{close\+Command\+Result@{close\+Command\+Result}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{close\+Command\+Result()}]{\setlength{\rightskip}{0pt plus 5cm}int Pg\+Connection\+::close\+Command\+Result (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_ac0564db8f6545b6492cf192fd7540861}
+If an outstanding/open result\+Set exists for this connection, then close it. return E\+R\+R\+OR for failure; otherwise OK 
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_a5d84f3221afa420916601cb19e65f936}.
+
+
+
+Referenced by clean(), execute\+Command(), execute\+Command\+With\+Params(), execute\+Prepared\+Command(), initialize\+Prepared\+Command(), and shutdown().
+
+\index{Pg\+Connection@{Pg\+Connection}!commit\+Transaction@{commit\+Transaction}}
+\index{commit\+Transaction@{commit\+Transaction}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{commit\+Transaction()}]{\setlength{\rightskip}{0pt plus 5cm}int Pg\+Connection\+::commit\+Transaction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_a84e5a33c996614e08eaff923e2b0b12c}
+Commit the outstanding transaction on this connection 
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_a52920fd2ac90fa63fc3b12f2ba5df119}.
+
+
+
+References execute\+Command().
+
+\index{Pg\+Connection@{Pg\+Connection}!execute\+Command@{execute\+Command}}
+\index{execute\+Command@{execute\+Command}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{execute\+Command(string \&command)}]{\setlength{\rightskip}{0pt plus 5cm}int Pg\+Connection\+::execute\+Command (
+\begin{DoxyParamCaption}
+\item[{string \&}]{command}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_a7552b483ef7fea3220ea545522195c44}
+Execute an S\+QL command to the database using this connection. This command can be a Q\+U\+E\+RY, U\+P\+D\+A\+TE, I\+N\+S\+E\+RT, or D\+E\+L\+E\+TE operation. For Postgresql, the execution command string can contain multiple S\+QL statements separated by semicolons. However, this should be used with care, especially around external interfaces, since it could be vulnerable against S\+QL injection attacks. \textquotesingle{}execute\+Command\+With\+Parms\textquotesingle{} will only allow a single S\+QL statement and is not vulnerable in this way. \begin{DoxyReturn}{Returns}
+OK if the command was executed successfully; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_a83651597d0bfd2f7a20e5305502e207f}.
+
+
+
+References close\+Command\+Result().
+
+
+
+Referenced by begin\+Transaction(), commit\+Transaction(), and rollback\+Transaction().
+
+\index{Pg\+Connection@{Pg\+Connection}!execute\+Command@{execute\+Command}}
+\index{execute\+Command@{execute\+Command}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{execute\+Command(const char $\ast$command)}]{\setlength{\rightskip}{0pt plus 5cm}int Pg\+Connection\+::execute\+Command (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{command}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_aa91f5ba0537b074769cf3c864d407e63}
+Execute an S\+QL command to the database using this connection. This command can be a Q\+U\+E\+RY, U\+P\+D\+A\+TE, I\+N\+S\+E\+RT, or D\+E\+L\+E\+TE operation. (To work with ostringstream.\+str().c\+\_\+str()). For Postgresql, the execution command string can contain multiple S\+QL statements separated by semicolons. However, this should be used with care, especially around external interfaces, since it could be vulnerable against S\+QL injection attacks. \textquotesingle{}execute\+Command\+With\+Parms\textquotesingle{} will only allow a single S\+QL statement and is not vulnerable in this way. \begin{DoxyReturn}{Returns}
+OK if the command was executed successfully; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_a27631d58f737d2476b39e17ea16804d0}.
+
+
+
+References close\+Command\+Result().
+
+\index{Pg\+Connection@{Pg\+Connection}!execute\+Command\+With\+Params@{execute\+Command\+With\+Params}}
+\index{execute\+Command\+With\+Params@{execute\+Command\+With\+Params}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{execute\+Command\+With\+Params(const char $\ast$command, int number\+Params, const char $\ast$const $\ast$param\+Values, const int $\ast$param\+Lengths, const int $\ast$is\+Binary)}]{\setlength{\rightskip}{0pt plus 5cm}int Pg\+Connection\+::execute\+Command\+With\+Params (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{command, }
+\item[{int}]{number\+Params, }
+\item[{const char $\ast$const $\ast$}]{param\+Values, }
+\item[{const int $\ast$}]{param\+Lengths, }
+\item[{const int $\ast$}]{is\+Binary}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_a48fbb1b1e44e9f93cd900937f7f54ea8}
+Execute an S\+QL command to the database using this connection. This command can be a Q\+U\+E\+RY, U\+P\+D\+A\+TE, I\+N\+S\+E\+RT or D\+E\+L\+E\+TE operation. For Postgresql, only a single execution command can be contained in this static string. The number of Substitution parameters and a pointer array of their values should be passed in for the server to operate on. 
+\begin{DoxyParams}{Parameters}
+{\em number\+Params} & number of passed in parameters in the char$\ast$ array \\
+\hline
+{\em param\+Values} & specifies the actual values of the parameters (char$\ast$ array) \\
+\hline
+{\em param\+Lengths} & specifies the actual data lengths of binary-\/format parameters. It is ignored for null parameters and text-\/format parameters. The array pointer may be null when there are no binary parameters. \\
+\hline
+{\em is\+Binary} & array for each param value to determine if the value is binary or textual (T\+R\+UE for binary / F\+A\+L\+SE for text). The array pointer may be null when there are no binary parameters. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if the command was executed successfully; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_a28e07e7dc5d986fa2135c3e0ecab19b2}.
+
+
+
+References close\+Command\+Result().
+
+\index{Pg\+Connection@{Pg\+Connection}!execute\+Prepared\+Command@{execute\+Prepared\+Command}}
+\index{execute\+Prepared\+Command@{execute\+Prepared\+Command}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{execute\+Prepared\+Command(const char $\ast$statement\+Name, int number\+Params, const char $\ast$const $\ast$param\+Values, const int $\ast$param\+Lengths, const int $\ast$is\+Binary)}]{\setlength{\rightskip}{0pt plus 5cm}int Pg\+Connection\+::execute\+Prepared\+Command (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{statement\+Name, }
+\item[{int}]{number\+Params, }
+\item[{const char $\ast$const $\ast$}]{param\+Values, }
+\item[{const int $\ast$}]{param\+Lengths, }
+\item[{const int $\ast$}]{is\+Binary}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_a99fabc4a40f6bf2aa87cf35ef07e3d2c}
+Execute an S\+QL prepared statement command to the database using this connection. This command can be a Q\+U\+E\+RY, U\+P\+D\+A\+TE, I\+N\+S\+E\+RT, or D\+E\+L\+E\+TE operation. 
+\begin{DoxyParams}{Parameters}
+{\em statement\+Name} & string name assigned to the statement when initialize\+Prepared\+Command is called. \\
+\hline
+{\em number\+Params} & number of passed in parameters in the char$\ast$ array \\
+\hline
+{\em param\+Values} & specifies the actual values of the parameters (char$\ast$ array) \\
+\hline
+{\em param\+Lengths} & specifies the actual data lengths of binary-\/format parameters. It is ignored for null parameters and text-\/format parameters. The array pointer may be null when there are no binary parameters. \\
+\hline
+{\em is\+Binary} & array for each param value to determine if the value is binary or textual (T\+R\+UE for binary / F\+A\+L\+SE for text). The array pointer may be null when there are no binary parameters. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if the command was successfully executed; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_a53ac83159ba5d2548465c4318e6e5d85}.
+
+
+
+References close\+Command\+Result().
+
+\index{Pg\+Connection@{Pg\+Connection}!get\+Boolean\+Value\+At@{get\+Boolean\+Value\+At}}
+\index{get\+Boolean\+Value\+At@{get\+Boolean\+Value\+At}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{get\+Boolean\+Value\+At(int row\+Index, int column\+Index)}]{\setlength{\rightskip}{0pt plus 5cm}bool Pg\+Connection\+::get\+Boolean\+Value\+At (
+\begin{DoxyParamCaption}
+\item[{int}]{row\+Index, }
+\item[{int}]{column\+Index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_a79f7bc4f806ef47b29d2a35f4a15a3a2}
+Return the value at the specified column/row location in the current command\+Result. The value returned will be a boolean type. N\+O\+TE\+: Use of this method requires that the developer be aware of the of the schema and result field type. 
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_a47d76e5c335cf87a51b4ae799142853b}.
+
+\index{Pg\+Connection@{Pg\+Connection}!get\+Column\+Count@{get\+Column\+Count}}
+\index{get\+Column\+Count@{get\+Column\+Count}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{get\+Column\+Count()}]{\setlength{\rightskip}{0pt plus 5cm}int Pg\+Connection\+::get\+Column\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_a3630587032d9168e3cd18e3079013311}
+Return the number of columns in the current command\+Result structure 
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_a009d7e80ce19a8f1d8b2e1de9fee0215}.
+
+\index{Pg\+Connection@{Pg\+Connection}!get\+Column\+Index@{get\+Column\+Index}}
+\index{get\+Column\+Index@{get\+Column\+Index}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{get\+Column\+Index(const char $\ast$column\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}int Pg\+Connection\+::get\+Column\+Index (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{column\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_addaa8aab285b4e62ed1d7028fa4537f0}
+Return the column index based on the specified column name 
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_a14e5da7507568c814674659d95d3bc7d}.
+
+\index{Pg\+Connection@{Pg\+Connection}!get\+Column\+Name@{get\+Column\+Name}}
+\index{get\+Column\+Name@{get\+Column\+Name}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{get\+Column\+Name(int column\+Index)}]{\setlength{\rightskip}{0pt plus 5cm}string Pg\+Connection\+::get\+Column\+Name (
+\begin{DoxyParamCaption}
+\item[{int}]{column\+Index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_a947a3e65e61ec47a9fb1261448733576}
+Return the specified column header name in the current command\+Result 
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_acd94d1646175616a059e49be0bf6dcc8}.
+
+\index{Pg\+Connection@{Pg\+Connection}!get\+Int\+Value\+At@{get\+Int\+Value\+At}}
+\index{get\+Int\+Value\+At@{get\+Int\+Value\+At}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{get\+Int\+Value\+At(int row\+Index, int column\+Index)}]{\setlength{\rightskip}{0pt plus 5cm}int Pg\+Connection\+::get\+Int\+Value\+At (
+\begin{DoxyParamCaption}
+\item[{int}]{row\+Index, }
+\item[{int}]{column\+Index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_a8f86b49b4ef4ced8a482b72b16a39a10}
+Return the value at the specified column/row location in the current command\+Result. The value returned will be a 4-\/byte integer type. N\+O\+TE\+: Use of this method requires that the developer be aware of the of the schema and result field type. 
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_a71ad6f31c85f225087f20ae8f074f309}.
+
+\index{Pg\+Connection@{Pg\+Connection}!get\+Row\+Count@{get\+Row\+Count}}
+\index{get\+Row\+Count@{get\+Row\+Count}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{get\+Row\+Count()}]{\setlength{\rightskip}{0pt plus 5cm}int Pg\+Connection\+::get\+Row\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_a2009e9b9cdb3654da5c05fd1961f4563}
+Return the number of rows in the current command\+Result 
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_a43a2add9e2a787e1576948d374789a1f}.
+
+\index{Pg\+Connection@{Pg\+Connection}!get\+Short\+Value\+At@{get\+Short\+Value\+At}}
+\index{get\+Short\+Value\+At@{get\+Short\+Value\+At}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{get\+Short\+Value\+At(int row\+Index, int column\+Index)}]{\setlength{\rightskip}{0pt plus 5cm}short Pg\+Connection\+::get\+Short\+Value\+At (
+\begin{DoxyParamCaption}
+\item[{int}]{row\+Index, }
+\item[{int}]{column\+Index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_ad2ec4474be2fe45aac4091bcf2c5cd22}
+Return the value at the specified column/row location in the current command\+Result. The value returned will be a 2-\/byte short type. N\+O\+TE\+: Use of this method requires that the developer be aware of the of the schema and result field type. 
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_a8b070bdb24663b7532fb8d87d249bfba}.
+
+\index{Pg\+Connection@{Pg\+Connection}!get\+String\+Value\+At@{get\+String\+Value\+At}}
+\index{get\+String\+Value\+At@{get\+String\+Value\+At}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{get\+String\+Value\+At(int row\+Index, int column\+Index)}]{\setlength{\rightskip}{0pt plus 5cm}const char $\ast$ Pg\+Connection\+::get\+String\+Value\+At (
+\begin{DoxyParamCaption}
+\item[{int}]{row\+Index, }
+\item[{int}]{column\+Index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_abb7d95bb6b406abb81cf442f8cbb4aab}
+Return the value at the specified column/row location in the current command\+Result. The value is returned as a string. N\+O\+TE\+: Use of this method requires that the developer be aware of the of the schema and result field type. 
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_abf8cdacfc76d7d593810aaba97bc1e4a}.
+
+\index{Pg\+Connection@{Pg\+Connection}!get\+Timestamp\+Value\+At@{get\+Timestamp\+Value\+At}}
+\index{get\+Timestamp\+Value\+At@{get\+Timestamp\+Value\+At}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{get\+Timestamp\+Value\+At(int row\+Index, int column\+Index)}]{\setlength{\rightskip}{0pt plus 5cm}const char $\ast$ Pg\+Connection\+::get\+Timestamp\+Value\+At (
+\begin{DoxyParamCaption}
+\item[{int}]{row\+Index, }
+\item[{int}]{column\+Index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_ae434771a41f3c44c5a1d7a1cbbc24514}
+Return the value at the specified column/row location in the current command\+Result. The value returned will be a string; this is because timestamps are internally stored using 8 bytes (64 bits)!! We have to use the Postgres library to convert them back into ascii. N\+O\+TE\+: Use of this method requires that the developer be aware of the of the schema and result field type. 
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_a012b6ab3732da18176d52ee1ee02581c}.
+
+\index{Pg\+Connection@{Pg\+Connection}!get\+Value\+Length@{get\+Value\+Length}}
+\index{get\+Value\+Length@{get\+Value\+Length}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{get\+Value\+Length(int row\+Index, int column\+Index)}]{\setlength{\rightskip}{0pt plus 5cm}int Pg\+Connection\+::get\+Value\+Length (
+\begin{DoxyParamCaption}
+\item[{int}]{row\+Index, }
+\item[{int}]{column\+Index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_aa6132f27beb7c695a524747115be1573}
+Returns the actual length of a field value in bytes 
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_a972e54509577bf23dbc82be7727cf355}.
+
+\index{Pg\+Connection@{Pg\+Connection}!initialize@{initialize}}
+\index{initialize@{initialize}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{initialize(int initializer)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf O\+P\+M\+Base} $\ast$ Pg\+Connection\+::initialize (
+\begin{DoxyParamCaption}
+\item[{int}]{initializer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classPgConnection_a9085d665da43b2d32664cb9aae17d973}
+Inherited from \doxyref{O\+P\+M\+Base}{p.}{classOPMBase}. Method will be called when the pool is created with these objects. This method bootstraps the creation of each object. T\+H\+IS O\+V\+E\+R\+R\+I\+D\+ES the initialize method in O\+P\+M\+B\+A\+SE (can\textquotesingle{}t be both virtual and static) 
+\begin{DoxyParams}{Parameters}
+{\em initializer} & -\/ Initializer integer or pointer to initialization data needed by the object. In this case, we pass in a pointer to a \doxyref{Pg\+Init\+Params}{p.}{structPgInitParams} struct. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the new \doxyref{O\+P\+M\+Base}{p.}{classOPMBase} object. 
+\end{DoxyReturn}
+
+
+References Pg\+Connection().
+
+
+
+Referenced by Connection\+Set\+::perform\+Activation().
+
+\index{Pg\+Connection@{Pg\+Connection}!initialize\+Prepared\+Command@{initialize\+Prepared\+Command}}
+\index{initialize\+Prepared\+Command@{initialize\+Prepared\+Command}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{initialize\+Prepared\+Command(const char $\ast$statement\+Name, const char $\ast$sql\+Command, int number\+Params, const Data\+Manager\+Field\+Type $\ast$param\+Type\+Array)}]{\setlength{\rightskip}{0pt plus 5cm}int Pg\+Connection\+::initialize\+Prepared\+Command (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{statement\+Name, }
+\item[{const char $\ast$}]{sql\+Command, }
+\item[{int}]{number\+Params, }
+\item[{const Data\+Manager\+Field\+Type $\ast$}]{param\+Type\+Array}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_aecfbf962ca0b92c5b4208f9baf5ac098}
+Setup for a prepared statement command on this connection 
+\begin{DoxyParams}{Parameters}
+{\em statement\+Name} & string name arbitrarily assigned to the statement \\
+\hline
+{\em sql\+Command} & Q\+U\+E\+RY, U\+P\+D\+A\+TE, I\+N\+S\+E\+RT, or D\+E\+L\+E\+TE sql operation. \\
+\hline
+{\em number\+Params} & number of passed in parameters in the char$\ast$ array \\
+\hline
+{\em param\+Type\+Array} & array of field types because the database cannot infer the field type formatting without it. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if the preparation was successful; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_ac4f42fcce6c8a088f7e38735a7dbb202}.
+
+
+
+References close\+Command\+Result().
+
+\index{Pg\+Connection@{Pg\+Connection}!is\+Value\+N\+U\+LL@{is\+Value\+N\+U\+LL}}
+\index{is\+Value\+N\+U\+LL@{is\+Value\+N\+U\+LL}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{is\+Value\+N\+U\+L\+L(int row\+Index, int column\+Index)}]{\setlength{\rightskip}{0pt plus 5cm}bool Pg\+Connection\+::is\+Value\+N\+U\+LL (
+\begin{DoxyParamCaption}
+\item[{int}]{row\+Index, }
+\item[{int}]{column\+Index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_a5dc5867034b6a73ecd9cf379e5e21f70}
+Returns true if the field Value is N\+U\+LL 
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_a4f8a595206996b804c7fbb2a8c4c51a7}.
+
+\index{Pg\+Connection@{Pg\+Connection}!rollback\+Transaction@{rollback\+Transaction}}
+\index{rollback\+Transaction@{rollback\+Transaction}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{rollback\+Transaction()}]{\setlength{\rightskip}{0pt plus 5cm}int Pg\+Connection\+::rollback\+Transaction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_a808492b9837316f2a3fe48de894a1e69}
+Rollback a transaction on this connection 
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_a8133c5c71e712d374ff0d8ce8a4447ca}.
+
+
+
+References execute\+Command().
+
+\index{Pg\+Connection@{Pg\+Connection}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{shutdown()}]{\setlength{\rightskip}{0pt plus 5cm}void Pg\+Connection\+::shutdown (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPgConnection_aca1ac3e68950124dd743e7b87428d147}
+Close the socket connection to the database server 
+
+Implements {\bf Db\+Connection} \doxyref{}{p.}{classDbConnection_a4e978e217bda3f0bcbe8ffb505525649}.
+
+
+
+References close\+Command\+Result().
+
+\index{Pg\+Connection@{Pg\+Connection}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Pg\+Connection@{Pg\+Connection}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Pg\+Connection\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classPgConnection_ac0f268d4ab804e1df4b5ac571999b1f6}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Pg\+Connection.\+h\item 
+Pg\+Connection.\+cpp\end{DoxyCompactItemize}

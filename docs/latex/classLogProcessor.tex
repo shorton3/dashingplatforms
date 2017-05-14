@@ -1,0 +1,110 @@
+\section{Log\+Processor Class Reference}
+\label{classLogProcessor}\index{Log\+Processor@{Log\+Processor}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Log\+Processor} ()
+\item 
+virtual {\bf $\sim$\+Log\+Processor} ()
+\item 
+int {\bf initialize} (Output\+Mode\+Type output\+Mode, char $\ast$log\+File, int number\+Kept\+Log\+Files, int size\+Kept\+Log\+Files)
+\item 
+void {\bf process\+Logs} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bf catch\+Shutdown\+Signal} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Log\+Processor@{Log\+Processor}!Log\+Processor@{Log\+Processor}}
+\index{Log\+Processor@{Log\+Processor}!Log\+Processor@{Log\+Processor}}
+\subsubsection[{Log\+Processor()}]{\setlength{\rightskip}{0pt plus 5cm}Log\+Processor\+::\+Log\+Processor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classLogProcessor_abfd8b5d706ea5d6df2f1c9d14703ae35}
+Constructor 
+
+Referenced by process\+Logs().
+
+\index{Log\+Processor@{Log\+Processor}!````~Log\+Processor@{$\sim$\+Log\+Processor}}
+\index{````~Log\+Processor@{$\sim$\+Log\+Processor}!Log\+Processor@{Log\+Processor}}
+\subsubsection[{$\sim$\+Log\+Processor()}]{\setlength{\rightskip}{0pt plus 5cm}Log\+Processor\+::$\sim$\+Log\+Processor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classLogProcessor_a2b6a3e5fd0d0c21755e88f7f930f9835}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Log\+Processor@{Log\+Processor}!catch\+Shutdown\+Signal@{catch\+Shutdown\+Signal}}
+\index{catch\+Shutdown\+Signal@{catch\+Shutdown\+Signal}!Log\+Processor@{Log\+Processor}}
+\subsubsection[{catch\+Shutdown\+Signal()}]{\setlength{\rightskip}{0pt plus 5cm}void Log\+Processor\+::catch\+Shutdown\+Signal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classLogProcessor_adfb279173c810434748f891b58bca39b}
+Catch the shutdown signal and begin the graceful shutdown 
+
+References Logger\+S\+M\+Queue\+::dequeue\+Log(), and Logger\+S\+M\+Queue\+::is\+Empty().
+
+
+
+Referenced by initialize().
+
+\index{Log\+Processor@{Log\+Processor}!initialize@{initialize}}
+\index{initialize@{initialize}!Log\+Processor@{Log\+Processor}}
+\subsubsection[{initialize(\+Output\+Mode\+Type output\+Mode, char $\ast$log\+File, int number\+Kept\+Log\+Files, int size\+Kept\+Log\+Files)}]{\setlength{\rightskip}{0pt plus 5cm}int Log\+Processor\+::initialize (
+\begin{DoxyParamCaption}
+\item[{Output\+Mode\+Type}]{output\+Mode, }
+\item[{char $\ast$}]{log\+File, }
+\item[{int}]{number\+Kept\+Log\+Files, }
+\item[{int}]{size\+Kept\+Log\+Files}
+\end{DoxyParamCaption}
+)}\label{classLogProcessor_a26fd94ce09a1cb763e214866c507c0fc}
+Initialize the Log Processor. 
+\begin{DoxyParams}{Parameters}
+{\em output\+Mode} & to file, stdout/err, or syslog \\
+\hline
+{\em log\+File} & the filename if -\/f file output mode is selected \\
+\hline
+{\em number\+Kept\+Log\+Files} & number of log files to preserve during rollover (for -\/f file mode only) \\
+\hline
+{\em size\+Kept\+Log\+Files} & size of each log file to allow prior to rollover (for -\/f file mode only) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK on success; otherwise E\+R\+R\+OR. 
+\end{DoxyReturn}
+
+
+References catch\+Shutdown\+Signal(), and Logger\+S\+M\+Queue\+::setup\+Queue().
+
+
+
+Referenced by process\+Logs().
+
+\index{Log\+Processor@{Log\+Processor}!process\+Logs@{process\+Logs}}
+\index{process\+Logs@{process\+Logs}!Log\+Processor@{Log\+Processor}}
+\subsubsection[{process\+Logs()}]{\setlength{\rightskip}{0pt plus 5cm}void Log\+Processor\+::process\+Logs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classLogProcessor_a8d949e8d5b26bdc2234692f01ac8a64b}
+Start the log processing loop. This method blocks forever. 
+
+References Logger\+S\+M\+Queue\+::dequeue\+Log(), Logger\+Common\+::format\+Log\+Message(), initialize(), Logger\+S\+M\+Queue\+::is\+Empty(), Log\+Processor(), process\+Logs(), Log\+Message\+::severity\+Level, and Logger\+Common\+::wrap\+Formatted\+Log\+Text().
+
+
+
+Referenced by process\+Logs().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Log\+Processor.\+h\item 
+Log\+Processor.\+cpp\end{DoxyCompactItemize}

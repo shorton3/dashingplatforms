@@ -1,0 +1,227 @@
+
+
+ProcessManager
+-----------------
+(done) ProcessManager -- redirect stdin, stdout,etc.
+- test remove,pause,resume SIGHUP functionality
+(done) init.d script for ProcessManager
+(done) Process shutdown semantics (service stop) - handle sending killproc to the PM
+(done) Add process shutdown semantics to application template
+(done) Failed processes do not get restarted
+(done) ClientAgent kills ProcessManager
+(done) core dumps in ProcessManager (STRACELOG related) and core dump in ResourceMonitor
+(done) ProcessManager core dumps after shutdown
+(done) Investigate ace/Process.h avoidZombies call 
+(done) Signal Handlers broken
+
+
+ResourceMonitor
+-----------------
+(done) Create OS resource monitor in preparation for Alarm and PerfStats work
+(done) Change ResourceMonitor memory usage calculation: from /proc/meminfo: Memory used= MemTotal - MemFree - Buffers - Cached meminfo -- 'free' does it using the above
+
+
+DataManager
+-----------------
+(done) Database investigation, setup and use -- Postgresql
+(done) DBConnection- base class for PgConnection / Add reserve / release methods to DataMgr and others
+(done) Need Thread Mutex for DataMgr to protect the connectionSet Map
+(done) Add execute/query method to DbConnection, PgConnection, and DbConnectionHandler classes
+(done) Go back through examples to check functionality (ie. add setUserData functionality for DbConnection/DbConnectionHandler classes)
+(done) Add thread check in DbHandle to ensure consistent thread use
+(done) DataMgr Destroy All Connection Pools / Destroy a single Connection Pool
+(done) Prepared Statement support in DataMgr
+(done) Add transaction support to the Data Manager - including commit and rollback
+(done, problems) Add execute with parameters support to Data Manager
+(done) Upgrade/migrate from Pervasive Postgres distribution to postgresql.org distribution (Pervasive has libpq interface items missing!!)
+- Distinguish in schema between Nodes and EMS - role of clientAgent?? EMS or node-local??
+(done) Added Data Manager lookup (via config file) of Local NEID - All applications should use this
+(done) Add typed return methods in DbConnection, DbConnectionHandle, Pgconnection (getIntValueAt, getStringValueAt, etc.)
+- Before production, remove code EVERYWHERE to prevent ERROR return when database initialization fails!!!
+- DataManager execCommandWithParams/execPreparedCommand are broken, See the example in DataManagerTest--problem encoding binary params.
+
+Misc
+-----------------
+investigate Classix/Chorus by Nokia
+(done) send State Diagram email
+(done) create application template files
+- insure++ tool
+(done) Wrap reactor run loop calls with 'while'
+(done) Port everything over to ACE 5.4.4 (beta) which is needed to support gcc 3.4
+(done) Version identifer utility
+(done) Add version identification to templates and modules
+- Add version identification for Java components (.Jar compression??) and shared/static libraries
+- Diagnostics TCPIP interface for probing internals
+- State Management and Redundancy
+(done) Need to review use of Reactors everywhere
+(done) Put ERROR checks on all register_handler calls
+(done) Add utility/Conversions for conversion methods
+(done) (good!)Investigate www.collab.net / investigate Subversion and Rapidsvn
+(done) Add utilities/SystemInfo class for static access to NEID, Slot and Shelf numbers (remove NEID From DataManager.conf)
+(done) Move selectReactor to be non-static, add singleton instances
+(done) Add reactor reset (why?)
+(done) Make sure to set reactor->thread owner
+(done) Review all Thread Mutexes - should be made Recursive??
+(done) Replace sleep/busy waiters with ACE_Barrier or Pseudo_Barrier (Manual_Event with reset capability, and Process Semaphore)
+(done) Add printStackTrace and DebugUtils in utility
+Evaluate valgrind.org profiler
+
+
+OPM
+-----------------
+-done- OPM pool vector mutex protection is not solid - need to fix (main class only)
+
+
+ThreadManager
+-----------------
+(done) Add Thread naming, Thread Monitoring, and Thread exiting handling/restart capability
+(done) Add Thread pool capability, change default scheduling policy
+
+
+Logger
+-----------------
+(done) integrate logger with syslog facility
+(done) Test syslog,logfile,stdout capability of logProcessor
+(done) Why init.d started logs don't go to logger selected output
+(done) LogProcessor.cpp - fstream open problem
+(done) Need to implement log file rollover and size monitoring
+(done) Implement log level database retrieval - How to avoid circular library dependency since DataMgr uses logger, and logger needs DataMgr for database retrieval -- Logger should implement its own database connection logic (independent of DataMgr) -- Looking at Shared memory, but the clients need to
+access it (since they do the filtering).
+- Logs do not get fully purged during shutdown
+(done) LogProcessor needs to have its reactor started for signal handling
+(done) Add set/get LogLevels to LoggerSMConfig -- make sure that LoggerSMConfigValues is not exposed to Logger class.
+(done) (recheck periodically) Use Logger::getSubsystemLogLevel(x)==DEVELOPERLOG to control wether detailed debugging logs are issued
+(done) Add -l option to processes for local logger support only / templateApp too
+(done) Moved to centralized share memory construct - SharedMemoryManager with a single allocator
+(done) Investigate multiple Logger clients sending shared memory logs to the Logger (Works!)
+
+
+EMS
+-----------------
+(done) Create EMS GUI/CLI/AGENT prototype with corba support
+- Change EMS CORBA interfaces to all be owned by the session interface and returned through introspection
+- Implement a generic 'register for notifications' mechanism for EMS clients to EMS (EMS will use this list as a notification forwarding table to send async updates)
+- Split ClientAgent up into multiple classes 
+
+
+FaultMgr
+------------------
+(done) Create Fault Manager application for alarms and event reports
+(done) Fault Manager database schema for outstanding alarms, alarm inventory
+(done) Fault Manager msgmgr messages to and from EMS: Send alarms/clears/event reports, Also outstanding alarm re-sync to EMS, Manual Clear (FaultManager.cpp), compile alarm.idl, Add msg handler to EMS
+- support for non-local outstanding table
+- Enhance FaultMgr to support Alarm: Suppression, Filtering, Resynchronization, Throttling (done), Display Filtering/Sorting, Severity Reassignment, and Correlation
+- Fault Manager should receive notification from Process Manager whenever a process dies. Then all alarms for that process should be cleared??
+- EMS mailbox retry -- move to Lookup service -- simply return NULL (and later return the redundant mate)
+(done) FaultMgr - De-bounce clear alarms to prevent toggling (on,off,on,off) of alarms (add LastUpdateTime to scheme or a memory container)
+- FaultMgr - For Manually clearing alarms, EMS needs to delete the alarm from the node's local Alarm list (to prevent throttling of the next occurence)   (Add note to Handbook and Schema script)
+
+
+CLI
+-------------------
+(done) Add CLI / Agent support for runtime changing of log levels
+(done)  -> Agent should initialize and connect to the database, read the loglevel data, and set it in shared memory
+(done)  -> If database connection failure occurs, Agent should assume hardcoded defaults and continue
+(done)  -> Agent should respond to CLI/GUI commands to change log levels, update it in DB, and in shared memory
+           (Implies updates to IDL to support log level change / display -- added platformConfig.idl)
+(done) CLI support for displaying outstanding alarms
+- CLI Command (plus messages to all nodes) to turn on MsgMgr debugging (using MailboxLookupService::setallMailboxDebugLevel())
+
+
+MsgMgr
+-------------------
+(done) functors
+(done) local and distributed mailboxes
+(done) timers
+(done) multicast (group) mailboxes
+- MessageBuffer destructor -- delete entire buffer ??
+(done) Activate/Deactivate Mailboxes need return value for success/failure
+(done) MailboxLookupService -- << & >> operators for MailboxAddress for MessageBuffer
+(done) MessageTestRemote - test for dist mailboxes
+- test multiple mailboxes in the same process
+(done) Add version identifier to MessageBase
+(done) PI_Malloc.h for shared memory allocation - ACE Prog. Book - blue tab, LocalSHMailbox
+(done) Debug LocalSMMailbox issues
+(done) investigate RMCast
+- investigate QoS
+(done) http://user-mode-linux.sourceforge.net/networking.html
+(done) /sbin/route add -net 224.0.0.0 netmask 240.0.0.0 dev eth0
+(No) Lookup service data structure/map should be stored in PI shared memory for all processes to access. Hiden notification to Lookup service 'process' when mailbox registers--shared memory local mailbox.
+(done) Add messages directory / library for storing messages that are shared across applications/processes
+- Implement a consistent diagnostics framework - including turning on all the MsgMgr Mailboxes debug levels
+(done) - Extend ThreadManager to include capability for Thread Pooling / Modify MailboxProcessor to allow a pool of threads to execute handlers
+     - MessageHandlerList needs Mutex protection (done)
+     - MailboxOwnerHandle needs Mutex protection for Timer scheduling methods (not needed)
+     - MailboxOwnerHandle needs -separate- Mutex protection for getMessage (this only?? yes, done)
+     - Check all mailboxes for MT issues (done)
+     - write unittest for threadpool dequeuing from Mailbox (done)
+(No) MailboxLookupService 'find' for distributed mailboxes should issue a WARNING not to cache the handle
+(done)Various mailboxes - scope of getMailboxAddress needs to be public(??)
+(No)MsgMgr -- MailboxBAse -- add EventHandler methods to catch socket close and have Mailbox deregister from the LookupService. Not quite-retry
+(done) - Mailbox deactivate performs LookupService DeRegister(which deletes the mailbox!!! wrong!)
+(done) - Mailbox Proxy 'post' fails, does not attempt to deregister/renew/etc.  correct... left upto applications
+(done) - Mailbox Base deregisters from LookupService and deletes Mailbox when last reference counter is released(conflicts wth LookupService deregister above).
+(done) - Mailbox Base destructor calls release (which then calls the destructor again) - BUG
+(done) - DistributedMailboxProxy - If post fails, we need to deActivate/release, but release calls deregister (which calls release() on Proxies), so just deActivate()?? NO>> Prompt user to delete handle only.
+(done) - Change MailboxLookupService so that register/deregister must take an Owner handle - security mechanism
+(done, private) - Remove MailboxLookupService::findOwnerHandle
+- Add other find type methods: findByName, findActive, findStandby (for a redundant pair)
+- Setup message mgr Lookup service communication (DiscoveryManager) between nodes -- use the group mailbox / multicast functionality.
+- DiscoveryManager should exist for every MsgMgr process - problem with getting NEID (cannot have dependency on the DataManager)
+     - DiscoveryMessage in MsgMgr package should have multiple command types: add, delete, announce->send, etc.
+     - DiscoveryManager should resend its 'inventory' of remote registrations every X minutes (acts as a Heartbeat)
+(done) DiscoveryManager should be spawned from the LookupService static methods using Lazy Instantiation
+(done) - Decouple OwnerHandle and Handle so that Handle cannot be cast back into an OwnerHandle (security)
+(done) If Mailbox 'activate()' fails, then automatically Deregister **!!
+(done) MailboxLookupService has 3 data structures for registery:
+     - Data structure for LocalMailbox Addresses / Mailboxes
+     - Data structure for Remote Proxy Addresses / Mailboxes (Distributed, Group, LocalSM Proxies)
+     - Data structure for Remote type Non-Proxy Addresses only (local added/removed as well as Discovery managed)
+(done) - Remote type message also have to register such that their Local Mailbox can be had by MLS::find() when only LocalMailbox is needed.
+(No) - CAN we combine Local and Distributed Non-Proxy cases
+(done) - CAN we move DiscoveryMessage post into a method
+(done) - Create DiscoveryLocalMessage with types:  REGISTER, DEREGISTER, SHOW
+(done) - Replace mutexes in MailboxBase with ACE_Atomic_Op - need template declaration
+Add discovery manager init to unittest startups
+(done, Not tested) - When deleting Mailbox, need to gracefully shutdown running threads (LocalMailbox timer thread, etc.)
+(done) - Bug with TimerMessage inheriting from MessageBase and OPMBase both. Also needs to be one-shot and recurring
+     - isPoolable is broken (use LocalSMMailbox to demonstrate) - SHOULD ONLY INDICATE INHERITANCE FROM OPMBASE
+     - isRecurring (maybe possible solution)
+(done) - Create ReusableMessageBase class: now, 4 types of messages:
+     - Reusable, OPM Pooled / Non-reusable, OPM Pooled / Non-reusable, Not OPM Pooled / Reusable, Not OPM Pooled
+Create unittest to test Discovery with Distributed Mailboxes
+Add SO_KEEPALIVE socket option (and other options) capability for server
+sockets
+
+
+Documentation
+-------------------
+(done) test for documentation errors
+(done) Programmers Guide - Coding Standard, Getting Started (Templates,Loadbuild), Documentation references
+(done) Update developer's handbook with new features
+- Notes on MsgMGr priority handling/enqueuing, Notes on source/destination Context Ids
+- Notes on Mailbox Addresses - Local type just needs Name and LocationType since the message pointer is passed
+- Note on MsgMgr that must create a copy of the message on the HEAP since the MsgMgr framework takes ownership of all Message Memory (it will be deleted when 'post' is completed).
+- Document CreateMailbox flow
+- Document Find mailbox flow
+- Document Flow of Mailboxes/OwnerHandles versus ProxyMailboxes/Handles
+- Timers, 4 types of messages, Discovery
+
+
+ReGroup Effort
+-------------------
+Migrate to Postgresql 8.2.6
+Migrate to JacOrb 2.3.0
+Migrate to ACE/TAO 5.6.1
+Migrate to Java 6 Update 4
+
+
+ReGroup Effort #2
+-------------------
+Add support for SSL socket connections using ACE SSL extensions
+Add support for streaming various protocols
+Evaluate whether or not we are using the correct ACE Reactor - ACE Dev Poll
+reactor is the most efficient for large scale systems in Linux
+Need to drop CORBA EMS stuff - move to RAI architecture
+Need work on pluggable hardware monitoring framework - possibly as extension
+to ResourceMgr

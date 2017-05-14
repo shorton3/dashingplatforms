@@ -1,0 +1,121 @@
+\section{alarms\+:\+:alarm\+Interface Class Reference}
+\label{interfacealarms_1_1alarmInterface}\index{alarms\+::alarm\+Interface@{alarms\+::alarm\+Interface}}
+
+
+{\ttfamily import\char`\"{}alarms.\+idl\char`\"{};}
+
+Inheritance diagram for alarms\+:\+:alarm\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interfacealarms_1_1alarmInterface}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef {\bf alarm\+Interface\+\_\+ptr} {\bfseries \+\_\+ptr\+\_\+type}\label{interfacealarms_1_1alarmInterface_a282eec0bd0264ac2d1b4c2211abc231a}
+
+\item 
+typedef alarm\+Interface\+\_\+var {\bfseries \+\_\+var\+\_\+type}\label{interfacealarms_1_1alarmInterface_a7310eea9ea9e14c64c4796238e527880}
+
+\item 
+typedef alarm\+Interface\+\_\+out {\bfseries \+\_\+out\+\_\+type}\label{interfacealarms_1_1alarmInterface_a8d6587d0150492085cc8abff7fc4832c}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf get\+Outstanding\+Alarms} (out {\bf Alarm\+Notification\+Sequence} outstanding\+Alarms)
+\item 
+void {\bf get\+Alarm\+Inventory} (out {\bf Alarm\+Information\+Sequence} alarm\+Inventory)
+\item 
+virtual void {\bfseries get\+Outstanding\+Alarms} (\+::alarms\+::\+Alarm\+Notification\+Sequence\+\_\+out outstanding\+Alarms)\label{interfacealarms_1_1alarmInterface_ae4991357b713600b2249877d1b76f5f0}
+
+\item 
+virtual void {\bfseries get\+Alarm\+Inventory} (\+::alarms\+::\+Alarm\+Information\+Sequence\+\_\+out alarm\+Inventory)\label{interfacealarms_1_1alarmInterface_a9deaa02c57209a7d1776c2a5a4e76a16}
+
+\item 
+virtual \+::C\+O\+R\+B\+A\+::\+Boolean {\bfseries \+\_\+is\+\_\+a} (const char $\ast$type\+\_\+id)\label{interfacealarms_1_1alarmInterface_a33f2a4066795b3addb0039f3d0871c9a}
+
+\item 
+virtual const char $\ast$ {\bfseries \+\_\+interface\+\_\+repository\+\_\+id} (void) const \label{interfacealarms_1_1alarmInterface_ada3718fab0fd4e1d7fb307d97d64400c}
+
+\item 
+virtual \+::C\+O\+R\+B\+A\+::\+Boolean {\bfseries marshal} (T\+A\+O\+\_\+\+Output\+C\+DR \&cdr)\label{interfacealarms_1_1alarmInterface_ac8ff835008611dd8f422cee80de84729}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf alarm\+Interface\+\_\+ptr} {\bfseries \+\_\+duplicate} ({\bf alarm\+Interface\+\_\+ptr} obj)\label{interfacealarms_1_1alarmInterface_abb4ba138d926285a7c26d80f29927a57}
+
+\item 
+static void {\bfseries \+\_\+tao\+\_\+release} ({\bf alarm\+Interface\+\_\+ptr} obj)\label{interfacealarms_1_1alarmInterface_a092717ed825c4e4ca3a39ca51a3a2fc1}
+
+\item 
+static {\bf alarm\+Interface\+\_\+ptr} {\bfseries \+\_\+narrow} (\+::C\+O\+R\+B\+A\+::\+Object\+\_\+ptr obj)\label{interfacealarms_1_1alarmInterface_a33866fec27453edc312186145fd7673c}
+
+\item 
+static {\bf alarm\+Interface\+\_\+ptr} {\bfseries \+\_\+unchecked\+\_\+narrow} (\+::C\+O\+R\+B\+A\+::\+Object\+\_\+ptr obj)\label{interfacealarms_1_1alarmInterface_a4291332dfb2a2a64f5ce8e7e028568a3}
+
+\item 
+static {\bf alarm\+Interface\+\_\+ptr} {\bfseries \+\_\+nil} (void)\label{interfacealarms_1_1alarmInterface_a16ba33b0ae104eb1326bd1cc7623d5bc}
+
+\item 
+static void {\bfseries \+\_\+tao\+\_\+any\+\_\+destructor} (void $\ast$)\label{interfacealarms_1_1alarmInterface_a3f118c973be4253bb5b03dc8563f67a6}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void {\bfseries alarms\+\_\+alarm\+Interface\+\_\+setup\+\_\+collocation} (void)\label{interfacealarms_1_1alarmInterface_a24d39a26c1fe4630d1b953598c499278}
+
+\item 
+{\bfseries alarm\+Interface} (I\+O\+P\+::\+I\+OR $\ast$ior, T\+A\+O\+\_\+\+O\+R\+B\+\_\+\+Core $\ast$orb\+\_\+core=0)\label{interfacealarms_1_1alarmInterface_ab375139b64552b32c2fb41b9ff6e50b0}
+
+\item 
+{\bfseries alarm\+Interface} (T\+A\+O\+\_\+\+Stub $\ast$objref,\+::C\+O\+R\+B\+A\+::\+Boolean \+\_\+tao\+\_\+collocated=false, T\+A\+O\+\_\+\+Abstract\+\_\+\+Servant\+Base $\ast$servant=0, T\+A\+O\+\_\+\+O\+R\+B\+\_\+\+Core $\ast$orb\+\_\+core=0)\label{interfacealarms_1_1alarmInterface_aa5c5fa3a9b0fe6118ac8848b824a068b}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries T\+A\+O\+::\+Narrow\+\_\+\+Utils$<$ alarm\+Interface $>$}\label{interfacealarms_1_1alarmInterface_a18b4c9f5cb387c968e0ce4048f8b9734}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Command/\+Method interface 
+
+\subsection{Member Function Documentation}
+\index{alarms\+::alarm\+Interface@{alarms\+::alarm\+Interface}!get\+Alarm\+Inventory@{get\+Alarm\+Inventory}}
+\index{get\+Alarm\+Inventory@{get\+Alarm\+Inventory}!alarms\+::alarm\+Interface@{alarms\+::alarm\+Interface}}
+\subsubsection[{get\+Alarm\+Inventory(out Alarm\+Information\+Sequence alarm\+Inventory)}]{\setlength{\rightskip}{0pt plus 5cm}void alarms\+::alarm\+Interface\+::get\+Alarm\+Inventory (
+\begin{DoxyParamCaption}
+\item[{out {\bf Alarm\+Information\+Sequence}}]{alarm\+Inventory}
+\end{DoxyParamCaption}
+)}\label{interfacealarms_1_1alarmInterface_a40be92c73e097a4cf36401bb0eabe7b7}
+Retrieve the list of all possible Alarms in the system. This list includes all Alarm descriptors and attributes and should be used by the client entity for displaying outstanding alarms. 
+
+Referenced by Cli\+Menu\+Alarms\+::get\+Alarm\+Inventory().
+
+\index{alarms\+::alarm\+Interface@{alarms\+::alarm\+Interface}!get\+Outstanding\+Alarms@{get\+Outstanding\+Alarms}}
+\index{get\+Outstanding\+Alarms@{get\+Outstanding\+Alarms}!alarms\+::alarm\+Interface@{alarms\+::alarm\+Interface}}
+\subsubsection[{get\+Outstanding\+Alarms(out Alarm\+Notification\+Sequence outstanding\+Alarms)}]{\setlength{\rightskip}{0pt plus 5cm}void alarms\+::alarm\+Interface\+::get\+Outstanding\+Alarms (
+\begin{DoxyParamCaption}
+\item[{out {\bf Alarm\+Notification\+Sequence}}]{outstanding\+Alarms}
+\end{DoxyParamCaption}
+)}\label{interfacealarms_1_1alarmInterface_aed0e2725d3d5f829892ae4e173b6c777}
+Retrieve the list of outstanding Alarms from the E\+MS. This is used when the client first establishes connection and when the client wishes to resynchronize its outstanding alarms list. 
+
+Referenced by Cli\+Menu\+Alarms\+::get\+Outstanding\+Alarms().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+alarms.\+idl\item 
+alarms\+C.\+h\item 
+alarms\+C.\+cpp\item 
+alarms\+C.\+inl\end{DoxyCompactItemize}

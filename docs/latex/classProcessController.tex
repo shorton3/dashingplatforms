@@ -1,0 +1,142 @@
+\section{Process\+Controller Class Reference}
+\label{classProcessController}\index{Process\+Controller@{Process\+Controller}}
+
+
+{\ttfamily \#include $<$Process\+Controller.\+h$>$}
+
+Inheritance diagram for Process\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classProcessController}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Process\+Controller} ()
+\item 
+virtual {\bf $\sim$\+Process\+Controller} ()
+\item 
+int {\bf init} (int argc, A\+C\+E\+\_\+\+T\+C\+H\+AR $\ast$argv[$\,$])
+\item 
+int {\bf fini} ()
+\item 
+int {\bf info} (A\+C\+E\+\_\+\+T\+C\+H\+AR $\ast$$\ast$, size\+\_\+t) const 
+\item 
+int {\bf suspend} ()
+\item 
+int {\bf resume} ()
+\item 
+int {\bf restart\+Process} ()
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The purpose of this class is to create an A\+C\+E\+\_\+\+Service\+\_\+\+Object subclass to allow dynamic loading/unloading of our application processes. This class acts as a bridge pattern between the Service Configurator(\+Service Object) and the A\+CE Process\+\_\+\+Manager 
+
+Each instance of this class corresponds to a configured Service/\+Process in the system. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Process\+Controller@{Process\+Controller}!Process\+Controller@{Process\+Controller}}
+\index{Process\+Controller@{Process\+Controller}!Process\+Controller@{Process\+Controller}}
+\subsubsection[{Process\+Controller()}]{\setlength{\rightskip}{0pt plus 5cm}Process\+Controller\+::\+Process\+Controller (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classProcessController_a55ff5c5dee715acbea4f65278005be09}
+Constructor \index{Process\+Controller@{Process\+Controller}!````~Process\+Controller@{$\sim$\+Process\+Controller}}
+\index{````~Process\+Controller@{$\sim$\+Process\+Controller}!Process\+Controller@{Process\+Controller}}
+\subsubsection[{$\sim$\+Process\+Controller()}]{\setlength{\rightskip}{0pt plus 5cm}Process\+Controller\+::$\sim$\+Process\+Controller (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classProcessController_a95aa46c513a6540a32b6e4bd39c15eb5}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Process\+Controller@{Process\+Controller}!fini@{fini}}
+\index{fini@{fini}!Process\+Controller@{Process\+Controller}}
+\subsubsection[{fini()}]{\setlength{\rightskip}{0pt plus 5cm}int Process\+Controller\+::fini (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classProcessController_ac2196023aea3d0eac29b86df16e34c40}
+Inherited from A\+C\+E\+\_\+\+Service\+\_\+\+Object. Perform service shutdown; here we destroy the process associated with this instance 
+
+References Process\+Death\+Handler\+::set\+Terminated\+Flag().
+
+\index{Process\+Controller@{Process\+Controller}!info@{info}}
+\index{info@{info}!Process\+Controller@{Process\+Controller}}
+\subsubsection[{info(\+A\+C\+E\+\_\+\+T\+C\+H\+A\+R $\ast$$\ast$, size\+\_\+t) const }]{\setlength{\rightskip}{0pt plus 5cm}int Process\+Controller\+::info (
+\begin{DoxyParamCaption}
+\item[{A\+C\+E\+\_\+\+T\+C\+H\+AR $\ast$$\ast$}]{info\+String, }
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+) const}\label{classProcessController_aae9f2215510afa102b48cde5ed32d2c9}
+Inherited from A\+C\+E\+\_\+\+Service\+\_\+\+Object. Return service descriptive information and state data \index{Process\+Controller@{Process\+Controller}!init@{init}}
+\index{init@{init}!Process\+Controller@{Process\+Controller}}
+\subsubsection[{init(int argc, A\+C\+E\+\_\+\+T\+C\+H\+A\+R $\ast$argv[])}]{\setlength{\rightskip}{0pt plus 5cm}int Process\+Controller\+::init (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{A\+C\+E\+\_\+\+T\+C\+H\+AR $\ast$}]{argv[$\,$]}
+\end{DoxyParamCaption}
+)}\label{classProcessController_a77ed3d73995c265dcb199a04ea3140c6}
+Inherited from A\+C\+E\+\_\+\+Service\+\_\+\+Object. Perform service startup; here we will start the process which is passed to this instance in these parameter arguments (which originate from svc.\+conf) 
+
+References restart\+Process(), Process\+Death\+Handler\+::set\+Process\+Identity(), and Process\+Death\+Handler\+::set\+Terminated\+Flag().
+
+\index{Process\+Controller@{Process\+Controller}!restart\+Process@{restart\+Process}}
+\index{restart\+Process@{restart\+Process}!Process\+Controller@{Process\+Controller}}
+\subsubsection[{restart\+Process()}]{\setlength{\rightskip}{0pt plus 5cm}int Process\+Controller\+::restart\+Process (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classProcessController_a9d8255e778bae23267a655a6090b3024}
+Attempt a process restart. This method is called from the Process Death Handler. 
+
+References Process\+Death\+Handler\+::set\+Process\+Identity().
+
+
+
+Referenced by init().
+
+\index{Process\+Controller@{Process\+Controller}!resume@{resume}}
+\index{resume@{resume}!Process\+Controller@{Process\+Controller}}
+\subsubsection[{resume()}]{\setlength{\rightskip}{0pt plus 5cm}int Process\+Controller\+::resume (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classProcessController_a26fa0fb9bb7b5bfe469a6b0d4b84f22d}
+Inherited from A\+C\+E\+\_\+\+Service\+\_\+\+Object. Resume activity for this Service/\+Process \index{Process\+Controller@{Process\+Controller}!suspend@{suspend}}
+\index{suspend@{suspend}!Process\+Controller@{Process\+Controller}}
+\subsubsection[{suspend()}]{\setlength{\rightskip}{0pt plus 5cm}int Process\+Controller\+::suspend (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classProcessController_a86471516ae02b5b54bcb4697e299e255}
+Inherited from A\+C\+E\+\_\+\+Service\+\_\+\+Object. Suspend activity for this Service/\+Process \index{Process\+Controller@{Process\+Controller}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Process\+Controller@{Process\+Controller}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Process\+Controller\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classProcessController_a6c95e63861a6c14887d551d9b82e7c7a}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Process\+Controller.\+h\item 
+Process\+Controller.\+cpp\end{DoxyCompactItemize}

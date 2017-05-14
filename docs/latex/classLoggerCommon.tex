@@ -1,0 +1,85 @@
+\section{Logger\+Common Class Reference}
+\label{classLoggerCommon}\index{Logger\+Common@{Logger\+Common}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bf $\sim$\+Logger\+Common} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bf convert\+Time\+To\+String} (long time, char $\ast$buf)
+\item 
+static void {\bf convert\+Time\+To\+Date\+String} (long time, char $\ast$buf)
+\item 
+static void {\bf format\+Log\+Message} ({\bf Log\+Message} $\ast$log\+Message, char $\ast$buffer)
+\item 
+static char $\ast$ {\bf wrap\+Formatted\+Log\+Text} (char $\ast$buffer, char $\ast$wrap\+Buffer)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Logger\+Common@{Logger\+Common}!````~Logger\+Common@{$\sim$\+Logger\+Common}}
+\index{````~Logger\+Common@{$\sim$\+Logger\+Common}!Logger\+Common@{Logger\+Common}}
+\subsubsection[{$\sim$\+Logger\+Common()}]{\setlength{\rightskip}{0pt plus 5cm}Logger\+Common\+::$\sim$\+Logger\+Common (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classLoggerCommon_a386dd5802136f68f91bd16eb866710d2}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Logger\+Common@{Logger\+Common}!convert\+Time\+To\+Date\+String@{convert\+Time\+To\+Date\+String}}
+\index{convert\+Time\+To\+Date\+String@{convert\+Time\+To\+Date\+String}!Logger\+Common@{Logger\+Common}}
+\subsubsection[{convert\+Time\+To\+Date\+String(long time, char $\ast$buf)}]{\setlength{\rightskip}{0pt plus 5cm}void Logger\+Common\+::convert\+Time\+To\+Date\+String (
+\begin{DoxyParamCaption}
+\item[{long}]{time, }
+\item[{char $\ast$}]{buf}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classLoggerCommon_abc9117baa9261cace1401971a67748b9}
+Convert raw time stamp to readable date string \index{Logger\+Common@{Logger\+Common}!convert\+Time\+To\+String@{convert\+Time\+To\+String}}
+\index{convert\+Time\+To\+String@{convert\+Time\+To\+String}!Logger\+Common@{Logger\+Common}}
+\subsubsection[{convert\+Time\+To\+String(long time, char $\ast$buf)}]{\setlength{\rightskip}{0pt plus 5cm}void Logger\+Common\+::convert\+Time\+To\+String (
+\begin{DoxyParamCaption}
+\item[{long}]{time, }
+\item[{char $\ast$}]{buf}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classLoggerCommon_a4cec36dc7500edf22f95c62d5682505a}
+Convert raw time stamp to readable time string 
+
+Referenced by format\+Log\+Message().
+
+\index{Logger\+Common@{Logger\+Common}!format\+Log\+Message@{format\+Log\+Message}}
+\index{format\+Log\+Message@{format\+Log\+Message}!Logger\+Common@{Logger\+Common}}
+\subsubsection[{format\+Log\+Message(\+Log\+Message $\ast$log\+Message, char $\ast$buffer)}]{\setlength{\rightskip}{0pt plus 5cm}void Logger\+Common\+::format\+Log\+Message (
+\begin{DoxyParamCaption}
+\item[{{\bf Log\+Message} $\ast$}]{log\+Message, }
+\item[{char $\ast$}]{buffer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classLoggerCommon_af55953414e2187b4fab159fd96c01554}
+Format the log\+Message into its viewable format for outputting to a file or to the screen 
+
+References Log\+Message\+::arg1, convert\+Time\+To\+String(), Log\+Message\+::is\+String\+Log, Log\+Message\+::log\+Message\+PI, Log\+Message\+::pid, Log\+Message\+::sequence\+Id, Log\+Message\+::severity\+Level, Log\+Message\+::source\+File\+PI, Log\+Message\+::source\+Line, Log\+Message\+::subsystem, and Log\+Message\+::time\+Stamp.
+
+
+
+Referenced by Log\+Processor\+::process\+Logs(), Logger\+::strace\+Log(), and Logger\+::trace\+Log().
+
+\index{Logger\+Common@{Logger\+Common}!wrap\+Formatted\+Log\+Text@{wrap\+Formatted\+Log\+Text}}
+\index{wrap\+Formatted\+Log\+Text@{wrap\+Formatted\+Log\+Text}!Logger\+Common@{Logger\+Common}}
+\subsubsection[{wrap\+Formatted\+Log\+Text(char $\ast$buffer, char $\ast$wrap\+Buffer)}]{\setlength{\rightskip}{0pt plus 5cm}char $\ast$ Logger\+Common\+::wrap\+Formatted\+Log\+Text (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buffer, }
+\item[{char $\ast$}]{wrap\+Buffer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classLoggerCommon_ae936c542515e208f9970b58398713226}
+Provide for text wrapping functionality if necessary 
+
+Referenced by Log\+Processor\+::process\+Logs(), Logger\+::strace\+Log(), and Logger\+::trace\+Log().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Logger\+Common.\+h\item 
+Logger\+Common.\+cpp\end{DoxyCompactItemize}

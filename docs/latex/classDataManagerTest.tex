@@ -1,0 +1,171 @@
+\section{Data\+Manager\+Test Class Reference}
+\label{classDataManagerTest}\index{Data\+Manager\+Test@{Data\+Manager\+Test}}
+
+
+{\ttfamily \#include $<$Data\+Manager\+Test.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Data\+Manager\+Test} ()
+\item 
+{\bf $\sim$\+Data\+Manager\+Test} ()
+\item 
+int {\bf initialize} ()
+\item 
+void {\bf cleanup} ()
+\item 
+int {\bf run\+Test1} ()
+\item 
+int {\bf run\+Test2} ()
+\item 
+int {\bf run\+Test3} ()
+\item 
+int {\bf run\+Test4} ()
+\item 
+int {\bf run\+Test5} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Test class exercises the Data Manager 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Data\+Manager\+Test@{Data\+Manager\+Test}!Data\+Manager\+Test@{Data\+Manager\+Test}}
+\index{Data\+Manager\+Test@{Data\+Manager\+Test}!Data\+Manager\+Test@{Data\+Manager\+Test}}
+\subsubsection[{Data\+Manager\+Test()}]{\setlength{\rightskip}{0pt plus 5cm}Data\+Manager\+Test\+::\+Data\+Manager\+Test (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDataManagerTest_aacd623be73e56a5aba6d9f71c07fec28}
+Default Constructor 
+
+Referenced by run\+Test5().
+
+\index{Data\+Manager\+Test@{Data\+Manager\+Test}!````~Data\+Manager\+Test@{$\sim$\+Data\+Manager\+Test}}
+\index{````~Data\+Manager\+Test@{$\sim$\+Data\+Manager\+Test}!Data\+Manager\+Test@{Data\+Manager\+Test}}
+\subsubsection[{$\sim$\+Data\+Manager\+Test()}]{\setlength{\rightskip}{0pt plus 5cm}Data\+Manager\+Test\+::$\sim$\+Data\+Manager\+Test (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDataManagerTest_aec971ca0cd969d440d3a9ecdf8473749}
+Default Destructor 
+
+\subsection{Member Function Documentation}
+\index{Data\+Manager\+Test@{Data\+Manager\+Test}!cleanup@{cleanup}}
+\index{cleanup@{cleanup}!Data\+Manager\+Test@{Data\+Manager\+Test}}
+\subsubsection[{cleanup()}]{\setlength{\rightskip}{0pt plus 5cm}void Data\+Manager\+Test\+::cleanup (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDataManagerTest_a05a52e927c3464f111395ba60b4ef6cc}
+Clean up the connection / release 
+
+Referenced by run\+Test5().
+
+\index{Data\+Manager\+Test@{Data\+Manager\+Test}!initialize@{initialize}}
+\index{initialize@{initialize}!Data\+Manager\+Test@{Data\+Manager\+Test}}
+\subsubsection[{initialize()}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Manager\+Test\+::initialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDataManagerTest_a3a1e9b0c50c302015b9fecdaa4a0e475}
+Initialize method. Initialize the Data\+Manager and setup connections to the database. \begin{DoxyReturn}{Returns}
+E\+R\+R\+OR on failure; otherwise OK 
+\end{DoxyReturn}
+
+
+Referenced by run\+Test5().
+
+\index{Data\+Manager\+Test@{Data\+Manager\+Test}!run\+Test1@{run\+Test1}}
+\index{run\+Test1@{run\+Test1}!Data\+Manager\+Test@{Data\+Manager\+Test}}
+\subsubsection[{run\+Test1()}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Manager\+Test\+::run\+Test1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDataManagerTest_aee6bd5e9aeccc61e10e8b62029851989}
+Test method\+: Basic Perform Testing of operations on the database using exec\+Command\+: a simple query and results parsing \begin{DoxyReturn}{Returns}
+E\+R\+R\+OR on failure; otherwise OK 
+\end{DoxyReturn}
+
+
+Referenced by run\+Test4(), and run\+Test5().
+
+\index{Data\+Manager\+Test@{Data\+Manager\+Test}!run\+Test2@{run\+Test2}}
+\index{run\+Test2@{run\+Test2}!Data\+Manager\+Test@{Data\+Manager\+Test}}
+\subsubsection[{run\+Test2()}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Manager\+Test\+::run\+Test2 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDataManagerTest_a295078ffc186e019fa52265431ae4541}
+Test method\+: Parameterized arguments to the sql statement Perform testing of exec\+Command\+With\+Params. \begin{DoxyReturn}{Returns}
+E\+R\+R\+OR on failure; otherwise OK 
+\end{DoxyReturn}
+
+
+Referenced by run\+Test5().
+
+\index{Data\+Manager\+Test@{Data\+Manager\+Test}!run\+Test3@{run\+Test3}}
+\index{run\+Test3@{run\+Test3}!Data\+Manager\+Test@{Data\+Manager\+Test}}
+\subsubsection[{run\+Test3()}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Manager\+Test\+::run\+Test3 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDataManagerTest_ab36cad13acc143b2b39c0fd772aa45d3}
+Test method\+: Test boolean type specific results Perform Testing of get\+Boolean\+Value\+At on query results. \begin{DoxyReturn}{Returns}
+E\+R\+R\+OR on failure; otherwise OK 
+\end{DoxyReturn}
+
+
+Referenced by run\+Test5().
+
+\index{Data\+Manager\+Test@{Data\+Manager\+Test}!run\+Test4@{run\+Test4}}
+\index{run\+Test4@{run\+Test4}!Data\+Manager\+Test@{Data\+Manager\+Test}}
+\subsubsection[{run\+Test4()}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Manager\+Test\+::run\+Test4 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDataManagerTest_ad523bd1e92fcb22ccb27e57259bb21a6}
+Test method\+: Test a multistep transaction \begin{DoxyReturn}{Returns}
+E\+R\+R\+OR on failure; otherwise OK 
+\end{DoxyReturn}
+
+
+References run\+Test1().
+
+
+
+Referenced by run\+Test5().
+
+\index{Data\+Manager\+Test@{Data\+Manager\+Test}!run\+Test5@{run\+Test5}}
+\index{run\+Test5@{run\+Test5}!Data\+Manager\+Test@{Data\+Manager\+Test}}
+\subsubsection[{run\+Test5()}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Manager\+Test\+::run\+Test5 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDataManagerTest_a6d976b495c642941788f9b6c3b9943c8}
+Test method\+: Test preparing and executing a Prepared statement \begin{DoxyReturn}{Returns}
+E\+R\+R\+OR on failure; otherwise OK 
+\end{DoxyReturn}
+
+
+References cleanup(), Data\+Manager\+Test(), initialize(), run\+Test1(), run\+Test2(), run\+Test3(), run\+Test4(), and run\+Test5().
+
+
+
+Referenced by run\+Test5().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Data\+Manager\+Test.\+h\item 
+Data\+Manager\+Test.\+cpp\end{DoxyCompactItemize}

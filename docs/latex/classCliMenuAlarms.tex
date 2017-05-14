@@ -1,0 +1,104 @@
+\section{Cli\+Menu\+Alarms Class Reference}
+\label{classCliMenuAlarms}\index{Cli\+Menu\+Alarms@{Cli\+Menu\+Alarms}}
+
+
+{\ttfamily \#include $<$Cli\+Menu\+Alarms.\+h$>$}
+
+Inheritance diagram for Cli\+Menu\+Alarms\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCliMenuAlarms}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Cli\+Menu\+Alarms} ()
+\item 
+virtual {\bf $\sim$\+Cli\+Menu\+Alarms} ()
+\item 
+void {\bf initialize} ({\bf alarms\+::alarm\+Interface\+\_\+ptr} alarm\+Interface\+\_\+ptr)
+\item 
+string {\bf get\+Outstanding\+Alarms} ()
+\item 
+string {\bf get\+Alarm\+Inventory} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Cli\+Menu\+Alarms}{p.}{classCliMenuAlarms} contains static handler methods for alarm requests. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Cli\+Menu\+Alarms@{Cli\+Menu\+Alarms}!Cli\+Menu\+Alarms@{Cli\+Menu\+Alarms}}
+\index{Cli\+Menu\+Alarms@{Cli\+Menu\+Alarms}!Cli\+Menu\+Alarms@{Cli\+Menu\+Alarms}}
+\subsubsection[{Cli\+Menu\+Alarms()}]{\setlength{\rightskip}{0pt plus 5cm}Cli\+Menu\+Alarms\+::\+Cli\+Menu\+Alarms (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classCliMenuAlarms_a968c7fa823048fc15c9e574347ec95fb}
+Constructor \index{Cli\+Menu\+Alarms@{Cli\+Menu\+Alarms}!````~Cli\+Menu\+Alarms@{$\sim$\+Cli\+Menu\+Alarms}}
+\index{````~Cli\+Menu\+Alarms@{$\sim$\+Cli\+Menu\+Alarms}!Cli\+Menu\+Alarms@{Cli\+Menu\+Alarms}}
+\subsubsection[{$\sim$\+Cli\+Menu\+Alarms()}]{\setlength{\rightskip}{0pt plus 5cm}Cli\+Menu\+Alarms\+::$\sim$\+Cli\+Menu\+Alarms (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classCliMenuAlarms_a5e50d11a011672f8fa67d9dc3d180e38}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Cli\+Menu\+Alarms@{Cli\+Menu\+Alarms}!get\+Alarm\+Inventory@{get\+Alarm\+Inventory}}
+\index{get\+Alarm\+Inventory@{get\+Alarm\+Inventory}!Cli\+Menu\+Alarms@{Cli\+Menu\+Alarms}}
+\subsubsection[{get\+Alarm\+Inventory()}]{\setlength{\rightskip}{0pt plus 5cm}string Cli\+Menu\+Alarms\+::get\+Alarm\+Inventory (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classCliMenuAlarms_a8bb9ee05222c260f940542e8e93cf193}
+Retrieve the Inventory of all possible Alarms in the system 
+
+References alarms\+::alarm\+Interface\+::get\+Alarm\+Inventory().
+
+
+
+Referenced by Cli\+Menu\+Controller\+::initialize().
+
+\index{Cli\+Menu\+Alarms@{Cli\+Menu\+Alarms}!get\+Outstanding\+Alarms@{get\+Outstanding\+Alarms}}
+\index{get\+Outstanding\+Alarms@{get\+Outstanding\+Alarms}!Cli\+Menu\+Alarms@{Cli\+Menu\+Alarms}}
+\subsubsection[{get\+Outstanding\+Alarms()}]{\setlength{\rightskip}{0pt plus 5cm}string Cli\+Menu\+Alarms\+::get\+Outstanding\+Alarms (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classCliMenuAlarms_aeb174c1d19eeecf792430b531c9dca5f}
+Retrieve all of the Outstanding Alarms the agent 
+
+References alarms\+::alarm\+Interface\+::get\+Outstanding\+Alarms().
+
+
+
+Referenced by Cli\+Menu\+Controller\+::initialize().
+
+\index{Cli\+Menu\+Alarms@{Cli\+Menu\+Alarms}!initialize@{initialize}}
+\index{initialize@{initialize}!Cli\+Menu\+Alarms@{Cli\+Menu\+Alarms}}
+\subsubsection[{initialize(alarms\+::alarm\+Interface\+\_\+ptr alarm\+Interface\+\_\+ptr)}]{\setlength{\rightskip}{0pt plus 5cm}void Cli\+Menu\+Alarms\+::initialize (
+\begin{DoxyParamCaption}
+\item[{{\bf alarms\+::alarm\+Interface\+\_\+ptr}}]{alarm\+Interface\+\_\+ptr}
+\end{DoxyParamCaption}
+)}\label{classCliMenuAlarms_a81bb95e48138361cc78302f850da7976}
+Initialization Method 
+
+Referenced by Cli\+Menu\+Controller\+::initialize().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cli\+Menu\+Alarms.\+h\item 
+Cli\+Menu\+Alarms.\+cpp\end{DoxyCompactItemize}

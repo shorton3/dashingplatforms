@@ -1,0 +1,203 @@
+\section{Local\+S\+M\+Buffer Struct Reference}
+\label{structLocalSMBuffer}\index{Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}}
+
+
+{\ttfamily \#include $<$Local\+S\+M\+Buffer.\+h$>$}
+
+Inheritance diagram for Local\+S\+M\+Buffer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{structLocalSMBuffer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Local\+S\+M\+Buffer} ()
+\item 
+virtual {\bf $\sim$\+Local\+S\+M\+Buffer} ()
+\item 
+{\bf Local\+S\+M\+Buffer} (const {\bf Local\+S\+M\+Buffer} \&rhs)
+\item 
+void {\bf reset} (void)
+\item 
+{\bf Local\+S\+M\+Buffer} \& {\bf operator=} (const {\bf Local\+S\+M\+Buffer} \&rhs)
+\item 
+void {\bf clean} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf O\+P\+M\+Base} $\ast$ {\bf initialize} (int initializer)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char {\bf buffer} [M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH]
+\item 
+A\+C\+E\+\_\+\+Based\+\_\+\+Pointer\+\_\+\+Basic$<$ unsigned char $>$ {\bf buffer\+PI}
+\item 
+unsigned int {\bf priority\+Level}
+\item 
+unsigned int {\bf version\+Number}
+\item 
+unsigned int {\bf buffer\+Length}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Local\+S\+M\+Buffer}{p.}{structLocalSMBuffer} class is a wrapper for the \doxyref{Message\+Buffer}{p.}{classMessageBuffer}\textquotesingle{}s raw unsigned char buffer so that it can be passed through the shared memory queue with a position independent pointer. 
+
+\doxyref{Local\+S\+M\+Buffer}{p.}{structLocalSMBuffer} assumes that all shared memory passed message will be of length M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}!Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}}
+\index{Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}!Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}}
+\subsubsection[{Local\+S\+M\+Buffer()}]{\setlength{\rightskip}{0pt plus 5cm}Local\+S\+M\+Buffer\+::\+Local\+S\+M\+Buffer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{structLocalSMBuffer_aebea9c62356b753ff7e037b5475620ce}
+Constructor 
+
+References buffer, buffer\+PI, and O\+P\+M\+Base\+::set\+Object\+Type\+Str().
+
+
+
+Referenced by initialize().
+
+\index{Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}!````~Local\+S\+M\+Buffer@{$\sim$\+Local\+S\+M\+Buffer}}
+\index{````~Local\+S\+M\+Buffer@{$\sim$\+Local\+S\+M\+Buffer}!Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}}
+\subsubsection[{$\sim$\+Local\+S\+M\+Buffer()}]{\setlength{\rightskip}{0pt plus 5cm}Local\+S\+M\+Buffer\+::$\sim$\+Local\+S\+M\+Buffer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{structLocalSMBuffer_a712b31e07ec33ab4842b478fa46d8b26}
+Virtual Destructor \index{Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}!Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}}
+\index{Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}!Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}}
+\subsubsection[{Local\+S\+M\+Buffer(const Local\+S\+M\+Buffer \&rhs)}]{\setlength{\rightskip}{0pt plus 5cm}Local\+S\+M\+Buffer\+::\+Local\+S\+M\+Buffer (
+\begin{DoxyParamCaption}
+\item[{const {\bf Local\+S\+M\+Buffer} \&}]{rhs}
+\end{DoxyParamCaption}
+)}\label{structLocalSMBuffer_acac11fd463855f781a0c95799938644a}
+Copy Constructor 
+
+References buffer, and buffer\+PI.
+
+
+
+\subsection{Member Function Documentation}
+\index{Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}!clean@{clean}}
+\index{clean@{clean}!Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}}
+\subsubsection[{clean()}]{\setlength{\rightskip}{0pt plus 5cm}void Local\+S\+M\+Buffer\+::clean (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{structLocalSMBuffer_a5f30eb58740b77fc5aee9f39ae81f439}
+\doxyref{O\+P\+M\+Base}{p.}{classOPMBase} clean method gets called when the object gets released back into its pool 
+
+Implements {\bf O\+P\+M\+Base} \doxyref{}{p.}{classOPMBase_ad9ff8bb1ca9a1edfaaeb702f341713e9}.
+
+
+
+References reset().
+
+\index{Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}!initialize@{initialize}}
+\index{initialize@{initialize}!Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}}
+\subsubsection[{initialize(int initializer)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf O\+P\+M\+Base} $\ast$ Local\+S\+M\+Buffer\+::initialize (
+\begin{DoxyParamCaption}
+\item[{int}]{initializer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{structLocalSMBuffer_adb7c68f0c712c90866afc4bb96ff5431}
+\doxyref{O\+P\+M\+Base}{p.}{classOPMBase} static initializer method for bootstrapping the objects 
+\begin{DoxyParams}{Parameters}
+{\em initializer} & Here the initializer will be the message buffer size to create. This assumes that we will have an \doxyref{O\+PM}{p.}{classOPM} object pool for each size of Message Buffer that we need. \\
+\hline
+\end{DoxyParams}
+
+
+References Local\+S\+M\+Buffer().
+
+
+
+Referenced by Local\+S\+M\+Mailbox\+Proxy\+::\+Local\+S\+M\+Mailbox\+Proxy().
+
+\index{Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}!operator=@{operator=}}
+\index{operator=@{operator=}!Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}}
+\subsubsection[{operator=(const Local\+S\+M\+Buffer \&rhs)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Local\+S\+M\+Buffer} \& Local\+S\+M\+Buffer\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Local\+S\+M\+Buffer} \&}]{rhs}
+\end{DoxyParamCaption}
+)}\label{structLocalSMBuffer_a0109378a81314e9c95672da649361ecc}
+Overloaded Assignment Operator 
+
+References buffer, buffer\+Length, buffer\+PI, priority\+Level, and version\+Number.
+
+\index{Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}!reset@{reset}}
+\index{reset@{reset}!Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}}
+\subsubsection[{reset(void)}]{\setlength{\rightskip}{0pt plus 5cm}void Local\+S\+M\+Buffer\+::reset (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{structLocalSMBuffer_ab5c052d7b8d34c6c047c13c9ba3e98d2}
+Reset all data members 
+
+References buffer, buffer\+Length, buffer\+PI, priority\+Level, and version\+Number.
+
+
+
+Referenced by clean(), and Local\+S\+M\+Mailbox\+::get\+Mailbox\+Address().
+
+
+
+\subsection{Member Data Documentation}
+\index{Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}!buffer@{buffer}}
+\index{buffer@{buffer}!Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}}
+\subsubsection[{buffer}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char Local\+S\+M\+Buffer\+::buffer[M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH]}\label{structLocalSMBuffer_a101f021c0b0c27ade21c5bbe8d737902}
+Raw unsigned char message buffer from the \doxyref{Message\+Buffer}{p.}{classMessageBuffer} class 
+
+Referenced by Local\+S\+M\+Buffer(), operator=(), Local\+S\+M\+Mailbox\+Proxy\+::post(), and reset().
+
+\index{Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}!buffer\+Length@{buffer\+Length}}
+\index{buffer\+Length@{buffer\+Length}!Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}}
+\subsubsection[{buffer\+Length}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Local\+S\+M\+Buffer\+::buffer\+Length}\label{structLocalSMBuffer_ad85c8a65c52471694094027335f1caa2}
+Buffer Length / sizeof the data 
+
+Referenced by Local\+S\+M\+Mailbox\+::get\+Mailbox\+Address(), operator=(), Local\+S\+M\+Mailbox\+Proxy\+::post(), and reset().
+
+\index{Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}!buffer\+PI@{buffer\+PI}}
+\index{buffer\+PI@{buffer\+PI}!Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}}
+\subsubsection[{buffer\+PI}]{\setlength{\rightskip}{0pt plus 5cm}A\+C\+E\+\_\+\+Based\+\_\+\+Pointer\+\_\+\+Basic$<$unsigned char$>$ Local\+S\+M\+Buffer\+::buffer\+PI}\label{structLocalSMBuffer_aef069192302bfc4cdd97fef25d052043}
+Position Independent A\+CE Pointer to the log Message payload string. N\+O\+TE\+: there is no allocated memory here 
+
+Referenced by Local\+S\+M\+Mailbox\+::get\+Mailbox\+Address(), Local\+S\+M\+Buffer(), operator=(), Local\+S\+M\+Mailbox\+Proxy\+::post(), and reset().
+
+\index{Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}!priority\+Level@{priority\+Level}}
+\index{priority\+Level@{priority\+Level}!Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}}
+\subsubsection[{priority\+Level}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Local\+S\+M\+Buffer\+::priority\+Level}\label{structLocalSMBuffer_a1bd4f4c42c40b33227cb6e5de2e58910}
+Priority Level of the Message. Default is 0. 
+
+Referenced by Local\+S\+M\+Mailbox\+::get\+Mailbox\+Address(), operator=(), and reset().
+
+\index{Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}!version\+Number@{version\+Number}}
+\index{version\+Number@{version\+Number}!Local\+S\+M\+Buffer@{Local\+S\+M\+Buffer}}
+\subsubsection[{version\+Number}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Local\+S\+M\+Buffer\+::version\+Number}\label{structLocalSMBuffer_aac7ac706c5f5aea8710115f6169ffc60}
+Version number of the Message 
+
+Referenced by operator=(), and reset().
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Local\+S\+M\+Buffer.\+h\item 
+Local\+S\+M\+Buffer.\+cpp\end{DoxyCompactItemize}

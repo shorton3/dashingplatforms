@@ -1,0 +1,43 @@
+* Postgresql installation instructions for RHEL4:
+	Downloaded: 	sqlite-2.8.17-1.el4.rf.i386.rpm
+			wxWidgets-2.8.7.tar.gz
+			libxml2-2.6.31.tar.gz
+			pgadmin3-1.8.1.tar.gz
+			postgresql-8.2.6.tar.gz
+			sqlite-2.8.17-1.el4.rf.i386.rpm
+			python-urlgrabber-2.9.7-1.2.el4.rf.noarch.rpm
+			python-sqlite-0.5.0-1.2.el4.rf.i386.rpm
+			python-elementtree-1.2.6-7.el4.rf.i386.rpm
+* Postgresql 9.1 installation for RHEL6.1 workstation:
+         Downloaded:    pgadmin3-1.12.2-2.el6.x86_64.rpm
+                        wxBase-2.8.12-1.el6.x86_64.rpm
+                        wxGTK-2.8.12-1.el6.x86_64.rpm
+         (from the CentOS RPM repository). Note that PGAdmin3 on Postgresql9.1 and RHEL6.1
+         installs an icon in the startup menu in the windowing system
+* Update setEnv.sh with new paths
+* Make sure old postgres is not running, disable from /etc/init.d (remove RPM packages)
+* cp /opt/postgresql8.xxx/contrib/start-scripts/linux to /etc/init.d and use chkconfig --add to get it working (Postgresql 9.1 installs a startup script in /etc/init.d)
+* Connect and login to the server using pgadmin3, userid: postgres, password: postgres
+* NOTE: Had to edit /usr/local/pgsql/include/pgtypes_interval.h and comment out line 18: redeclaration of C++ built-in type 'long'
+
+OLD INFO: admin password is 'postgres'
+
+** On Postgresql-9.1, required to run 'service postgresql-9.1 initdb' first before
+starting the database the first time. This initializes the cluster.
+
+SETUP SCHEMA:
+from pgadmin3:
+ - create group 'platform' (leave group id blank)
+ - create user 'platform' (with superuser and create table privileges) in group 'platform' with passwd 'platform' (leave user id blank)
+ - create the 'platform' database with owner as 'platform' user
+from command line, access the database with: 'psql platform platform'  (password: platform)
+create tables, from the command line:   \i <path to file>/PlatformTablesCreate.sql
+populate table defaults, from the command line:    \i <path to file>/PlatformTablesPopulate.sql
+
+
+TIPS:
+display existing tables, from the command line:  \dt
+describe a table:  \d <tablename>
+for help on the command line:  \?
+to quit: \q
+

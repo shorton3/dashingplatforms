@@ -1,0 +1,47 @@
+Loadbuild Instructions:
+
+#########
+# Note about building ACE+TAO: switch to root, set environment from setEnv.sh,
+# then: make debug=1 optimize=1 exceptions=1 threads=1
+#########
+
+1. Source the environment (you may need to change setEnv.sh to match your compiler version):
+	. ./setEnv.sh
+
+2. Build the platform libraries and binaries (Note: supply a buildtag with no spaces):
+	cd dev/src/platform
+	make BuildTag=030114_BuildTag
+	make doxygen (optional for making source docs)
+	make statistics (optional)
+
+3. Compile the ems IDL stubs and skeletons using both Java and C++ IDL compilers:
+   (Note: This must be re-performed whenever you switch between compilers/ACE+TAO versions
+   since the code that gets generated inside the stubs/skeletons is different for each)
+	cd dev/src/ems
+	make idl
+
+4. Build the ems libraries and binaries (Note: supply a buildtag with no spaces)
+	cd dev/src/ems
+	make BuildTag=030114_BuildTag
+	make doxygen (optional for making source docs)
+        make statistics (optional)
+
+5. Build the unittest libraries and binaries (Note: supply a buildtag with no spaces)
+	cd dev/src/unittest
+	make BuildTag=030114_BuildTag
+        make doxygen (optional for making source docs)
+        make statistics (optional)
+
+To rebuild from scratch (without incremental build), you must first make clean:
+	cd dev/src/unittest
+	make clean
+	cd dev/src/ems
+	make clean
+	cd dev/src/platform
+	make clean
+
+In order to deploy the ProcessManager and child components for Linux start,
+the following files must be in place:
+	/etc/platformInit.conf
+	/etc/init.d/platformInit (in DEV_ROOT/bin/platformInit.init.d)
+	DEV_ROOT/bin/ProcessManager.conf 

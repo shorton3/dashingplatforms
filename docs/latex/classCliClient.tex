@@ -1,0 +1,148 @@
+\section{Cli\+Client Class Reference}
+\label{classCliClient}\index{Cli\+Client@{Cli\+Client}}
+
+
+{\ttfamily \#include $<$Cli\+Client.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Cli\+Client} ()
+\item 
+virtual {\bf $\sim$\+Cli\+Client} ()
+\item 
+int {\bf initialize} (bool dotted\+Decimal\+I\+O\+R\+Flag, bool debug\+Flag, string \&debug\+Level, string \&debug\+Filename, string \&end\+Point\+String, string \&init\+Ref, string \&default\+Init\+Ref)
+\item 
+void {\bf process\+Menu} ()
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bf shutdown} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides a C\+LI Client interface to the E\+MS\textquotesingle{} Client Agent through C\+O\+R\+BA. 
+
+Note\+: Previous versions of the T\+AO Orb used T\+AO Exception Handling Macros to make the Standard Corba Exceptions compatible with platforms that do not support native C++ exception handling constructs. These T\+AO specific Macros have now been deprecated (they now cause compiler errors); they have been replaced with the base A\+CE Exception Handling Macros. However, since our development platform W\+I\+LL A\+L\+W\+A\+YS support native C++ exception handling, we are foregoing the use of the A\+CE Macros, and we will O\+N\+LY support the native exception handling for simplicity. 
+
+\doxyref{Cli\+Client}{p.}{classCliClient} accepts the following startup options\+: -\/h Restricts the use of hostnames in I\+O\+Rs. Invokes -\/\+O\+R\+B\+Dotted\+Decimal\+Addresses 1 on the Orb -\/d Enable debug messages from within the Orb. Invokes -\/\+O\+R\+B\+Debug on the Orb. -\/l $<$\+Debug level$>$=\char`\"{}\char`\"{}$>$ Sets the debug level within the Orb (Max is 10). Invokes -\/\+O\+R\+B\+Debug\+Level on the Orb. -\/f $<$log filename$>$=\char`\"{}\char`\"{}$>$ Sets the log filename for Orb debug logs. Invokes -\/\+O\+R\+B\+Log\+File on the Orb. (Default is stdout) -\/e $<$\+Endpoint$>$ Orb listens for connections on the interfaces specified by the endpoint U\+RL (Invokes -\/\+O\+R\+B\+Listen\+Endpoints) -\/i $<$\+Initial reference$>$=\char`\"{}\char`\"{}$>$ U\+RL the Orb uses for initial resolution of Naming Service (corbaloc) (Invokes -\/\+O\+R\+B\+Init\+Ref) -\/r $<$\+Default init=\char`\"{}\char`\"{} ref$>$=\char`\"{}\char`\"{}$>$ U\+RL the Orb uses for default initial resolution of Naming Service (corbaloc) (Invokes -\/\+O\+R\+B\+Default\+Init\+Ref) 
+
+Note that the correct syntax for -\/i (the O\+R\+B\+Init\+Ref) -\/\+O\+R\+B\+Init\+Ref is\+: Name\+Service=corbaloc\+:iiop\+:localhost\+:12345/\+Name\+Service -- or -- Name\+Service=iiop\+://localhost\+:12345/\+Name\+Service The former (corbaloc) syntax is the standard (compliant with the Interoperable Naming Service specification) syntax. The latter syntax is T\+A\+O-\/specific and is deprecated. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Cli\+Client@{Cli\+Client}!Cli\+Client@{Cli\+Client}}
+\index{Cli\+Client@{Cli\+Client}!Cli\+Client@{Cli\+Client}}
+\subsubsection[{Cli\+Client()}]{\setlength{\rightskip}{0pt plus 5cm}Cli\+Client\+::\+Cli\+Client (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classCliClient_aaf5dc40f638229fe307da79c727286fc}
+Constructor 
+
+Referenced by to\+String().
+
+\index{Cli\+Client@{Cli\+Client}!````~Cli\+Client@{$\sim$\+Cli\+Client}}
+\index{````~Cli\+Client@{$\sim$\+Cli\+Client}!Cli\+Client@{Cli\+Client}}
+\subsubsection[{$\sim$\+Cli\+Client()}]{\setlength{\rightskip}{0pt plus 5cm}Cli\+Client\+::$\sim$\+Cli\+Client (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classCliClient_a1fd140b7881bc358d97aec53758c7da0}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Cli\+Client@{Cli\+Client}!initialize@{initialize}}
+\index{initialize@{initialize}!Cli\+Client@{Cli\+Client}}
+\subsubsection[{initialize(bool dotted\+Decimal\+I\+O\+R\+Flag, bool debug\+Flag, string \&debug\+Level, string \&debug\+Filename, string \&end\+Point\+String, string \&init\+Ref, string \&default\+Init\+Ref)}]{\setlength{\rightskip}{0pt plus 5cm}int Cli\+Client\+::initialize (
+\begin{DoxyParamCaption}
+\item[{bool}]{dotted\+Decimal\+I\+O\+R\+Flag, }
+\item[{bool}]{debug\+Flag, }
+\item[{string \&}]{debug\+Level, }
+\item[{string \&}]{debug\+Filename, }
+\item[{string \&}]{end\+Point\+String, }
+\item[{string \&}]{init\+Ref, }
+\item[{string \&}]{default\+Init\+Ref}
+\end{DoxyParamCaption}
+)}\label{classCliClient_aa03e8e39198a7857175c194d18bc3b3c}
+Perform \doxyref{Cli\+Client}{p.}{classCliClient} initialization 
+\begin{DoxyParams}{Parameters}
+{\em dotted\+Decimal\+I\+O\+R\+Flag} & If true, fore-\/go the use of hostnames in I\+O\+Rs. Instead use IP Addresses \\
+\hline
+{\em debug\+Flag} & If true, enable the Orb inner debug logging \\
+\hline
+{\em debug\+Level} & Max is 10 -- the most verbose logging \\
+\hline
+{\em debug\+Filename} & Redirect Orb debug logs to a file instead of stdout \\
+\hline
+{\em end\+Point\+String} & On a multihomed host, instruct the Orb to use the interface described by this endpoint \\
+\hline
+{\em init\+Ref} & Use the Interoperable Naming Service url for locating Naming Service reference \\
+\hline
+{\em default\+Init\+Ref} & Use the I\+NS url for default reference resolving \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E\+R\+R\+OR upon failure; otherwise OK 
+\end{DoxyReturn}
+
+
+Referenced by to\+String().
+
+\index{Cli\+Client@{Cli\+Client}!process\+Menu@{process\+Menu}}
+\index{process\+Menu@{process\+Menu}!Cli\+Client@{Cli\+Client}}
+\subsubsection[{process\+Menu()}]{\setlength{\rightskip}{0pt plus 5cm}void Cli\+Client\+::process\+Menu (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classCliClient_a34af04f9122fa7675e33c1fd0ee9f947}
+Handle Menu Option user input 
+
+References Cli\+Menu\+Controller\+::initialize().
+
+
+
+Referenced by to\+String().
+
+\index{Cli\+Client@{Cli\+Client}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!Cli\+Client@{Cli\+Client}}
+\subsubsection[{shutdown()}]{\setlength{\rightskip}{0pt plus 5cm}void Cli\+Client\+::shutdown (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classCliClient_a8b3fef2b71e0cda391d62f366c2a90b2}
+Gracefully shutdown the \doxyref{Cli\+Client}{p.}{classCliClient} and all of its threads 
+
+Referenced by to\+String().
+
+\index{Cli\+Client@{Cli\+Client}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Cli\+Client@{Cli\+Client}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Cli\+Client\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classCliClient_a45c452df909018f92f240d05c38a2676}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+References Cli\+Client(), initialize(), process\+Menu(), and shutdown().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cli\+Client.\+h\item 
+Cli\+Client.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,194 @@
+\section{Alarm\+Event\+Message Class Reference}
+\label{classAlarmEventMessage}\index{Alarm\+Event\+Message@{Alarm\+Event\+Message}}
+Inheritance diagram for Alarm\+Event\+Message\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classAlarmEventMessage}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Alarm\+Event\+Message} (const {\bf Mailbox\+Address} \&source\+Address, Alarm\+Event\+Message\+Type message\+Type, string neid, unsigned short managed\+Object, unsigned int managed\+Object\+Instance, unsigned short alarm\+Code, unsigned short event\+Code, unsigned int pid, unsigned int time\+Stamp, unsigned int source\+Context\+Id=0, unsigned int destination\+Context\+Id=0)
+\item 
+virtual {\bf $\sim$\+Alarm\+Event\+Message} ()
+\item 
+Alarm\+Event\+Message\+Type {\bf get\+Message\+Type} () const 
+\item 
+unsigned short {\bf get\+Message\+Id} () const 
+\item 
+string {\bf get\+N\+E\+ID} () const 
+\item 
+unsigned short {\bf get\+Managed\+Object} () const 
+\item 
+unsigned int {\bf get\+Managed\+Object\+Instance} () const 
+\item 
+unsigned short {\bf get\+Alarm\+Code} () const 
+\item 
+unsigned short {\bf get\+Event\+Code} () const 
+\item 
+unsigned int {\bf get\+Pid} () const 
+\item 
+unsigned int {\bf get\+Timestamp} () const 
+\item 
+int {\bf serialize} ({\bf Message\+Buffer} \&buffer)
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf Message\+Base} $\ast$ {\bf deserialize} ({\bf Message\+Buffer} $\ast$buffer)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Alarm\+Event\+Message@{Alarm\+Event\+Message}!Alarm\+Event\+Message@{Alarm\+Event\+Message}}
+\index{Alarm\+Event\+Message@{Alarm\+Event\+Message}!Alarm\+Event\+Message@{Alarm\+Event\+Message}}
+\subsubsection[{Alarm\+Event\+Message(const Mailbox\+Address \&source\+Address, Alarm\+Event\+Message\+Type message\+Type, string neid, unsigned short managed\+Object, unsigned int managed\+Object\+Instance, unsigned short alarm\+Code, unsigned short event\+Code, unsigned int pid, unsigned int time\+Stamp, unsigned int source\+Context\+Id=0, unsigned int destination\+Context\+Id=0)}]{\setlength{\rightskip}{0pt plus 5cm}Alarm\+Event\+Message\+::\+Alarm\+Event\+Message (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{source\+Address, }
+\item[{Alarm\+Event\+Message\+Type}]{message\+Type, }
+\item[{string}]{neid, }
+\item[{unsigned short}]{managed\+Object, }
+\item[{unsigned int}]{managed\+Object\+Instance, }
+\item[{unsigned short}]{alarm\+Code, }
+\item[{unsigned short}]{event\+Code, }
+\item[{unsigned int}]{pid, }
+\item[{unsigned int}]{time\+Stamp, }
+\item[{unsigned int}]{source\+Context\+Id = {\ttfamily 0}, }
+\item[{unsigned int}]{destination\+Context\+Id = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classAlarmEventMessage_a6ff212a826041ed2136b618b99e361f8}
+Constructor 
+
+Referenced by deserialize().
+
+\index{Alarm\+Event\+Message@{Alarm\+Event\+Message}!````~Alarm\+Event\+Message@{$\sim$\+Alarm\+Event\+Message}}
+\index{````~Alarm\+Event\+Message@{$\sim$\+Alarm\+Event\+Message}!Alarm\+Event\+Message@{Alarm\+Event\+Message}}
+\subsubsection[{$\sim$\+Alarm\+Event\+Message()}]{\setlength{\rightskip}{0pt plus 5cm}Alarm\+Event\+Message\+::$\sim$\+Alarm\+Event\+Message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classAlarmEventMessage_aa047e19c515a18ef823595012a8854f8}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Alarm\+Event\+Message@{Alarm\+Event\+Message}!deserialize@{deserialize}}
+\index{deserialize@{deserialize}!Alarm\+Event\+Message@{Alarm\+Event\+Message}}
+\subsubsection[{deserialize(\+Message\+Buffer $\ast$buffer)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Message\+Base} $\ast$ Alarm\+Event\+Message\+::deserialize (
+\begin{DoxyParamCaption}
+\item[{{\bf Message\+Buffer} $\ast$}]{buffer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classAlarmEventMessage_aa44dd64923412b43074d8c55de6d494a}
+Subclassed deserialization / bootstrap implementation 
+
+References Alarm\+Event\+Message().
+
+\index{Alarm\+Event\+Message@{Alarm\+Event\+Message}!get\+Alarm\+Code@{get\+Alarm\+Code}}
+\index{get\+Alarm\+Code@{get\+Alarm\+Code}!Alarm\+Event\+Message@{Alarm\+Event\+Message}}
+\subsubsection[{get\+Alarm\+Code() const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned short Alarm\+Event\+Message\+::get\+Alarm\+Code (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classAlarmEventMessage_a8de85f019fdb8ea34b22736ae38df098}
+Returns the alarm code \index{Alarm\+Event\+Message@{Alarm\+Event\+Message}!get\+Event\+Code@{get\+Event\+Code}}
+\index{get\+Event\+Code@{get\+Event\+Code}!Alarm\+Event\+Message@{Alarm\+Event\+Message}}
+\subsubsection[{get\+Event\+Code() const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned short Alarm\+Event\+Message\+::get\+Event\+Code (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classAlarmEventMessage_adced09f552703d4b8f3ecfee2d835541}
+Returns the event code \index{Alarm\+Event\+Message@{Alarm\+Event\+Message}!get\+Managed\+Object@{get\+Managed\+Object}}
+\index{get\+Managed\+Object@{get\+Managed\+Object}!Alarm\+Event\+Message@{Alarm\+Event\+Message}}
+\subsubsection[{get\+Managed\+Object() const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned short Alarm\+Event\+Message\+::get\+Managed\+Object (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classAlarmEventMessage_a8938ad6884c3e0d4631e76ed3c13f6ca}
+Returns the managed object class \index{Alarm\+Event\+Message@{Alarm\+Event\+Message}!get\+Managed\+Object\+Instance@{get\+Managed\+Object\+Instance}}
+\index{get\+Managed\+Object\+Instance@{get\+Managed\+Object\+Instance}!Alarm\+Event\+Message@{Alarm\+Event\+Message}}
+\subsubsection[{get\+Managed\+Object\+Instance() const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Alarm\+Event\+Message\+::get\+Managed\+Object\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classAlarmEventMessage_acff215e21f4c41b51b0ed7be357e5390}
+Returns the managed object instance \index{Alarm\+Event\+Message@{Alarm\+Event\+Message}!get\+Message\+Id@{get\+Message\+Id}}
+\index{get\+Message\+Id@{get\+Message\+Id}!Alarm\+Event\+Message@{Alarm\+Event\+Message}}
+\subsubsection[{get\+Message\+Id() const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned short Alarm\+Event\+Message\+::get\+Message\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\label{classAlarmEventMessage_a9077b4f17fc3b57df685b1d3f34fdd91}
+Returns the Message Id 
+
+Implements {\bf Message\+Base} \doxyref{}{p.}{classMessageBase_a0910c23e94ea98b7a4e11631c9068311}.
+
+\index{Alarm\+Event\+Message@{Alarm\+Event\+Message}!get\+Message\+Type@{get\+Message\+Type}}
+\index{get\+Message\+Type@{get\+Message\+Type}!Alarm\+Event\+Message@{Alarm\+Event\+Message}}
+\subsubsection[{get\+Message\+Type() const }]{\setlength{\rightskip}{0pt plus 5cm}Alarm\+Event\+Message\+Type Alarm\+Event\+Message\+::get\+Message\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classAlarmEventMessage_a56c63848af227441bc9304b7cb46036a}
+Returns the Message Type (Alarm, Clear, Event\+Report) \index{Alarm\+Event\+Message@{Alarm\+Event\+Message}!get\+N\+E\+ID@{get\+N\+E\+ID}}
+\index{get\+N\+E\+ID@{get\+N\+E\+ID}!Alarm\+Event\+Message@{Alarm\+Event\+Message}}
+\subsubsection[{get\+N\+E\+I\+D() const }]{\setlength{\rightskip}{0pt plus 5cm}string Alarm\+Event\+Message\+::get\+N\+E\+ID (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classAlarmEventMessage_ae9b676a4004ec2d8c9c2ad9e6bff6ea7}
+Returns the N\+E\+ID that the alarm applies to \index{Alarm\+Event\+Message@{Alarm\+Event\+Message}!get\+Pid@{get\+Pid}}
+\index{get\+Pid@{get\+Pid}!Alarm\+Event\+Message@{Alarm\+Event\+Message}}
+\subsubsection[{get\+Pid() const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Alarm\+Event\+Message\+::get\+Pid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classAlarmEventMessage_ad09b9844a8b5d47461ee224b1e846611}
+Returns the process id \index{Alarm\+Event\+Message@{Alarm\+Event\+Message}!get\+Timestamp@{get\+Timestamp}}
+\index{get\+Timestamp@{get\+Timestamp}!Alarm\+Event\+Message@{Alarm\+Event\+Message}}
+\subsubsection[{get\+Timestamp() const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Alarm\+Event\+Message\+::get\+Timestamp (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classAlarmEventMessage_ab4706d739eec6665f27525c169730ab0}
+Returns the timestamp \index{Alarm\+Event\+Message@{Alarm\+Event\+Message}!serialize@{serialize}}
+\index{serialize@{serialize}!Alarm\+Event\+Message@{Alarm\+Event\+Message}}
+\subsubsection[{serialize(\+Message\+Buffer \&buffer)}]{\setlength{\rightskip}{0pt plus 5cm}int Alarm\+Event\+Message\+::serialize (
+\begin{DoxyParamCaption}
+\item[{{\bf Message\+Buffer} \&}]{buffer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classAlarmEventMessage_ac8f81237779034f177b908776029919c}
+Subclassed serialization implementation 
+
+Reimplemented from {\bf Message\+Base} \doxyref{}{p.}{classMessageBase_a1120deb2887e4a72d7dc68b505e5e10a}.
+
+
+
+References Message\+Base\+::destination\+Context\+Id\+\_\+, Message\+Base\+::source\+Address\+\_\+, Message\+Base\+::source\+Context\+Id\+\_\+, and Message\+Base\+::version\+Number\+\_\+.
+
+\index{Alarm\+Event\+Message@{Alarm\+Event\+Message}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Alarm\+Event\+Message@{Alarm\+Event\+Message}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Alarm\+Event\+Message\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classAlarmEventMessage_ad6d9f4689524920dac507f80424a5689}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+Implements {\bf Message\+Base} \doxyref{}{p.}{classMessageBase_a7946fdcef86bfd67ad1df2ede8ed671d}.
+
+
+
+References Message\+Base\+::source\+Address\+\_\+, and Mailbox\+Address\+::to\+String().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Alarm\+Event\+Message.\+h\item 
+Alarm\+Event\+Message.\+cpp\end{DoxyCompactItemize}

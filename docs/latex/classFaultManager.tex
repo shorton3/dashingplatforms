@@ -1,0 +1,97 @@
+\section{Fault\+Manager Class Reference}
+\label{classFaultManager}\index{Fault\+Manager@{Fault\+Manager}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Fault\+Manager} ()
+\item 
+virtual {\bf $\sim$\+Fault\+Manager} ()
+\item 
+void {\bf process\+Mailbox} ()
+\item 
+int {\bf initialize} (int fault\+Report\+Period)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bf catch\+Shutdown\+Signal} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Fault\+Manager@{Fault\+Manager}!Fault\+Manager@{Fault\+Manager}}
+\index{Fault\+Manager@{Fault\+Manager}!Fault\+Manager@{Fault\+Manager}}
+\subsubsection[{Fault\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Fault\+Manager\+::\+Fault\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classFaultManager_a793298ebd1f43384765dd39e8ae27075}
+Constructor 
+
+Referenced by process\+Mailbox().
+
+\index{Fault\+Manager@{Fault\+Manager}!````~Fault\+Manager@{$\sim$\+Fault\+Manager}}
+\index{````~Fault\+Manager@{$\sim$\+Fault\+Manager}!Fault\+Manager@{Fault\+Manager}}
+\subsubsection[{$\sim$\+Fault\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Fault\+Manager\+::$\sim$\+Fault\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classFaultManager_a9fb6591326c4c19e22cf22759b0b73a5}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Fault\+Manager@{Fault\+Manager}!catch\+Shutdown\+Signal@{catch\+Shutdown\+Signal}}
+\index{catch\+Shutdown\+Signal@{catch\+Shutdown\+Signal}!Fault\+Manager@{Fault\+Manager}}
+\subsubsection[{catch\+Shutdown\+Signal()}]{\setlength{\rightskip}{0pt plus 5cm}void Fault\+Manager\+::catch\+Shutdown\+Signal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classFaultManager_a2ab7c6bb0069ab06c3ec15c379c677d8}
+Catch the shutdown signal and begin the graceful shutdown 
+
+Referenced by initialize().
+
+\index{Fault\+Manager@{Fault\+Manager}!initialize@{initialize}}
+\index{initialize@{initialize}!Fault\+Manager@{Fault\+Manager}}
+\subsubsection[{initialize(int fault\+Report\+Period)}]{\setlength{\rightskip}{0pt plus 5cm}int Fault\+Manager\+::initialize (
+\begin{DoxyParamCaption}
+\item[{int}]{fault\+Report\+Period}
+\end{DoxyParamCaption}
+)}\label{classFaultManager_a801cf6c046d9cebae73229a3378bcee1}
+Perform \doxyref{Fault\+Manager}{p.}{classFaultManager} initialization 
+\begin{DoxyParams}{Parameters}
+{\em fault\+Report\+Period} & Interval period for which Fault Manager will publish a fault report of outstanding alarms in the trace logs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E\+R\+R\+OR on failure; otherwise OK 
+\end{DoxyReturn}
+
+
+References Data\+Manager\+::activate\+Connection\+Set(), catch\+Shutdown\+Signal(), Thread\+Manager\+::create\+Thread(), Mailbox\+Lookup\+Service\+::find(), System\+Info\+::get\+Local\+N\+E\+I\+D(), Mailbox\+Address\+::inet\+Address, Data\+Manager\+::initialize(), Mailbox\+Address\+::location\+Type, Mailbox\+Address\+::mailbox\+Name, Mailbox\+Address\+::neid, Mailbox\+Owner\+Handle\+::schedule\+Timer(), and Fault\+S\+M\+Queue\+::setup\+Queue().
+
+
+
+Referenced by process\+Mailbox().
+
+\index{Fault\+Manager@{Fault\+Manager}!process\+Mailbox@{process\+Mailbox}}
+\index{process\+Mailbox@{process\+Mailbox}!Fault\+Manager@{Fault\+Manager}}
+\subsubsection[{process\+Mailbox()}]{\setlength{\rightskip}{0pt plus 5cm}void Fault\+Manager\+::process\+Mailbox (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classFaultManager_a06321519c488763c07c6bf57be51556e}
+Start the mailbox processing loop 
+
+References Mailbox\+Owner\+Handle\+::activate(), Message\+Handler\+List\+::add(), Fault\+Message\+::alarm\+Code, Fault\+Message\+::alarm\+Severity, Db\+Connection\+Handle\+::close\+Command\+Result(), Distributed\+Mailbox\+::create\+Mailbox(), Fault\+S\+M\+Queue\+::dequeue\+Alarm(), Fault\+Message\+::event\+Code, Db\+Connection\+Handle\+::execute\+Command(), Fault\+Manager(), Mailbox\+Lookup\+Service\+::find(), Db\+Connection\+Handle\+::get\+Column\+Count(), Db\+Connection\+Handle\+::get\+Column\+Index(), Db\+Connection\+Handle\+::get\+Column\+Name(), Logger\+::get\+Instance(), Db\+Connection\+Handle\+::get\+Int\+Value\+At(), Mailbox\+Owner\+Handle\+::get\+Mailbox\+Address(), Db\+Connection\+Handle\+::get\+Row\+Count(), Db\+Connection\+Handle\+::get\+Short\+Value\+At(), Db\+Connection\+Handle\+::get\+String\+Value\+At(), Db\+Connection\+Handle\+::get\+Timestamp\+Value\+At(), O\+P\+M\+::initialize(), initialize(), Logger\+::initialize(), Fault\+S\+M\+Queue\+::is\+Empty(), Fault\+Message\+::managed\+Object, Fault\+Message\+::managed\+Object\+Instance, Fault\+Message\+::neid\+PI, Fault\+Message\+::pid, Mailbox\+Handle\+::post(), Mailbox\+Processor\+::process\+Mailbox(), process\+Mailbox(), Data\+Manager\+::release\+Connection(), Data\+Manager\+::reserve\+Connection(), Mailbox\+Lookup\+Service\+::set\+Debug\+For\+All\+Mailbox\+Addresses(), Mailbox\+Owner\+Handle\+::set\+Debug\+Value(), Logger\+::set\+Subsystem\+Log\+Level(), and Fault\+Message\+::time\+Stamp.
+
+
+
+Referenced by process\+Mailbox().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Fault\+Manager.\+h\item 
+Fault\+Manager.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,131 @@
+\section{Faults Class Reference}
+\label{classFaults}\index{Faults@{Faults}}
+
+
+{\ttfamily \#include $<$Faults.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf $\sim$\+Faults} ()
+\item 
+int {\bf initialize} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bf raise\+Alarm} (const char $\ast$neid, Alarm\+Code\+Type alarmcode, Managed\+Object\+Type managed\+Object, unsigned int managed\+Object\+Instance, unsigned int pid)
+\item 
+static void {\bf clear\+Alarm} (const char $\ast$neid, Alarm\+Code\+Type alarmcode, Managed\+Object\+Type managed\+Object, unsigned int managed\+Object\+Instance, unsigned int pid)
+\item 
+static void {\bf report\+Event} (Event\+Code\+Type eventcode, Managed\+Object\+Type managed\+Object, unsigned int managed\+Object\+Instance, unsigned int pid)
+\item 
+static {\bf Faults} $\ast$ {\bf get\+Instance} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Faults}{p.}{classFaults} provides the main mechanism and A\+PI to the developers for raising and clearing alarms and generating informational event reports. 
+
+Developers use the Fault M\+A\+C\+R\+OS to issue alarms. These macros hide the A\+PI mechanism for enqueuing the alarms for output. In this way, the fault manager subsystem can be transparently modified in the future to include additional data without impact to the application developers. 
+
+The key goal for implementing and maintaining this fault interface is to allow applications to issue alarms with the M\+I\+N\+I\+M\+AL amount of buffer copying and alarm processing as possible. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Faults@{Faults}!````~Faults@{$\sim$\+Faults}}
+\index{````~Faults@{$\sim$\+Faults}!Faults@{Faults}}
+\subsubsection[{$\sim$\+Faults()}]{\setlength{\rightskip}{0pt plus 5cm}Faults\+::$\sim$\+Faults (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classFaults_a4ecb8d0bc1d4248c2843b4fec4def706}
+Destructor 
+
+\subsection{Member Function Documentation}
+\index{Faults@{Faults}!clear\+Alarm@{clear\+Alarm}}
+\index{clear\+Alarm@{clear\+Alarm}!Faults@{Faults}}
+\subsubsection[{clear\+Alarm(const char $\ast$neid, Alarm\+Code\+Type alarmcode, Managed\+Object\+Type managed\+Object, unsigned int managed\+Object\+Instance, unsigned int pid)}]{\setlength{\rightskip}{0pt plus 5cm}void Faults\+::clear\+Alarm (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{neid, }
+\item[{Alarm\+Code\+Type}]{alarmcode, }
+\item[{Managed\+Object\+Type}]{managed\+Object, }
+\item[{unsigned int}]{managed\+Object\+Instance, }
+\item[{unsigned int}]{pid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classFaults_a3ea8a270881079c7ad5fd0816c52182b}
+Method to handle enqueuing/clearing of the alarms. Supports being able to clear Alarms on behalf of another N\+E\+I\+D/node. 
+
+References Fault\+Message\+::alarm\+Code, Fault\+Message\+::alarm\+Severity, Fault\+S\+M\+Queue\+::enqueue\+Alarm(), Fault\+Message\+::managed\+Object, Fault\+Message\+::managed\+Object\+Instance, Fault\+Message\+::neid, Fault\+Message\+::neid\+PI, Fault\+Message\+::pid, and Fault\+Message\+::time\+Stamp.
+
+\index{Faults@{Faults}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Faults@{Faults}}
+\subsubsection[{get\+Instance()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Faults} $\ast$ Faults\+::get\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classFaults_a0fc737dc85c12020a6178fc6419e6441}
+Return a singleton instance 
+
+Referenced by Resource\+Monitor\+::to\+String().
+
+\index{Faults@{Faults}!initialize@{initialize}}
+\index{initialize@{initialize}!Faults@{Faults}}
+\subsubsection[{initialize()}]{\setlength{\rightskip}{0pt plus 5cm}int Faults\+::initialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classFaults_a800a4b854ce837f7909a297039817be0}
+Perform initialization of shared memory queue, etc. \begin{DoxyReturn}{Returns}
+OK on success; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Fault\+S\+M\+Queue\+::setup\+Queue().
+
+
+
+Referenced by Resource\+Monitor\+::to\+String().
+
+\index{Faults@{Faults}!raise\+Alarm@{raise\+Alarm}}
+\index{raise\+Alarm@{raise\+Alarm}!Faults@{Faults}}
+\subsubsection[{raise\+Alarm(const char $\ast$neid, Alarm\+Code\+Type alarmcode, Managed\+Object\+Type managed\+Object, unsigned int managed\+Object\+Instance, unsigned int pid)}]{\setlength{\rightskip}{0pt plus 5cm}void Faults\+::raise\+Alarm (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{neid, }
+\item[{Alarm\+Code\+Type}]{alarmcode, }
+\item[{Managed\+Object\+Type}]{managed\+Object, }
+\item[{unsigned int}]{managed\+Object\+Instance, }
+\item[{unsigned int}]{pid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classFaults_a6cd5ec822162f707e67fd9860a6c8cfe}
+Method to handle enqueuing/raising of the alarms. Supports being able to raise Alarms on behalf of another N\+E\+I\+D/node. 
+
+References Fault\+Message\+::alarm\+Code, Fault\+Message\+::alarm\+Severity, Fault\+S\+M\+Queue\+::enqueue\+Alarm(), Fault\+Message\+::managed\+Object, Fault\+Message\+::managed\+Object\+Instance, Fault\+Message\+::neid, Fault\+Message\+::neid\+PI, Fault\+Message\+::pid, and Fault\+Message\+::time\+Stamp.
+
+\index{Faults@{Faults}!report\+Event@{report\+Event}}
+\index{report\+Event@{report\+Event}!Faults@{Faults}}
+\subsubsection[{report\+Event(\+Event\+Code\+Type eventcode, Managed\+Object\+Type managed\+Object, unsigned int managed\+Object\+Instance, unsigned int pid)}]{\setlength{\rightskip}{0pt plus 5cm}void Faults\+::report\+Event (
+\begin{DoxyParamCaption}
+\item[{Event\+Code\+Type}]{eventcode, }
+\item[{Managed\+Object\+Type}]{managed\+Object, }
+\item[{unsigned int}]{managed\+Object\+Instance, }
+\item[{unsigned int}]{pid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classFaults_aa1bcc23cb43160cb4b9f573c64f8e66d}
+Method to handle generation of informational event reports. 
+
+References Fault\+Message\+::alarm\+Severity, Fault\+S\+M\+Queue\+::enqueue\+Alarm(), Fault\+Message\+::event\+Code, Fault\+Message\+::managed\+Object, Fault\+Message\+::managed\+Object\+Instance, Fault\+Message\+::pid, and Fault\+Message\+::time\+Stamp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Faults.\+h\item 
+Faults.\+cpp\end{DoxyCompactItemize}

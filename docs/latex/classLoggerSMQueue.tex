@@ -1,0 +1,162 @@
+\section{Logger\+S\+M\+Queue Class Reference}
+\label{classLoggerSMQueue}\index{Logger\+S\+M\+Queue@{Logger\+S\+M\+Queue}}
+
+
+{\ttfamily \#include $<$Logger\+S\+M\+Queue.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef {\bf Unbounded\+S\+M\+Queue}$<$ {\bf Log\+Message} $>$ {\bf L\+O\+G\+G\+E\+R\+S\+M\+Q\+U\+E\+UE}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Logger\+S\+M\+Queue} (const char $\ast$queue\+Name, const char $\ast$coordinating\+Mutex\+Name)
+\item 
+virtual {\bf $\sim$\+Logger\+S\+M\+Queue} ()
+\item 
+int {\bf setup\+Queue} ()
+\item 
+int {\bf enqueue\+Log} ({\bf Log\+Message} \&message)
+\item 
+int {\bf dequeue\+Log} ({\bf Log\+Message} \&message)
+\item 
+void {\bf clear\+Queue} ()
+\item 
+bool {\bf is\+Empty} ()
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Logger\+S\+M\+Queue}{p.}{classLoggerSMQueue} sets up an Unbounded Queue in Shared Memory for the purpose of exchanging Logger\+Message\+Type messages between processes and the Logger\+Processor which controls the output flow of logs to log files. 
+
+This shared memory queue uses the Position Independent Malloc/\+Allocation factory in A\+CE, and it handles queue growth using the automatic OS exception handling facilities to trap S\+I\+G\+S\+E\+GV and perform an A\+C\+E\+::remap. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Member Typedef Documentation}
+\index{Logger\+S\+M\+Queue@{Logger\+S\+M\+Queue}!L\+O\+G\+G\+E\+R\+S\+M\+Q\+U\+E\+UE@{L\+O\+G\+G\+E\+R\+S\+M\+Q\+U\+E\+UE}}
+\index{L\+O\+G\+G\+E\+R\+S\+M\+Q\+U\+E\+UE@{L\+O\+G\+G\+E\+R\+S\+M\+Q\+U\+E\+UE}!Logger\+S\+M\+Queue@{Logger\+S\+M\+Queue}}
+\subsubsection[{L\+O\+G\+G\+E\+R\+S\+M\+Q\+U\+E\+UE}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Unbounded\+S\+M\+Queue}$<${\bf Log\+Message}$>$ {\bf Logger\+S\+M\+Queue\+::\+L\+O\+G\+G\+E\+R\+S\+M\+Q\+U\+E\+UE}}\label{classLoggerSMQueue_ac0c8ddf74f30ae5ce5f1d6ee7d622664}
+Shared Memory Queue type for Log\+Messages 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Logger\+S\+M\+Queue@{Logger\+S\+M\+Queue}!Logger\+S\+M\+Queue@{Logger\+S\+M\+Queue}}
+\index{Logger\+S\+M\+Queue@{Logger\+S\+M\+Queue}!Logger\+S\+M\+Queue@{Logger\+S\+M\+Queue}}
+\subsubsection[{Logger\+S\+M\+Queue(const char $\ast$queue\+Name, const char $\ast$coordinating\+Mutex\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}Logger\+S\+M\+Queue\+::\+Logger\+S\+M\+Queue (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{queue\+Name, }
+\item[{const char $\ast$}]{coordinating\+Mutex\+Name}
+\end{DoxyParamCaption}
+)}\label{classLoggerSMQueue_a8d08c61f9b64a3da0b86700bf8aba526}
+Constructor \index{Logger\+S\+M\+Queue@{Logger\+S\+M\+Queue}!````~Logger\+S\+M\+Queue@{$\sim$\+Logger\+S\+M\+Queue}}
+\index{````~Logger\+S\+M\+Queue@{$\sim$\+Logger\+S\+M\+Queue}!Logger\+S\+M\+Queue@{Logger\+S\+M\+Queue}}
+\subsubsection[{$\sim$\+Logger\+S\+M\+Queue()}]{\setlength{\rightskip}{0pt plus 5cm}Logger\+S\+M\+Queue\+::$\sim$\+Logger\+S\+M\+Queue (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classLoggerSMQueue_a0ea356fde9f86e06fbddb4777680391e}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Logger\+S\+M\+Queue@{Logger\+S\+M\+Queue}!clear\+Queue@{clear\+Queue}}
+\index{clear\+Queue@{clear\+Queue}!Logger\+S\+M\+Queue@{Logger\+S\+M\+Queue}}
+\subsubsection[{clear\+Queue()}]{\setlength{\rightskip}{0pt plus 5cm}void Logger\+S\+M\+Queue\+::clear\+Queue (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classLoggerSMQueue_a12ca163cbafbaf4d11c138d4d081b31f}
+Clears the contents (logs) of the shared memory queue 
+
+References Unbounded\+S\+M\+Queue$<$ T $>$\+::delete\+\_\+nodes().
+
+\index{Logger\+S\+M\+Queue@{Logger\+S\+M\+Queue}!dequeue\+Log@{dequeue\+Log}}
+\index{dequeue\+Log@{dequeue\+Log}!Logger\+S\+M\+Queue@{Logger\+S\+M\+Queue}}
+\subsubsection[{dequeue\+Log(\+Log\+Message \&message)}]{\setlength{\rightskip}{0pt plus 5cm}int Logger\+S\+M\+Queue\+::dequeue\+Log (
+\begin{DoxyParamCaption}
+\item[{{\bf Log\+Message} \&}]{message}
+\end{DoxyParamCaption}
+)}\label{classLoggerSMQueue_a52f6d49a3114caf909dd1fe2aa8f93a4}
+Dequeue a \doxyref{Log\+Message}{p.}{structLogMessage} from the shared memory queue. The calling code is responsible for allocating the \doxyref{Log\+Message}{p.}{structLogMessage} and passing it in as a reference to be populated. \begin{DoxyReturn}{Returns}
+OK on success; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Unbounded\+S\+M\+Queue$<$ T $>$\+::dequeue\+\_\+head(), and Unbounded\+S\+M\+Queue$<$ T $>$\+::is\+\_\+empty().
+
+
+
+Referenced by Log\+Processor\+::catch\+Shutdown\+Signal(), and Log\+Processor\+::process\+Logs().
+
+\index{Logger\+S\+M\+Queue@{Logger\+S\+M\+Queue}!enqueue\+Log@{enqueue\+Log}}
+\index{enqueue\+Log@{enqueue\+Log}!Logger\+S\+M\+Queue@{Logger\+S\+M\+Queue}}
+\subsubsection[{enqueue\+Log(\+Log\+Message \&message)}]{\setlength{\rightskip}{0pt plus 5cm}int Logger\+S\+M\+Queue\+::enqueue\+Log (
+\begin{DoxyParamCaption}
+\item[{{\bf Log\+Message} \&}]{message}
+\end{DoxyParamCaption}
+)}\label{classLoggerSMQueue_ab2539f17ac4b58f91f65349137bd9c13}
+Enqueue a \doxyref{Log\+Message}{p.}{structLogMessage} to the shared memory queue \begin{DoxyReturn}{Returns}
+OK on success; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Unbounded\+S\+M\+Queue$<$ T $>$\+::enqueue\+\_\+tail().
+
+\index{Logger\+S\+M\+Queue@{Logger\+S\+M\+Queue}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!Logger\+S\+M\+Queue@{Logger\+S\+M\+Queue}}
+\subsubsection[{is\+Empty()}]{\setlength{\rightskip}{0pt plus 5cm}bool Logger\+S\+M\+Queue\+::is\+Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classLoggerSMQueue_a7f54c4c4b6f846f12cd1f8f6d1526c39}
+Returns true if the queue is empty 
+
+References Unbounded\+S\+M\+Queue$<$ T $>$\+::is\+\_\+empty().
+
+
+
+Referenced by Log\+Processor\+::catch\+Shutdown\+Signal(), and Log\+Processor\+::process\+Logs().
+
+\index{Logger\+S\+M\+Queue@{Logger\+S\+M\+Queue}!setup\+Queue@{setup\+Queue}}
+\index{setup\+Queue@{setup\+Queue}!Logger\+S\+M\+Queue@{Logger\+S\+M\+Queue}}
+\subsubsection[{setup\+Queue()}]{\setlength{\rightskip}{0pt plus 5cm}int Logger\+S\+M\+Queue\+::setup\+Queue (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classLoggerSMQueue_a3fd01297f9acb1aa11b3a566644745d2}
+Create the (or get a reference to an already created) queue \begin{DoxyReturn}{Returns}
+OK on success; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Shared\+Memory\+Manager\+::get\+Allocator().
+
+
+
+Referenced by Log\+Processor\+::initialize().
+
+\index{Logger\+S\+M\+Queue@{Logger\+S\+M\+Queue}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Logger\+S\+M\+Queue@{Logger\+S\+M\+Queue}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Logger\+S\+M\+Queue\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classLoggerSMQueue_af79c9bafd20b3fdc0bdf874196d8a5ad}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Logger\+S\+M\+Queue.\+h\item 
+Logger\+S\+M\+Queue.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,383 @@
+\section{Message\+Base Class Reference}
+\label{classMessageBase}\index{Message\+Base@{Message\+Base}}
+
+
+{\ttfamily \#include $<$Message\+Base.\+h$>$}
+
+Inheritance diagram for Message\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.517588cm]{classMessageBase}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Message\+Base} (const {\bf Mailbox\+Address} \&source\+Address, unsigned int version\+Number, unsigned int source\+Context\+Id=0, unsigned int destination\+Context\+Id=0)
+\item 
+virtual {\bf $\sim$\+Message\+Base} ()
+\item 
+virtual unsigned short {\bf get\+Message\+Id} () const =0
+\item 
+virtual unsigned char {\bf get\+Destination\+Mailbox\+Id} () const 
+\item 
+virtual int {\bf serialize} ({\bf Message\+Buffer} \&buffer)
+\item 
+virtual unsigned int {\bf get\+Source\+Context\+Id} () const 
+\item 
+virtual unsigned int {\bf get\+Destination\+Context\+Id} () const 
+\item 
+virtual const {\bf Mailbox\+Address} \& {\bf get\+Source\+Address} () const 
+\item 
+virtual void {\bf delete\+Message} ()
+\item 
+virtual string {\bf to\+String} ()=0
+\item 
+void {\bf set\+Priority} (unsigned int priority\+Level=0)
+\item 
+void {\bf set\+Version} (unsigned int version\+Number)
+\item 
+unsigned int {\bf get\+Priority} ()
+\item 
+unsigned int {\bf get\+Version} ()
+\item 
+bool {\bf is\+Poolable} ()
+\item 
+bool {\bf is\+Reusable} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static unsigned short {\bf get\+Static\+Message\+Id} ()
+\item 
+static {\bf Message\+Base} $\ast$ {\bf deserialize} ({\bf Message\+Buffer} $\ast$buffer)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Mailbox\+Address} {\bf source\+Address\+\_\+}
+\item 
+unsigned int {\bf source\+Context\+Id\+\_\+}
+\item 
+unsigned int {\bf destination\+Context\+Id\+\_\+}
+\item 
+unsigned int {\bf version\+Number\+\_\+}
+\item 
+bool {\bf is\+Reusable\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Message\+Base}{p.}{classMessageBase} is the base class for all messages. 
+
+This is an abstract class and cannot be instantiated. All messages in the system will be derived ultimately from this base class. 
+
+The following 4 types of message subclasses are possible in the Msg\+Mgr\+:
+\begin{DoxyItemize}
+\item Non-\/reusable / Not \doxyref{O\+PM}{p.}{classOPM} Pooled Example\+: Distributed Message that will only be used once at initialization
+\item Non-\/reusable / \doxyref{O\+PM}{p.}{classOPM} Pooled Example\+: Messages used for different purposes within Callp
+\item Reusable / Not \doxyref{O\+PM}{p.}{classOPM} Pooled Example\+: Periodically recurring \doxyref{Timer\+Message}{p.}{classTimerMessage}, but only one is needed for the application\textquotesingle{}s lifetime.
+\item Reusable / \doxyref{O\+PM}{p.}{classOPM} Pooled Example\+: Many Timer\+Messages are needed by the application. Each Timer will be periodically recurring for a finite number of times before being released back into the \doxyref{O\+PM}{p.}{classOPM}. 
+\end{DoxyItemize}
+
+Message subclasses do not automatically inherit from \doxyref{O\+P\+M\+Base}{p.}{classOPMBase}. If a message subclass is required to be \doxyref{O\+PM}{p.}{classOPM} poolable, then it will need to do multiple inheritance from both \doxyref{Message\+Base}{p.}{classMessageBase} (or \doxyref{Reusable\+Message\+Base}{p.}{classReusableMessageBase}) and \doxyref{O\+P\+M\+Base}{p.}{classOPMBase}. This is A\+L\+SO true for timers which inherit from the \doxyref{Timer\+Message}{p.}{classTimerMessage} base class. Note that \doxyref{Timer\+Message}{p.}{classTimerMessage} will behave like either a \doxyref{Message\+Base}{p.}{classMessageBase} or \doxyref{Reusable\+Message\+Base}{p.}{classReusableMessageBase} depending on whether a non-\/default \textquotesingle{}Restart\+Interval\textquotesingle{} parameter is given to make the Timer periodically recurring. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Message\+Base@{Message\+Base}!Message\+Base@{Message\+Base}}
+\index{Message\+Base@{Message\+Base}!Message\+Base@{Message\+Base}}
+\subsubsection[{Message\+Base(const Mailbox\+Address \&source\+Address, unsigned int version\+Number, unsigned int source\+Context\+Id=0, unsigned int destination\+Context\+Id=0)}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Base\+::\+Message\+Base (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{source\+Address, }
+\item[{unsigned int}]{version\+Number, }
+\item[{unsigned int}]{source\+Context\+Id = {\ttfamily 0}, }
+\item[{unsigned int}]{destination\+Context\+Id = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classMessageBase_aa5e1a60272fa913186d5755ec137e714}
+Constructor 
+
+References Message\+Base().
+
+
+
+Referenced by Message\+Base().
+
+\index{Message\+Base@{Message\+Base}!````~Message\+Base@{$\sim$\+Message\+Base}}
+\index{````~Message\+Base@{$\sim$\+Message\+Base}!Message\+Base@{Message\+Base}}
+\subsubsection[{$\sim$\+Message\+Base()}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Base\+::$\sim$\+Message\+Base (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMessageBase_a41bb54772efa4495bbeec3dc452acc3e}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Message\+Base@{Message\+Base}!delete\+Message@{delete\+Message}}
+\index{delete\+Message@{delete\+Message}!Message\+Base@{Message\+Base}}
+\subsubsection[{delete\+Message()}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Base\+::delete\+Message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMessageBase_a21050eb618b7a80b2d6f420f7f74b3f1}
+Delete the message and perform cleanup operations
+
+This method is called automatically by the Mailbox Processor. Here we use the \doxyref{Object\+Base}{p.}{classObjectBase} class in \doxyref{O\+PM}{p.}{classOPM} to determine if the object is managed by the \doxyref{O\+PM}{p.}{classOPM}. If so, then we check the object in; otherwise, we just delete it. 
+
+Here, a special case exists for the single recurring \doxyref{Timer\+Message}{p.}{classTimerMessage}\+: Its not pooled/owned by \doxyref{O\+PM}{p.}{classOPM}, but it is poolable (inherited from \doxyref{O\+P\+M\+Base}{p.}{classOPMBase}, since the \doxyref{Timer\+Message}{p.}{classTimerMessage} base class is). Since its set to periodically restart, we don\textquotesingle{}t want to delete it. This also means that non-\/recurring Timer\+Messages W\+I\+LL N\+OT BE D\+E\+L\+E\+T\+ED A\+L\+SO, so its upto the application developer to keep a reference to them and delete them when they are done with them. 
+
+References O\+P\+M\+::is\+Created\+By\+O\+P\+M(), is\+Poolable(), and is\+Reusable\+\_\+.
+
+
+
+Referenced by Distributed\+Mailbox\+Proxy\+::post(), Local\+S\+M\+Mailbox\+Proxy\+::post(), Group\+Mailbox\+Proxy\+::post(), Mailbox\+Processor\+::process\+Mailbox(), and Local\+Mailbox\+::$\sim$\+Local\+Mailbox().
+
+\index{Message\+Base@{Message\+Base}!deserialize@{deserialize}}
+\index{deserialize@{deserialize}!Message\+Base@{Message\+Base}}
+\subsubsection[{deserialize(\+Message\+Buffer $\ast$buffer)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Message\+Base} $\ast$ Message\+Base\+::deserialize (
+\begin{DoxyParamCaption}
+\item[{{\bf Message\+Buffer} $\ast$}]{buffer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMessageBase_a0b18ea7ca8402f2bc1bfd89a97221ba0}
+Default static deserialization (bootstrap) implementation.
+
+This method only needs to be implemented for distributed messages. Since this method needs to be static in order to register it with the \doxyref{Message\+Factory}{p.}{classMessageFactory}, it does not make sense for it to be virtual. This method is provided here for developer clarity only. \begin{DoxyReturn}{Returns}
+Either a \textquotesingle{}new\textquotesingle{} created Messate object with the contents of the buffer, or an pooled object \textquotesingle{}reserved\textquotesingle{} from its \doxyref{O\+PM}{p.}{classOPM} pool and initialized with the contents of the buffer. 
+\end{DoxyReturn}
+\index{Message\+Base@{Message\+Base}!get\+Destination\+Context\+Id@{get\+Destination\+Context\+Id}}
+\index{get\+Destination\+Context\+Id@{get\+Destination\+Context\+Id}!Message\+Base@{Message\+Base}}
+\subsubsection[{get\+Destination\+Context\+Id() const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Message\+Base\+::get\+Destination\+Context\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMessageBase_a6f03455e29530d2b1b11114a326d2512}
+Return the application specific context info for identifying the destination 
+
+References destination\+Context\+Id\+\_\+.
+
+\index{Message\+Base@{Message\+Base}!get\+Destination\+Mailbox\+Id@{get\+Destination\+Mailbox\+Id}}
+\index{get\+Destination\+Mailbox\+Id@{get\+Destination\+Mailbox\+Id}!Message\+Base@{Message\+Base}}
+\subsubsection[{get\+Destination\+Mailbox\+Id() const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned char Message\+Base\+::get\+Destination\+Mailbox\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMessageBase_a9d54ba38aee2e14b3dd261f7998274fb}
+Returns the destination mailbox for the message 
+
+References get\+Message\+Id().
+
+\index{Message\+Base@{Message\+Base}!get\+Message\+Id@{get\+Message\+Id}}
+\index{get\+Message\+Id@{get\+Message\+Id}!Message\+Base@{Message\+Base}}
+\subsubsection[{get\+Message\+Id() const =0}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned short Message\+Base\+::get\+Message\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classMessageBase_a0910c23e94ea98b7a4e11631c9068311}
+Returns the unique message identifier for any subclass of \doxyref{Message\+Base}{p.}{classMessageBase}. Message\+Id\textquotesingle{}s must be registered in \doxyref{common/\+Message\+Ids.\+h}{p.}{MessageIds_8h_source} 
+
+Implemented in {\bf Timer\+Message} \doxyref{}{p.}{classTimerMessage_a9379475034122f7ad2405e13176b5075}, {\bf Discovery\+Local\+Message} \doxyref{}{p.}{classDiscoveryLocalMessage_ab92d12523115997153625ededd0bba75}, {\bf Alarm\+Event\+Message} \doxyref{}{p.}{classAlarmEventMessage_a9077b4f17fc3b57df685b1d3f34fdd91}, {\bf Discovery\+Message} \doxyref{}{p.}{classDiscoveryMessage_ad208d214bd5b00595bd3869425d9bdc7}, and {\bf Resource\+Monitor\+Timer\+Message} \doxyref{}{p.}{classResourceMonitorTimerMessage_ac1ae5674792f21e7397cf9e10eb3c7dd}.
+
+
+
+Referenced by Distributed\+Mailbox\+::create\+Mailbox(), Group\+Mailbox\+::create\+Mailbox(), get\+Destination\+Mailbox\+Id(), Local\+S\+M\+Mailbox\+::get\+Mailbox\+Address(), Distributed\+Mailbox\+Proxy\+::post(), Local\+S\+M\+Mailbox\+Proxy\+::post(), Local\+Mailbox\+::post(), Group\+Mailbox\+Proxy\+::post(), Mailbox\+Processor\+::process\+Mailbox(), and serialize().
+
+\index{Message\+Base@{Message\+Base}!get\+Priority@{get\+Priority}}
+\index{get\+Priority@{get\+Priority}!Message\+Base@{Message\+Base}}
+\subsubsection[{get\+Priority()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Message\+Base\+::get\+Priority (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageBase_a7017deb225081238e49ce118b3bd77a8}
+Return the priority Level for this message. Default priority is 0. Priorities greater than 0 have greater priority. 
+
+Referenced by Distributed\+Mailbox\+Proxy\+::post(), Local\+S\+M\+Mailbox\+Proxy\+::post(), Local\+Mailbox\+::post(), and Group\+Mailbox\+Proxy\+::post().
+
+\index{Message\+Base@{Message\+Base}!get\+Source\+Address@{get\+Source\+Address}}
+\index{get\+Source\+Address@{get\+Source\+Address}!Message\+Base@{Message\+Base}}
+\subsubsection[{get\+Source\+Address() const }]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Mailbox\+Address} \& Message\+Base\+::get\+Source\+Address (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMessageBase_a948ea4961041fa6031b6a071babb8ba3}
+Return the source mailbox address from which the message was sent 
+
+References source\+Address\+\_\+.
+
+
+
+Referenced by Distributed\+Mailbox\+::create\+Mailbox(), Group\+Mailbox\+::create\+Mailbox(), Local\+S\+M\+Mailbox\+::get\+Mailbox\+Address(), Distributed\+Mailbox\+Proxy\+::post(), Local\+S\+M\+Mailbox\+Proxy\+::post(), Local\+Mailbox\+::post(), Group\+Mailbox\+Proxy\+::post(), and Discovery\+Manager\+::process\+Mailbox().
+
+\index{Message\+Base@{Message\+Base}!get\+Source\+Context\+Id@{get\+Source\+Context\+Id}}
+\index{get\+Source\+Context\+Id@{get\+Source\+Context\+Id}!Message\+Base@{Message\+Base}}
+\subsubsection[{get\+Source\+Context\+Id() const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Message\+Base\+::get\+Source\+Context\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMessageBase_a9b42ee4e638a04247cfa7fa93ce45168}
+Return the application specific context info for identifying the source 
+
+References source\+Context\+Id\+\_\+.
+
+\index{Message\+Base@{Message\+Base}!get\+Static\+Message\+Id@{get\+Static\+Message\+Id}}
+\index{get\+Static\+Message\+Id@{get\+Static\+Message\+Id}!Message\+Base@{Message\+Base}}
+\subsubsection[{get\+Static\+Message\+Id()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short Message\+Base\+::get\+Static\+Message\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMessageBase_a0a08498aae68903a9c0f8d8b4295573a}
+Returns static message identifier for any subclass of \doxyref{Message\+Base}{p.}{classMessageBase}. \index{Message\+Base@{Message\+Base}!get\+Version@{get\+Version}}
+\index{get\+Version@{get\+Version}!Message\+Base@{Message\+Base}}
+\subsubsection[{get\+Version()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Message\+Base\+::get\+Version (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageBase_aae0f461caadb5c040c3490af074d81df}
+Get the version number of this message. 
+
+References version\+Number\+\_\+.
+
+\index{Message\+Base@{Message\+Base}!is\+Poolable@{is\+Poolable}}
+\index{is\+Poolable@{is\+Poolable}!Message\+Base@{Message\+Base}}
+\subsubsection[{is\+Poolable()}]{\setlength{\rightskip}{0pt plus 5cm}bool Message\+Base\+::is\+Poolable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageBase_aea0d0f253cf746f0462cbf377acca2ad}
+Return whether or not this object is managed by an \doxyref{O\+PM}{p.}{classOPM} pool 
+
+References Object\+Base\+::is\+Poolable().
+
+
+
+Referenced by Mailbox\+Owner\+Handle\+::cancel\+Timer(), delete\+Message(), and Local\+Mailbox\+::$\sim$\+Local\+Mailbox().
+
+\index{Message\+Base@{Message\+Base}!is\+Reusable@{is\+Reusable}}
+\index{is\+Reusable@{is\+Reusable}!Message\+Base@{Message\+Base}}
+\subsubsection[{is\+Reusable()}]{\setlength{\rightskip}{0pt plus 5cm}bool Message\+Base\+::is\+Reusable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageBase_a985c769fcf44a24cf20ce66fac50ca7d}
+Return whether or not this object is Reusable 
+
+References is\+Reusable\+\_\+.
+
+
+
+Referenced by Mailbox\+Owner\+Handle\+::cancel\+Timer().
+
+\index{Message\+Base@{Message\+Base}!serialize@{serialize}}
+\index{serialize@{serialize}!Message\+Base@{Message\+Base}}
+\subsubsection[{serialize(\+Message\+Buffer \&buffer)}]{\setlength{\rightskip}{0pt plus 5cm}int Message\+Base\+::serialize (
+\begin{DoxyParamCaption}
+\item[{{\bf Message\+Buffer} \&}]{buffer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMessageBase_a1120deb2887e4a72d7dc68b505e5e10a}
+Default serialization implementation.
+
+This method only needs to be implemented for distributed messages. \begin{DoxyReturn}{Returns}
+OK or E\+R\+R\+OR if not successful 
+\end{DoxyReturn}
+
+
+Reimplemented in {\bf Alarm\+Event\+Message} \doxyref{}{p.}{classAlarmEventMessage_ac8f81237779034f177b908776029919c}, and {\bf Discovery\+Message} \doxyref{}{p.}{classDiscoveryMessage_af7192abcad9f42eec25e303435740382}.
+
+
+
+References get\+Message\+Id().
+
+
+
+Referenced by Distributed\+Mailbox\+Proxy\+::post(), Local\+S\+M\+Mailbox\+Proxy\+::post(), and Group\+Mailbox\+Proxy\+::post().
+
+\index{Message\+Base@{Message\+Base}!set\+Priority@{set\+Priority}}
+\index{set\+Priority@{set\+Priority}!Message\+Base@{Message\+Base}}
+\subsubsection[{set\+Priority(unsigned int priority\+Level=0)}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Base\+::set\+Priority (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{priority\+Level = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classMessageBase_a5606843e232374341b890874438b8a2c}
+Flag this message as high priority. This flag will cause the message to be re-\/ordered in the Mailbox message queue (so will N\+OT follow F\+I\+FO rules). Default priority is 0. Priorities greater than 0 have greater priority. 
+
+Referenced by Distributed\+Mailbox\+::create\+Mailbox(), Group\+Mailbox\+::create\+Mailbox(), and Local\+S\+M\+Mailbox\+::get\+Mailbox\+Address().
+
+\index{Message\+Base@{Message\+Base}!set\+Version@{set\+Version}}
+\index{set\+Version@{set\+Version}!Message\+Base@{Message\+Base}}
+\subsubsection[{set\+Version(unsigned int version\+Number)}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Base\+::set\+Version (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{version\+Number}
+\end{DoxyParamCaption}
+)}\label{classMessageBase_af36b7a925d203364d3017e7e4196b8a6}
+Set the version for this message. This method is used by the Msg\+Mgr framework to re-\/apply the version number following deserialization 
+
+References version\+Number\+\_\+.
+
+\index{Message\+Base@{Message\+Base}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Message\+Base@{Message\+Base}}
+\subsubsection[{to\+String()=0}]{\setlength{\rightskip}{0pt plus 5cm}virtual string Message\+Base\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classMessageBase_a7946fdcef86bfd67ad1df2ede8ed671d}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Timer\+Message} \doxyref{}{p.}{classTimerMessage_ac12b035bd69e8e9d41fddbccdf7f81a2}, {\bf Alarm\+Event\+Message} \doxyref{}{p.}{classAlarmEventMessage_ad6d9f4689524920dac507f80424a5689}, {\bf Discovery\+Message} \doxyref{}{p.}{classDiscoveryMessage_aee9ec66013b69b35b672679e91d4118c}, {\bf Discovery\+Local\+Message} \doxyref{}{p.}{classDiscoveryLocalMessage_ab31c4b11d9381989006819ab0463f27b}, and {\bf Resource\+Monitor\+Timer\+Message} \doxyref{}{p.}{classResourceMonitorTimerMessage_a697653c1cbd9759cd7db6b0c683ce20e}.
+
+
+
+Referenced by Distributed\+Mailbox\+::create\+Mailbox(), Group\+Mailbox\+::create\+Mailbox(), Local\+S\+M\+Mailbox\+::get\+Mailbox\+Address(), Distributed\+Mailbox\+Proxy\+::post(), Local\+S\+M\+Mailbox\+Proxy\+::post(), Local\+Mailbox\+::post(), and Group\+Mailbox\+Proxy\+::post().
+
+
+
+\subsection{Member Data Documentation}
+\index{Message\+Base@{Message\+Base}!destination\+Context\+Id\+\_\+@{destination\+Context\+Id\+\_\+}}
+\index{destination\+Context\+Id\+\_\+@{destination\+Context\+Id\+\_\+}!Message\+Base@{Message\+Base}}
+\subsubsection[{destination\+Context\+Id\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Message\+Base\+::destination\+Context\+Id\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classMessageBase_ab17a58a727f5573dd3a05679a7c01d0a}
+Application specific context for identifying the destination. Usage of this value is upto the application. 
+
+Referenced by get\+Destination\+Context\+Id(), and Alarm\+Event\+Message\+::serialize().
+
+\index{Message\+Base@{Message\+Base}!is\+Reusable\+\_\+@{is\+Reusable\+\_\+}}
+\index{is\+Reusable\+\_\+@{is\+Reusable\+\_\+}!Message\+Base@{Message\+Base}}
+\subsubsection[{is\+Reusable\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}bool Message\+Base\+::is\+Reusable\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classMessageBase_a538eedb87ea9cdf9c4428b258a44a796}
+Whether or not this Message is re-\/usable. If true, then the Msg\+Mgr framework will not consume it. 
+
+Referenced by delete\+Message(), is\+Reusable(), Reusable\+Message\+Base\+::\+Reusable\+Message\+Base(), Reusable\+Message\+Base\+::set\+No\+Longer\+Reusable(), and Timer\+Message\+::\+Timer\+Message().
+
+\index{Message\+Base@{Message\+Base}!source\+Address\+\_\+@{source\+Address\+\_\+}}
+\index{source\+Address\+\_\+@{source\+Address\+\_\+}!Message\+Base@{Message\+Base}}
+\subsubsection[{source\+Address\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mailbox\+Address} Message\+Base\+::source\+Address\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classMessageBase_a30858f8e6108009b8a61dd8be2009dba}
+Source mailbox identifier of the application that sent the message 
+
+Referenced by get\+Source\+Address(), Discovery\+Message\+::serialize(), Alarm\+Event\+Message\+::serialize(), Discovery\+Local\+Message\+::to\+String(), Discovery\+Message\+::to\+String(), and Alarm\+Event\+Message\+::to\+String().
+
+\index{Message\+Base@{Message\+Base}!source\+Context\+Id\+\_\+@{source\+Context\+Id\+\_\+}}
+\index{source\+Context\+Id\+\_\+@{source\+Context\+Id\+\_\+}!Message\+Base@{Message\+Base}}
+\subsubsection[{source\+Context\+Id\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Message\+Base\+::source\+Context\+Id\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classMessageBase_a34939f4636077ff1f0b1aa8021b1c72d}
+Application specific context for identifying the source. Usage of this value is upto the application. 
+
+Referenced by get\+Source\+Context\+Id(), and Alarm\+Event\+Message\+::serialize().
+
+\index{Message\+Base@{Message\+Base}!version\+Number\+\_\+@{version\+Number\+\_\+}}
+\index{version\+Number\+\_\+@{version\+Number\+\_\+}!Message\+Base@{Message\+Base}}
+\subsubsection[{version\+Number\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Message\+Base\+::version\+Number\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classMessageBase_a7422ad96e1fc672efb901787af0d40fb}
+Version Number of the message 
+
+Referenced by get\+Version(), Alarm\+Event\+Message\+::serialize(), and set\+Version().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Message\+Base.\+h\item 
+Message\+Base.\+cpp\end{DoxyCompactItemize}

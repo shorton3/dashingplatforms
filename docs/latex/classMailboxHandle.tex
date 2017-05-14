@@ -1,0 +1,185 @@
+\section{Mailbox\+Handle Class Reference}
+\label{classMailboxHandle}\index{Mailbox\+Handle@{Mailbox\+Handle}}
+
+
+{\ttfamily \#include $<$Mailbox\+Handle.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Mailbox\+Handle} ({\bf Mailbox\+Base} $\ast$mailbox\+Ptr)
+\item 
+virtual {\bf $\sim$\+Mailbox\+Handle} ()
+\item 
+virtual int {\bf post} ({\bf Message\+Base} $\ast$message\+Ptr, const A\+C\+E\+\_\+\+Time\+\_\+\+Value $\ast$timeout=\&A\+C\+E\+\_\+\+Time\+\_\+\+Value\+::zero)
+\item 
+virtual int {\bf get\+Debug\+Value} ()
+\item 
+virtual void {\bf set\+Debug\+Value} (int debug\+Value)
+\item 
+virtual bool {\bf is\+Proxy} ()
+\item 
+virtual {\bf Mailbox\+Address} \& {\bf get\+Mailbox\+Address} ()
+\item 
+virtual unsigned int {\bf get\+Sent\+Count} ()
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Mailbox\+Base} $\ast$ {\bf mailbox\+Ptr\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Mailbox\+Handle}{p.}{classMailboxHandle} is a developer handle to a local or remote type mailbox. 
+
+The mailbox handles prevent application developers from getting direct references to the mailboxes themselves. This is the programmatic interface that developers use to access the mailbox functionality. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Mailbox\+Handle@{Mailbox\+Handle}!Mailbox\+Handle@{Mailbox\+Handle}}
+\index{Mailbox\+Handle@{Mailbox\+Handle}!Mailbox\+Handle@{Mailbox\+Handle}}
+\subsubsection[{Mailbox\+Handle(\+Mailbox\+Base $\ast$mailbox\+Ptr)}]{\setlength{\rightskip}{0pt plus 5cm}Mailbox\+Handle\+::\+Mailbox\+Handle (
+\begin{DoxyParamCaption}
+\item[{{\bf Mailbox\+Base} $\ast$}]{mailbox\+Ptr}
+\end{DoxyParamCaption}
+)}\label{classMailboxHandle_a91686caa0b5fb43b3dc991b6d08328dc}
+Constructor. Stores a pointer to the mailbox 
+
+References Mailbox\+Base\+::acquire(), Mailbox\+Handle(), and mailbox\+Ptr\+\_\+.
+
+
+
+Referenced by Mailbox\+Handle().
+
+\index{Mailbox\+Handle@{Mailbox\+Handle}!````~Mailbox\+Handle@{$\sim$\+Mailbox\+Handle}}
+\index{````~Mailbox\+Handle@{$\sim$\+Mailbox\+Handle}!Mailbox\+Handle@{Mailbox\+Handle}}
+\subsubsection[{$\sim$\+Mailbox\+Handle()}]{\setlength{\rightskip}{0pt plus 5cm}Mailbox\+Handle\+::$\sim$\+Mailbox\+Handle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxHandle_a56bc4fd6b7639b9e177062d398290af7}
+Virtual Destructor 
+
+References mailbox\+Ptr\+\_\+, and Mailbox\+Base\+::release().
+
+
+
+\subsection{Member Function Documentation}
+\index{Mailbox\+Handle@{Mailbox\+Handle}!get\+Debug\+Value@{get\+Debug\+Value}}
+\index{get\+Debug\+Value@{get\+Debug\+Value}!Mailbox\+Handle@{Mailbox\+Handle}}
+\subsubsection[{get\+Debug\+Value()}]{\setlength{\rightskip}{0pt plus 5cm}int Mailbox\+Handle\+::get\+Debug\+Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxHandle_a60e0949eb7b862ffe7ffa897346b1724}
+Returns the Debug flag value for this mailbox. 
+
+References Mailbox\+Base\+::get\+Debug\+Value(), and mailbox\+Ptr\+\_\+.
+
+\index{Mailbox\+Handle@{Mailbox\+Handle}!get\+Mailbox\+Address@{get\+Mailbox\+Address}}
+\index{get\+Mailbox\+Address@{get\+Mailbox\+Address}!Mailbox\+Handle@{Mailbox\+Handle}}
+\subsubsection[{get\+Mailbox\+Address()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mailbox\+Address} \& Mailbox\+Handle\+::get\+Mailbox\+Address (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxHandle_af26dcd0fb4e59d1c3c38153a3f53305a}
+Return the mailbox address 
+
+References Mailbox\+Base\+::get\+Mailbox\+Address(), and mailbox\+Ptr\+\_\+.
+
+
+
+Referenced by Mailbox\+Lookup\+Service\+::find().
+
+\index{Mailbox\+Handle@{Mailbox\+Handle}!get\+Sent\+Count@{get\+Sent\+Count}}
+\index{get\+Sent\+Count@{get\+Sent\+Count}!Mailbox\+Handle@{Mailbox\+Handle}}
+\subsubsection[{get\+Sent\+Count()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Mailbox\+Handle\+::get\+Sent\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxHandle_aab10419e109438cab0d2d8eba5d44bf4}
+Return the sent message counter value 
+
+References Mailbox\+Base\+::get\+Sent\+Count(), and mailbox\+Ptr\+\_\+.
+
+\index{Mailbox\+Handle@{Mailbox\+Handle}!is\+Proxy@{is\+Proxy}}
+\index{is\+Proxy@{is\+Proxy}!Mailbox\+Handle@{Mailbox\+Handle}}
+\subsubsection[{is\+Proxy()}]{\setlength{\rightskip}{0pt plus 5cm}bool Mailbox\+Handle\+::is\+Proxy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxHandle_a8a834449925d760ee2607b403c5bb05c}
+Return whether this mailbox is a remote proxy or not 
+
+References Mailbox\+Base\+::is\+Proxy(), and mailbox\+Ptr\+\_\+.
+
+
+
+Referenced by Mailbox\+Lookup\+Service\+::find().
+
+\index{Mailbox\+Handle@{Mailbox\+Handle}!post@{post}}
+\index{post@{post}!Mailbox\+Handle@{Mailbox\+Handle}}
+\subsubsection[{post(\+Message\+Base $\ast$message\+Ptr, const A\+C\+E\+\_\+\+Time\+\_\+\+Value $\ast$timeout=\&\+A\+C\+E\+\_\+\+Time\+\_\+\+Value\+::zero)}]{\setlength{\rightskip}{0pt plus 5cm}int Mailbox\+Handle\+::post (
+\begin{DoxyParamCaption}
+\item[{{\bf Message\+Base} $\ast$}]{message\+Ptr, }
+\item[{const A\+C\+E\+\_\+\+Time\+\_\+\+Value $\ast$}]{timeout = {\ttfamily \&ACE\+\_\+Time\+\_\+Value\+:\+:zero}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxHandle_aacd8b6fe35fefb3877ce2feefe741f8c}
+Post a message to this mailbox \begin{DoxyReturn}{Returns}
+E\+R\+R\+OR for an error; otherwise OK 
+\end{DoxyReturn}
+
+
+References mailbox\+Ptr\+\_\+, and Mailbox\+Base\+::post().
+
+
+
+Referenced by Fault\+Manager\+::process\+Mailbox().
+
+\index{Mailbox\+Handle@{Mailbox\+Handle}!set\+Debug\+Value@{set\+Debug\+Value}}
+\index{set\+Debug\+Value@{set\+Debug\+Value}!Mailbox\+Handle@{Mailbox\+Handle}}
+\subsubsection[{set\+Debug\+Value(int debug\+Value)}]{\setlength{\rightskip}{0pt plus 5cm}void Mailbox\+Handle\+::set\+Debug\+Value (
+\begin{DoxyParamCaption}
+\item[{int}]{debug\+Value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxHandle_a90384cf134ed84fcb27c97657048d9e1}
+Sets the Debug flag value for this mailbox. 
+
+References mailbox\+Ptr\+\_\+, and Mailbox\+Base\+::set\+Debug\+Value().
+
+\index{Mailbox\+Handle@{Mailbox\+Handle}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Mailbox\+Handle@{Mailbox\+Handle}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Mailbox\+Handle\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMailboxHandle_a161932e650a3c0691f0c16860ebdf545}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{Mailbox\+Handle@{Mailbox\+Handle}!mailbox\+Ptr\+\_\+@{mailbox\+Ptr\+\_\+}}
+\index{mailbox\+Ptr\+\_\+@{mailbox\+Ptr\+\_\+}!Mailbox\+Handle@{Mailbox\+Handle}}
+\subsubsection[{mailbox\+Ptr\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mailbox\+Base}$\ast$ Mailbox\+Handle\+::mailbox\+Ptr\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classMailboxHandle_a790505427afd010de119005dd1e1fe09}
+Pointer to the encapsulated mailbox 
+
+Referenced by get\+Debug\+Value(), get\+Mailbox\+Address(), get\+Sent\+Count(), is\+Proxy(), Mailbox\+Handle(), post(), set\+Debug\+Value(), and $\sim$\+Mailbox\+Handle().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Mailbox\+Handle.\+h\item 
+Mailbox\+Handle.\+cpp\end{DoxyCompactItemize}

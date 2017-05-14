@@ -1,0 +1,20 @@
+Source = \
+	Callback.cpp \
+	CbSuite.cpp \
+
+IncludeDirs = \
+        /usr/include \
+        /usr/include/c++/3.2.3/ \
+        /opt/ACE_wrappers \
+
+LibraryDirs = \
+        /usr/lib \
+        /opt/ACE_wrappers/ace \
+
+Libraries = \
+        ACE \
+	platformlogger \
+
+Main  = CbSuite
+
+include $(DEV_ROOT)/make/Makefile

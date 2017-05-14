@@ -1,0 +1,583 @@
+\section{Db\+Connection\+Handle Class Reference}
+\label{classDbConnectionHandle}\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+
+
+{\ttfamily \#include $<$Db\+Connection\+Handle.\+h$>$}
+
+Inheritance diagram for Db\+Connection\+Handle\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classDbConnectionHandle}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Db\+Connection\+Handle} ()
+\item 
+virtual {\bf $\sim$\+Db\+Connection\+Handle} ()
+\item 
+void {\bf clean} ()
+\item 
+void {\bf add\+User\+Defined\+Identifier} (string \&identifier)
+\item 
+string \& {\bf get\+User\+Defined\+Identifier} ()
+\item 
+void {\bf clear\+User\+Defined\+Identifier} ()
+\item 
+int {\bf check\+Connection\+Health} ()
+\item 
+int {\bf execute\+Command} (string \&command)
+\item 
+int {\bf execute\+Command} (const char $\ast$command)
+\item 
+int {\bf execute\+Command\+With\+Params} (const char $\ast$command, int number\+Params, const char $\ast$const $\ast$param\+Values, const int $\ast$param\+Lengths, const int $\ast$is\+Binary)
+\item 
+int {\bf begin\+Transaction} ()
+\item 
+int {\bf rollback\+Transaction} ()
+\item 
+int {\bf commit\+Transaction} ()
+\item 
+int {\bf initialize\+Prepared\+Command} (const char $\ast$statement\+Name, const char $\ast$sql\+Command, int number\+Params, const Data\+Manager\+Field\+Type $\ast$param\+Type\+Array)
+\item 
+int {\bf execute\+Prepared\+Command} (const char $\ast$statement\+Name, int number\+Params, const char $\ast$const $\ast$param\+Values, const int $\ast$param\+Lengths, const int $\ast$is\+Binary)
+\item 
+int {\bf close\+Command\+Result} ()
+\item 
+int {\bf get\+Column\+Count} ()
+\item 
+string {\bf get\+Column\+Name} (int column\+Index)
+\item 
+int {\bf get\+Column\+Index} (const char $\ast$column\+Name)
+\item 
+int {\bf get\+Row\+Count} ()
+\item 
+string {\bf get\+String\+Value\+At} (int row\+Index, int column\+Index)
+\item 
+short {\bf get\+Short\+Value\+At} (int row\+Index, int column\+Index)
+\item 
+int {\bf get\+Int\+Value\+At} (int row\+Index, int column\+Index)
+\item 
+bool {\bf get\+Boolean\+Value\+At} (int row\+Index, int column\+Index)
+\item 
+string {\bf get\+Timestamp\+Value\+At} (int row\+Index, int column\+Index)
+\item 
+bool {\bf is\+Value\+N\+U\+LL} (int row\+Index, int column\+Index)
+\item 
+int {\bf get\+Value\+Length} (int row\+Index, int column\+Index)
+\item 
+int {\bf shutdown} ()
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf O\+P\+M\+Base} $\ast$ {\bf initialize} (int initializer)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bf Data\+Manager}
+\item 
+class {\bf Connection\+Set}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Db\+Connection\+Handle}{p.}{classDbConnectionHandle} class provides a wrapper around the \textquotesingle{}real\textquotesingle{} \doxyref{Db\+Connection}{p.}{classDbConnection} object. 
+
+The strategy here is to prevent the application designer user from gaining access to the \doxyref{Db\+Connection}{p.}{classDbConnection} object and doing something they shouldn\textquotesingle{}t. 
+
+Additionally, \doxyref{Db\+Connection\+Handle}{p.}{classDbConnectionHandle} stores the Thread Id of the thread that reserved the connection. For each operation, it checks to see if the thread that is performing the operation is the same thread that reserved the connection. If it is determined to be different, this can indicate that the application is using a stale pointer to a connection that has already been release back into the pool. The database driver A\+PI is \textquotesingle{}mostly\textquotesingle{} thread safe. However, the architecture of the driver is such that it is intended for use by a single thread--this means that once a query has been performed on the connection and the result set has been returned to the client side via the connection, another query should not be issued until the result set has been completely analyzed (all processing on it complete), and the result set has been closed. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{Db\+Connection\+Handle()}]{\setlength{\rightskip}{0pt plus 5cm}Db\+Connection\+Handle\+::\+Db\+Connection\+Handle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_a6cf5354f0ff51fda04d0dc7de3c3e2b0}
+Constructor 
+
+Referenced by initialize().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!````~Db\+Connection\+Handle@{$\sim$\+Db\+Connection\+Handle}}
+\index{````~Db\+Connection\+Handle@{$\sim$\+Db\+Connection\+Handle}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{$\sim$\+Db\+Connection\+Handle()}]{\setlength{\rightskip}{0pt plus 5cm}Db\+Connection\+Handle\+::$\sim$\+Db\+Connection\+Handle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classDbConnectionHandle_a390e7a702e8313bfc01d330fed193b9d}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!add\+User\+Defined\+Identifier@{add\+User\+Defined\+Identifier}}
+\index{add\+User\+Defined\+Identifier@{add\+User\+Defined\+Identifier}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{add\+User\+Defined\+Identifier(string \&identifier)}]{\setlength{\rightskip}{0pt plus 5cm}void Db\+Connection\+Handle\+::add\+User\+Defined\+Identifier (
+\begin{DoxyParamCaption}
+\item[{string \&}]{identifier}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_ad8d6ae3532c654e29a9770f40b6dde65}
+Allows the Application Developer to \textquotesingle{}tag\textquotesingle{} a particular connection (through this connection handle) with some user-\/defined identification data. This data tag will be preserved even if the connection it checked back into the pool (released) and then reserved again. Thus, the developer can identify which connection was used for which previous tasks. 
+
+References Db\+Connection\+::add\+User\+Defined\+Identifier().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!begin\+Transaction@{begin\+Transaction}}
+\index{begin\+Transaction@{begin\+Transaction}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{begin\+Transaction()}]{\setlength{\rightskip}{0pt plus 5cm}int Db\+Connection\+Handle\+::begin\+Transaction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_a0ef591e3444061af21da1a19dd18cf6e}
+Begin a transaction on this connection. Autocommit is E\+N\+A\+B\+L\+ED for all executed commands U\+N\+L\+E\+SS begin\+Transaction has been called--that is, begin\+Transaction disabled autocommit until either rollback\+Transaction or commit\+Transaction is called. 
+
+References Db\+Connection\+::begin\+Transaction().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!check\+Connection\+Health@{check\+Connection\+Health}}
+\index{check\+Connection\+Health@{check\+Connection\+Health}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{check\+Connection\+Health()}]{\setlength{\rightskip}{0pt plus 5cm}int Db\+Connection\+Handle\+::check\+Connection\+Health (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_a3f879aab032236a5e66108685300d328}
+Check the health of the database connection. \begin{DoxyReturn}{Returns}
+OK if the connection is valid; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Db\+Connection\+::check\+Connection\+Health().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!clean@{clean}}
+\index{clean@{clean}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{clean()}]{\setlength{\rightskip}{0pt plus 5cm}void Db\+Connection\+Handle\+::clean (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classDbConnectionHandle_a0743d6c001a8d40733b40f99317f5316}
+Inherited from \doxyref{O\+P\+M\+Base}{p.}{classOPMBase}. Pure Virtual method will be called before releasing the object back into the \doxyref{O\+PM}{p.}{classOPM} pool. 
+
+Implements {\bf O\+P\+M\+Base} \doxyref{}{p.}{classOPMBase_ad9ff8bb1ca9a1edfaaeb702f341713e9}.
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!clear\+User\+Defined\+Identifier@{clear\+User\+Defined\+Identifier}}
+\index{clear\+User\+Defined\+Identifier@{clear\+User\+Defined\+Identifier}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{clear\+User\+Defined\+Identifier()}]{\setlength{\rightskip}{0pt plus 5cm}void Db\+Connection\+Handle\+::clear\+User\+Defined\+Identifier (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_a18880ee1690c47c9bae859ba20a2a6ee}
+Clears the user-\/defined data and resets the internal string to empty 
+
+References Db\+Connection\+::clear\+User\+Defined\+Identifier().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!close\+Command\+Result@{close\+Command\+Result}}
+\index{close\+Command\+Result@{close\+Command\+Result}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{close\+Command\+Result()}]{\setlength{\rightskip}{0pt plus 5cm}int Db\+Connection\+Handle\+::close\+Command\+Result (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_a630020d981c9e07950ef14b7120d5fdb}
+If an outstanding/open result\+Set exists for this connection, then close it. return E\+R\+R\+OR for failure; otherwise OK 
+
+References Db\+Connection\+::close\+Command\+Result().
+
+
+
+Referenced by O\+S\+Resource\+::initialize(), and Fault\+Manager\+::process\+Mailbox().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!commit\+Transaction@{commit\+Transaction}}
+\index{commit\+Transaction@{commit\+Transaction}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{commit\+Transaction()}]{\setlength{\rightskip}{0pt plus 5cm}int Db\+Connection\+Handle\+::commit\+Transaction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_ae795006029b3800347d5f706a95dbac8}
+Commit the outstanding transaction on this connection 
+
+References Db\+Connection\+::commit\+Transaction().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!execute\+Command@{execute\+Command}}
+\index{execute\+Command@{execute\+Command}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{execute\+Command(string \&command)}]{\setlength{\rightskip}{0pt plus 5cm}int Db\+Connection\+Handle\+::execute\+Command (
+\begin{DoxyParamCaption}
+\item[{string \&}]{command}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_a536dd746c61d6488af96964cd9f2de34}
+Execute an S\+QL command to the database using this connection. This command can be a Q\+U\+E\+RY, U\+P\+D\+A\+TE, I\+N\+S\+E\+RT, or D\+E\+L\+E\+TE operation. \begin{DoxyReturn}{Returns}
+OK if the command was executed successfully; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Db\+Connection\+::execute\+Command().
+
+
+
+Referenced by O\+S\+Resource\+::initialize(), and Fault\+Manager\+::process\+Mailbox().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!execute\+Command@{execute\+Command}}
+\index{execute\+Command@{execute\+Command}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{execute\+Command(const char $\ast$command)}]{\setlength{\rightskip}{0pt plus 5cm}int Db\+Connection\+Handle\+::execute\+Command (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{command}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_ac21c8cbb9f31f658274eecef5755b719}
+Execute an S\+QL command to the database using this connection. This command can be a Q\+U\+E\+RY, U\+P\+D\+A\+TE, I\+N\+S\+E\+RT, or D\+E\+L\+E\+TE operation. \begin{DoxyReturn}{Returns}
+OK if the command was executed successfully; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Db\+Connection\+::execute\+Command().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!execute\+Command\+With\+Params@{execute\+Command\+With\+Params}}
+\index{execute\+Command\+With\+Params@{execute\+Command\+With\+Params}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{execute\+Command\+With\+Params(const char $\ast$command, int number\+Params, const char $\ast$const $\ast$param\+Values, const int $\ast$param\+Lengths, const int $\ast$is\+Binary)}]{\setlength{\rightskip}{0pt plus 5cm}int Db\+Connection\+Handle\+::execute\+Command\+With\+Params (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{command, }
+\item[{int}]{number\+Params, }
+\item[{const char $\ast$const $\ast$}]{param\+Values, }
+\item[{const int $\ast$}]{param\+Lengths, }
+\item[{const int $\ast$}]{is\+Binary}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_a63f0dac8cf5d8d1df74570482828dcd7}
+Execute an S\+QL command to the database using this connection. This command can be a Q\+U\+E\+RY, U\+P\+D\+A\+TE, I\+N\+S\+E\+RT or D\+E\+L\+E\+TE operation. 
+\begin{DoxyParams}{Parameters}
+{\em number\+Params} & number of passed in parameters in the char$\ast$ array \\
+\hline
+{\em param\+Values} & specifies the actual values of the parameters (char$\ast$ array) \\
+\hline
+{\em param\+Lengths} & specifies the actual data lengths of binary-\/format parameters. It is ignored for null parameters and text-\/format parameters. The array pointer may be null when there are no binary parameters. \\
+\hline
+{\em is\+Binary} & array for each param value to determine if the value is binary or textual (T\+R\+UE for binary / F\+A\+L\+SE for text). The array pointer may be null when there are no binary parameters. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if the command was executed successfully; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Db\+Connection\+::execute\+Command\+With\+Params().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!execute\+Prepared\+Command@{execute\+Prepared\+Command}}
+\index{execute\+Prepared\+Command@{execute\+Prepared\+Command}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{execute\+Prepared\+Command(const char $\ast$statement\+Name, int number\+Params, const char $\ast$const $\ast$param\+Values, const int $\ast$param\+Lengths, const int $\ast$is\+Binary)}]{\setlength{\rightskip}{0pt plus 5cm}int Db\+Connection\+Handle\+::execute\+Prepared\+Command (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{statement\+Name, }
+\item[{int}]{number\+Params, }
+\item[{const char $\ast$const $\ast$}]{param\+Values, }
+\item[{const int $\ast$}]{param\+Lengths, }
+\item[{const int $\ast$}]{is\+Binary}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_a193c5e08946d2ea78ad5f0f2376d99e5}
+Execute an S\+QL prepared statement command to the database using this connection. This command can be a Q\+U\+E\+RY, U\+P\+D\+A\+TE, I\+N\+S\+E\+RT, or D\+E\+L\+E\+TE operation. 
+\begin{DoxyParams}{Parameters}
+{\em statement\+Name} & string name assigned to the statement when initialize\+Prepared\+Command is called. \\
+\hline
+{\em number\+Params} & number of passed in parameters in the char$\ast$ array \\
+\hline
+{\em param\+Values} & specifies the actual values of the parameters (char$\ast$ array) \\
+\hline
+{\em param\+Lengths} & specifies the actual data lengths of binary-\/format parameters. It is ignored for null parameters and text-\/format parameters. The array pointer may be null when there are no binary parameters. \\
+\hline
+{\em is\+Binary} & array for each param value to determine if the value is binary or textual (T\+R\+UE for binary / F\+A\+L\+SE for text). The array pointer may be null when there are no binary parameters. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if the command was successfully executed; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Db\+Connection\+::execute\+Prepared\+Command().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!get\+Boolean\+Value\+At@{get\+Boolean\+Value\+At}}
+\index{get\+Boolean\+Value\+At@{get\+Boolean\+Value\+At}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{get\+Boolean\+Value\+At(int row\+Index, int column\+Index)}]{\setlength{\rightskip}{0pt plus 5cm}bool Db\+Connection\+Handle\+::get\+Boolean\+Value\+At (
+\begin{DoxyParamCaption}
+\item[{int}]{row\+Index, }
+\item[{int}]{column\+Index}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_a7a40e33d12357a81ba1fa27c878f1c22}
+Return the value at the specified column/row location in the current command\+Result. The value returned will be a boolean type. N\+O\+TE\+: Use of this method requires that the developer be aware of the of the schema and result field type. 
+
+References Db\+Connection\+::get\+Boolean\+Value\+At().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!get\+Column\+Count@{get\+Column\+Count}}
+\index{get\+Column\+Count@{get\+Column\+Count}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{get\+Column\+Count()}]{\setlength{\rightskip}{0pt plus 5cm}int Db\+Connection\+Handle\+::get\+Column\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_ac05cd8352f2ff4d8fc961dfbb399c767}
+Return the number of columns in the current command\+Result structure 
+
+References Db\+Connection\+::get\+Column\+Count().
+
+
+
+Referenced by O\+S\+Resource\+::initialize(), and Fault\+Manager\+::process\+Mailbox().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!get\+Column\+Index@{get\+Column\+Index}}
+\index{get\+Column\+Index@{get\+Column\+Index}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{get\+Column\+Index(const char $\ast$column\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}int Db\+Connection\+Handle\+::get\+Column\+Index (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{column\+Name}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_ab9f18ef37d62b4273240eb7fb2545a33}
+Return the column index based on the specified column name \begin{DoxyReturn}{Returns}
+E\+R\+R\+OR upon failure; otherwise the column Index $>$= 0 
+\end{DoxyReturn}
+
+
+References Db\+Connection\+::get\+Column\+Index().
+
+
+
+Referenced by O\+S\+Resource\+::initialize(), and Fault\+Manager\+::process\+Mailbox().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!get\+Column\+Name@{get\+Column\+Name}}
+\index{get\+Column\+Name@{get\+Column\+Name}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{get\+Column\+Name(int column\+Index)}]{\setlength{\rightskip}{0pt plus 5cm}string Db\+Connection\+Handle\+::get\+Column\+Name (
+\begin{DoxyParamCaption}
+\item[{int}]{column\+Index}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_a2fdbb559f48cf15f0405b0e59edf0dae}
+Return the specified column header name in the current command\+Result 
+
+References Db\+Connection\+::get\+Column\+Name().
+
+
+
+Referenced by Fault\+Manager\+::process\+Mailbox().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!get\+Int\+Value\+At@{get\+Int\+Value\+At}}
+\index{get\+Int\+Value\+At@{get\+Int\+Value\+At}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{get\+Int\+Value\+At(int row\+Index, int column\+Index)}]{\setlength{\rightskip}{0pt plus 5cm}int Db\+Connection\+Handle\+::get\+Int\+Value\+At (
+\begin{DoxyParamCaption}
+\item[{int}]{row\+Index, }
+\item[{int}]{column\+Index}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_abb00326ff343b5565887ecd350bf1194}
+Return the value at the specified column/row location in the current command\+Result. The value returned will be a 4-\/byte integer type. N\+O\+TE\+: Use of this method requires that the developer be aware of the of the schema and result field type. 
+
+References Db\+Connection\+::get\+Int\+Value\+At().
+
+
+
+Referenced by O\+S\+Resource\+::initialize(), and Fault\+Manager\+::process\+Mailbox().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!get\+Row\+Count@{get\+Row\+Count}}
+\index{get\+Row\+Count@{get\+Row\+Count}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{get\+Row\+Count()}]{\setlength{\rightskip}{0pt plus 5cm}int Db\+Connection\+Handle\+::get\+Row\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_a27ff715c54a5f91d0462e0b1250d52c5}
+Return the number of rows in the current command\+Result 
+
+References Db\+Connection\+::get\+Row\+Count().
+
+
+
+Referenced by O\+S\+Resource\+::initialize(), and Fault\+Manager\+::process\+Mailbox().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!get\+Short\+Value\+At@{get\+Short\+Value\+At}}
+\index{get\+Short\+Value\+At@{get\+Short\+Value\+At}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{get\+Short\+Value\+At(int row\+Index, int column\+Index)}]{\setlength{\rightskip}{0pt plus 5cm}short Db\+Connection\+Handle\+::get\+Short\+Value\+At (
+\begin{DoxyParamCaption}
+\item[{int}]{row\+Index, }
+\item[{int}]{column\+Index}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_a622a36a74a2761756c3b2544508a6878}
+Return the value at the specified column/row location in the current command\+Result. The value returned will be a 2-\/byte short type. N\+O\+TE\+: Use of this method requires that the developer be aware of the of the schema and result field type. 
+
+References Db\+Connection\+::get\+Short\+Value\+At().
+
+
+
+Referenced by O\+S\+Resource\+::initialize(), and Fault\+Manager\+::process\+Mailbox().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!get\+String\+Value\+At@{get\+String\+Value\+At}}
+\index{get\+String\+Value\+At@{get\+String\+Value\+At}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{get\+String\+Value\+At(int row\+Index, int column\+Index)}]{\setlength{\rightskip}{0pt plus 5cm}string Db\+Connection\+Handle\+::get\+String\+Value\+At (
+\begin{DoxyParamCaption}
+\item[{int}]{row\+Index, }
+\item[{int}]{column\+Index}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_a560ef1b97e677b10e55e514120f77e16}
+Return the value at the specified column/row location in the current command\+Result. The value is returned as a string. N\+O\+TE\+: Use of this method requires that the developer be aware of the of the schema and result field type. 
+
+References Db\+Connection\+::get\+String\+Value\+At().
+
+
+
+Referenced by Fault\+Manager\+::process\+Mailbox().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!get\+Timestamp\+Value\+At@{get\+Timestamp\+Value\+At}}
+\index{get\+Timestamp\+Value\+At@{get\+Timestamp\+Value\+At}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{get\+Timestamp\+Value\+At(int row\+Index, int column\+Index)}]{\setlength{\rightskip}{0pt plus 5cm}string Db\+Connection\+Handle\+::get\+Timestamp\+Value\+At (
+\begin{DoxyParamCaption}
+\item[{int}]{row\+Index, }
+\item[{int}]{column\+Index}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_a6d061ccfd7413559dc1b42142d1bd8a0}
+Return the value at the specified column/row location in the current command\+Result. The value returned will be a string. N\+O\+TE\+: Use of this method requires that the developer be aware of the of the schema and result field type. 
+
+References Db\+Connection\+::get\+Timestamp\+Value\+At().
+
+
+
+Referenced by Fault\+Manager\+::process\+Mailbox().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!get\+User\+Defined\+Identifier@{get\+User\+Defined\+Identifier}}
+\index{get\+User\+Defined\+Identifier@{get\+User\+Defined\+Identifier}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{get\+User\+Defined\+Identifier()}]{\setlength{\rightskip}{0pt plus 5cm}string \& Db\+Connection\+Handle\+::get\+User\+Defined\+Identifier (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_a5a48b411392afe5eeae5b078c8a89a80}
+Returns the user-\/defined identifier data \begin{DoxyReturn}{Returns}
+empty string if no user-\/defined data has been previously set 
+\end{DoxyReturn}
+
+
+References Db\+Connection\+::get\+User\+Defined\+Identifier().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!get\+Value\+Length@{get\+Value\+Length}}
+\index{get\+Value\+Length@{get\+Value\+Length}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{get\+Value\+Length(int row\+Index, int column\+Index)}]{\setlength{\rightskip}{0pt plus 5cm}int Db\+Connection\+Handle\+::get\+Value\+Length (
+\begin{DoxyParamCaption}
+\item[{int}]{row\+Index, }
+\item[{int}]{column\+Index}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_a10453b1bd51ad8304a39bc5837321263}
+Returns the actual length of a field value in bytes 
+
+References Db\+Connection\+::get\+Value\+Length().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!initialize@{initialize}}
+\index{initialize@{initialize}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{initialize(int initializer)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf O\+P\+M\+Base} $\ast$ Db\+Connection\+Handle\+::initialize (
+\begin{DoxyParamCaption}
+\item[{int}]{initializer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classDbConnectionHandle_adf1b385bd5a896356fd1bc75d6ce1915}
+Inherited from \doxyref{O\+P\+M\+Base}{p.}{classOPMBase}. Method will be called when the pool is created with these objects. This method bootstraps the creation of each object. T\+H\+IS O\+V\+E\+R\+R\+I\+D\+ES the initialize method in O\+P\+M\+B\+A\+SE (can\textquotesingle{}t be both virtual and static) 
+\begin{DoxyParams}{Parameters}
+{\em initializer} & -\/ Initializer integer or pointer to initialization data needed by the object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the new \doxyref{O\+P\+M\+Base}{p.}{classOPMBase} object. 
+\end{DoxyReturn}
+
+
+References Db\+Connection\+Handle().
+
+
+
+Referenced by Connection\+Set\+::perform\+Activation().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!initialize\+Prepared\+Command@{initialize\+Prepared\+Command}}
+\index{initialize\+Prepared\+Command@{initialize\+Prepared\+Command}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{initialize\+Prepared\+Command(const char $\ast$statement\+Name, const char $\ast$sql\+Command, int number\+Params, const Data\+Manager\+Field\+Type $\ast$param\+Type\+Array)}]{\setlength{\rightskip}{0pt plus 5cm}int Db\+Connection\+Handle\+::initialize\+Prepared\+Command (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{statement\+Name, }
+\item[{const char $\ast$}]{sql\+Command, }
+\item[{int}]{number\+Params, }
+\item[{const Data\+Manager\+Field\+Type $\ast$}]{param\+Type\+Array}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_a7f9dcc6c94006d62acb47d2d1ba59d55}
+Setup for a prepared statement command on this connection 
+\begin{DoxyParams}{Parameters}
+{\em statement\+Name} & string name arbitrarily assigned to the statement \\
+\hline
+{\em sql\+Command} & Q\+U\+E\+RY, U\+P\+D\+A\+TE, I\+N\+S\+E\+RT, or D\+E\+L\+E\+TE sql operation. \\
+\hline
+{\em number\+Params} & number of passed in parameters in the char$\ast$ array \\
+\hline
+{\em param\+Type\+Array} & array of field types because the database cannot infer the field type formatting without it. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if the preparation was successful; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Db\+Connection\+::initialize\+Prepared\+Command().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!is\+Value\+N\+U\+LL@{is\+Value\+N\+U\+LL}}
+\index{is\+Value\+N\+U\+LL@{is\+Value\+N\+U\+LL}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{is\+Value\+N\+U\+L\+L(int row\+Index, int column\+Index)}]{\setlength{\rightskip}{0pt plus 5cm}bool Db\+Connection\+Handle\+::is\+Value\+N\+U\+LL (
+\begin{DoxyParamCaption}
+\item[{int}]{row\+Index, }
+\item[{int}]{column\+Index}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_aba5a259f001f43a7a65165786ab2e093}
+Returns true if the field Value is N\+U\+LL 
+
+References Db\+Connection\+::is\+Value\+N\+U\+L\+L().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!rollback\+Transaction@{rollback\+Transaction}}
+\index{rollback\+Transaction@{rollback\+Transaction}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{rollback\+Transaction()}]{\setlength{\rightskip}{0pt plus 5cm}int Db\+Connection\+Handle\+::rollback\+Transaction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_a1841279975686b102f056d0bc090f137}
+Rollback a transaction on this connection 
+
+References Db\+Connection\+::rollback\+Transaction().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{shutdown()}]{\setlength{\rightskip}{0pt plus 5cm}int Db\+Connection\+Handle\+::shutdown (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_ac66ba55e3f0598c517dc087f91d6fb61}
+Close the socket connection to the database server \begin{DoxyReturn}{Returns}
+E\+R\+R\+OR on failure; otherwise OK 
+\end{DoxyReturn}
+
+
+References Db\+Connection\+::shutdown().
+
+
+
+Referenced by Connection\+Set\+::perform\+Deactivation().
+
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Db\+Connection\+Handle\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDbConnectionHandle_aa8e7078590eb0a2be30337ebd7e673b2}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!Connection\+Set@{Connection\+Set}}
+\index{Connection\+Set@{Connection\+Set}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{Connection\+Set}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Connection\+Set}\hspace{0.3cm}{\ttfamily [friend]}}\label{classDbConnectionHandle_a441c663c0407c810788c01651e34a7f6}
+\doxyref{Connection\+Set}{p.}{classConnectionSet} is a friend to allow access to associate/dissociate connections (Required unless we give application designer access to these methods) \index{Db\+Connection\+Handle@{Db\+Connection\+Handle}!Data\+Manager@{Data\+Manager}}
+\index{Data\+Manager@{Data\+Manager}!Db\+Connection\+Handle@{Db\+Connection\+Handle}}
+\subsubsection[{Data\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Data\+Manager}\hspace{0.3cm}{\ttfamily [friend]}}\label{classDbConnectionHandle_a90bc42cd80270d73dfa9aade4e76528f}
+\doxyref{Data\+Manager}{p.}{classDataManager} has to be a friend to allow calling get\+Connection\+Set\+Name (Required unless we give application designer access to these methods) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Db\+Connection\+Handle.\+h\item 
+Db\+Connection\+Handle.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,86 @@
+\section{System\+Info Class Reference}
+\label{classSystemInfo}\index{System\+Info@{System\+Info}}
+
+
+{\ttfamily \#include $<$System\+Info.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bf $\sim$\+System\+Info} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const string \& {\bf get\+Local\+N\+E\+ID} ()
+\item 
+static unsigned int {\bf get\+Shelf\+Number} ()
+\item 
+static unsigned int {\bf get\+Slot\+Number} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{System\+Info}{p.}{classSystemInfo} provides static access to system wide attributes such as N\+E\+ID, Shelf Number, Slot Number, etc. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{System\+Info@{System\+Info}!````~System\+Info@{$\sim$\+System\+Info}}
+\index{````~System\+Info@{$\sim$\+System\+Info}!System\+Info@{System\+Info}}
+\subsubsection[{$\sim$\+System\+Info()}]{\setlength{\rightskip}{0pt plus 5cm}virtual System\+Info\+::$\sim$\+System\+Info (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classSystemInfo_aa8a363ff9cfac790073505f2ddb7725c}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{System\+Info@{System\+Info}!get\+Local\+N\+E\+ID@{get\+Local\+N\+E\+ID}}
+\index{get\+Local\+N\+E\+ID@{get\+Local\+N\+E\+ID}!System\+Info@{System\+Info}}
+\subsubsection[{get\+Local\+N\+E\+I\+D()}]{\setlength{\rightskip}{0pt plus 5cm}const string \& System\+Info\+::get\+Local\+N\+E\+ID (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classSystemInfo_a521f28d89c6ec990588b49113c49043d}
+Return the local card\textquotesingle{}s N\+E\+ID (Network Element Id). This method reads the Local N\+E\+ID from the environment the first time it is called. After that, it caches the value and just returns the cached value (so a complete restart is needed if this value needs to change). \begin{DoxyReturn}{Returns}
+the 9 digit N\+E\+ID string, or it returns \char`\"{}000000000\char`\"{} upon failure if it could not be taken from the environment, its length is not 9, or its characters are not digits. 
+\end{DoxyReturn}
+
+
+Referenced by O\+S\+Resource\+::check\+C\+P\+U\+Usage(), O\+S\+Resource\+::check\+Disk\+Usage(), O\+S\+Resource\+::check\+Memory\+Usage(), Discovery\+Manager\+::\+Discovery\+Manager(), Resource\+Monitor\+::initialize(), Process\+Manager\+::initialize(), and Fault\+Manager\+::initialize().
+
+\index{System\+Info@{System\+Info}!get\+Shelf\+Number@{get\+Shelf\+Number}}
+\index{get\+Shelf\+Number@{get\+Shelf\+Number}!System\+Info@{System\+Info}}
+\subsubsection[{get\+Shelf\+Number()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int System\+Info\+::get\+Shelf\+Number (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classSystemInfo_ac991aa2f0619861fe06af637775e3b0d}
+Return the local card\textquotesingle{}s shelf number 
+
+Referenced by Process\+Manager\+::initialize().
+
+\index{System\+Info@{System\+Info}!get\+Slot\+Number@{get\+Slot\+Number}}
+\index{get\+Slot\+Number@{get\+Slot\+Number}!System\+Info@{System\+Info}}
+\subsubsection[{get\+Slot\+Number()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int System\+Info\+::get\+Slot\+Number (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classSystemInfo_a4c3edcfd99824bce6e568f72c9c35b37}
+Return the local card\textquotesingle{}s slot number in the shelf 
+
+Referenced by Process\+Manager\+::initialize().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+System\+Info.\+h\item 
+System\+Info.\+cpp\end{DoxyCompactItemize}

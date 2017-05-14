@@ -1,0 +1,149 @@
+\section{Local\+S\+M\+Mailbox\+Queue Class Reference}
+\label{classLocalSMMailboxQueue}\index{Local\+S\+M\+Mailbox\+Queue@{Local\+S\+M\+Mailbox\+Queue}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef {\bf Unbounded\+S\+M\+Queue}$<$ {\bf Local\+S\+M\+Buffer} $>$ {\bf L\+O\+C\+A\+L\+\_\+\+S\+M\+\_\+\+M\+A\+I\+L\+B\+O\+X\+\_\+\+Q\+U\+E\+UE}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Local\+S\+M\+Mailbox\+Queue} (const char $\ast$queue\+Name, const char $\ast$coordinating\+Mutex\+Name)
+\item 
+virtual {\bf $\sim$\+Local\+S\+M\+Mailbox\+Queue} ()
+\item 
+int {\bf setup\+Queue} ()
+\item 
+int {\bf enqueue\+Message} ({\bf Local\+S\+M\+Buffer} \&buffer)
+\item 
+int {\bf dequeue\+Message} ({\bf Local\+S\+M\+Buffer} \&buffer)
+\item 
+void {\bf clear\+Queue} ()
+\item 
+bool {\bf is\+Empty} ()
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\index{Local\+S\+M\+Mailbox\+Queue@{Local\+S\+M\+Mailbox\+Queue}!L\+O\+C\+A\+L\+\_\+\+S\+M\+\_\+\+M\+A\+I\+L\+B\+O\+X\+\_\+\+Q\+U\+E\+UE@{L\+O\+C\+A\+L\+\_\+\+S\+M\+\_\+\+M\+A\+I\+L\+B\+O\+X\+\_\+\+Q\+U\+E\+UE}}
+\index{L\+O\+C\+A\+L\+\_\+\+S\+M\+\_\+\+M\+A\+I\+L\+B\+O\+X\+\_\+\+Q\+U\+E\+UE@{L\+O\+C\+A\+L\+\_\+\+S\+M\+\_\+\+M\+A\+I\+L\+B\+O\+X\+\_\+\+Q\+U\+E\+UE}!Local\+S\+M\+Mailbox\+Queue@{Local\+S\+M\+Mailbox\+Queue}}
+\subsubsection[{L\+O\+C\+A\+L\+\_\+\+S\+M\+\_\+\+M\+A\+I\+L\+B\+O\+X\+\_\+\+Q\+U\+E\+UE}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Unbounded\+S\+M\+Queue}$<${\bf Local\+S\+M\+Buffer}$>$ {\bf Local\+S\+M\+Mailbox\+Queue\+::\+L\+O\+C\+A\+L\+\_\+\+S\+M\+\_\+\+M\+A\+I\+L\+B\+O\+X\+\_\+\+Q\+U\+E\+UE}}\label{classLocalSMMailboxQueue_ae1dbbda2ad0d610fec68e1199e823543}
+Shared Memory Queue type for \doxyref{Local\+S\+M\+Buffer}{p.}{structLocalSMBuffer} Messages 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Local\+S\+M\+Mailbox\+Queue@{Local\+S\+M\+Mailbox\+Queue}!Local\+S\+M\+Mailbox\+Queue@{Local\+S\+M\+Mailbox\+Queue}}
+\index{Local\+S\+M\+Mailbox\+Queue@{Local\+S\+M\+Mailbox\+Queue}!Local\+S\+M\+Mailbox\+Queue@{Local\+S\+M\+Mailbox\+Queue}}
+\subsubsection[{Local\+S\+M\+Mailbox\+Queue(const char $\ast$queue\+Name, const char $\ast$coordinating\+Mutex\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}Local\+S\+M\+Mailbox\+Queue\+::\+Local\+S\+M\+Mailbox\+Queue (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{queue\+Name, }
+\item[{const char $\ast$}]{coordinating\+Mutex\+Name}
+\end{DoxyParamCaption}
+)}\label{classLocalSMMailboxQueue_acec249670e6e32d85ce0a044abbd438a}
+Constructor \index{Local\+S\+M\+Mailbox\+Queue@{Local\+S\+M\+Mailbox\+Queue}!````~Local\+S\+M\+Mailbox\+Queue@{$\sim$\+Local\+S\+M\+Mailbox\+Queue}}
+\index{````~Local\+S\+M\+Mailbox\+Queue@{$\sim$\+Local\+S\+M\+Mailbox\+Queue}!Local\+S\+M\+Mailbox\+Queue@{Local\+S\+M\+Mailbox\+Queue}}
+\subsubsection[{$\sim$\+Local\+S\+M\+Mailbox\+Queue()}]{\setlength{\rightskip}{0pt plus 5cm}Local\+S\+M\+Mailbox\+Queue\+::$\sim$\+Local\+S\+M\+Mailbox\+Queue (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classLocalSMMailboxQueue_a4674c48e84601470d7622ff9c1a53e09}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Local\+S\+M\+Mailbox\+Queue@{Local\+S\+M\+Mailbox\+Queue}!clear\+Queue@{clear\+Queue}}
+\index{clear\+Queue@{clear\+Queue}!Local\+S\+M\+Mailbox\+Queue@{Local\+S\+M\+Mailbox\+Queue}}
+\subsubsection[{clear\+Queue()}]{\setlength{\rightskip}{0pt plus 5cm}void Local\+S\+M\+Mailbox\+Queue\+::clear\+Queue (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classLocalSMMailboxQueue_a58dae78841bc47426f80ae99bfb32fa1}
+Clears the \doxyref{Message\+Base}{p.}{classMessageBase} contents of the shared memory queue 
+
+References Unbounded\+S\+M\+Queue$<$ T $>$\+::delete\+\_\+nodes().
+
+\index{Local\+S\+M\+Mailbox\+Queue@{Local\+S\+M\+Mailbox\+Queue}!dequeue\+Message@{dequeue\+Message}}
+\index{dequeue\+Message@{dequeue\+Message}!Local\+S\+M\+Mailbox\+Queue@{Local\+S\+M\+Mailbox\+Queue}}
+\subsubsection[{dequeue\+Message(\+Local\+S\+M\+Buffer \&buffer)}]{\setlength{\rightskip}{0pt plus 5cm}int Local\+S\+M\+Mailbox\+Queue\+::dequeue\+Message (
+\begin{DoxyParamCaption}
+\item[{{\bf Local\+S\+M\+Buffer} \&}]{buffer}
+\end{DoxyParamCaption}
+)}\label{classLocalSMMailboxQueue_a1e075e6f44ce2cf2706c3a52124d20c9}
+Dequeue a Message from the shared memory queue. The calling code is responsible for allocating the Message and passing it in as a reference to be populated. \begin{DoxyReturn}{Returns}
+OK on success; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Unbounded\+S\+M\+Queue$<$ T $>$\+::dequeue\+\_\+head(), and Unbounded\+S\+M\+Queue$<$ T $>$\+::is\+\_\+empty().
+
+
+
+Referenced by Local\+S\+M\+Mailbox\+::get\+Mailbox\+Address().
+
+\index{Local\+S\+M\+Mailbox\+Queue@{Local\+S\+M\+Mailbox\+Queue}!enqueue\+Message@{enqueue\+Message}}
+\index{enqueue\+Message@{enqueue\+Message}!Local\+S\+M\+Mailbox\+Queue@{Local\+S\+M\+Mailbox\+Queue}}
+\subsubsection[{enqueue\+Message(\+Local\+S\+M\+Buffer \&buffer)}]{\setlength{\rightskip}{0pt plus 5cm}int Local\+S\+M\+Mailbox\+Queue\+::enqueue\+Message (
+\begin{DoxyParamCaption}
+\item[{{\bf Local\+S\+M\+Buffer} \&}]{buffer}
+\end{DoxyParamCaption}
+)}\label{classLocalSMMailboxQueue_a578987ae28c8b716abf617102d756a8e}
+Enqueue a Message to the shared memory queue \begin{DoxyReturn}{Returns}
+OK on success; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Unbounded\+S\+M\+Queue$<$ T $>$\+::enqueue\+\_\+tail().
+
+
+
+Referenced by Local\+S\+M\+Mailbox\+Proxy\+::post().
+
+\index{Local\+S\+M\+Mailbox\+Queue@{Local\+S\+M\+Mailbox\+Queue}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!Local\+S\+M\+Mailbox\+Queue@{Local\+S\+M\+Mailbox\+Queue}}
+\subsubsection[{is\+Empty()}]{\setlength{\rightskip}{0pt plus 5cm}bool Local\+S\+M\+Mailbox\+Queue\+::is\+Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classLocalSMMailboxQueue_a21481ee6e1b0dc1ea7c6e95663ad3c9e}
+Returns true if the queue is empty 
+
+References Unbounded\+S\+M\+Queue$<$ T $>$\+::is\+\_\+empty().
+
+
+
+Referenced by Local\+S\+M\+Mailbox\+::get\+Mailbox\+Address().
+
+\index{Local\+S\+M\+Mailbox\+Queue@{Local\+S\+M\+Mailbox\+Queue}!setup\+Queue@{setup\+Queue}}
+\index{setup\+Queue@{setup\+Queue}!Local\+S\+M\+Mailbox\+Queue@{Local\+S\+M\+Mailbox\+Queue}}
+\subsubsection[{setup\+Queue()}]{\setlength{\rightskip}{0pt plus 5cm}int Local\+S\+M\+Mailbox\+Queue\+::setup\+Queue (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classLocalSMMailboxQueue_a0e8d64b1de186c67cee546e9310e5912}
+Create the (or get a reference to an already created) queue \begin{DoxyReturn}{Returns}
+OK on success; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Shared\+Memory\+Manager\+::get\+Allocator().
+
+
+
+Referenced by Local\+S\+M\+Mailbox\+Proxy\+::create\+Mailbox(), and Local\+S\+M\+Mailbox\+::create\+Mailbox().
+
+\index{Local\+S\+M\+Mailbox\+Queue@{Local\+S\+M\+Mailbox\+Queue}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Local\+S\+M\+Mailbox\+Queue@{Local\+S\+M\+Mailbox\+Queue}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Local\+S\+M\+Mailbox\+Queue\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classLocalSMMailboxQueue_a1fe9e4af074c934027a8566d821bfc4d}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Local\+S\+M\+Mailbox\+Queue.\+h\item 
+Local\+S\+M\+Mailbox\+Queue.\+cpp\end{DoxyCompactItemize}

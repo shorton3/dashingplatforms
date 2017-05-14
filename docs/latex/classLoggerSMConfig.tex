@@ -1,0 +1,133 @@
+\section{Logger\+S\+M\+Config Class Reference}
+\label{classLoggerSMConfig}\index{Logger\+S\+M\+Config@{Logger\+S\+M\+Config}}
+
+
+{\ttfamily \#include $<$Logger\+S\+M\+Config.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Logger\+S\+M\+Config} (const char $\ast$config\+Name, const char $\ast$coordinating\+Mutex\+Name)
+\item 
+virtual {\bf $\sim$\+Logger\+S\+M\+Config} ()
+\item 
+int {\bf initialize} ()
+\item 
+int {\bf get\+Log\+Level} (int subsystem)
+\item 
+int {\bf set\+Log\+Level} (int subsystem, int severity\+Level)
+\item 
+void {\bf reset} ()
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Logger\+S\+M\+Config}{p.}{classLoggerSMConfig} handles storing and retrieving the \doxyref{Logger}{p.}{classLogger} configuration parameters (such as log level) to and from Shared Memory. 
+
+\doxyref{Logger\+S\+M\+Config}{p.}{classLoggerSMConfig} uses position independent shared memory to provide access of the configuration parameters to both the \doxyref{Log\+Processor}{p.}{classLogProcessor} server daemon as well as to the \doxyref{Logger}{p.}{classLogger} client apis that exist as part of each of the application processes. 
+
+The shared memory configuration parameters are stored inside a \doxyref{Logger\+S\+M\+Config\+Values}{p.}{structLoggerSMConfigValues} structure. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Logger\+S\+M\+Config@{Logger\+S\+M\+Config}!Logger\+S\+M\+Config@{Logger\+S\+M\+Config}}
+\index{Logger\+S\+M\+Config@{Logger\+S\+M\+Config}!Logger\+S\+M\+Config@{Logger\+S\+M\+Config}}
+\subsubsection[{Logger\+S\+M\+Config(const char $\ast$config\+Name, const char $\ast$coordinating\+Mutex\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}Logger\+S\+M\+Config\+::\+Logger\+S\+M\+Config (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{config\+Name, }
+\item[{const char $\ast$}]{coordinating\+Mutex\+Name}
+\end{DoxyParamCaption}
+)}\label{classLoggerSMConfig_a7ae6169cb545619c2d66c9560ce00ee6}
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em config\+Name} & String name of the \doxyref{Logger}{p.}{classLogger} SM Config value structure used to identify it in the underlying shared memory map \\
+\hline
+{\em coordinating\+Mutex\+Name} & Name used to identify the process mutex for other processes \\
+\hline
+\end{DoxyParams}
+\index{Logger\+S\+M\+Config@{Logger\+S\+M\+Config}!````~Logger\+S\+M\+Config@{$\sim$\+Logger\+S\+M\+Config}}
+\index{````~Logger\+S\+M\+Config@{$\sim$\+Logger\+S\+M\+Config}!Logger\+S\+M\+Config@{Logger\+S\+M\+Config}}
+\subsubsection[{$\sim$\+Logger\+S\+M\+Config()}]{\setlength{\rightskip}{0pt plus 5cm}Logger\+S\+M\+Config\+::$\sim$\+Logger\+S\+M\+Config (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classLoggerSMConfig_a8ea519514ed3076a5e8d59b712cd7464}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Logger\+S\+M\+Config@{Logger\+S\+M\+Config}!get\+Log\+Level@{get\+Log\+Level}}
+\index{get\+Log\+Level@{get\+Log\+Level}!Logger\+S\+M\+Config@{Logger\+S\+M\+Config}}
+\subsubsection[{get\+Log\+Level(int subsystem)}]{\setlength{\rightskip}{0pt plus 5cm}int Logger\+S\+M\+Config\+::get\+Log\+Level (
+\begin{DoxyParamCaption}
+\item[{int}]{subsystem}
+\end{DoxyParamCaption}
+)}\label{classLoggerSMConfig_ac00e8776722d63ecdc1db338ea5606b3}
+Get the Log Level configuration values 
+
+References Logger\+S\+M\+Config\+Values\+::log\+Levels\+PI.
+
+\index{Logger\+S\+M\+Config@{Logger\+S\+M\+Config}!initialize@{initialize}}
+\index{initialize@{initialize}!Logger\+S\+M\+Config@{Logger\+S\+M\+Config}}
+\subsubsection[{initialize()}]{\setlength{\rightskip}{0pt plus 5cm}int Logger\+S\+M\+Config\+::initialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classLoggerSMConfig_ac1a9a5ac94c91430e63673a4a25a9375}
+Create the (or get a reference to an already created) config values structure \begin{DoxyReturn}{Returns}
+OK on success; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Shared\+Memory\+Manager\+::get\+Allocator(), and Logger\+S\+M\+Config\+Values\+::reset().
+
+\index{Logger\+S\+M\+Config@{Logger\+S\+M\+Config}!reset@{reset}}
+\index{reset@{reset}!Logger\+S\+M\+Config@{Logger\+S\+M\+Config}}
+\subsubsection[{reset()}]{\setlength{\rightskip}{0pt plus 5cm}void Logger\+S\+M\+Config\+::reset (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{classLoggerSMConfig_a8460134c6faeaf3609d778ea7b228f33}
+Reset the contents of the shared memory configuration structure to defaults. 
+
+References Logger\+S\+M\+Config\+Values\+::reset().
+
+\index{Logger\+S\+M\+Config@{Logger\+S\+M\+Config}!set\+Log\+Level@{set\+Log\+Level}}
+\index{set\+Log\+Level@{set\+Log\+Level}!Logger\+S\+M\+Config@{Logger\+S\+M\+Config}}
+\subsubsection[{set\+Log\+Level(int subsystem, int severity\+Level)}]{\setlength{\rightskip}{0pt plus 5cm}int Logger\+S\+M\+Config\+::set\+Log\+Level (
+\begin{DoxyParamCaption}
+\item[{int}]{subsystem, }
+\item[{int}]{severity\+Level}
+\end{DoxyParamCaption}
+)}\label{classLoggerSMConfig_a05e860ecdcd2027a4aa1d82446a9a6ee}
+Set the Log Level configuration values. \begin{DoxyReturn}{Returns}
+E\+R\+R\+OR on failure; otherwise OK 
+\end{DoxyReturn}
+
+
+References Logger\+S\+M\+Config\+Values\+::log\+Levels, and Logger\+S\+M\+Config\+Values\+::log\+Levels\+PI.
+
+\index{Logger\+S\+M\+Config@{Logger\+S\+M\+Config}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Logger\+S\+M\+Config@{Logger\+S\+M\+Config}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Logger\+S\+M\+Config\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classLoggerSMConfig_aaedc0201a61a22d517dcf3aca8c0e2bc}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Logger\+S\+M\+Config.\+h\item 
+Logger\+S\+M\+Config.\+cpp\end{DoxyCompactItemize}

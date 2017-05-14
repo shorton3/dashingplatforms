@@ -1,0 +1,481 @@
+\section{Mailbox\+Base Class Reference}
+\label{classMailboxBase}\index{Mailbox\+Base@{Mailbox\+Base}}
+Inheritance diagram for Mailbox\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.566879cm]{classMailboxBase}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual int {\bf activate} ({\bf Mailbox\+Owner\+Handle} $\ast$mailbox\+Owner\+Handle)
+\item 
+virtual int {\bf deactivate} ({\bf Mailbox\+Owner\+Handle} $\ast$mailbox\+Owner\+Handle)
+\item 
+virtual const A\+C\+E\+\_\+\+Time\+\_\+\+Value \& {\bf get\+Post\+Default\+Timeout} ()=0
+\item 
+virtual int {\bf post} ({\bf Message\+Base} $\ast$message\+Ptr, const A\+C\+E\+\_\+\+Time\+\_\+\+Value $\ast$timeout=\&A\+C\+E\+\_\+\+Time\+\_\+\+Value\+::zero)=0
+\item 
+virtual {\bf Message\+Base} $\ast$ {\bf get\+Message} (unsigned short timeout\+Value=0)=0
+\item 
+virtual {\bf Message\+Base} $\ast$ {\bf get\+Message\+Non\+Blocking} ()=0
+\item 
+virtual int {\bf acquire} ()
+\item 
+virtual void {\bf release} ()
+\item 
+virtual int {\bf get\+Debug\+Value} ()=0
+\item 
+virtual void {\bf set\+Debug\+Value} (int debug\+Value)=0
+\item 
+virtual {\bf Mailbox\+Address} \& {\bf get\+Mailbox\+Address} ()=0
+\item 
+unsigned int {\bf get\+Sent\+Count} ()
+\item 
+unsigned int {\bf get\+Received\+Count} ()
+\item 
+virtual bool {\bf rename} (const {\bf Mailbox\+Address} \&new\+Remote\+Address)
+\item 
+int {\bf handle\+\_\+timeout} (const A\+C\+E\+\_\+\+Time\+\_\+\+Value \&tv, const void $\ast$argument)
+\item 
+unsigned int {\bf get\+Active\+Timers} ()
+\item 
+void {\bf increment\+Active\+Timers} ()
+\item 
+void {\bf decrement\+Active\+Timers} ()
+\item 
+A\+C\+E\+\_\+\+Reactor $\ast$ {\bf get\+Reactor} ()
+\item 
+bool {\bf is\+Proxy} ()
+\item 
+unsigned int {\bf is\+Active} ()
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Mailbox\+Base} ()
+\item 
+virtual {\bf $\sim$\+Mailbox\+Base} ()
+\item 
+void {\bf set\+Active} (unsigned int active)
+\item 
+void {\bf increment\+Received\+Count} ()
+\item 
+void {\bf increment\+Sent\+Count} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int {\bf debug\+Value\+\_\+}
+\item 
+bool {\bf is\+Proxy\+\_\+}
+\item 
+A\+C\+E\+\_\+\+Reactor $\ast$ {\bf select\+Reactor\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static A\+C\+E\+\_\+\+Atomic\+\_\+\+Op$<$ A\+C\+E\+\_\+\+Thread\+\_\+\+Mutex, unsigned int $>$ {\bf is\+Shutting\+Down\+\_\+} = F\+A\+L\+SE
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Mailbox\+Base@{Mailbox\+Base}!Mailbox\+Base@{Mailbox\+Base}}
+\index{Mailbox\+Base@{Mailbox\+Base}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{Mailbox\+Base()}]{\setlength{\rightskip}{0pt plus 5cm}Mailbox\+Base\+::\+Mailbox\+Base (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classMailboxBase_a10bb9055cb30bcb6dee91be39605e06c}
+Constructor \index{Mailbox\+Base@{Mailbox\+Base}!````~Mailbox\+Base@{$\sim$\+Mailbox\+Base}}
+\index{````~Mailbox\+Base@{$\sim$\+Mailbox\+Base}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{$\sim$\+Mailbox\+Base()}]{\setlength{\rightskip}{0pt plus 5cm}Mailbox\+Base\+::$\sim$\+Mailbox\+Base (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classMailboxBase_a5741fcab8520b5833015dcb30cfb723f}
+Virtual Destructor. Protected since this is a reference counted object. 
+
+\subsection{Member Function Documentation}
+\index{Mailbox\+Base@{Mailbox\+Base}!acquire@{acquire}}
+\index{acquire@{acquire}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{acquire()}]{\setlength{\rightskip}{0pt plus 5cm}int Mailbox\+Base\+::acquire (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxBase_a04142e95d577966324503ea4745d2aa4}
+Acquire a handle to this mailbox. Here we do reference counting. We implement a reference count mechanism to keep track of mailbox objects. When an application wants to access a mailbox it acquires a handle to the mailbox which increments the reference count for the mailbox. When the application is done with a mailbox (for a transient usage) it releases the mailbox which decrements the reference count. When the reference count returns to 0 the mailbox deletes itself. \begin{DoxyReturn}{Returns}
+E\+R\+R\+OR if failure; otherwise OK 
+\end{DoxyReturn}
+
+
+Referenced by Mailbox\+Handle\+::\+Mailbox\+Handle(), and Mailbox\+Owner\+Handle\+::\+Mailbox\+Owner\+Handle().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!activate@{activate}}
+\index{activate@{activate}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{activate(\+Mailbox\+Owner\+Handle $\ast$mailbox\+Owner\+Handle)}]{\setlength{\rightskip}{0pt plus 5cm}int Mailbox\+Base\+::activate (
+\begin{DoxyParamCaption}
+\item[{{\bf Mailbox\+Owner\+Handle} $\ast$}]{mailbox\+Owner\+Handle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxBase_a98c6c4736af9c084d5395d7a4303ec67}
+This method activates the mailbox. A mailbox is N\+OT active on creation. Making it virtual allows sub-\/classes to refine this behavior. For security, one must possess an Owner Handle to the mailbox in order to activate it. \begin{DoxyReturn}{Returns}
+E\+R\+R\+OR on failure, OK on success 
+\end{DoxyReturn}
+
+
+Reimplemented in {\bf Group\+Mailbox} \doxyref{}{p.}{classGroupMailbox_a8376e1dfb4d001d6095ea3d7419765f6}, {\bf Group\+Mailbox\+Proxy} \doxyref{}{p.}{classGroupMailboxProxy_a71886f6278da7cc6c0f36a647f259fcc}, {\bf Distributed\+Mailbox} \doxyref{}{p.}{classDistributedMailbox_ace1358b217d0f0a52be4d32e3277c211}, {\bf Local\+S\+M\+Mailbox} \doxyref{}{p.}{classLocalSMMailbox_a0a392404de9ca6224d0ed114c260b26a}, {\bf Local\+S\+M\+Mailbox\+Proxy} \doxyref{}{p.}{classLocalSMMailboxProxy_a472b03750fd8ef24db5c42b77c4dc0b8}, {\bf Distributed\+Mailbox\+Proxy} \doxyref{}{p.}{classDistributedMailboxProxy_a0eca78d4f87db3a4237fc972e6f187e9}, and {\bf Local\+Mailbox} \doxyref{}{p.}{classLocalMailbox_a90a0b182b76f38934302d613c74b626f}.
+
+
+
+Referenced by Mailbox\+Owner\+Handle\+::activate().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!deactivate@{deactivate}}
+\index{deactivate@{deactivate}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{deactivate(\+Mailbox\+Owner\+Handle $\ast$mailbox\+Owner\+Handle)}]{\setlength{\rightskip}{0pt plus 5cm}int Mailbox\+Base\+::deactivate (
+\begin{DoxyParamCaption}
+\item[{{\bf Mailbox\+Owner\+Handle} $\ast$}]{mailbox\+Owner\+Handle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxBase_a14ba6bd7936f32ecb51763acb89c507c}
+This method deactivates the mailbox. Making it virtual allows sub-\/classes to refine this behavior. For security, one must possess an Owner Handle to the mailbox in order to deactivate it. \begin{DoxyReturn}{Returns}
+E\+R\+R\+OR on failure, OK on success 
+\end{DoxyReturn}
+
+
+Reimplemented in {\bf Group\+Mailbox} \doxyref{}{p.}{classGroupMailbox_ae1aac18804e7584a90816ad6c840074d}, {\bf Group\+Mailbox\+Proxy} \doxyref{}{p.}{classGroupMailboxProxy_a252cc906cddd4e76e533e6f3d059a418}, {\bf Distributed\+Mailbox} \doxyref{}{p.}{classDistributedMailbox_ab02bba7663485f4747afe81030737981}, {\bf Local\+S\+M\+Mailbox} \doxyref{}{p.}{classLocalSMMailbox_ab78244c89f7fa411c40addc650906c3f}, {\bf Local\+S\+M\+Mailbox\+Proxy} \doxyref{}{p.}{classLocalSMMailboxProxy_afb58d2be281db9d6e32503f20d56c502}, {\bf Distributed\+Mailbox\+Proxy} \doxyref{}{p.}{classDistributedMailboxProxy_a4d984ccc9f6591abd671e9eb6dadbcc4}, and {\bf Local\+Mailbox} \doxyref{}{p.}{classLocalMailbox_a257122f75a72d9cbba8692cd1d8c431c}.
+
+
+
+Referenced by Mailbox\+Owner\+Handle\+::deactivate(), Mailbox\+Lookup\+Service\+::register\+Mailbox(), and release().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!decrement\+Active\+Timers@{decrement\+Active\+Timers}}
+\index{decrement\+Active\+Timers@{decrement\+Active\+Timers}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{decrement\+Active\+Timers()}]{\setlength{\rightskip}{0pt plus 5cm}void Mailbox\+Base\+::decrement\+Active\+Timers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMailboxBase_a0c2bed28572412509613f369daa5d30f}
+Decrement Active Timer count 
+
+Referenced by Mailbox\+Owner\+Handle\+::cancel\+Timer(), and handle\+\_\+timeout().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!get\+Active\+Timers@{get\+Active\+Timers}}
+\index{get\+Active\+Timers@{get\+Active\+Timers}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{get\+Active\+Timers()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Mailbox\+Base\+::get\+Active\+Timers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMailboxBase_a416bcd1f4eb2e164f4f27be23413ce25}
+Return number of active, outstanding Timers \index{Mailbox\+Base@{Mailbox\+Base}!get\+Debug\+Value@{get\+Debug\+Value}}
+\index{get\+Debug\+Value@{get\+Debug\+Value}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{get\+Debug\+Value()=0}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Mailbox\+Base\+::get\+Debug\+Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classMailboxBase_af5d9b331f7cb55d27517def24cc16de6}
+Return the debug flag 
+
+Implemented in {\bf Group\+Mailbox\+Proxy} \doxyref{}{p.}{classGroupMailboxProxy_ac4e932a909a8c9e6822e0d6ce7fb6837}, {\bf Local\+Mailbox} \doxyref{}{p.}{classLocalMailbox_a51deb8f2ba82b15b81027880bd8ee931}, {\bf Local\+S\+M\+Mailbox\+Proxy} \doxyref{}{p.}{classLocalSMMailboxProxy_a0e576a4c88e3e508e9ae960bf6a6388a}, and {\bf Distributed\+Mailbox\+Proxy} \doxyref{}{p.}{classDistributedMailboxProxy_a36039bde300d10e2b5dc104e1e61a057}.
+
+
+
+Referenced by Mailbox\+Handle\+::get\+Debug\+Value(), and Mailbox\+Owner\+Handle\+::get\+Debug\+Value().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!get\+Mailbox\+Address@{get\+Mailbox\+Address}}
+\index{get\+Mailbox\+Address@{get\+Mailbox\+Address}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{get\+Mailbox\+Address()=0}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Mailbox\+Address}\& Mailbox\+Base\+::get\+Mailbox\+Address (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classMailboxBase_ace28a599cdadf1afa99c94602eb7e4a6}
+Return the Mailbox address 
+
+Implemented in {\bf Group\+Mailbox} \doxyref{}{p.}{classGroupMailbox_af3d24965817e7a326977ed01c59dfc7f}, {\bf Group\+Mailbox\+Proxy} \doxyref{}{p.}{classGroupMailboxProxy_a3c4059bb85aea2495e31146dfc868c87}, {\bf Local\+Mailbox} \doxyref{}{p.}{classLocalMailbox_a9524d5026b91c5f706ebdc22e58cfc76}, {\bf Local\+S\+M\+Mailbox\+Proxy} \doxyref{}{p.}{classLocalSMMailboxProxy_ac67c6a84f660f518f2cb05c33fde8a1b}, {\bf Distributed\+Mailbox} \doxyref{}{p.}{classDistributedMailbox_a2e729a806eaae2187e41b7286e2bb6a9}, {\bf Distributed\+Mailbox\+Proxy} \doxyref{}{p.}{classDistributedMailboxProxy_ab1263cbe93c584d84022b480190e7080}, and {\bf Local\+S\+M\+Mailbox} \doxyref{}{p.}{classLocalSMMailbox_a7dda4c081fcb30b3a653d13fb5530432}.
+
+
+
+Referenced by Mailbox\+Handle\+::get\+Mailbox\+Address(), and Mailbox\+Owner\+Handle\+::get\+Mailbox\+Address().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!get\+Message@{get\+Message}}
+\index{get\+Message@{get\+Message}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{get\+Message(unsigned short timeout\+Value=0)=0}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Message\+Base}$\ast$ Mailbox\+Base\+::get\+Message (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{timeout\+Value = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classMailboxBase_a3f6957be1bddd11487dec3b204f7ed82}
+Will block until an message is available. May return N\+U\+LL if no message available (if mailbox deactivated). 
+
+Implemented in {\bf Local\+Mailbox} \doxyref{}{p.}{classLocalMailbox_a7e498769854f747d7c5a4b0996644259}.
+
+
+
+Referenced by Mailbox\+Owner\+Handle\+::get\+Message().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!get\+Message\+Non\+Blocking@{get\+Message\+Non\+Blocking}}
+\index{get\+Message\+Non\+Blocking@{get\+Message\+Non\+Blocking}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{get\+Message\+Non\+Blocking()=0}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Message\+Base}$\ast$ Mailbox\+Base\+::get\+Message\+Non\+Blocking (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classMailboxBase_aad7075931168b7f353808461784a1c55}
+Will not block until an message is available. 
+
+If the application has a need to do non-\/blocking calls to get (or check to see if) messages pending on the mailbox queue, then the application needs to implement this call -\/instead-\/ of calling Mailbox\+Process\+::process\+Mailbox(). If this is indeed the case, then the application will either need to implement the case switching on the Message Type -\/or-\/ implement the find for the \doxyref{Message\+Handler\+List}{p.}{classMessageHandlerList} (functor lookup). \begin{DoxyReturn}{Returns}
+N\+U\+LL if no message available (and if mailbox deactivated). 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Local\+Mailbox} \doxyref{}{p.}{classLocalMailbox_a60cd9c185b9160ac9e12cca8c91b19a7}.
+
+
+
+Referenced by Mailbox\+Owner\+Handle\+::get\+Message\+Non\+Blocking().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!get\+Post\+Default\+Timeout@{get\+Post\+Default\+Timeout}}
+\index{get\+Post\+Default\+Timeout@{get\+Post\+Default\+Timeout}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{get\+Post\+Default\+Timeout()=0}]{\setlength{\rightskip}{0pt plus 5cm}virtual const A\+C\+E\+\_\+\+Time\+\_\+\+Value\& Mailbox\+Base\+::get\+Post\+Default\+Timeout (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classMailboxBase_a7e288209b5f7daf305f8a882a6b806c6}
+Subclass implementations should return the appropriate default timeout for the \doxyref{post()}{p.}{classMailboxBase_a6ac15f4fcc8493e7cc1e79310f1129a7} 
+
+Implemented in {\bf Group\+Mailbox\+Proxy} \doxyref{}{p.}{classGroupMailboxProxy_ab693664971bfcf4123f5a39514a6d671}, {\bf Local\+S\+M\+Mailbox\+Proxy} \doxyref{}{p.}{classLocalSMMailboxProxy_a6a302fda048b18f75a48c1f9e3c58c2c}, {\bf Distributed\+Mailbox\+Proxy} \doxyref{}{p.}{classDistributedMailboxProxy_a413c9f5b24771d55bbacdab4f9bb20f5}, and {\bf Local\+Mailbox} \doxyref{}{p.}{classLocalMailbox_a5e13fd0f4a2681099d5c4d10a5c6b0bc}.
+
+\index{Mailbox\+Base@{Mailbox\+Base}!get\+Reactor@{get\+Reactor}}
+\index{get\+Reactor@{get\+Reactor}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{get\+Reactor()}]{\setlength{\rightskip}{0pt plus 5cm}A\+C\+E\+\_\+\+Reactor $\ast$ Mailbox\+Base\+::get\+Reactor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMailboxBase_a99efa01247799c61a22edb6b5a8957d6}
+Return pointer to the select reactor used for event dispatch 
+
+References select\+Reactor\+\_\+.
+
+
+
+Referenced by Mailbox\+Owner\+Handle\+::cancel\+Timer(), Mailbox\+Owner\+Handle\+::reset\+Timer\+Interval(), and Mailbox\+Owner\+Handle\+::schedule\+Timer().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!get\+Received\+Count@{get\+Received\+Count}}
+\index{get\+Received\+Count@{get\+Received\+Count}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{get\+Received\+Count()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Mailbox\+Base\+::get\+Received\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMailboxBase_afb837790d215661333c0b75cec718c1f}
+Return the received message counter value \index{Mailbox\+Base@{Mailbox\+Base}!get\+Sent\+Count@{get\+Sent\+Count}}
+\index{get\+Sent\+Count@{get\+Sent\+Count}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{get\+Sent\+Count()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Mailbox\+Base\+::get\+Sent\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMailboxBase_abf8791b9db088030bbeffec6cbfec70c}
+Return the sent message counter value 
+
+Referenced by Mailbox\+Handle\+::get\+Sent\+Count(), and Mailbox\+Owner\+Handle\+::get\+Sent\+Count().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!handle\+\_\+timeout@{handle\+\_\+timeout}}
+\index{handle\+\_\+timeout@{handle\+\_\+timeout}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{handle\+\_\+timeout(const A\+C\+E\+\_\+\+Time\+\_\+\+Value \&tv, const void $\ast$argument)}]{\setlength{\rightskip}{0pt plus 5cm}int Mailbox\+Base\+::handle\+\_\+timeout (
+\begin{DoxyParamCaption}
+\item[{const A\+C\+E\+\_\+\+Time\+\_\+\+Value \&}]{tv, }
+\item[{const void $\ast$}]{argument}
+\end{DoxyParamCaption}
+)}\label{classMailboxBase_aae49e212642ebf880bdb43755aa6107d}
+Overriden A\+C\+E\+\_\+\+Event\+\_\+\+Handler method. 
+
+Method to handle timer expirations from the A\+CE reactor. This is base class functionality since all Mailboxes should have Timer capability. 
+
+References decrement\+Active\+Timers(), post(), and Timer\+Message\+::set\+Expiration\+Time().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!increment\+Active\+Timers@{increment\+Active\+Timers}}
+\index{increment\+Active\+Timers@{increment\+Active\+Timers}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{increment\+Active\+Timers()}]{\setlength{\rightskip}{0pt plus 5cm}void Mailbox\+Base\+::increment\+Active\+Timers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMailboxBase_a7a56fa110d04848b834ef02ee50bf81a}
+Increment Active Timer count 
+
+Referenced by Mailbox\+Owner\+Handle\+::schedule\+Timer().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!increment\+Received\+Count@{increment\+Received\+Count}}
+\index{increment\+Received\+Count@{increment\+Received\+Count}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{increment\+Received\+Count()}]{\setlength{\rightskip}{0pt plus 5cm}void Mailbox\+Base\+::increment\+Received\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classMailboxBase_ab6bcbefea11701bbeac0c68cc685ff9f}
+Increments the Mailbox\textquotesingle{}s received message count 
+
+Referenced by Distributed\+Mailbox\+::create\+Mailbox(), Group\+Mailbox\+::create\+Mailbox(), and Local\+S\+M\+Mailbox\+::get\+Mailbox\+Address().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!increment\+Sent\+Count@{increment\+Sent\+Count}}
+\index{increment\+Sent\+Count@{increment\+Sent\+Count}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{increment\+Sent\+Count()}]{\setlength{\rightskip}{0pt plus 5cm}void Mailbox\+Base\+::increment\+Sent\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classMailboxBase_a0b17d7f316eb12d984a0752f33f0dbbd}
+Increments the Mailbox\textquotesingle{}s sent message count 
+
+Referenced by Distributed\+Mailbox\+Proxy\+::post(), Local\+S\+M\+Mailbox\+Proxy\+::post(), and Group\+Mailbox\+Proxy\+::post().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!is\+Active@{is\+Active}}
+\index{is\+Active@{is\+Active}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{is\+Active()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Mailbox\+Base\+::is\+Active (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMailboxBase_a6aa03ff6dfe4d2ebfa4db93705cf21c2}
+Indicates whether the Mailbox has been activated or not \begin{DoxyReturn}{Returns}
+T\+R\+UE or F\+A\+L\+SE 
+\end{DoxyReturn}
+
+
+Referenced by Local\+Mailbox\+::activate(), Distributed\+Mailbox\+Proxy\+::activate(), Local\+S\+M\+Mailbox\+Proxy\+::activate(), Local\+S\+M\+Mailbox\+::activate(), Distributed\+Mailbox\+::activate(), Group\+Mailbox\+Proxy\+::activate(), Group\+Mailbox\+::activate(), Local\+Mailbox\+::deactivate(), Distributed\+Mailbox\+Proxy\+::deactivate(), Local\+S\+M\+Mailbox\+Proxy\+::deactivate(), Group\+Mailbox\+Proxy\+::deactivate(), Local\+S\+M\+Mailbox\+::get\+Mailbox\+Address(), Local\+Mailbox\+::get\+Message(), Local\+Mailbox\+::get\+Message\+Non\+Blocking(), Distributed\+Mailbox\+Proxy\+::post(), Local\+S\+M\+Mailbox\+Proxy\+::post(), Local\+Mailbox\+::post(), Group\+Mailbox\+Proxy\+::post(), and release().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!is\+Proxy@{is\+Proxy}}
+\index{is\+Proxy@{is\+Proxy}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{is\+Proxy()}]{\setlength{\rightskip}{0pt plus 5cm}bool Mailbox\+Base\+::is\+Proxy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMailboxBase_a2154073ff59336ed7c40302fd2d37e24}
+Indicate whether this mailbox is a Proxy side mailbox for posting messages 
+
+References is\+Proxy\+\_\+.
+
+
+
+Referenced by Mailbox\+Handle\+::is\+Proxy(), Mailbox\+Owner\+Handle\+::is\+Proxy(), and Mailbox\+Lookup\+Service\+::register\+Mailbox().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!post@{post}}
+\index{post@{post}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{post(\+Message\+Base $\ast$message\+Ptr, const A\+C\+E\+\_\+\+Time\+\_\+\+Value $\ast$timeout=\&\+A\+C\+E\+\_\+\+Time\+\_\+\+Value\+::zero)=0}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Mailbox\+Base\+::post (
+\begin{DoxyParamCaption}
+\item[{{\bf Message\+Base} $\ast$}]{message\+Ptr, }
+\item[{const A\+C\+E\+\_\+\+Time\+\_\+\+Value $\ast$}]{timeout = {\ttfamily \&ACE\+\_\+Time\+\_\+Value\+:\+:zero}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classMailboxBase_a6ac15f4fcc8493e7cc1e79310f1129a7}
+Post a message to this mailbox. Subclass implementations should examine the \char`\"{}active\+\_\+\char`\"{} state. \begin{DoxyReturn}{Returns}
+E\+R\+R\+OR for an error, OK otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Group\+Mailbox\+Proxy} \doxyref{}{p.}{classGroupMailboxProxy_a753647fb4480c941e51e368d8bbf8a89}, {\bf Local\+Mailbox} \doxyref{}{p.}{classLocalMailbox_a9386ee91649cf2ced5133c2240e4799b}, {\bf Local\+S\+M\+Mailbox\+Proxy} \doxyref{}{p.}{classLocalSMMailboxProxy_a46a6e01b78e3a9c75b8ac020bbf894a8}, and {\bf Distributed\+Mailbox\+Proxy} \doxyref{}{p.}{classDistributedMailboxProxy_af73348ca55313a5e1a6b699ec9900cf7}.
+
+
+
+Referenced by handle\+\_\+timeout(), Mailbox\+Handle\+::post(), and Mailbox\+Owner\+Handle\+::post().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!release@{release}}
+\index{release@{release}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{release()}]{\setlength{\rightskip}{0pt plus 5cm}void Mailbox\+Base\+::release (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxBase_a7951929a4531a2cfc81a557799dcc9b4}
+Release the handle for this mailbox. Here we do reference counting. When the reference\+Count for this Mailbox returns to zero, the Mailbox will de-\/register itself with the Mailbox Lookup Service and then delete itself. 
+
+References deactivate(), Mailbox\+Lookup\+Service\+::deregister\+Mailbox(), and is\+Active().
+
+
+
+Referenced by Mailbox\+Handle\+::$\sim$\+Mailbox\+Handle(), and Mailbox\+Owner\+Handle\+::$\sim$\+Mailbox\+Owner\+Handle().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!rename@{rename}}
+\index{rename@{rename}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{rename(const Mailbox\+Address \&new\+Remote\+Address)}]{\setlength{\rightskip}{0pt plus 5cm}bool Mailbox\+Base\+::rename (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{new\+Remote\+Address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxBase_a93bf1108b770d273af5c4282bdcdfe47}
+Rename the Mailbox address 
+
+Reimplemented in {\bf Group\+Mailbox} \doxyref{}{p.}{classGroupMailbox_a3f31059b9ea8924a92ef65b1afb44609}, and {\bf Distributed\+Mailbox} \doxyref{}{p.}{classDistributedMailbox_afdfc26662bae3b128ab4832e2c9fbbac}.
+
+
+
+Referenced by Mailbox\+Owner\+Handle\+::rename().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!set\+Active@{set\+Active}}
+\index{set\+Active@{set\+Active}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{set\+Active(unsigned int active)}]{\setlength{\rightskip}{0pt plus 5cm}void Mailbox\+Base\+::set\+Active (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{active}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classMailboxBase_af9f20ca9af3eec2005576bd745653bd3}
+Sets the activate state flag 
+
+Referenced by Local\+Mailbox\+::activate(), Distributed\+Mailbox\+Proxy\+::activate(), Local\+S\+M\+Mailbox\+Proxy\+::activate(), Group\+Mailbox\+Proxy\+::activate(), Local\+Mailbox\+::deactivate(), Distributed\+Mailbox\+Proxy\+::deactivate(), Local\+S\+M\+Mailbox\+Proxy\+::deactivate(), and Group\+Mailbox\+Proxy\+::deactivate().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!set\+Debug\+Value@{set\+Debug\+Value}}
+\index{set\+Debug\+Value@{set\+Debug\+Value}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{set\+Debug\+Value(int debug\+Value)=0}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Mailbox\+Base\+::set\+Debug\+Value (
+\begin{DoxyParamCaption}
+\item[{int}]{debug\+Value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classMailboxBase_a3be54965c1fafbc4de3d7e6087128a4f}
+Set the debug flag 
+
+Implemented in {\bf Group\+Mailbox\+Proxy} \doxyref{}{p.}{classGroupMailboxProxy_aedebe98af0626f15e2c21620385c83c9}, {\bf Local\+Mailbox} \doxyref{}{p.}{classLocalMailbox_aa66737102700c79d4e76b15202a0d9d9}, {\bf Local\+S\+M\+Mailbox\+Proxy} \doxyref{}{p.}{classLocalSMMailboxProxy_a86ccba1d151ccc97aaeeae24dabf0c22}, and {\bf Distributed\+Mailbox\+Proxy} \doxyref{}{p.}{classDistributedMailboxProxy_a993b782f3aeb9a15c17271169b0442a0}.
+
+
+
+Referenced by Mailbox\+Handle\+::set\+Debug\+Value(), and Mailbox\+Owner\+Handle\+::set\+Debug\+Value().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Mailbox\+Base\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMailboxBase_aefae1b658534cef088c397704573689c}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+Referenced by Local\+Mailbox\+::post().
+
+
+
+\subsection{Member Data Documentation}
+\index{Mailbox\+Base@{Mailbox\+Base}!debug\+Value\+\_\+@{debug\+Value\+\_\+}}
+\index{debug\+Value\+\_\+@{debug\+Value\+\_\+}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{debug\+Value\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int Mailbox\+Base\+::debug\+Value\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classMailboxBase_a29e364c4edb4e8d47d2073859a80967a}
+Debug Flag 
+
+Referenced by Distributed\+Mailbox\+::create\+Mailbox(), Group\+Mailbox\+::create\+Mailbox(), Distributed\+Mailbox\+Proxy\+::get\+Debug\+Value(), Local\+S\+M\+Mailbox\+Proxy\+::get\+Debug\+Value(), Local\+Mailbox\+::get\+Debug\+Value(), Group\+Mailbox\+Proxy\+::get\+Debug\+Value(), Local\+S\+M\+Mailbox\+::get\+Mailbox\+Address(), Local\+S\+M\+Mailbox\+::\+Local\+S\+M\+Mailbox(), Distributed\+Mailbox\+Proxy\+::post(), Local\+S\+M\+Mailbox\+Proxy\+::post(), Local\+Mailbox\+::post(), Group\+Mailbox\+Proxy\+::post(), Distributed\+Mailbox\+Proxy\+::set\+Debug\+Value(), Local\+S\+M\+Mailbox\+Proxy\+::set\+Debug\+Value(), Local\+Mailbox\+::set\+Debug\+Value(), and Group\+Mailbox\+Proxy\+::set\+Debug\+Value().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!is\+Proxy\+\_\+@{is\+Proxy\+\_\+}}
+\index{is\+Proxy\+\_\+@{is\+Proxy\+\_\+}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{is\+Proxy\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}bool Mailbox\+Base\+::is\+Proxy\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classMailboxBase_a192b36393af2e8bacfe56612792c52b8}
+Flag to indicate whether this mailbox is a Proxy side mailbox for posting messages 
+
+Referenced by Distributed\+Mailbox\+Proxy\+::\+Distributed\+Mailbox\+Proxy(), Group\+Mailbox\+Proxy\+::\+Group\+Mailbox\+Proxy(), is\+Proxy(), and Local\+S\+M\+Mailbox\+Proxy\+::\+Local\+S\+M\+Mailbox\+Proxy().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!is\+Shutting\+Down\+\_\+@{is\+Shutting\+Down\+\_\+}}
+\index{is\+Shutting\+Down\+\_\+@{is\+Shutting\+Down\+\_\+}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{is\+Shutting\+Down\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}A\+C\+E\+\_\+\+Atomic\+\_\+\+Op$<$ A\+C\+E\+\_\+\+Thread\+\_\+\+Mutex, unsigned int $>$ Mailbox\+Base\+::is\+Shutting\+Down\+\_\+ = F\+A\+L\+SE\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{classMailboxBase_a67e12b4c0eb07124aa4d771d70bde9c7}
+Flag to indicate that the Mailbox is being shutdown. Set in the Mailbox\textquotesingle{}s destructor for loops to see 
+
+Referenced by Distributed\+Mailbox\+::get\+Mailbox\+Address(), Group\+Mailbox\+::get\+Mailbox\+Address(), Local\+Mailbox\+::start\+Reactor(), Distributed\+Mailbox\+::$\sim$\+Distributed\+Mailbox(), Distributed\+Mailbox\+Proxy\+::$\sim$\+Distributed\+Mailbox\+Proxy(), Group\+Mailbox\+::$\sim$\+Group\+Mailbox(), Group\+Mailbox\+Proxy\+::$\sim$\+Group\+Mailbox\+Proxy(), Local\+Mailbox\+::$\sim$\+Local\+Mailbox(), Local\+S\+M\+Mailbox\+::$\sim$\+Local\+S\+M\+Mailbox(), and Local\+S\+M\+Mailbox\+Proxy\+::$\sim$\+Local\+S\+M\+Mailbox\+Proxy().
+
+\index{Mailbox\+Base@{Mailbox\+Base}!select\+Reactor\+\_\+@{select\+Reactor\+\_\+}}
+\index{select\+Reactor\+\_\+@{select\+Reactor\+\_\+}!Mailbox\+Base@{Mailbox\+Base}}
+\subsubsection[{select\+Reactor\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}A\+C\+E\+\_\+\+Reactor$\ast$ Mailbox\+Base\+::select\+Reactor\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classMailboxBase_a23542af72dbcdd3213b740b7baa96922}
+A\+C\+E\+\_\+\+Select\+\_\+\+Reactor used for event dispatch. This only gets instantiated by non-\/proxy mailboxes 
+
+Referenced by Distributed\+Mailbox\+::create\+Mailbox(), Local\+S\+M\+Mailbox\+::create\+Mailbox(), Group\+Mailbox\+::create\+Mailbox(), Local\+Mailbox\+::create\+Mailbox(), get\+Reactor(), and Local\+Mailbox\+::$\sim$\+Local\+Mailbox().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Mailbox\+Base.\+h\item 
+Mailbox\+Base.\+cpp\end{DoxyCompactItemize}

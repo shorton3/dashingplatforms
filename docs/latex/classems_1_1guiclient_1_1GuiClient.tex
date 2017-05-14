@@ -1,0 +1,114 @@
+\section{ems.\+guiclient.\+Gui\+Client Class Reference}
+\label{classems_1_1guiclient_1_1GuiClient}\index{ems.\+guiclient.\+Gui\+Client@{ems.\+guiclient.\+Gui\+Client}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Gui\+Client} ()
+\item 
+final void {\bf initialize\+G\+UI} ()
+\item 
+final void {\bf initialize\+Orb} (String[$\,$] arguments)
+\item 
+final String {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bf main} (String[$\,$] a\+Arguments)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Gui\+Frame} {\bf gui\+Frame\+\_\+} = null
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Gui\+Client}{p.}{classems_1_1guiclient_1_1GuiClient} implements a graphical client interface for communicating to the E\+MS via C\+O\+R\+BA. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{ems\+::guiclient\+::\+Gui\+Client@{ems\+::guiclient\+::\+Gui\+Client}!Gui\+Client@{Gui\+Client}}
+\index{Gui\+Client@{Gui\+Client}!ems\+::guiclient\+::\+Gui\+Client@{ems\+::guiclient\+::\+Gui\+Client}}
+\subsubsection[{Gui\+Client()}]{\setlength{\rightskip}{0pt plus 5cm}ems.\+guiclient.\+Gui\+Client.\+Gui\+Client (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classems_1_1guiclient_1_1GuiClient_a48d2c6de29a261c7f0d04cc7ef157f59}
+Default Constructor 
+
+Referenced by ems.\+guiclient.\+Gui\+Client.\+main().
+
+
+
+\subsection{Member Function Documentation}
+\index{ems\+::guiclient\+::\+Gui\+Client@{ems\+::guiclient\+::\+Gui\+Client}!initialize\+G\+UI@{initialize\+G\+UI}}
+\index{initialize\+G\+UI@{initialize\+G\+UI}!ems\+::guiclient\+::\+Gui\+Client@{ems\+::guiclient\+::\+Gui\+Client}}
+\subsubsection[{initialize\+G\+U\+I()}]{\setlength{\rightskip}{0pt plus 5cm}final void ems.\+guiclient.\+Gui\+Client.\+initialize\+G\+UI (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classems_1_1guiclient_1_1GuiClient_ae02db95306b49697502634a391ebf0f9}
+Initialize the G\+UI Client Widgets 
+
+Referenced by ems.\+guiclient.\+Gui\+Client.\+main().
+
+\index{ems\+::guiclient\+::\+Gui\+Client@{ems\+::guiclient\+::\+Gui\+Client}!initialize\+Orb@{initialize\+Orb}}
+\index{initialize\+Orb@{initialize\+Orb}!ems\+::guiclient\+::\+Gui\+Client@{ems\+::guiclient\+::\+Gui\+Client}}
+\subsubsection[{initialize\+Orb(\+String[] arguments)}]{\setlength{\rightskip}{0pt plus 5cm}final void ems.\+guiclient.\+Gui\+Client.\+initialize\+Orb (
+\begin{DoxyParamCaption}
+\item[{String[$\,$]}]{arguments}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classems_1_1guiclient_1_1GuiClient_a2473e45f1085fa68ffee7b11a9cce18a}
+Initialization Method that Jac\+Orb C\+O\+R\+BA initialization 
+\begin{DoxyParams}{Parameters}
+{\em arguments} & Command line arguments to the Gui Client are passed directly to the Jac\+Orb Orb for parsing out Corba specific initialization parameters. \\
+\hline
+\end{DoxyParams}
+
+
+References ems.\+guiclient.\+Gui\+Frame.\+set\+Agent\+Session(), and ems.\+guiclient.\+Session\+\_\+\+I\+Impl.\+set\+Associated\+Session().
+
+
+
+Referenced by ems.\+guiclient.\+Gui\+Client.\+main().
+
+\index{ems\+::guiclient\+::\+Gui\+Client@{ems\+::guiclient\+::\+Gui\+Client}!main@{main}}
+\index{main@{main}!ems\+::guiclient\+::\+Gui\+Client@{ems\+::guiclient\+::\+Gui\+Client}}
+\subsubsection[{main(\+String[] a\+Arguments)}]{\setlength{\rightskip}{0pt plus 5cm}static void ems.\+guiclient.\+Gui\+Client.\+main (
+\begin{DoxyParamCaption}
+\item[{String[$\,$]}]{a\+Arguments}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{classems_1_1guiclient_1_1GuiClient_ac56c10a4eae6bf1540d092a60616cab8}
+Gui Client Main Method 
+
+References ems.\+guiclient.\+Gui\+Client.\+Gui\+Client(), ems.\+guiclient.\+Gui\+Client.\+initialize\+G\+U\+I(), and ems.\+guiclient.\+Gui\+Client.\+initialize\+Orb().
+
+\index{ems\+::guiclient\+::\+Gui\+Client@{ems\+::guiclient\+::\+Gui\+Client}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!ems\+::guiclient\+::\+Gui\+Client@{ems\+::guiclient\+::\+Gui\+Client}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}final String ems.\+guiclient.\+Gui\+Client.\+to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classems_1_1guiclient_1_1GuiClient_aaab25876112fcf2a76abaf0dacf38585}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{ems\+::guiclient\+::\+Gui\+Client@{ems\+::guiclient\+::\+Gui\+Client}!gui\+Frame\+\_\+@{gui\+Frame\+\_\+}}
+\index{gui\+Frame\+\_\+@{gui\+Frame\+\_\+}!ems\+::guiclient\+::\+Gui\+Client@{ems\+::guiclient\+::\+Gui\+Client}}
+\subsubsection[{gui\+Frame\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Gui\+Frame} ems.\+guiclient.\+Gui\+Client.\+gui\+Frame\+\_\+ = null}\label{classems_1_1guiclient_1_1GuiClient_a8fa26a6df9fce7886c3412f307a6c21c}
+Reference to the Gui Widget 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Gui\+Client.\+java\end{DoxyCompactItemize}

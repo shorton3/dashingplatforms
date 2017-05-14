@@ -1,0 +1,135 @@
+\section{ems.\+guiclient.\+Session\+\_\+\+I\+Impl Class Reference}
+\label{classems_1_1guiclient_1_1Session__IImpl}\index{ems.\+guiclient.\+Session\+\_\+\+I\+Impl@{ems.\+guiclient.\+Session\+\_\+\+I\+Impl}}
+Inheritance diagram for ems.\+guiclient.\+Session\+\_\+\+I\+Impl\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.424242cm]{classems_1_1guiclient_1_1Session__IImpl}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Session\+\_\+\+I\+Impl} ()
+\item 
+{\bf ems.\+idls.\+session.\+Session\+\_\+I} {\bf associated\+Session} ()
+\item 
+void {\bf ping} ()
+\item 
+void {\bf end\+Session} ()
+\item 
+void {\bf set\+Associated\+Session} ({\bf ems.\+idls.\+session.\+Session\+\_\+I} {\bf associated\+Session})
+\item 
+final String {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf ems.\+idls.\+session.\+Session\+\_\+I} {\bf associated\+Session\+\_\+} = null
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Session\+\_\+\+I\+Impl}{p.}{classems_1_1guiclient_1_1Session__IImpl} extends from the Session\+\_\+\+I\+P\+OA skeleton file (server implementation) that was created from running the idlj Java I\+DL compiler on the session.\+I\+DL file. 
+
+Here we add the Gui Client\textquotesingle{}s implementation for the session interface. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl@{ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl}!Session\+\_\+\+I\+Impl@{Session\+\_\+\+I\+Impl}}
+\index{Session\+\_\+\+I\+Impl@{Session\+\_\+\+I\+Impl}!ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl@{ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl}}
+\subsubsection[{Session\+\_\+\+I\+Impl()}]{\setlength{\rightskip}{0pt plus 5cm}ems.\+guiclient.\+Session\+\_\+\+I\+Impl.\+Session\+\_\+\+I\+Impl (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classems_1_1guiclient_1_1Session__IImpl_aa6341a013eb3d109050541600dad7bbf}
+Default Constructor 
+
+\subsection{Member Function Documentation}
+\index{ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl@{ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl}!associated\+Session@{associated\+Session}}
+\index{associated\+Session@{associated\+Session}!ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl@{ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl}}
+\subsubsection[{associated\+Session()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ems.\+idls.\+session.\+Session\+\_\+I} ems.\+guiclient.\+Session\+\_\+\+I\+Impl.\+associated\+Session (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classems_1_1guiclient_1_1Session__IImpl_a0b2309d970aa777f9aebee58b1d66c61}
+Return a reference to the remote session for determining communication validity 
+
+Implements {\bf ems.\+idls.\+session.\+Session\+\_\+\+I\+Operations} \doxyref{}{p.}{interfaceems_1_1idls_1_1session_1_1Session__IOperations_abdd2ef4e9023be5e6f943a28e8d9ef84}.
+
+
+
+References ems.\+guiclient.\+Session\+\_\+\+I\+Impl.\+associated\+Session\+\_\+.
+
+
+
+Referenced by ems.\+guiclient.\+Session\+\_\+\+I\+Impl.\+set\+Associated\+Session().
+
+\index{ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl@{ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl}!end\+Session@{end\+Session}}
+\index{end\+Session@{end\+Session}!ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl@{ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl}}
+\subsubsection[{end\+Session()}]{\setlength{\rightskip}{0pt plus 5cm}void ems.\+guiclient.\+Session\+\_\+\+I\+Impl.\+end\+Session (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classems_1_1guiclient_1_1Session__IImpl_a83ef4a3e40b81421d2c8fd4fe66c6923}
+Respond to a remotely invoked End Session request 
+
+Implements {\bf ems.\+idls.\+session.\+Session\+\_\+\+I\+Operations} \doxyref{}{p.}{interfaceems_1_1idls_1_1session_1_1Session__IOperations_a22c6fa1b244aa0c47e143673a76b1fee}.
+
+\index{ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl@{ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl}!ping@{ping}}
+\index{ping@{ping}!ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl@{ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl}}
+\subsubsection[{ping()}]{\setlength{\rightskip}{0pt plus 5cm}void ems.\+guiclient.\+Session\+\_\+\+I\+Impl.\+ping (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classems_1_1guiclient_1_1Session__IImpl_a3859742494b41810b68556fffdfecf0b}
+Respond to a remotely invoked Ping method 
+
+Implements {\bf ems.\+idls.\+session.\+Session\+\_\+\+I\+Operations} \doxyref{}{p.}{interfaceems_1_1idls_1_1session_1_1Session__IOperations_aae691a1efc0ad61344cb34d150769ac7}.
+
+\index{ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl@{ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl}!set\+Associated\+Session@{set\+Associated\+Session}}
+\index{set\+Associated\+Session@{set\+Associated\+Session}!ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl@{ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl}}
+\subsubsection[{set\+Associated\+Session(ems.\+idls.\+session.\+Session\+\_\+\+I associated\+Session)}]{\setlength{\rightskip}{0pt plus 5cm}void ems.\+guiclient.\+Session\+\_\+\+I\+Impl.\+set\+Associated\+Session (
+\begin{DoxyParamCaption}
+\item[{{\bf ems.\+idls.\+session.\+Session\+\_\+I}}]{associated\+Session}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classems_1_1guiclient_1_1Session__IImpl_a7f4c017c042c2703f0e7ff4044a27357}
+Store the associated session 
+
+References ems.\+guiclient.\+Session\+\_\+\+I\+Impl.\+associated\+Session(), and ems.\+guiclient.\+Session\+\_\+\+I\+Impl.\+associated\+Session\+\_\+.
+
+
+
+Referenced by ems.\+guiclient.\+Gui\+Client.\+initialize\+Orb().
+
+\index{ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl@{ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl@{ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}final String ems.\+guiclient.\+Session\+\_\+\+I\+Impl.\+to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classems_1_1guiclient_1_1Session__IImpl_a531de34e76b353c3bbe399cdce3cf770}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl@{ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl}!associated\+Session\+\_\+@{associated\+Session\+\_\+}}
+\index{associated\+Session\+\_\+@{associated\+Session\+\_\+}!ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl@{ems\+::guiclient\+::\+Session\+\_\+\+I\+Impl}}
+\subsubsection[{associated\+Session\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ems.\+idls.\+session.\+Session\+\_\+I} ems.\+guiclient.\+Session\+\_\+\+I\+Impl.\+associated\+Session\+\_\+ = null}\label{classems_1_1guiclient_1_1Session__IImpl_a2fcbfa0bd676e0bdd42e711381d1c79a}
+Reference to the associated session 
+
+Referenced by ems.\+guiclient.\+Session\+\_\+\+I\+Impl.\+associated\+Session(), and ems.\+guiclient.\+Session\+\_\+\+I\+Impl.\+set\+Associated\+Session().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Session\+\_\+\+I\+Impl.\+java\end{DoxyCompactItemize}

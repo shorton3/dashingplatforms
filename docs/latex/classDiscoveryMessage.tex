@@ -1,0 +1,180 @@
+\section{Discovery\+Message Class Reference}
+\label{classDiscoveryMessage}\index{Discovery\+Message@{Discovery\+Message}}
+Inheritance diagram for Discovery\+Message\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classDiscoveryMessage}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Discovery\+Message} (const {\bf Mailbox\+Address} \&source\+Address, Discovery\+Operation\+Type operation, unsigned int originating\+P\+ID, const {\bf Mailbox\+Address} \&discovery\+Address)
+\item 
+{\bf Discovery\+Message} (const {\bf Discovery\+Message} \&rhs)
+\item 
+virtual {\bf $\sim$\+Discovery\+Message} ()
+\item 
+unsigned short {\bf get\+Message\+Id} () const 
+\item 
+Discovery\+Operation\+Type {\bf get\+Operation\+Type} () const 
+\item 
+const {\bf Mailbox\+Address} \& {\bf get\+Discovery\+Address} () const 
+\item 
+unsigned int {\bf get\+Originating\+P\+ID} () const 
+\item 
+int {\bf serialize} ({\bf Message\+Buffer} \&buffer)
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf Message\+Base} $\ast$ {\bf deserialize} ({\bf Message\+Buffer} $\ast$buffer)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Discovery\+Message@{Discovery\+Message}!Discovery\+Message@{Discovery\+Message}}
+\index{Discovery\+Message@{Discovery\+Message}!Discovery\+Message@{Discovery\+Message}}
+\subsubsection[{Discovery\+Message(const Mailbox\+Address \&source\+Address, Discovery\+Operation\+Type operation, unsigned int originating\+P\+I\+D, const Mailbox\+Address \&discovery\+Address)}]{\setlength{\rightskip}{0pt plus 5cm}Discovery\+Message\+::\+Discovery\+Message (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{source\+Address, }
+\item[{Discovery\+Operation\+Type}]{operation, }
+\item[{unsigned int}]{originating\+P\+ID, }
+\item[{const {\bf Mailbox\+Address} \&}]{discovery\+Address}
+\end{DoxyParamCaption}
+)}\label{classDiscoveryMessage_ada416a276490cb49f8c3a31930f99dbe}
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em source\+Address} & Mailbox Address for this \doxyref{Discovery\+Manager}{p.}{classDiscoveryManager} (on this node) \\
+\hline
+{\em operation} & Type of discovery operation (register, deregister, etc.) \\
+\hline
+{\em discovery\+Address} & Mailbox Address that is being registered/deregistered \\
+\hline
+\end{DoxyParams}
+
+
+Referenced by deserialize().
+
+\index{Discovery\+Message@{Discovery\+Message}!Discovery\+Message@{Discovery\+Message}}
+\index{Discovery\+Message@{Discovery\+Message}!Discovery\+Message@{Discovery\+Message}}
+\subsubsection[{Discovery\+Message(const Discovery\+Message \&rhs)}]{\setlength{\rightskip}{0pt plus 5cm}Discovery\+Message\+::\+Discovery\+Message (
+\begin{DoxyParamCaption}
+\item[{const {\bf Discovery\+Message} \&}]{rhs}
+\end{DoxyParamCaption}
+)}\label{classDiscoveryMessage_aa54db081cf8826e1824177be13c03c88}
+Copy Constructor \index{Discovery\+Message@{Discovery\+Message}!````~Discovery\+Message@{$\sim$\+Discovery\+Message}}
+\index{````~Discovery\+Message@{$\sim$\+Discovery\+Message}!Discovery\+Message@{Discovery\+Message}}
+\subsubsection[{$\sim$\+Discovery\+Message()}]{\setlength{\rightskip}{0pt plus 5cm}Discovery\+Message\+::$\sim$\+Discovery\+Message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classDiscoveryMessage_a9b1210d21a4135761ff9c964892ffdeb}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Discovery\+Message@{Discovery\+Message}!deserialize@{deserialize}}
+\index{deserialize@{deserialize}!Discovery\+Message@{Discovery\+Message}}
+\subsubsection[{deserialize(\+Message\+Buffer $\ast$buffer)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Message\+Base} $\ast$ Discovery\+Message\+::deserialize (
+\begin{DoxyParamCaption}
+\item[{{\bf Message\+Buffer} $\ast$}]{buffer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classDiscoveryMessage_ae76860a9afec759af6545aabd75a7adb}
+Subclassed deserialization / bootstrap implementation 
+
+References Discovery\+Message().
+
+
+
+Referenced by Discovery\+Manager\+::initialize().
+
+\index{Discovery\+Message@{Discovery\+Message}!get\+Discovery\+Address@{get\+Discovery\+Address}}
+\index{get\+Discovery\+Address@{get\+Discovery\+Address}!Discovery\+Message@{Discovery\+Message}}
+\subsubsection[{get\+Discovery\+Address() const }]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Mailbox\+Address} \& Discovery\+Message\+::get\+Discovery\+Address (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classDiscoveryMessage_a7a78388064fe97844b531014bf016409}
+Returns the Discovery Address which is being registered/deregistered 
+
+Referenced by Discovery\+Manager\+::process\+Mailbox().
+
+\index{Discovery\+Message@{Discovery\+Message}!get\+Message\+Id@{get\+Message\+Id}}
+\index{get\+Message\+Id@{get\+Message\+Id}!Discovery\+Message@{Discovery\+Message}}
+\subsubsection[{get\+Message\+Id() const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned short Discovery\+Message\+::get\+Message\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\label{classDiscoveryMessage_ad208d214bd5b00595bd3869425d9bdc7}
+Returns the Message Id 
+
+Implements {\bf Message\+Base} \doxyref{}{p.}{classMessageBase_a0910c23e94ea98b7a4e11631c9068311}.
+
+\index{Discovery\+Message@{Discovery\+Message}!get\+Operation\+Type@{get\+Operation\+Type}}
+\index{get\+Operation\+Type@{get\+Operation\+Type}!Discovery\+Message@{Discovery\+Message}}
+\subsubsection[{get\+Operation\+Type() const }]{\setlength{\rightskip}{0pt plus 5cm}Discovery\+Operation\+Type Discovery\+Message\+::get\+Operation\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classDiscoveryMessage_a7027d866945417ea159a59a32aa6b0bd}
+Returns the Discovery Operation type 
+
+Referenced by Discovery\+Manager\+::process\+Mailbox().
+
+\index{Discovery\+Message@{Discovery\+Message}!get\+Originating\+P\+ID@{get\+Originating\+P\+ID}}
+\index{get\+Originating\+P\+ID@{get\+Originating\+P\+ID}!Discovery\+Message@{Discovery\+Message}}
+\subsubsection[{get\+Originating\+P\+I\+D() const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Discovery\+Message\+::get\+Originating\+P\+ID (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classDiscoveryMessage_a2bcbf6451d657d7ae514ba642f331772}
+Returns the P\+ID of the process that originated this message. Used to verify and filter out messages from our own \doxyref{Discovery\+Manager}{p.}{classDiscoveryManager} 
+
+Referenced by Discovery\+Manager\+::process\+Mailbox().
+
+\index{Discovery\+Message@{Discovery\+Message}!serialize@{serialize}}
+\index{serialize@{serialize}!Discovery\+Message@{Discovery\+Message}}
+\subsubsection[{serialize(\+Message\+Buffer \&buffer)}]{\setlength{\rightskip}{0pt plus 5cm}int Discovery\+Message\+::serialize (
+\begin{DoxyParamCaption}
+\item[{{\bf Message\+Buffer} \&}]{buffer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classDiscoveryMessage_af7192abcad9f42eec25e303435740382}
+Subclassed serialization implementation 
+
+Reimplemented from {\bf Message\+Base} \doxyref{}{p.}{classMessageBase_a1120deb2887e4a72d7dc68b505e5e10a}.
+
+
+
+References Message\+Base\+::source\+Address\+\_\+.
+
+\index{Discovery\+Message@{Discovery\+Message}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Discovery\+Message@{Discovery\+Message}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Discovery\+Message\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classDiscoveryMessage_aee9ec66013b69b35b672679e91d4118c}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+Implements {\bf Message\+Base} \doxyref{}{p.}{classMessageBase_a7946fdcef86bfd67ad1df2ede8ed671d}.
+
+
+
+References Message\+Base\+::source\+Address\+\_\+, and Mailbox\+Address\+::to\+String().
+
+
+
+Referenced by Discovery\+Manager\+::process\+Mailbox().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Discovery\+Message.\+h\item 
+Discovery\+Message.\+cpp\end{DoxyCompactItemize}

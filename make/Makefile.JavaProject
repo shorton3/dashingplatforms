@@ -1,0 +1,20 @@
+JavaPackages = \
+	no/geosoft/directory \
+	no/geosoft/user \
+	no/geosoft/database \
+
+JavaLibraries = \
+	mysql-connector.jar \
+
+JavaMainClass = \
+	no.geosoft.database.Main
+
+RunParameters = 
+ 
+# Javadoc
+JavadocWindowTitle = 'Geotechnical Software Services - API Specification'
+JavadocDocTitle    = 'GeoSoft API'
+JavadocHeader      = 'GeoSoft API'
+JavadocFooter      = '<font size="-1">Copyright &copy; 2004 - Geotechnical Software Services <a href="http://geosoft.no">geosoft.no<a></font>'
+
+include $(DEV_ROOT)/make/Makefile

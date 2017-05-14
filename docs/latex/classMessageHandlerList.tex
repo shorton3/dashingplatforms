@@ -1,0 +1,116 @@
+\section{Message\+Handler\+List Class Reference}
+\label{classMessageHandlerList}\index{Message\+Handler\+List@{Message\+Handler\+List}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Message\+Handler\+List} ()
+\item 
+virtual {\bf $\sim$\+Message\+Handler\+List} ()
+\item 
+bool {\bf add} (unsigned short message\+Id, const {\bf Message\+Handler} \&handler)
+\item 
+void {\bf remove} (unsigned short message\+Id)
+\item 
+const {\bf Message\+Handler} \& {\bf find} (unsigned short message\+Id)
+\item 
+void {\bf set\+Default} ({\bf Message\+Handler} \&default\+Handler)
+\item 
+void {\bf restore\+Default} ()
+\item 
+void {\bf list\+All\+Message\+Handlers} ()
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Message\+Handler\+List@{Message\+Handler\+List}!Message\+Handler\+List@{Message\+Handler\+List}}
+\index{Message\+Handler\+List@{Message\+Handler\+List}!Message\+Handler\+List@{Message\+Handler\+List}}
+\subsubsection[{Message\+Handler\+List()}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Handler\+List\+::\+Message\+Handler\+List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageHandlerList_ace5509a6fe71ad62a34f77860ebb7c80}
+Constructor \index{Message\+Handler\+List@{Message\+Handler\+List}!````~Message\+Handler\+List@{$\sim$\+Message\+Handler\+List}}
+\index{````~Message\+Handler\+List@{$\sim$\+Message\+Handler\+List}!Message\+Handler\+List@{Message\+Handler\+List}}
+\subsubsection[{$\sim$\+Message\+Handler\+List()}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Handler\+List\+::$\sim$\+Message\+Handler\+List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMessageHandlerList_a9336606fd5868e9de026251b5639b9cf}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Message\+Handler\+List@{Message\+Handler\+List}!add@{add}}
+\index{add@{add}!Message\+Handler\+List@{Message\+Handler\+List}}
+\subsubsection[{add(unsigned short message\+Id, const Message\+Handler \&handler)}]{\setlength{\rightskip}{0pt plus 5cm}bool Message\+Handler\+List\+::add (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{message\+Id, }
+\item[{const {\bf Message\+Handler} \&}]{handler}
+\end{DoxyParamCaption}
+)}\label{classMessageHandlerList_a4ba23502f349db4353e725a81de1d8e9}
+Perform the mapping between message Id and handler function \begin{DoxyReturn}{Returns}
+true if the mapping was successful 
+\end{DoxyReturn}
+
+
+Referenced by Discovery\+Manager\+::initialize(), Fault\+Manager\+::process\+Mailbox(), and Resource\+Monitor\+::to\+String().
+
+\index{Message\+Handler\+List@{Message\+Handler\+List}!find@{find}}
+\index{find@{find}!Message\+Handler\+List@{Message\+Handler\+List}}
+\subsubsection[{find(unsigned short message\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Message\+Handler} \& Message\+Handler\+List\+::find (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{message\+Id}
+\end{DoxyParamCaption}
+)}\label{classMessageHandlerList_a2df9c73c0ed33ef0a42c7218eca56854}
+Return a handler for a given message Id. \begin{DoxyReturn}{Returns}
+default handler if message Id could not be found 
+\end{DoxyReturn}
+
+
+Referenced by Mailbox\+Processor\+::process\+Mailbox().
+
+\index{Message\+Handler\+List@{Message\+Handler\+List}!list\+All\+Message\+Handlers@{list\+All\+Message\+Handlers}}
+\index{list\+All\+Message\+Handlers@{list\+All\+Message\+Handlers}!Message\+Handler\+List@{Message\+Handler\+List}}
+\subsubsection[{list\+All\+Message\+Handlers()}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Handler\+List\+::list\+All\+Message\+Handlers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageHandlerList_ac9e4bbd90535dade9652b7fb7b3049e9}
+List all mappings between message Id and handler functions \index{Message\+Handler\+List@{Message\+Handler\+List}!remove@{remove}}
+\index{remove@{remove}!Message\+Handler\+List@{Message\+Handler\+List}}
+\subsubsection[{remove(unsigned short message\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Handler\+List\+::remove (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{message\+Id}
+\end{DoxyParamCaption}
+)}\label{classMessageHandlerList_ad29249ce6977893f3a1a5e21aea6bfbd}
+Remove the mapping between message Id and handler function \index{Message\+Handler\+List@{Message\+Handler\+List}!restore\+Default@{restore\+Default}}
+\index{restore\+Default@{restore\+Default}!Message\+Handler\+List@{Message\+Handler\+List}}
+\subsubsection[{restore\+Default()}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Handler\+List\+::restore\+Default (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageHandlerList_aace71b29854fee4e1006a34171552394}
+Restore the default message handler \index{Message\+Handler\+List@{Message\+Handler\+List}!set\+Default@{set\+Default}}
+\index{set\+Default@{set\+Default}!Message\+Handler\+List@{Message\+Handler\+List}}
+\subsubsection[{set\+Default(\+Message\+Handler \&default\+Handler)}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Handler\+List\+::set\+Default (
+\begin{DoxyParamCaption}
+\item[{{\bf Message\+Handler} \&}]{default\+Handler}
+\end{DoxyParamCaption}
+)}\label{classMessageHandlerList_ae7b9adb5445064aa1bfc16e270e4c380}
+Change the default handler \index{Message\+Handler\+List@{Message\+Handler\+List}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Message\+Handler\+List@{Message\+Handler\+List}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Message\+Handler\+List\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageHandlerList_ae8c30798572cac6f09e9fbb1a256e6ac}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Message\+Handler\+List.\+h\item 
+Message\+Handler\+List.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,88 @@
+\section{Resource\+Monitor\+Timer\+Message Class Reference}
+\label{classResourceMonitorTimerMessage}\index{Resource\+Monitor\+Timer\+Message@{Resource\+Monitor\+Timer\+Message}}
+
+
+{\ttfamily \#include $<$Resource\+Monitor\+Timer\+Message.\+h$>$}
+
+Inheritance diagram for Resource\+Monitor\+Timer\+Message\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{classResourceMonitorTimerMessage}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Resource\+Monitor\+Timer\+Message} (const {\bf Mailbox\+Address} \&source\+Address, A\+C\+E\+\_\+\+Time\+\_\+\+Value timeout, A\+C\+E\+\_\+\+Time\+\_\+\+Value restart\+Interval)
+\item 
+virtual {\bf $\sim$\+Resource\+Monitor\+Timer\+Message} ()
+\item 
+unsigned short {\bf get\+Message\+Id} () const 
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Resource\+Monitor\+Timer\+Message}{p.}{classResourceMonitorTimerMessage} is a Timer Message for periodically scheduling collection of resource usage statistics. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Resource\+Monitor\+Timer\+Message@{Resource\+Monitor\+Timer\+Message}!Resource\+Monitor\+Timer\+Message@{Resource\+Monitor\+Timer\+Message}}
+\index{Resource\+Monitor\+Timer\+Message@{Resource\+Monitor\+Timer\+Message}!Resource\+Monitor\+Timer\+Message@{Resource\+Monitor\+Timer\+Message}}
+\subsubsection[{Resource\+Monitor\+Timer\+Message(const Mailbox\+Address \&source\+Address, A\+C\+E\+\_\+\+Time\+\_\+\+Value timeout, A\+C\+E\+\_\+\+Time\+\_\+\+Value restart\+Interval)}]{\setlength{\rightskip}{0pt plus 5cm}Resource\+Monitor\+Timer\+Message\+::\+Resource\+Monitor\+Timer\+Message (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{source\+Address, }
+\item[{A\+C\+E\+\_\+\+Time\+\_\+\+Value}]{timeout, }
+\item[{A\+C\+E\+\_\+\+Time\+\_\+\+Value}]{restart\+Interval}
+\end{DoxyParamCaption}
+)}\label{classResourceMonitorTimerMessage_a0dfd3eca7931b98cd74a9714ec47cd66}
+Constructor \index{Resource\+Monitor\+Timer\+Message@{Resource\+Monitor\+Timer\+Message}!````~Resource\+Monitor\+Timer\+Message@{$\sim$\+Resource\+Monitor\+Timer\+Message}}
+\index{````~Resource\+Monitor\+Timer\+Message@{$\sim$\+Resource\+Monitor\+Timer\+Message}!Resource\+Monitor\+Timer\+Message@{Resource\+Monitor\+Timer\+Message}}
+\subsubsection[{$\sim$\+Resource\+Monitor\+Timer\+Message()}]{\setlength{\rightskip}{0pt plus 5cm}Resource\+Monitor\+Timer\+Message\+::$\sim$\+Resource\+Monitor\+Timer\+Message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classResourceMonitorTimerMessage_a6d931bb6c34b5c7e125de265bc7e840f}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Resource\+Monitor\+Timer\+Message@{Resource\+Monitor\+Timer\+Message}!get\+Message\+Id@{get\+Message\+Id}}
+\index{get\+Message\+Id@{get\+Message\+Id}!Resource\+Monitor\+Timer\+Message@{Resource\+Monitor\+Timer\+Message}}
+\subsubsection[{get\+Message\+Id() const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned short Resource\+Monitor\+Timer\+Message\+::get\+Message\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\label{classResourceMonitorTimerMessage_ac1ae5674792f21e7397cf9e10eb3c7dd}
+Returns the Message Id 
+
+Reimplemented from {\bf Timer\+Message} \doxyref{}{p.}{classTimerMessage_a9379475034122f7ad2405e13176b5075}.
+
+\index{Resource\+Monitor\+Timer\+Message@{Resource\+Monitor\+Timer\+Message}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Resource\+Monitor\+Timer\+Message@{Resource\+Monitor\+Timer\+Message}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Resource\+Monitor\+Timer\+Message\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classResourceMonitorTimerMessage_a697653c1cbd9759cd7db6b0c683ce20e}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+Reimplemented from {\bf Timer\+Message} \doxyref{}{p.}{classTimerMessage_ac12b035bd69e8e9d41fddbccdf7f81a2}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Resource\+Monitor\+Timer\+Message.\+h\item 
+Resource\+Monitor\+Timer\+Message.\+cpp\end{DoxyCompactItemize}

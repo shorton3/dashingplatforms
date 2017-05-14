@@ -1,0 +1,187 @@
+/******************************************************************************
+*
+* File name:   alarms.idl
+* Subsystem:   EMS
+* Description: Interface for sending alarm notification from the EMS to its
+*              clients. Also allows clients to interrogate the EMS for alarm
+*              inventory, as well as resend/resync outstanding alarms, and
+*              apply filters.
+*
+* Name                 Date       Release
+* -------------------- ---------- ---------------------------------------------
+* Stephen Horton       01/01/2014 Initial release
+*
+*
+******************************************************************************/
+
+#ifndef EMS_alarm_idl
+#define EMS_alarm_idl
+
+//-----------------------------------------------------------------------------
+// IDL include list
+//-----------------------------------------------------------------------------
+
+
+/**
+ * Interface for sending alarm notification from the EMS to its clients.
+ * <p>
+ * Also allows clients to interrogate the EMS for alarm inventory, as well
+ * as resend/resync outstanding alarms, and apply filters.
+ * <p>
+ * Beware of using a symbol named 'alarm' as this conflicts with symbols in <unistd.h>
+ * <p>
+ * $Author: Stephen Horton$
+ * $Revision: 1$
+ */
+
+module alarms
+{
+   /**
+    * NEID - Network Element Id that the Alarm applies to
+    */
+   typedef string NEIDType;
+
+   /**
+    * Alarm Identifier Type
+    */
+   typedef long AlarmCode;
+
+   /**
+    * Managed Object Identifier Type
+    */
+   typedef long ManagedObject;
+
+   /**
+    * Managed Object Instance Identifier Type
+    */
+   typedef long long ManagedObjectInstance;
+
+   /**
+    * Alarm Severity Type (User Severity gets reported)
+    */
+   enum Severity
+   {
+      CRITICAL,
+      MAJOR,
+      MINOR,
+      WARNING,
+      CLEAR
+   };//end Severity
+
+   /**
+    * TimeStamp Type
+    */
+   typedef string TimeStamp;
+
+   /**
+    * Acknowledgement String Type
+    */
+   typedef string Acknowledgement;
+
+   /**
+    * Alarm Notification
+    */
+   struct AlarmNotification
+   {
+      NEIDType neid;
+      AlarmCode code;
+      ManagedObject mObject;
+      ManagedObjectInstance mObjectInstance;
+      Severity sev;
+      TimeStamp tStamp;
+      Acknowledgement ack;
+   };//end someStruct
+
+   /**
+    * Sequence(Vector) of AlarmNotification structures
+    */
+   typedef sequence<AlarmNotification> AlarmNotificationSequence;
+
+   /**
+    * Alarm Category Type
+    */
+   enum AlarmCategory
+   {
+      COMMUNICATIONS_ALARM,
+      QUALITY_OF_SERVICE_ALARM,
+      PROCESSING_ERROR_ALARM,
+      EQUIPMENT_ALARM,
+      ENVIRONMENTAL_ALARM
+   };//end AlarmCategory
+
+   /**
+    * Alarm HighWater Mark Type
+    */
+   typedef long long HighWaterMark;
+
+   /**
+    * Alarm LowWater Mark Type
+    */
+   typedef long long LowWaterMark;
+
+   /**
+    * Auto Clearing Indicator (If manual clearing is required)
+    */
+   typedef boolean IsAutoClearing;
+
+   /**
+    * Filter Enabled Indicator
+    */
+   typedef boolean IsFilterEnabled;
+
+   /**
+    * Description String Type
+    */
+   typedef string Description;
+
+   /**
+    * Resolution String Type
+    */
+   typedef string Resolution;
+
+   /**
+    * Alarm Information - Inventory of Alarms Information
+    */
+   struct AlarmInformation
+   {
+      AlarmCode code;
+      AlarmCategory aCategory;
+      HighWaterMark hWaterMark;
+      LowWaterMark lWaterMark;
+      Severity sev;
+      IsAutoClearing autoClearing;
+      IsFilterEnabled filterEnabled;
+      Description desc;
+      Resolution res;   
+   };//end AlarmInformation
+
+   /**
+    * Sequence(vector) of Alarm Information structures
+    */
+   typedef sequence<AlarmInformation> AlarmInformationSequence;
+
+   /**
+    * Command/Method interface
+    */
+   interface alarmInterface
+   {
+      /**
+       * Retrieve the list of outstanding Alarms from the EMS. This is used when
+       * the client first establishes connection and when the client wishes to 
+       * resynchronize its outstanding alarms list.
+       */
+      void getOutstandingAlarms(out AlarmNotificationSequence outstandingAlarms);
+
+      /**
+       * Retrieve the list of all possible Alarms in the system. This list includes
+       * all Alarm descriptors and attributes and should be used by the client
+       * entity for displaying outstanding alarms.
+       */
+      void getAlarmInventory(out AlarmInformationSequence alarmInventory);
+
+   };//end interface
+
+};//end of alarmInterface
+
+#endif
+

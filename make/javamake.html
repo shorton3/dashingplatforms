@@ -1,0 +1,1043 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"><html><head>
+   <!-- base href="http://geosoft.no/" --><title>Java/C/C++/Fortran Makefile</title>
+
+   
+   <meta name="Author" content="Geotechnical Software Services">
+   <meta name="Keywords" content="java, makefile, make, compile, gnumake, nmake, gnu, source, destination, directory, jar, archive, build, depend, dependency, dependencies, package, class, .java, .class, rmi, jni, stub, skeleton, clean, root, javac, javah, rmic, javadoc, options, classdir, download, geosoft, geotechnical, software, service, stavanger, norway">
+   <meta name="Description" content="A simple, but yet complete make setup for Java. Includes dependency handling and support for building class files, JAR archives, JNI interfaces, RMI stub and skeletons, Javadoc documentation and more.">
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <link rel="stylesheet" href="javamake_files/style.css" type="text/css"></head>
+
+
+
+<body>
+
+
+
+<!--
+*******************************************************************************
+   HEADING
+*******************************************************************************
+-->
+
+<table width="100%">
+
+<tbody><tr>
+<td width="90%">
+<center>
+<h1> Java Makefile<br>
+<font size="2"><em>A simple replacement for Ant</em></font>
+</h1>
+</center>
+
+<center><i>     Version 4.2, July 2004     </i></center>
+<center><i> Geotechnical Software Services </i></center>
+<center><i>   Copyright © 1999 - 2004 </i></center>
+
+<br>
+<center>
+This document is available at
+<a href="http://geosoft.no/development/javamake.html">
+http://geosoft.no/development/javamake.html</a>
+</center>
+
+</td>
+
+</tr>
+</tbody></table>
+
+
+
+<!--
+*******************************************************************************
+   ABSTRACT
+*******************************************************************************
+-->
+
+<hr size="1">
+
+<b>Abstract:</b> A cross-platform (MS-Windows, Linux, UNIX) makefile for a 
+wide range of programming languages and tools (Java, C, C++, Fortran, Rmi, 
+Javadoc, Makedepend etc.). 
+Suitable for single file projects and scalable to multi million file 
+projects.
+The Makefile is written once and for all; no further editing required.
+The file is well-organized and suitable as an example for learning GnuMake.
+
+<hr size="1">
+
+
+
+<!--
+*******************************************************************************
+   TABLE OF CONTENT
+*******************************************************************************
+-->
+
+<h2><a name="TOC"></a> 
+Table of Content 
+</h2>
+
+<ul>
+<li><a href="http://geosoft.no/development/javamake.html#Notes"> 
+Introduction </a>
+</li><li><a href="http://geosoft.no/development/javamake.html#Organizing%20the%20Development"> Organizing the Development </a>
+</li><li><a href="http://geosoft.no/development/javamake.html#Prerequisites"> Prerequisites </a>
+</li><li><a href="http://geosoft.no/development/javamake.html#The%20Makefiles"> The Makefiles </a>
+</li><li><a href="http://geosoft.no/development/javamake.html#Running%20Make"> Running Make </a>
+</li><li><a href="http://geosoft.no/development/javamake.html#A%20Package%20Makefile%20Generator"> A Package Makefile Generator </a>
+</li></ul>
+
+
+
+
+
+<!--
+*******************************************************************************
+   INTRODUCTION
+*******************************************************************************
+-->
+
+<hr size="1">
+
+<h2><a name="Introduction"></a> Introduction </h2>
+
+<p>
+The last few years integrated development environments (IDE) have become 
+popular for software development. IDE's provides the developer with all
+the tools required for the development task such as 
+<em>file manager</em>,
+<em>version control system</em>, 
+<em>modeling tools</em>,
+<em>editor</em>,
+<em>compiler</em>, 
+<em>debugger</em>, 
+<em>user interface builder</em>, 
+<em>execution environment</em>, 
+<em>profiler</em> and 
+<em>performance analyzing tools</em>.
+In particular the user interface builder part of IDE's has proved useful,
+and is the backbone of IDE's like 
+VisualBasic, 
+Delphi, 
+VisualC++,
+VisualCafé 
+to name a few.
+</p>
+
+<p>
+In many cases however, it is far more efficient to do code development in a
+pure terminal oriented environment. This is done to avoid the vast overhead 
+of the IDE itself, to achieve better control of the development process and 
+to be able to choose development tools like editors and debuggers
+on an individual basis. For these reasons it is not uncommon to divide 
+projects into UI modules and non-UI modules, and use IDE's only on the 
+former.
+</p>
+
+<p>
+Doing development in a pure environment requires a powerful make setup
+to be efficient. The makefile setup provided here is powerful yet simple.
+It was created to support large scale multi-platform 
+development, but is equally well suited for the single source file project.
+Currently it supports Java, C, C++, Fortran but can easily be extended to
+any language or domain.
+</p>
+
+<p>
+The makefiles in this document uses <em>GnuMake</em> syntax. 
+GnuMake is the default make system on the Linux platform, it is 
+available on all UNIX platforms, and a Microsoft Windows version
+can be downloaded from 
+<a href="http://www.edv.agrar.tu-muenchen.de/%7Esyring/win32/UnxUtils.html">
+here</a>. 
+(Look for the file <b>UnxUtils.zip</b>.
+Download and unpack it, and make sure the <b>wbin/</b> directory becomes
+part of your path.)
+The actual <em>make</em> command in GnuMake is sometimes called 
+<b>gnumake</b>
+and sometime just <b>make</b> (as is the case on Linux). 
+In this document the latter is used consistently.
+</p>
+
+
+<!--
+*******************************************************************************
+   Organizing the Development
+*******************************************************************************
+-->
+
+
+<hr size="1">
+
+<h2><a name="Oraganizing the Development"></a> Organizing the Development </h2>
+
+<p>
+Some directory is chosen to be the development root directory (denoted
+<tt>DEV_ROOT</tt> below), and underneath
+it should the following subdirectories be created:
+
+</p><p>
+</p><pre class="code">  $DEV_ROOT/src
+           /obj
+           /lib
+           /docs
+           /make
+	   /bin
+</pre>
+
+<p>
+The <b>src/</b> directory holds source files (.java, .c++, .gif etc.)
+organized in units called <em>packages</em>. 
+The directory structure should 
+follow the Java convention of <em>reversed</em> domain name which 
+ensures universally unique file identifiers. 
+This is useful also for C/C++/Fortran based projects. For instance:
+
+</p><p>
+</p><pre class="code">  $DEV_ROOT/src/com/adobe/...
+</pre>
+<p></p>
+
+<p>
+The content of one directory constitutes one package. A typical package
+setup might be:
+
+</p><p>
+</p><pre class="code">  $DEV_ROOT/src/com/adobe/illustrator/ui/window/
+                         /illustrator/ui/dialogs/
+                         /illustrator/ui/print/
+                         /illustrator/ui/print/postscipt/
+                         /illustrator/ui/print/pdf/
+                         /acroread/editor/.../...
+                         /acroread/editor/.../...
+                         /...
+</pre>
+
+
+<p>
+For Java source, the package statement must always reflect the 
+the name indicated by the directory of each source file.
+
+</p><p>
+The <b>obj/</b> directory contains target files produced by the source
+files, and the directory structure will be identical to the one int the
+src tree.
+The sub structure will be automatically produced by make, but the obj
+directory itself must be created in advance.
+
+</p><p>
+The <b>lib/</b> directory contains all libraries in use. This includes 
+3rd-party libraries (copied here manually), as well as libraries produced 
+by make. For the latter, there will be one library per package (i.e. directory)
+within the source tree. Java source produce .jar libraries while 
+C/C++/Fortran source produce .so libraries. The library is named
+according to the package location, so Java code in 
+<tt>$DEV_ROOT/src/com/adobe/utils</tt> 
+are put in 
+<tt>$DEV_ROOT/lib/comadobeutil.jar</tt> and
+C code in 
+<tt>$DEV_ROOT/src/no/geosoft/math/calculus</tt> 
+are put in 
+<tt>$DEV_ROOT/lib/nogeosoftmathcalculus.so</tt> 
+and so on.
+
+</p><p>
+The <b>docs/</b> directory will hold all output from automatic documentation
+tools like Javadoc or Doxygen. The entry point for the documentation depends
+on the tool, but for Javadoc it is the file 
+<tt>$DEV_ROOT/docs/index.html</tt>.
+
+</p><p>
+The <b>make/</b> directory will hold the main Makefile (shown below) and
+a script for producing package makefiles. It can optionally be used for
+holding make logs etc.
+
+</p><p>
+The <b>bin/</b> directory is where make will put non-Java executables.
+
+
+
+<!--
+*******************************************************************************
+   Prerequisites
+*******************************************************************************
+-->
+
+</p><hr size="1">
+
+<h2>
+<a name="Prerequisites"></a> Prerequisites
+</h2>
+
+<p>
+The following three environment variables has to be set prior to the use
+of the make system given below:
+
+
+</p><ul>
+
+<li><b>DEV_ROOT</b> - Pointing to the development root directory
+as described above. Use "/" as directory separator also on MS-Windows.
+<br><br>
+
+</li><li><b>IS_UNIX</b> - Should be set to true if the development 
+platform is UNIX and left unset (default) if it is not.
+This variable is needed for the sole purpose of getting the file separator 
+token used by the Java tools correct. 
+(It is ; on MS-Windows and : on UNIX.)
+<br><br>
+
+</li><li><b>JAVA_HOME</b> - For Java development. Points to the Java distribution 
+that is being used, for instance <tt>/usr/local/jdk1.3</tt>. 
+All Java tools used by the make system is referred to through this pointer, 
+thus changing to a different Java version is as simple as resetting this 
+variable. Use "/" as directory separator also on MS-Windows.
+<br><br>
+</li>
+
+
+
+</ul>
+
+
+<!--
+*******************************************************************************
+   The Makefiles
+*******************************************************************************
+-->
+
+
+<hr size="1">
+
+<h2><a name="The Makefiles"></a> The Makefiles</h2>
+
+<p>
+There are three different makefiles involved. The first two defines the
+project at hand and will differ for each project, while the third is generic
+and can be used as is:
+
+
+</p><ul>
+
+<li><b>Package Makefile</b> - One for each package, located within the package
+directory, and containing the list of source files that constitute the
+package. These files are very simple, and can potentially be auto created.
+<br><br>
+</li>
+
+<li><b>Project Makefile</b> - Located at <tt>$DEV_ROOT</tt>, 
+listing all packages
+constitute the project, the executable class as well as documentation details.
+<br><br>
+</li>
+
+<li><b>Main Makefile</b> - Located in the <tt>$DEV_ROOT/make</tt> 
+directory and  containing all the fine details about how to produce 
+targets from source. This is the heart and the brain of the make system.
+<br><br>
+</li>
+
+</ul>
+
+<br>
+
+
+
+<h3><a name="Package Makefile"></a> 
+Package Makefile
+</h3>
+
+<p>
+The package makefiles should be called <tt>Makefile</tt> and should be 
+located within the src tree, one per package. 
+An example package makefile is shown below:
+
+<br>
+</p><p>
+</p><pre class="code">  Source = \
+          ByteSwapper.java \
+          Ebcdic.java \
+          Formatter.java \
+          IntMap.java \
+          javacup.gif \
+          properties.txt \
+
+  RmiSource =
+
+  Main      = ByteSwapper
+
+  include $(DEV_ROOT)/Makefile
+</pre>
+
+<p>
+The <tt>Source</tt> entry lists all the source files. 
+.java files will be passed to the Java compiler, .c files to the C-compiler
+and so on. Other files (like the .gif and .txt above) will be copied 
+unprocessed to the obj tree.
+
+</p><p>
+The <tt>RmiSource</tt> entry lists all Java source files that are to be
+processed by the rmi compiler. Note that these files must also be listed 
+under the <tt>Source</tt> entry as they are also processed by javac.
+
+</p><p>
+The <tt>Main</tt> entry is optional and indicates which class contains the 
+<tt>main()</tt> method. Leave open if none of them do. For a Java program 
+there is only one main entry point, but it is common to include main() in 
+other classes in order to test that specific class. The setup above makes
+it possible to run these test applications by issuing "make run" from the
+package level. See below.
+
+
+
+
+</p><h3><a name="Project Makefile"></a> 
+Project Makefile
+</h3>
+
+<p>
+The project makefile should be called <tt>Makefile</tt> and should be 
+located at <tt>$DEV_ROOT</tt>.
+The project makefile lists all packages and jar archives that constitutes
+the project.
+
+
+</p><p>
+An example makefile for a typical Java project is shown below:
+
+
+</p><p>
+</p><pre class="code">  JavaPackages = \
+          no/geosoft/directory \
+	  no/geosoft/user \
+	  no/geosoft/database \
+
+  JavaLibraries = \
+  	  mysql-connector.jar \
+
+  JavaMainClass = \
+          no.geosoft.database.Main
+
+  RunParameters = 
+  <font class="comment">
+  # Javadoc</font>
+  JavadocWindowTitle = 'Geotechnical Software Services - API Specification'
+  JavadocDocTitle    = 'GeoSoft API'
+  JavadocHeader      = 'GeoSoft API'
+  JavadocFooter      = '&lt;font size="-1"&gt;Copyright &amp;copy; 2004 - Geotechnical Software Services &lt;a href="http://geosoft.no"&gt;geosoft.no&lt;a&gt;&lt;/font&gt;'
+
+  include $(DEV_ROOT)/make/Makefile
+</pre>
+
+
+<br>
+
+A similar example for a typical C++ project:
+
+<pre class="code">  Packages = \
+          no/geosoft/directory \
+	  no/geosoft/user \
+	  no/geosoft/util \
+
+  IncludeDirs = \
+	  /usr/include \
+          /usr/include/g++-2 \
+          /usr/X11R6/include \
+	
+  LibraryDirs = \
+          /usr/lib \
+          /usr/X11R6/lib \
+
+  Libraries = \
+          mysql \
+
+
+  include $(DEV_ROOT)/make/Makefile
+</pre>
+
+
+
+<p>
+The <tt>JavaPackages</tt> entry lists all Java packages governed by 
+this makefile. The <tt>Packages</tt> entry list all other packages.
+
+</p><p>
+The <tt>IncludeDirs</tt> list include directories referenced in C/C++/Fortran
+code. <tt>LibraryDirs</tt> and <tt>Libraries</tt> identifies .so libraries
+for C/C++/Fortran based linking, while <tt>JavaLibraries</tt> lists 3-rd party
+jars located in the <tt>$DEV_ROOT/lib</tt> directory.
+
+</p><p>
+The <tt>JavaMainClass</tt> and <tt>RunParameters</tt> are used for
+executing Java applications.
+
+</p><p>
+The Javadoc entries are optional and used for decoration of the 
+produced Javadoc documentation.
+
+
+
+
+</p><h3><a name="Main Makefile"></a> 
+Main Makefile
+</h3>
+
+<p>
+The Main makefile is the heart and brain of the make setup, and should
+be located in the <tt>$DEV_ROOT/make</tt> directory and be called 
+<tt>Makefile</tt>.
+It is not executed directly, but rather included by the project makefile.
+This makefile contains everything needed to build the project described 
+in the project makefile and it is rather complex. However, it it is written 
+once and for all, and can to a large extent be left alone as is. Remember;
+<em>This is the only Makefile you will ever need</em>.
+
+
+</p><p>
+The Main Makefile is shown below. Copy-paste it from the browser and use
+it for your own projects:
+
+
+</p><pre class="code"><font class="comment">
+  #---------------------------------------------------------------------------
+  #  (C) 1999 - 2004 Jacob Dreyer - Geotechnical Software Services
+  #  jacob.dreyer@geosoft.no - http://geosoft.no
+  #
+  #  This program is free software; you can redistribute it and/or
+  #  modify it under the terms of the GNU General Public License
+  #  as published by the Free Software Foundation; either version 2
+  #  of the License, or (at your option) any later version.
+  #
+  #  This program is distributed in the hope that it will be useful,
+  #  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  #  GNU General Public License for more details.
+  #
+  #  You should have received a copy of the GNU General Public License
+  #  along with this program; if not, write to the Free Software
+  #  Foundation, Inc., 59 Temple Place - Suite 330, Boston, 
+  #  MA  02111-1307, USA.
+  #---------------------------------------------------------------------------
+  #---------------------------------------------------------------------------
+  #
+  #  GnuMake crash course:
+  #
+  #  target : depends
+  #    rule
+  #
+  #  target  - the parameter given to make. I.e. what to build
+  #  depends - file or other targets target depends on
+  #  rule    - how to create target (note that rule is preceeded by a TAB char)
+  #  $(VAR)  - environment variable or variable defined above
+  #  $@      - Current target
+  #  $*      - Current target without extension
+  #  $&lt;      - Current dependency
+  #
+  #---------------------------------------------------------------------------
+  #---------------------------------------------------------------------------
+  #
+  #  Directories
+  #
+  #---------------------------------------------------------------------------
+  </font>
+  SourceDir        = $(DEV_ROOT)/src
+  TargetDir        = $(DEV_ROOT)/obj
+  LibDir           = $(DEV_ROOT)/lib
+  MakeDir          = $(DEV_ROOT)/make
+  BinDir           = $(DEV_ROOT)/bin
+  DocsDir          = $(DEV_ROOT)/docs
+  CurrentDir       = $(CURDIR)
+  
+  ifdef Source
+    Package          = $(subst $(SourceDir)/,,$(CurrentDir))
+    PackageList      = $(Package)
+    PackageSourceDir = $(SourceDir)/$(Package)
+    PackageTargetDir = $(TargetDir)/$(Package)
+    JavaMainClass    = $(subst /,.,$(Package)).$(Main)
+  else
+    PackageList      = $(Packages) $(JavaPackages)
+  endif
+  
+  PackageListLoop  = $(patsubst %,$(SourceDir)/%/.loop,$(PackageList))
+  
+  JRE              = $(JAVA_HOME)/jre/lib/rt.jar
+  
+  ifdef IS_UNIX
+    X = :
+  else
+    X = \;
+  endif
+  
+  <font class="comment">
+  #---------------------------------------------------------------------------
+  #
+  #  Classification of files
+  #
+  #---------------------------------------------------------------------------
+  
+  # Source</font>
+  JavaFiles              = $(filter %.java,  $(Source))
+  CppFiles               = $(filter %.cc,    $(Source))
+  CFiles                 = $(filter %.c,     $(Source))
+  FortranFiles           = $(filter %.f,     $(Source))
+  CorbaFiles             = $(filter %.idl,   $(Source))
+  OtherSourceFiles       = $(filter-out $(JavaFiles) $(CppFiles) $(CFiles) \
+  		                      $(FortranFiles) $(CorbaFiles), \
+  	                              $(Source))
+  ManifestFile           = $(PackageSourceDir)/Manifest
+  SourceFiles            = $(JavaFiles:%.java=  $(PackageSourceDir)/%.java)\
+                           $(CppFiles:%.cc=     $(PackageSourceDir)/%.cc)\
+                           $(CFiles:%.c=        $(PackageSourceDir)/%.c)\
+                           $(FortranFiles:%.f=  $(PackageSourceDir)/%.f)
+  
+  <font class="comment">
+  # Target</font>
+  JavaClassFiles         = $(JavaFiles:%.java=  $(PackageTargetDir)/%.class)
+  JavaClassFilesRel      = $(JavaFiles:%.java=  $(Package)/%.class)
+  RmiStubFiles           = $(RmiSource:%.java=  $(PackageTargetDir)/%_Stub.class)
+  RmiSkeletonFiles       = $(RmiSource:%.java=  $(PackageTargetDir)/%_Skel.class)
+  JniClassFiles          = $(JniSource:%.java=  $(PackageTargetDir)/%.class)
+  JniHeaders             = $(JniSource:%.java=  $(PackageSourceDir)/%.h)
+  ObjectFiles            = $(CFiles:%.c=        $(PackageTargetDir)/%.o)\
+  		         $(CppFiles:%.cc=     $(PackageTargetDir)/%.o)\
+  		         $(FortranFiles:%.f=  $(PackageTargetDir)/%.o)
+  OtherTargetFiles       = $(OtherSourceFiles:%=$(PackageTargetDir)/%)
+  
+  ThirdPartyJarsTmp = $(patsubst %,$(LibDir)/%,$(JavaLibraries))
+  ThirdPartyJars    = $(subst $(Space),$(X),$(ThirdPartyJarsTmp))
+  
+  ifneq "$(words $(JavaFiles))" "0"
+    JavaPackageName   = $(subst /,.,$(Package))
+    JarFile           = $(LibDir)/$(subst /,,$(Package)).jar
+  endif
+  ifneq  "$(words $(ObjectFiles))" "0"
+    DependencyFile    = $(PackageSourceDir)/Makedepend
+    SharedLibrary     = $(LibDir)/lib$(subst /,,$(Package)).so 
+    StaticLibrary     = $(LibDir)/lib$(subst /,,$(Package)).a
+    ifneq "$(Main)" ""
+      Executable        = $(BinDir)/$(Main)
+    endif
+  endif
+  <font class="comment">
+  #
+  # Misc
+  #</font>
+  ClassPath        = $(JRE)$(X)$(TargetDir)$(X)$(ThirdPartyJars)
+  JavaPackageNames = $(subst /,.,$(JavaPackages))
+  IncludePath      = -I$(SourceDir) $(IncludeDirs:%=-I%)
+  LibDirs          = -L$(LibDir)    $(LibraryDirs:%=-L%)
+  LocalLibs        = $(subst /,,$(Packages))
+  LibList          = $(LocalLibs:%=-l%) $(Libraries:%=-l%)
+  
+  
+  <font class="comment">
+  #---------------------------------------------------------------------------
+  #
+  #  Tools &amp; Options
+  #
+  #---------------------------------------------------------------------------</font>
+  Print                  = @echo
+  Copy                   = cp
+  CCompiler              = gcc
+  CppCompiler            = gcc
+  Linker                 = gcc
+  MakeDepend             = makedepend
+  MakeDir                = mkdir -p
+  Delete                 = rm -fr
+  StaticArchiver         = ar
+  DynamicArchiver        = gcc
+  FortranCompiler        = f77
+  JavaCompiler           = $(JAVA_HOME)/bin/javac
+  JavaArchiver           = $(JAVA_HOME)/bin/jar
+  JarSigner              = $(JAVA_HOME)/bin/jarsigner
+  JavadocGenerator       = $(JAVA_HOME)/bin/javadoc
+  JniCompiler            = $(JAVA_HOME)/bin/javah
+  RmiCompiler            = $(JAVA_HOME)/bin/rmic
+  JavaExecute            = $(JAVA_HOME)/bin/java
+  Purify                 = purify
+  WordCount              = wc
+  List                   = cat
+  
+  MakeOptions            = -k -s
+  MakeDependOptions      = 
+  StaticArchiverOptions  = rc
+  DynamicArchiverOptions = -shared
+  JavaArchiverOptions    =
+  JniOptions             =
+  RmiOptions             = -d $(TargetDir) -classpath $(ClassPath) \
+  			 -sourcepath $(SourceDir)
+  FortranOptions         =
+  JavaCompilerOptions    = -d $(TargetDir) -classpath $(ClassPath) \
+  			 -sourcepath $(SourceDir) -deprecation
+  JavaRunOptions         = -classpath $(ClassPath) 
+  PurifyOptions          = 
+  JavadocOptions         = -d $(DocsDir) \
+  			 -sourcepath $(SourceDir) \
+  			 -classpath $(ClassPath) \
+  			 -author \
+  			 -package \
+  			 -use \
+  			 -splitIndex \
+  			 -version \
+  			 -link file:$(JAVA_HOME)/docs/api \
+  			 -windowtitle $(JavadocWindowTitle) \
+  			 -doctitle $(JavadocDocTitle) \
+  			 -header $(JavadocHeader) \
+  			 -bottom $(JavadocFooter)
+  WordCountOptions       = --lines
+  
+  Empty                  =
+  Space                  = $(Empty) $(Empty)
+  
+  
+  <font class="comment">
+  #---------------------------------------------------------------------------
+  #
+  # Rules
+  #
+  #---------------------------------------------------------------------------
+  </font>
+  default : build
+  
+  %.loop :
+  	@$(MAKE) $(MakeOptions) -C $(subst .loop,,$@) _$(MAKECMDGOALS)all
+  
+  <font class="comment"># Create target directory</font>
+  $(PackageTargetDir) :
+  	$(MakeDir) $@
+  
+  <font class="comment"># .c -&gt; .o</font>
+  $(PackageTargetDir)/%.o : $(PackageTargetDir) $(PackageSourceDir)/%.c
+  	$(Print) $@
+  	@$(CCompiler) $(COptions) -c $(IncludePath) $&lt; -o $@
+  
+  %.o : $(PackageSourceDir)/%.c
+  	$(MAKE) $(MakeOptions) $(PackageTargetDir)/$@
+  
+  <font class="comment"># .cc -&gt; .o</font>
+  $(PackageTargetDir)/%.o : $(PackageSourceDir)/%.cc
+  	$(Print) $@
+  	$(CppCompiler) $(CppOptions) -c $(IncludePath) $&lt; -o $@
+  
+  %.o : $(PackageSourceDir)/%.cc
+  	$(MAKE) $(MakeOptions) $(PackageTargetDir)/$@
+  
+  <font class="comment"># .f -&gt; .o</font>
+  $(PackageTargetDir)/%.o : $(PackageSourceDir)/%.f
+  	$(Print) $@
+  	@$(FortranCompiler) $(FortranOptions) -c $&lt; -o $@
+  
+  %.o : $(PackageSourceDir)/%.f
+  	$(MAKE) $(MakeOptions) $(PackageTargetDir)/$@
+  
+  <font class="comment"># .java -&gt; .class</font>
+  $(PackageTargetDir)/%.class : $(PackageSourceDir)/%.java
+  	$(Print) $@
+  	@$(JavaCompiler) $(JavaCompilerOptions) $&lt; 
+  
+  %.class : $(PackageSourceDir)/%.java
+  	@$(MAKE) $(MakeOptions) $(PackageTargetDir)/$@
+  
+  <font class="comment"># .class -&gt; .h</font>
+  $(PackageSourceDir)/%.h : $(PackageTargetDir)/%.class
+  	$(Print) $@
+  	$(JniCompiler) $(JniOptions) $(JavaPackageName).$*
+  
+  %.h : %.class
+  	$(MAKE) $(MakeOptions) $(PackageSourceDir)/$@
+  
+  <font class="comment"># .o -&gt; .a</font>
+  $(LibDir)/%.a : $(ObjectFiles)
+  	$(Print) $@
+  	@$(StaticArchiver) $(StaticArchiverOptions) $@ $(ObjectFiles)
+  
+  %.a : $(ObjectFiles)
+  	$(MAKE) $(MakeOptions) $(LibDir)/$@
+  
+  <font class="comment"># .o -&gt; .so</font>
+  $(LibDir)/%.so : $(ObjectFiles)
+  	$(Print) $@	
+  	$(DynamicArchiver) $(ObjectFiles) $(DynamicArchiverOptions) -o $@
+  
+  %.so : $(ObjectFiles)
+  	$(MAKE) $(MakeOptions) $(LibDir)/$@
+  
+  <font class="comment"># .class -&gt; .jar</font>
+  $(LibDir)/%.jar : $(JavaClassFiles) $(OtherTargetFiles)
+  	$(Print) $@
+  	@cd $(TargetDir); $(JavaArchiver) -cf $@ \
+  	$(JavaClassFilesRel) $(OtherTargetFiles)
+  
+  %.jar : $(JavaClassFiles) $(OtherTargetFiles)
+  	$(MAKE) $(MakeOptions) $(LibDir)/$@
+  
+  <font class="comment"># .class -&gt; JavaDoc</font>
+  javadoc : 
+  	$(Print) $(JavaPackageNames) &gt; $(DEV_ROOT)/packages.tmp
+  	$(JavadocGenerator) $(JavadocOptions) @$(DEV_ROOT)/packages.tmp
+  	$(Delete) $(DEV_ROOT)/packages.tmp
+  	$(Print) Done JavaDoc.
+  
+  <font class="comment"># .class -&gt; _Stub.class </font>
+  $(PackageTargetDir)/%_Stub.class : $(PackageTargetDir)/%.class
+  	$(Print) $@
+  	$(RmiCompiler) $(RmiOptions) $(JavaPackageName).$*
+  
+  %_Stub.class : %.class
+  	$(MAKE) $(MakeOptions) $(PackageTargetDir)/$@
+  
+  <font class="comment"># .class -&gt; _Skel.class</font>
+  $(PackageTargetDir)/%_Skel.class : $(PackageTargetDir)/%.class
+  	$(Print) $@
+  	$(RmiCompiler) $(RmiOptions) $(JavaPackageName).$*
+  
+  %_Skel.class : %.class
+  	$(MAKE) $(MakeOptions) $(PackageTargetDir)/$@
+  
+  <font class="comment"># Executable</font>
+  $(Executable) : $(ObjectFiles)
+  	$(Print) $@
+  	$(Linker) $(LinkOptions) $(LibDirs) $(LibList) $(ObjectFiles) -o $@
+  
+  <font class="comment"># Anything else is just copied from source to target</font>
+  $(PackageTargetDir)/% : $(PackageSourceDir)/%
+  	$(Print) $@
+  	$(Copy) $&lt; $@
+  
+  <font class="comment"># make (or make build)</font>
+  build : $(PackageListLoop)
+  	$(Print) Done build.
+  
+  _all : _buildall
+  
+  _buildall : \
+  	$(DependencyFile) \
+  	$(PackageTargetDir) \
+  	$(ObjectFiles) \
+  	$(JavaClassFiles) \
+  	$(RmiStubFiles) \
+  	$(RmiSkeletonFiles) \
+  	$(OtherTargetFiles) \
+  	$(SharedLibrary) \
+  	$(StaticLibrary) \
+  	$(JarFile) \
+  	$(Executable)
+  
+  
+  <font class="comment"># make clean</font>
+  clean : $(PackageListLoop)
+  	$(Print) Done clean.	
+  
+  _cleanall :
+  	$(Delete) $(PackageTargetDir)/* \
+  		  $(JarFile) \
+  	          $(SharedLibrary) \
+  	          $(StaticLibrary) \
+  	          $(Executable) \
+  	          $(DependencyFile)
+  
+  
+  <font class="comment"># make depend</font>
+  depend : $(PackageListLoop)
+  	$(Print) Done dependencies.
+  
+  _dependall : $(DependencyFile)
+  
+  $(DependencyFile) :
+  	$(Print) $@
+  	@cd $(PackageSourceDir); \
+  	$(MakeDepend) $(MakeDependOptions) -f- -p$(PackageTargetDir)/ \
+  	$(IncludePath) $(Source) &gt; $(DependencyFile)
+  
+  <font class="comment"># make lib</font>
+  lib    : $(PackageListLoop)
+  	$(Print) Libraries built.
+  
+  _liball : $(JarFile) $(SharedLibrary) $(StaticLibrary)
+  
+  jar : $(JarFile)
+  
+  jarsign : $(JarFile)
+  	$(JarSigner) -keystore GeoSoftKeystore $(JarFile) myself
+  
+  <font class="comment"># make statistics</font>
+  _statisticsall :
+  	@$(Print) $(SourceFiles) &gt;&gt; $(DEV_ROOT)/files.tmp
+  
+  statistics : $(PackageListLoop)
+  	@$(List) $(DEV_ROOT)/files.tmp | xargs $(WordCount) $(WordCountOptions)
+  	@$(Delete) $(DEV_ROOT)/files.tmp
+  	$(Print) Done statistics.
+  
+  <font class="comment"># make pure</font>
+  $(Executable).pure :
+  	$(Purify) $(PurifyOptions) $(CppCompiler) $(LinkOptions) $(LibDirs) \
+  	$(LibList) $(ObjectFiles) -o $@
+  
+  pure : $(Executable).pure
+  
+  <font class="comment"># Execute</font>
+  _runexe :
+  	$(Executable) $(RunParameters)
+  
+  _runjava :
+  	$(JavaExecute) $(JavaRunOptions) $(JavaMainClass) $(RunParameters)
+  
+  run : _runjava
+  
+  
+  ifdef $(DependencyFile)
+  -include $(DependencyFile)
+  endif
+</pre>
+<br>
+
+
+<!--
+*******************************************************************************
+   Running make
+*******************************************************************************
+-->
+
+<hr size="1">
+
+<h2><a name="Running Make"></a> Running Make</h2>
+
+<p>
+Using the make system is quite simple. You will run it from either the
+package level or from the project level (<tt>$DEV_ROOT</tt>).
+
+
+</p><p>
+The following commands can be applied from the package level (i.e when
+standing in a given package directory within the src tree):<br><br>
+
+<tt><b>&nbsp;&nbsp; make </b></tt>- Process all source files in the package<br><br>
+
+<tt><b>&nbsp;&nbsp; make clean </b></tt>- Remove all target files of the package<br><br>
+
+<tt><b>&nbsp;&nbsp; make <em>SomeTarget</em> </b></tt> - Produce a specific file
+like Math.class or math.o. etc.<br><br>
+
+
+<tt><b>&nbsp;&nbsp; make run </b></tt>- Execute the Java class identified by <em>Main</em>
+in the package Makefile.<br><br>
+
+</p><p>
+The following commands can be applied from the project level (i.e while
+standing in the <tt>$DEV_ROOT</tt> directory):<br><br>
+
+<tt><b>&nbsp;&nbsp; make</b></tt> - Process all source files in all packages<br><br>
+
+<tt><b>&nbsp;&nbsp; make clean</b></tt> - Remove all produced files in all packages<br><br>
+
+<tt><b>&nbsp;&nbsp; make lib</b></tt> - Create all libraries<br><br>
+
+<tt><b>&nbsp;&nbsp; make javadoc</b></tt> - Create documentation for entire project<br><br>
+
+<tt><b>&nbsp;&nbsp; make run</b></tt> - Run application<br><br>
+
+<tt><b>&nbsp;&nbsp; make depend</b></tt> - Create dependency information (non-Java)<br><br>
+
+<tt><b>&nbsp;&nbsp; make statistics</b></tt> - Produce LOC statistics for the entire project<br><br>
+
+
+
+<!--
+*******************************************************************************
+   A Package Makefile Generator
+*******************************************************************************
+-->
+
+</p><hr size="1">
+
+<h2><a name="A Package Makefile Generator"></a> A Package Makefile Generator</h2>
+
+<p>
+A package makefile is nothing but a list of the files in the package
+directory. It can easily be generated automatically and the following script do
+just that. The script should be run while standing in the package directory.
+
+
+<br>
+
+</p><p>
+</p><pre class="code">  #!/bin/csh -f
+  <font class="comment">
+  #***************************************************************************  
+  #
+  # Makefile generator script
+  #
+  # (C) 2004 Jacob Dreyer - Geotechnical Software Services
+  # jacob.dreyer@geosoft.no - http://geosoft.no  
+  #
+  # This program is free software; you can redistribute it and/or
+  # modify it under the terms of the GNU General Public License
+  # as published by the Free Software Foundation; either version 2
+  # of the License, or (at your option) any later version.  
+  #
+  # This program is distributed in the hope that it will be useful,
+  # but WITHOUT ANY WARRANTY; without even the implied warranty of
+  # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  # GNU General Public License for more details.
+  #
+  # You should have received a copy of the GNU General Public License
+  # along with this program; if not, write to the Free Software
+  # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+  #
+  #***************************************************************************
+  </font>
+  set file = Makefile 
+
+  rm -f $file
+  touch $file
+
+  printf "Source    = \\\n" &gt;&gt; $file
+
+  foreach SourceFile (ls *.c *.cc *.java *.f *.gif *.jpg`)
+      printf "\t%s \\\n" ${SourceFile} &gt;&gt; $file
+  end
+  printf "\n" &gt;&gt; $file
+
+  printf "RmiSource =\n\n" &gt;&gt; $file
+  printf "Main      =\n\n" &gt;&gt; $file
+  printf "include %s" '$(DEV_ROOT)/Makefile &gt;&gt; $file
+</pre>
+
+
+<p>
+Note that the <tt>RmiSource</tt> and the <tt>Main</tt> tags cannot be set 
+automatically and, if required, these should be added after the script 
+has been run.
+
+
+
+<!--
+*******************************************************************************
+   FOOTER
+*******************************************************************************
+-->
+
+<br> <br>
+
+</p><hr size="1">
+
+<table width="100%">
+
+<tbody><tr>
+<td>
+
+<center class="copyright">
+© 2004 Geotechnical Software Services. All rights reserved. <br>
+This page is maintained by 
+<a href="mailto:webwizard@geosoft.no">webwizard@geosoft.no</a>
+</center>
+
+</td>
+
+</tr>
+</tbody></table>
+
+
+</body></html>

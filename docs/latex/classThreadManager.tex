@@ -1,0 +1,158 @@
+\section{Thread\+Manager Class Reference}
+\label{classThreadManager}\index{Thread\+Manager@{Thread\+Manager}}
+
+
+{\ttfamily \#include $<$Thread\+Manager.\+h$>$}
+
+Inheritance diagram for Thread\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classThreadManager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bf $\sim$\+Thread\+Manager} ()
+\item 
+void {\bf apply} (void)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static A\+C\+E\+\_\+thread\+\_\+t {\bf create\+Thread} (A\+C\+E\+\_\+\+T\+H\+R\+\_\+\+F\+U\+NC function, void $\ast$function\+Args, const char $\ast$thread\+Name, bool should\+Restart, long thread\+Flags=T\+H\+R\+\_\+\+N\+E\+W\+\_\+\+L\+WP$\vert$T\+H\+R\+\_\+\+J\+O\+I\+N\+A\+B\+LE$\vert$T\+H\+R\+\_\+\+S\+C\+H\+E\+D\+\_\+\+D\+E\+F\+A\+U\+LT, long priority=A\+C\+E\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+\+P\+R\+I\+O\+R\+I\+TY, int thread\+Group=-\/1, size\+\_\+t stack\+Size=0)
+\item 
+static A\+C\+E\+\_\+thread\+\_\+t $\ast$ {\bf create\+Thread\+Pool} (size\+\_\+t Nthreads, A\+C\+E\+\_\+\+T\+H\+R\+\_\+\+F\+U\+NC function, void $\ast$function\+Args, const char $\ast$thread\+Name, bool should\+Restart, long thread\+Flags=T\+H\+R\+\_\+\+N\+E\+W\+\_\+\+L\+WP$\vert$T\+H\+R\+\_\+\+J\+O\+I\+N\+A\+B\+LE$\vert$T\+H\+R\+\_\+\+S\+C\+H\+E\+D\+\_\+\+D\+E\+F\+A\+U\+LT, long priority=A\+C\+E\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+\+P\+R\+I\+O\+R\+I\+TY, int thread\+Group=-\/1, size\+\_\+t stack\+Size=0)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Thread\+Manager}{p.}{classThreadManager} wraps the A\+CE Thread mechanism in order to provide Thread monitoring, Thread naming, and death detection and restart capabilities. 
+
+The main developer interface is the \doxyref{create\+Thread()}{p.}{classThreadManager_a8a79a0ed44f30d6b8d385f6a7cceefad} method, which returns an O\+S-\/assigned unique thread Id. This thread id can be stored by the application and used with the A\+C\+E\+\_\+\+Thread\+\_\+\+Manager class for suspending, resuming, waiting on, or managing groups of threads (see ace/\+Thread\+\_\+\+Manager.\+h). 
+
+In the case of \doxyref{create\+Thread\+Pool()}{p.}{classThreadManager_a8217c2cb5f3c72297403d267354545ce}, a pointer to an array of A\+C\+E\+\_\+\+Thread\+\_\+t Thread Ids is returned--one for each of the N threads. 
+
+In the event of a thread death/restart, we cannot just re-\/call create\+Thread from the space of the A\+C\+E\+\_\+\+At\+\_\+\+Exit handler, as the A\+C\+E\+\_\+\+Thread\+\_\+\+Manager is locked (we are inside the lock), and we will need to lock it to call \textquotesingle{}spawn\textquotesingle{}, and that would result in a D\+E\+A\+D\+L\+O\+CK. Therefore, our strategy is to post the thread details (threadparameters) to a static map, and have an independent thread periodically every second or so check to see if the map contains any threads that need restarting. Any other strategies for notification and restart of the thread are very complex! 
+
+A\+L\+SO N\+O\+TE\+:!! Upon restart, the thread Id originally made available to the application for this thread will be invalid. We can (IN T\+HE F\+U\+T\+U\+RE) allow the application developer to pass in a call back function (with unsigned long parameter) that can be called and passed the new Thread Id. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Thread\+Manager@{Thread\+Manager}!````~Thread\+Manager@{$\sim$\+Thread\+Manager}}
+\index{````~Thread\+Manager@{$\sim$\+Thread\+Manager}!Thread\+Manager@{Thread\+Manager}}
+\subsubsection[{$\sim$\+Thread\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Thread\+Manager\+::$\sim$\+Thread\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classThreadManager_a18eb12d3d752075318c3672c8efffd5b}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Thread\+Manager@{Thread\+Manager}!apply@{apply}}
+\index{apply@{apply}!Thread\+Manager@{Thread\+Manager}}
+\subsubsection[{apply(void)}]{\setlength{\rightskip}{0pt plus 5cm}void Thread\+Manager\+::apply (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{classThreadManager_af4e876a66cab209981f3b0da6d1d83c9}
+Inheritied from A\+C\+E\+\_\+\+At\+\_\+\+Thread\+\_\+\+Exit. Gets called upon thread death/exit. \index{Thread\+Manager@{Thread\+Manager}!create\+Thread@{create\+Thread}}
+\index{create\+Thread@{create\+Thread}!Thread\+Manager@{Thread\+Manager}}
+\subsubsection[{create\+Thread(\+A\+C\+E\+\_\+\+T\+H\+R\+\_\+\+F\+U\+N\+C function, void $\ast$function\+Args, const char $\ast$thread\+Name, bool should\+Restart, long thread\+Flags=\+T\+H\+R\+\_\+\+N\+E\+W\+\_\+\+L\+WP\texttt{"|}T\+H\+R\+\_\+\+J\+O\+I\+N\+A\+B\+LE\texttt{"|}T\+H\+R\+\_\+\+S\+C\+H\+E\+D\+\_\+\+D\+E\+F\+A\+U\+L\+T, long priority=\+A\+C\+E\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y, int thread\+Group=-\/1, size\+\_\+t stack\+Size=0)}]{\setlength{\rightskip}{0pt plus 5cm}A\+C\+E\+\_\+thread\+\_\+t Thread\+Manager\+::create\+Thread (
+\begin{DoxyParamCaption}
+\item[{A\+C\+E\+\_\+\+T\+H\+R\+\_\+\+F\+U\+NC}]{function, }
+\item[{void $\ast$}]{function\+Args, }
+\item[{const char $\ast$}]{thread\+Name, }
+\item[{bool}]{should\+Restart, }
+\item[{long}]{thread\+Flags = {\ttfamily THR\+\_\+NEW\+\_\+LWP~$\vert$~THR\+\_\+JOINABLE~$\vert$~THR\+\_\+SCHED\+\_\+DEFAULT}, }
+\item[{long}]{priority = {\ttfamily ACE\+\_\+DEFAULT\+\_\+THREAD\+\_\+PRIORITY}, }
+\item[{int}]{thread\+Group = {\ttfamily -\/1}, }
+\item[{size\+\_\+t}]{stack\+Size = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classThreadManager_a8a79a0ed44f30d6b8d385f6a7cceefad}
+Main Thread creation A\+PI 
+\begin{DoxyParams}{Parameters}
+{\em function} & Static C++ method or C-\/style function to start the new thread with \\
+\hline
+{\em function\+Args} & Array of arguments to pass to the function as parameters \\
+\hline
+{\em thread\+Name} & String identifier that should be unique to each thread \\
+\hline
+{\em should\+Restart} & \textquotesingle{}true\textquotesingle{} if the thread should be restarted upon exit;otherwise, it will be allowed to terminate \\
+\hline
+{\em thread\+Flags} & define the characteristics of the thread \\
+\hline
+{\em priority} & is the relative priority of the new thread (from 1 to 127). Specifying priority other than the default is Discouraged, and should only be used R\+A\+R\+E\+L\+Y! \\
+\hline
+{\em thread\+Group} & can be provided if thread pooling or grouping is desired. \\
+\hline
+{\em stack\+Size} & specifies the size of the stack allocated for this thread \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the unique thread Id upon success; otherwise 0 upon failure. In Linux, this is an unsigned long (see /usr/include/bits/pthread\+\_\+types.h), so cannot use E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+Referenced by Local\+S\+M\+Mailbox\+::activate(), Distributed\+Mailbox\+::create\+Mailbox(), Local\+S\+M\+Mailbox\+::create\+Mailbox(), Group\+Mailbox\+::create\+Mailbox(), Local\+Mailbox\+::create\+Mailbox(), create\+Thread\+Pool(), Resource\+Monitor\+::initialize(), Process\+Manager\+::initialize(), Fault\+Manager\+::initialize(), and Mailbox\+Lookup\+Service\+::initialize\+Discovery\+Manager().
+
+\index{Thread\+Manager@{Thread\+Manager}!create\+Thread\+Pool@{create\+Thread\+Pool}}
+\index{create\+Thread\+Pool@{create\+Thread\+Pool}!Thread\+Manager@{Thread\+Manager}}
+\subsubsection[{create\+Thread\+Pool(size\+\_\+t Nthreads, A\+C\+E\+\_\+\+T\+H\+R\+\_\+\+F\+U\+N\+C function, void $\ast$function\+Args, const char $\ast$thread\+Name, bool should\+Restart, long thread\+Flags=\+T\+H\+R\+\_\+\+N\+E\+W\+\_\+\+L\+WP\texttt{"|}T\+H\+R\+\_\+\+J\+O\+I\+N\+A\+B\+LE\texttt{"|}T\+H\+R\+\_\+\+S\+C\+H\+E\+D\+\_\+\+D\+E\+F\+A\+U\+L\+T, long priority=\+A\+C\+E\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y, int thread\+Group=-\/1, size\+\_\+t stack\+Size=0)}]{\setlength{\rightskip}{0pt plus 5cm}A\+C\+E\+\_\+thread\+\_\+t $\ast$ Thread\+Manager\+::create\+Thread\+Pool (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{Nthreads, }
+\item[{A\+C\+E\+\_\+\+T\+H\+R\+\_\+\+F\+U\+NC}]{function, }
+\item[{void $\ast$}]{function\+Args, }
+\item[{const char $\ast$}]{thread\+Name, }
+\item[{bool}]{should\+Restart, }
+\item[{long}]{thread\+Flags = {\ttfamily THR\+\_\+NEW\+\_\+LWP~$\vert$~THR\+\_\+JOINABLE~$\vert$~THR\+\_\+SCHED\+\_\+DEFAULT}, }
+\item[{long}]{priority = {\ttfamily ACE\+\_\+DEFAULT\+\_\+THREAD\+\_\+PRIORITY}, }
+\item[{int}]{thread\+Group = {\ttfamily -\/1}, }
+\item[{size\+\_\+t}]{stack\+Size = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classThreadManager_a8217c2cb5f3c72297403d267354545ce}
+Thread Pool creation A\+PI 
+\begin{DoxyParams}{Parameters}
+{\em Nthreads} & Number of threads to create in the pool \\
+\hline
+{\em function} & Static C++ method or C-\/style function to start the new thread with \\
+\hline
+{\em function\+Args} & Array of arguments to pass to the function as parameters \\
+\hline
+{\em thread\+Name} & String identifier that should be unique to each thread \\
+\hline
+{\em should\+Restart} & \textquotesingle{}true\textquotesingle{} if the thread should be restarted upon exit;otherwise, it will be allowed to terminate \\
+\hline
+{\em thread\+Flags} & define the characteristics of the thread \\
+\hline
+{\em priority} & is the relative priority of the new thread (from 1 to 127). Specifying priority other than the default is Discouraged, and should only be used R\+A\+R\+E\+L\+Y! \\
+\hline
+{\em thread\+Group} & can be provided if thread pooling or grouping is desired. \\
+\hline
+{\em stack\+Size} & specifies the size of the stack allocated for this thread \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer array of unique thread Ids upon success; otherwise 0 upon failure. This array of A\+C\+E\+\_\+\+Thread\+\_\+t thread ids is allocated on the heap, so ownership is deferred to the application owner. In Linux, these values are unsigned longs (see /usr/include/bits/pthread\+\_\+types.h), so cannot use E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References create\+Thread().
+
+
+
+Referenced by Mailbox\+Processor\+::process\+Mailbox().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Thread\+Manager.\+h\item 
+Thread\+Manager.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,202 @@
+\section{Sync\+Object\+Pool Class Reference}
+\label{classSyncObjectPool}\index{Sync\+Object\+Pool@{Sync\+Object\+Pool}}
+
+
+{\ttfamily \#include $<$Sync\+Object\+Pool.\+h$>$}
+
+Inheritance diagram for Sync\+Object\+Pool\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSyncObjectPool}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Sync\+Object\+Pool} (int object\+Pool\+ID, int initial\+Capacity, double threshold\+Percentage, int capacity\+Increment, const char $\ast$object\+Type, long object\+Init\+Param, O\+P\+M\+\_\+\+I\+N\+I\+T\+\_\+\+P\+TR boot\+Strap\+Method, O\+P\+M\+Growth\+Mode\+Type growth\+Mode)
+\item 
+virtual {\bf $\sim$\+Sync\+Object\+Pool} ()
+\item 
+{\bf O\+P\+M\+Base} $\ast$ {\bf reserve} (bool block\+Waiting\+For\+Access=true)
+\item 
+bool {\bf release} ({\bf O\+P\+M\+Base} $\ast$object, char $\ast$calling\+File\+Name, int calling\+Line\+Numb)
+\item 
+bool {\bf is\+Empty} ()
+\item 
+bool {\bf contains\+Object} ({\bf O\+P\+M\+Base} $\ast$object)
+\item 
+void {\bf set\+Capacity\+Increment} (int capacity\+Increment)
+\item 
+void {\bfseries print\+Usage\+Summary} ()\label{classSyncObjectPool_a6d2c965ac287995ffce2f6960d7a7bde}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Sync\+Object\+Pool}{p.}{classSyncObjectPool} provides a wrapper class for making Object Pool thread safe. It is the responsibility of the developer to determine if the Object Pool will be accessed from multiple threads. 
+
+Object pool contains methods for reserving and releasing pooled objects and for manipulating the capacity increments of the data structures (pool supports both growing and shrinking based on increment size), computing the count of free objects, setting the threshold and increment values, and performing cleanup. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Sync\+Object\+Pool@{Sync\+Object\+Pool}!Sync\+Object\+Pool@{Sync\+Object\+Pool}}
+\index{Sync\+Object\+Pool@{Sync\+Object\+Pool}!Sync\+Object\+Pool@{Sync\+Object\+Pool}}
+\subsubsection[{Sync\+Object\+Pool(int object\+Pool\+I\+D, int initial\+Capacity, double threshold\+Percentage, int capacity\+Increment, const char $\ast$object\+Type, long object\+Init\+Param, O\+P\+M\+\_\+\+I\+N\+I\+T\+\_\+\+P\+T\+R boot\+Strap\+Method, O\+P\+M\+Growth\+Mode\+Type growth\+Mode)}]{\setlength{\rightskip}{0pt plus 5cm}Sync\+Object\+Pool\+::\+Sync\+Object\+Pool (
+\begin{DoxyParamCaption}
+\item[{int}]{object\+Pool\+ID, }
+\item[{int}]{initial\+Capacity, }
+\item[{double}]{threshold\+Percentage, }
+\item[{int}]{capacity\+Increment, }
+\item[{const char $\ast$}]{object\+Type, }
+\item[{long}]{object\+Init\+Param, }
+\item[{O\+P\+M\+\_\+\+I\+N\+I\+T\+\_\+\+P\+TR}]{boot\+Strap\+Method, }
+\item[{O\+P\+M\+Growth\+Mode\+Type}]{growth\+Mode}
+\end{DoxyParamCaption}
+)}\label{classSyncObjectPool_a50ef5ebb619863e4268e28de7356deaa}
+Constructor initializes the pool to a configurable size and sets the individual object\textquotesingle{}s initializer to be stored in the Pool. 
+\begin{DoxyParams}{Parameters}
+{\em object\+Pool\+ID} & Object Pool\+ID that identifies this object pool in the \doxyref{O\+PM}{p.}{classOPM} \\
+\hline
+{\em initial\+Capacity} & Starting size of the pool in objects \\
+\hline
+{\em threshold\+Percentage} & Percentage of current capacity to trigger automatic growth. \\
+\hline
+{\em capacity\+Increment} & Number of objects to add to the current size when increasing capacity \\
+\hline
+{\em object\+Type} & const char$\ast$ describing the class object stored in this pool \\
+\hline
+{\em object\+Init\+Param} & -\/ Long parameter or pointer to initialization data needed by the object or 0(N\+U\+LL) if not needed (passed to \doxyref{O\+P\+M\+Base\+::initialize}{p.}{classOPMBase_a0de2f47a2f34606fe4379a81d0cc5c18}). \\
+\hline
+{\em boot\+Strap\+Method} & pointer to a function or method (\doxyref{O\+P\+M\+Base\+::initialize}{p.}{classOPMBase_a0de2f47a2f34606fe4379a81d0cc5c18}) that will create the object and return a pointer to it \\
+\hline
+{\em growth\+Mode} & Either N\+O\+\_\+\+G\+R\+O\+W\+TH, G\+R\+O\+W\+T\+H\+\_\+\+A\+L\+L\+O\+W\+ED, or G\+R\+O\+W\+\_\+\+A\+N\+D\+\_\+\+S\+H\+R\+I\+NK \\
+\hline
+\end{DoxyParams}
+\index{Sync\+Object\+Pool@{Sync\+Object\+Pool}!````~Sync\+Object\+Pool@{$\sim$\+Sync\+Object\+Pool}}
+\index{````~Sync\+Object\+Pool@{$\sim$\+Sync\+Object\+Pool}!Sync\+Object\+Pool@{Sync\+Object\+Pool}}
+\subsubsection[{$\sim$\+Sync\+Object\+Pool()}]{\setlength{\rightskip}{0pt plus 5cm}Sync\+Object\+Pool\+::$\sim$\+Sync\+Object\+Pool (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classSyncObjectPool_aa5f2ba37791d1b937f19f884fcd5bdbe}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Sync\+Object\+Pool@{Sync\+Object\+Pool}!contains\+Object@{contains\+Object}}
+\index{contains\+Object@{contains\+Object}!Sync\+Object\+Pool@{Sync\+Object\+Pool}}
+\subsubsection[{contains\+Object(\+O\+P\+M\+Base $\ast$object)}]{\setlength{\rightskip}{0pt plus 5cm}bool Sync\+Object\+Pool\+::contains\+Object (
+\begin{DoxyParamCaption}
+\item[{{\bf O\+P\+M\+Base} $\ast$}]{object}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classSyncObjectPool_a68ee3b71cae88e89753854e9cc681ab3}
+Method to check if a specified object is in the Free Linked List or the Used Linked List. This method traverses both lists looking for pointer equality. \begin{DoxyReturn}{Returns}
+{\ttfamily true} if the Object is in the list~\newline
+ {\ttfamily false} if the Object is N\+OT in the list 
+\end{DoxyReturn}
+
+
+Reimplemented from {\bf Object\+Pool} \doxyref{}{p.}{classObjectPool_a548146baa4b62ca937fc7582d25a1e3d}.
+
+
+
+References Object\+Pool\+::contains\+Object().
+
+\index{Sync\+Object\+Pool@{Sync\+Object\+Pool}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!Sync\+Object\+Pool@{Sync\+Object\+Pool}}
+\subsubsection[{is\+Empty()}]{\setlength{\rightskip}{0pt plus 5cm}bool Sync\+Object\+Pool\+::is\+Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classSyncObjectPool_a56e69756fd2e4be9a83dae45e700d2e1}
+Method to test if this pool is empty \begin{DoxyReturn}{Returns}
+{\ttfamily true} if the Free List is empty~\newline
+ {\ttfamily false} if the Free List is N\+OT empty 
+\end{DoxyReturn}
+
+
+Reimplemented from {\bf Object\+Pool} \doxyref{}{p.}{classObjectPool_a24f063d95d3dc8a3c06f80dbc21c904e}.
+
+
+
+References Object\+Pool\+::is\+Empty().
+
+\index{Sync\+Object\+Pool@{Sync\+Object\+Pool}!release@{release}}
+\index{release@{release}!Sync\+Object\+Pool@{Sync\+Object\+Pool}}
+\subsubsection[{release(\+O\+P\+M\+Base $\ast$object, char $\ast$calling\+File\+Name, int calling\+Line\+Numb)}]{\setlength{\rightskip}{0pt plus 5cm}bool Sync\+Object\+Pool\+::release (
+\begin{DoxyParamCaption}
+\item[{{\bf O\+P\+M\+Base} $\ast$}]{object, }
+\item[{char $\ast$}]{calling\+File\+Name, }
+\item[{int}]{calling\+Line\+Numb}
+\end{DoxyParamCaption}
+)}\label{classSyncObjectPool_af9b1b2e1112fe623395a705a9a60dd68}
+Release an object back into the pool after using it. This makes the object available again for use in other tasks. This method automatically monitors the number of in-\/use objects and will shrink the pool when the number drops below the previous increment\textquotesingle{}s threshold value. 
+\begin{DoxyParams}{Parameters}
+{\em object} & Object to release back into the pool. \\
+\hline
+{\em calling\+File\+Name} & -\/ Specifies the source file from which the object is being released (this will be printed as a D\+E\+B\+UG log using a M\+A\+C\+RO) \\
+\hline
+{\em calling\+Line\+Numb} & -\/ Specifies the source line from which the object is being released (this will be printed as a D\+E\+B\+UG log using a M\+A\+C\+RO) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the specified Object was successfully released~\newline
+ {\ttfamily false} if the Object Reference was not found in the U\+S\+ED data structure (could be wrong pool, is already released, or was not created via \doxyref{O\+PM}{p.}{classOPM}) 
+\end{DoxyReturn}
+
+
+References Object\+Pool\+::release().
+
+\index{Sync\+Object\+Pool@{Sync\+Object\+Pool}!reserve@{reserve}}
+\index{reserve@{reserve}!Sync\+Object\+Pool@{Sync\+Object\+Pool}}
+\subsubsection[{reserve(bool block\+Waiting\+For\+Access=true)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf O\+P\+M\+Base} $\ast$ Sync\+Object\+Pool\+::reserve (
+\begin{DoxyParamCaption}
+\item[{bool}]{block\+Waiting\+For\+Access = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classSyncObjectPool_a1286b5bb4b981e803d261c88bb2d4e65}
+Reserve an object for use, thus making it unavailable for other tasks. This method automatically monitors the number of in-\/use objects and will grow the pool when the number exceeds the threshold. If the object pool is specified to be non-\/resizable, then an error will be displayed and N\+U\+LL returned if no available objects exist. 
+\begin{DoxyParams}{Parameters}
+{\em block\+Waiting\+For\+Access} & If true, this method will block until an object becomes available if they are all in use. Otherwise, if false, this method will return N\+U\+LL if all objects are in use. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from {\bf Object\+Pool} \doxyref{}{p.}{classObjectPool_a2765719206bbe45d887e0bf0cf57715f}.
+
+
+
+References Object\+Pool\+::reserve().
+
+\index{Sync\+Object\+Pool@{Sync\+Object\+Pool}!set\+Capacity\+Increment@{set\+Capacity\+Increment}}
+\index{set\+Capacity\+Increment@{set\+Capacity\+Increment}!Sync\+Object\+Pool@{Sync\+Object\+Pool}}
+\subsubsection[{set\+Capacity\+Increment(int capacity\+Increment)}]{\setlength{\rightskip}{0pt plus 5cm}void Sync\+Object\+Pool\+::set\+Capacity\+Increment (
+\begin{DoxyParamCaption}
+\item[{int}]{capacity\+Increment}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classSyncObjectPool_aa8a3809cc62c991b67d2ef541a4e688d}
+Method to set or reset the capacity increment of this Object Pool 
+\begin{DoxyParams}{Parameters}
+{\em capacity\+Increment} & The new capacity increment value \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from {\bf Object\+Pool} \doxyref{}{p.}{classObjectPool_abd8b0f99d68c723f4fd923f3c631eecd}.
+
+
+
+References Object\+Pool\+::capacity\+Increment\+\_\+.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Sync\+Object\+Pool.\+h\item 
+Sync\+Object\+Pool.\+cpp\end{DoxyCompactItemize}

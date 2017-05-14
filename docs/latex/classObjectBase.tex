@@ -1,0 +1,91 @@
+\section{Object\+Base Class Reference}
+\label{classObjectBase}\index{Object\+Base@{Object\+Base}}
+
+
+{\ttfamily \#include $<$Object\+Base.\+h$>$}
+
+Inheritance diagram for Object\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=6.125000cm]{classObjectBase}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Object\+Base} ()
+\item 
+virtual {\bf $\sim$\+Object\+Base} ()
+\item 
+void {\bf set\+Poolable} (bool {\bf is\+Poolable})
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bf is\+Poolable} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Simple base class for identifying objects as \doxyref{O\+PM}{p.}{classOPM} poolable or not, that is, whether or not they inherit from \doxyref{O\+P\+M\+Base}{p.}{classOPMBase}. 
+
+Using this class the \doxyref{O\+PM}{p.}{classOPM} and Msg\+Mgr frameworks can distinguish between objects and messages that need to be instantiated and then deleted versus objects and messages that should be retrieved from a message pool and checked back in. Application developers should N\+OT derive from this class. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Object\+Base@{Object\+Base}!Object\+Base@{Object\+Base}}
+\index{Object\+Base@{Object\+Base}!Object\+Base@{Object\+Base}}
+\subsubsection[{Object\+Base()}]{\setlength{\rightskip}{0pt plus 5cm}Object\+Base\+::\+Object\+Base (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classObjectBase_af2c3a18da2d1cd1c0dd5fae168207f0c}
+Constructor \index{Object\+Base@{Object\+Base}!````~Object\+Base@{$\sim$\+Object\+Base}}
+\index{````~Object\+Base@{$\sim$\+Object\+Base}!Object\+Base@{Object\+Base}}
+\subsubsection[{$\sim$\+Object\+Base()}]{\setlength{\rightskip}{0pt plus 5cm}Object\+Base\+::$\sim$\+Object\+Base (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classObjectBase_aeb93ee6e41fec02fd76e4cdc484c0bf5}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Object\+Base@{Object\+Base}!is\+Poolable@{is\+Poolable}}
+\index{is\+Poolable@{is\+Poolable}!Object\+Base@{Object\+Base}}
+\subsubsection[{is\+Poolable()}]{\setlength{\rightskip}{0pt plus 5cm}bool Object\+Base\+::is\+Poolable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classObjectBase_af8d59d0a53ef21ee42c45b2ed6101c3f}
+Return whether or not this object is \doxyref{O\+PM}{p.}{classOPM} poolable (inherits from \doxyref{O\+P\+M\+Base}{p.}{classOPMBase}) 
+
+Referenced by Message\+Base\+::is\+Poolable(), and set\+Poolable().
+
+\index{Object\+Base@{Object\+Base}!set\+Poolable@{set\+Poolable}}
+\index{set\+Poolable@{set\+Poolable}!Object\+Base@{Object\+Base}}
+\subsubsection[{set\+Poolable(bool is\+Poolable)}]{\setlength{\rightskip}{0pt plus 5cm}void Object\+Base\+::set\+Poolable (
+\begin{DoxyParamCaption}
+\item[{bool}]{is\+Poolable}
+\end{DoxyParamCaption}
+)}\label{classObjectBase_aea14a785d715128a85f185fe764cb713}
+Set whether or not this object is \doxyref{O\+PM}{p.}{classOPM} poolable, that is, whether or not the object inherits from \doxyref{O\+P\+M\+Base}{p.}{classOPMBase}. 
+
+References is\+Poolable().
+
+
+
+Referenced by O\+P\+M\+Base\+::\+O\+P\+M\+Base().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Object\+Base.\+h\item 
+Object\+Base.\+cpp\end{DoxyCompactItemize}

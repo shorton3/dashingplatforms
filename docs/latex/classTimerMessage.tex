@@ -1,0 +1,225 @@
+\section{Timer\+Message Class Reference}
+\label{classTimerMessage}\index{Timer\+Message@{Timer\+Message}}
+
+
+{\ttfamily \#include $<$Timer\+Message.\+h$>$}
+
+Inheritance diagram for Timer\+Message\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{classTimerMessage}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Timer\+Message} (const {\bf Mailbox\+Address} \&source\+Address, unsigned int version\+Number, A\+C\+E\+\_\+\+Time\+\_\+\+Value timeout, A\+C\+E\+\_\+\+Time\+\_\+\+Value restart\+Interval=A\+C\+E\+\_\+\+Time\+\_\+\+Value\+::zero, unsigned int source\+Context\+Id=0, unsigned int destination\+Context\+Id=0)
+\item 
+virtual {\bf $\sim$\+Timer\+Message} ()
+\item 
+A\+C\+E\+\_\+\+Time\+\_\+\+Value \& {\bf get\+Timeout} ()
+\item 
+A\+C\+E\+\_\+\+Time\+\_\+\+Value \& {\bf get\+Restart\+Interval} ()
+\item 
+void {\bf set\+Expiration\+Time} (A\+C\+E\+\_\+\+Time\+\_\+\+Value expiration\+Time)
+\item 
+A\+C\+E\+\_\+\+Time\+\_\+\+Value \& {\bf get\+Expiration\+Time} ()
+\item 
+virtual unsigned short {\bf get\+Message\+Id} () const 
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+A\+C\+E\+\_\+\+Time\+\_\+\+Value {\bf timeout\+\_\+}
+\item 
+A\+C\+E\+\_\+\+Time\+\_\+\+Value {\bf restart\+Interval\+\_\+}
+\item 
+A\+C\+E\+\_\+\+Time\+\_\+\+Value {\bf expiration\+Time\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Timer\+Message}{p.}{classTimerMessage} is the base class implementation for all system timer messages. 
+
+All system software Timer Messages (that can tolerate the Msg\+Mgr concurrency latency) must inherit from this class. The exception to this rule is that this class can be created concrete--If an application has no need for passing parameters/values along with the Timer, then it can use this generic/concrete class to get an expiration time. 
+
+High resolution or hardware timers (sub-\/microsecond) must register or schedule themselves manually. 
+
+Because the \doxyref{Timer\+Message}{p.}{classTimerMessage} has the capability to be automatically recurring (that is, it can automatically re-\/schedule itself), the application developer needs to take special notice. This class does not automatically inherit from \doxyref{O\+P\+M\+Base}{p.}{classOPMBase}. If a \doxyref{Timer\+Message}{p.}{classTimerMessage} subclass is required to be \doxyref{O\+PM}{p.}{classOPM} pooled, then it will need to do multiple inheritance from both \doxyref{Message\+Base}{p.}{classMessageBase} (or \doxyref{Reusable\+Message\+Base}{p.}{classReusableMessageBase}) and \doxyref{O\+P\+M\+Base}{p.}{classOPMBase}. 
+
+
+\begin{DoxyEnumerate}
+\item If the Timer\+Messages are pooled by the \doxyref{O\+PM}{p.}{classOPM}, then no special handling is required as the Msg\+Mgr framework will handle the release of the timers back into their respective \doxyref{O\+PM}{p.}{classOPM} pools after their handler has completed.
+\item Otherwise, the \doxyref{Timer\+Message}{p.}{classTimerMessage} will behave like a \doxyref{Reusable\+Message\+Base}{p.}{classReusableMessageBase} if a non-\/default \textquotesingle{}Restart\+Interval\textquotesingle{} parameter is given to make the Timer periodically recurring. In this case, the application has the responsibility to delete the \doxyref{Timer\+Message}{p.}{classTimerMessage} when it is no longer needed. Otherwise, if Restart\+Interval is defaulted, then the \doxyref{Timer\+Message}{p.}{classTimerMessage} will behave like a \doxyref{Message\+Base}{p.}{classMessageBase} and be deleted by the Msg\+Mgr. Note\+: A \doxyref{Timer\+Message}{p.}{classTimerMessage} can be changed to be \textquotesingle{}no longer reusable\textquotesingle{}, after which it will behave like a regular \doxyref{Message\+Base}{p.}{classMessageBase} after the expiration handler is complete (or if the Timer is canceled). 
+\end{DoxyEnumerate}
+
+Also note that if a restart\+Interval is specified to periodically restart the Timer, then it is N\+OT necessary to re-\/post the Timer Message. All other reusable messages must be posted again in order to reuse them. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Timer\+Message@{Timer\+Message}!Timer\+Message@{Timer\+Message}}
+\index{Timer\+Message@{Timer\+Message}!Timer\+Message@{Timer\+Message}}
+\subsubsection[{Timer\+Message(const Mailbox\+Address \&source\+Address, unsigned int version\+Number, A\+C\+E\+\_\+\+Time\+\_\+\+Value timeout, A\+C\+E\+\_\+\+Time\+\_\+\+Value restart\+Interval=\+A\+C\+E\+\_\+\+Time\+\_\+\+Value\+::zero, unsigned int source\+Context\+Id=0, unsigned int destination\+Context\+Id=0)}]{\setlength{\rightskip}{0pt plus 5cm}Timer\+Message\+::\+Timer\+Message (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{source\+Address, }
+\item[{unsigned int}]{version\+Number, }
+\item[{A\+C\+E\+\_\+\+Time\+\_\+\+Value}]{timeout, }
+\item[{A\+C\+E\+\_\+\+Time\+\_\+\+Value}]{restart\+Interval = {\ttfamily ACE\+\_\+Time\+\_\+Value\+:\+:zero}, }
+\item[{unsigned int}]{source\+Context\+Id = {\ttfamily 0}, }
+\item[{unsigned int}]{destination\+Context\+Id = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classTimerMessage_a666c742c0b8c6e58d35960ef18c77051}
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em timeout} & time interval after which the timer will expire \\
+\hline
+{\em restart\+Interval} & time interval after which the timer will be automatically rescheduled. If this parameter is defaulted, then the \doxyref{Timer\+Message}{p.}{classTimerMessage} will behave like a \doxyref{Message\+Base}{p.}{classMessageBase}; otherwise, if it is non-\/default, then it will behave like a \doxyref{Reusable\+Message\+Base}{p.}{classReusableMessageBase}. If a non-\/default restart\+Interval is specified, it is N\+OT necessary to re-\/post (by calling schedule\+Timer() again) the message to restart the Timer. \\
+\hline
+\end{DoxyParams}
+
+
+References Message\+Base\+::is\+Reusable\+\_\+, and Timer\+Message().
+
+
+
+Referenced by Timer\+Message().
+
+\index{Timer\+Message@{Timer\+Message}!````~Timer\+Message@{$\sim$\+Timer\+Message}}
+\index{````~Timer\+Message@{$\sim$\+Timer\+Message}!Timer\+Message@{Timer\+Message}}
+\subsubsection[{$\sim$\+Timer\+Message()}]{\setlength{\rightskip}{0pt plus 5cm}Timer\+Message\+::$\sim$\+Timer\+Message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classTimerMessage_af447f8ff18888b1557b73977c0d4f74f}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Timer\+Message@{Timer\+Message}!get\+Expiration\+Time@{get\+Expiration\+Time}}
+\index{get\+Expiration\+Time@{get\+Expiration\+Time}!Timer\+Message@{Timer\+Message}}
+\subsubsection[{get\+Expiration\+Time()}]{\setlength{\rightskip}{0pt plus 5cm}A\+C\+E\+\_\+\+Time\+\_\+\+Value \& Timer\+Message\+::get\+Expiration\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classTimerMessage_ac807460da02843727a01908316bd2d38}
+Retrieves the \textquotesingle{}actual\textquotesingle{} time that the Timer Expired. This value is set by the Msg\+Mgr framework, and it is provided to the applications so that it can be used to \textquotesingle{}judge\textquotesingle{} the amount of latency introduced by the Timer sitting inside the mailbox queue. 
+
+References expiration\+Time\+\_\+.
+
+\index{Timer\+Message@{Timer\+Message}!get\+Message\+Id@{get\+Message\+Id}}
+\index{get\+Message\+Id@{get\+Message\+Id}!Timer\+Message@{Timer\+Message}}
+\subsubsection[{get\+Message\+Id() const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned short Timer\+Message\+::get\+Message\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\label{classTimerMessage_a9379475034122f7ad2405e13176b5075}
+Returns the unique message identifier for any subclass of \doxyref{Message\+Base}{p.}{classMessageBase}. Message\+Id\textquotesingle{}s must be registered in \doxyref{common/\+Message\+Ids.\+h}{p.}{MessageIds_8h_source} 
+
+Implements {\bf Message\+Base} \doxyref{}{p.}{classMessageBase_a0910c23e94ea98b7a4e11631c9068311}.
+
+
+
+Reimplemented in {\bf Resource\+Monitor\+Timer\+Message} \doxyref{}{p.}{classResourceMonitorTimerMessage_ac1ae5674792f21e7397cf9e10eb3c7dd}.
+
+\index{Timer\+Message@{Timer\+Message}!get\+Restart\+Interval@{get\+Restart\+Interval}}
+\index{get\+Restart\+Interval@{get\+Restart\+Interval}!Timer\+Message@{Timer\+Message}}
+\subsubsection[{get\+Restart\+Interval()}]{\setlength{\rightskip}{0pt plus 5cm}A\+C\+E\+\_\+\+Time\+\_\+\+Value \& Timer\+Message\+::get\+Restart\+Interval (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classTimerMessage_acd148d44c670efae691925e83cae3e6d}
+Return the time interval after which the timer will be automatically rescheduled 
+
+References restart\+Interval\+\_\+.
+
+
+
+Referenced by Mailbox\+Owner\+Handle\+::schedule\+Timer().
+
+\index{Timer\+Message@{Timer\+Message}!get\+Timeout@{get\+Timeout}}
+\index{get\+Timeout@{get\+Timeout}!Timer\+Message@{Timer\+Message}}
+\subsubsection[{get\+Timeout()}]{\setlength{\rightskip}{0pt plus 5cm}A\+C\+E\+\_\+\+Time\+\_\+\+Value \& Timer\+Message\+::get\+Timeout (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classTimerMessage_a1a9904c364e8ecbc6da1e64542f7d9a2}
+Return the time interval after which the timer will expire 
+
+References timeout\+\_\+.
+
+
+
+Referenced by Mailbox\+Owner\+Handle\+::schedule\+Timer().
+
+\index{Timer\+Message@{Timer\+Message}!set\+Expiration\+Time@{set\+Expiration\+Time}}
+\index{set\+Expiration\+Time@{set\+Expiration\+Time}!Timer\+Message@{Timer\+Message}}
+\subsubsection[{set\+Expiration\+Time(\+A\+C\+E\+\_\+\+Time\+\_\+\+Value expiration\+Time)}]{\setlength{\rightskip}{0pt plus 5cm}void Timer\+Message\+::set\+Expiration\+Time (
+\begin{DoxyParamCaption}
+\item[{A\+C\+E\+\_\+\+Time\+\_\+\+Value}]{expiration\+Time}
+\end{DoxyParamCaption}
+)}\label{classTimerMessage_af641052be5004f9b93f02938300235b5}
+Sets the time that the Timer actually expires. This is called by the Msg\+Mgr framework. Applications should N\+OT call this method 
+
+References expiration\+Time\+\_\+.
+
+
+
+Referenced by Mailbox\+Base\+::handle\+\_\+timeout().
+
+\index{Timer\+Message@{Timer\+Message}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Timer\+Message@{Timer\+Message}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Timer\+Message\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classTimerMessage_ac12b035bd69e8e9d41fddbccdf7f81a2}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+Implements {\bf Message\+Base} \doxyref{}{p.}{classMessageBase_a7946fdcef86bfd67ad1df2ede8ed671d}.
+
+
+
+Reimplemented in {\bf Resource\+Monitor\+Timer\+Message} \doxyref{}{p.}{classResourceMonitorTimerMessage_a697653c1cbd9759cd7db6b0c683ce20e}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Timer\+Message@{Timer\+Message}!expiration\+Time\+\_\+@{expiration\+Time\+\_\+}}
+\index{expiration\+Time\+\_\+@{expiration\+Time\+\_\+}!Timer\+Message@{Timer\+Message}}
+\subsubsection[{expiration\+Time\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}A\+C\+E\+\_\+\+Time\+\_\+\+Value Timer\+Message\+::expiration\+Time\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classTimerMessage_a5b7463024af39b629da6d86af6fc60d5}
+Records the \textquotesingle{}actual\textquotesingle{} time that the Timer expired 
+
+Referenced by get\+Expiration\+Time(), and set\+Expiration\+Time().
+
+\index{Timer\+Message@{Timer\+Message}!restart\+Interval\+\_\+@{restart\+Interval\+\_\+}}
+\index{restart\+Interval\+\_\+@{restart\+Interval\+\_\+}!Timer\+Message@{Timer\+Message}}
+\subsubsection[{restart\+Interval\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}A\+C\+E\+\_\+\+Time\+\_\+\+Value Timer\+Message\+::restart\+Interval\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classTimerMessage_af4cc043749a2365e2aad36e77cbf4c5b}
+Time interval after which the timer will be automatically rescheduled 
+
+Referenced by get\+Restart\+Interval().
+
+\index{Timer\+Message@{Timer\+Message}!timeout\+\_\+@{timeout\+\_\+}}
+\index{timeout\+\_\+@{timeout\+\_\+}!Timer\+Message@{Timer\+Message}}
+\subsubsection[{timeout\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}A\+C\+E\+\_\+\+Time\+\_\+\+Value Timer\+Message\+::timeout\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classTimerMessage_a6c7b31263a841de8ba972bb6d7087c84}
+Time interval after which the timer will expire 
+
+Referenced by get\+Timeout().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Timer\+Message.\+h\item 
+Timer\+Message.\+cpp\end{DoxyCompactItemize}

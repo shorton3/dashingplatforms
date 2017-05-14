@@ -1,0 +1,201 @@
+\section{O\+P\+M\+Linked\+List Class Reference}
+\label{classOPMLinkedList}\index{O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}}
+
+
+{\ttfamily \#include $<$O\+P\+M\+Linked\+List.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf O\+P\+M\+Linked\+List} ()
+\item 
+virtual {\bf $\sim$\+O\+P\+M\+Linked\+List} ()
+\item 
+{\bf O\+P\+M\+Base} $\ast$ {\bf remove\+First} ()
+\item 
+{\bf O\+P\+M\+Base} $\ast$ {\bf remove} ({\bf O\+P\+M\+Base} $\ast$object)
+\item 
+void {\bf insert\+First} ({\bf O\+P\+M\+Base} $\ast$object)
+\item 
+void {\bf insert\+Last} ({\bf O\+P\+M\+Base} $\ast$object)
+\item 
+int {\bf get\+List\+Size} ()
+\item 
+bool {\bf is\+Empty} ()
+\item 
+bool {\bf contains\+Object} ({\bf O\+P\+M\+Base} $\ast$object)
+\item 
+void {\bf delete\+List\+Contents} ()
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This utility class implements a doubly linked list with both a head and tail pointers for storing \doxyref{O\+P\+M\+Base}{p.}{classOPMBase} objects. All list operations are done by manipulating pointers since \doxyref{O\+P\+M\+Base}{p.}{classOPMBase} stores the references for the \textquotesingle{}N\+E\+XT\textquotesingle{} and \textquotesingle{}P\+R\+EV\textquotesingle{} pointers. 
+
+This class is currently N\+OT T\+H\+R\+E\+AD S\+A\+FE.
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}!O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}}
+\index{O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}!O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}}
+\subsubsection[{O\+P\+M\+Linked\+List()}]{\setlength{\rightskip}{0pt plus 5cm}O\+P\+M\+Linked\+List\+::\+O\+P\+M\+Linked\+List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classOPMLinkedList_a6983e801069b9882afe738fd1c2ea550}
+Constructor \index{O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}!````~O\+P\+M\+Linked\+List@{$\sim$\+O\+P\+M\+Linked\+List}}
+\index{````~O\+P\+M\+Linked\+List@{$\sim$\+O\+P\+M\+Linked\+List}!O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}}
+\subsubsection[{$\sim$\+O\+P\+M\+Linked\+List()}]{\setlength{\rightskip}{0pt plus 5cm}O\+P\+M\+Linked\+List\+::$\sim$\+O\+P\+M\+Linked\+List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classOPMLinkedList_ad31b1e60623d4621ff6e216d9b1208a8}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}!contains\+Object@{contains\+Object}}
+\index{contains\+Object@{contains\+Object}!O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}}
+\subsubsection[{contains\+Object(\+O\+P\+M\+Base $\ast$object)}]{\setlength{\rightskip}{0pt plus 5cm}bool O\+P\+M\+Linked\+List\+::contains\+Object (
+\begin{DoxyParamCaption}
+\item[{{\bf O\+P\+M\+Base} $\ast$}]{object}
+\end{DoxyParamCaption}
+)}\label{classOPMLinkedList_a1bb60286a6928af4da900403c9dc127d}
+Walk the linked list and check to see if the object is a member 
+
+References O\+P\+M\+Base\+::get\+Next(), and O\+P\+M\+Base\+::is\+Next\+Null().
+
+
+
+Referenced by Object\+Pool\+::contains\+Object().
+
+\index{O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}!delete\+List\+Contents@{delete\+List\+Contents}}
+\index{delete\+List\+Contents@{delete\+List\+Contents}!O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}}
+\subsubsection[{delete\+List\+Contents()}]{\setlength{\rightskip}{0pt plus 5cm}void O\+P\+M\+Linked\+List\+::delete\+List\+Contents (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classOPMLinkedList_a731c68191b01fe1e80cfac48c41bf837}
+Delete the contents of the list -\/ does not delete the list objects, but rather deletes the list references. 
+
+References O\+P\+M\+Base\+::get\+Next(), O\+P\+M\+Base\+::is\+Next\+Null(), O\+P\+M\+Base\+::set\+Next(), and O\+P\+M\+Base\+::set\+Prev().
+
+
+
+Referenced by Object\+Pool\+::$\sim$\+Object\+Pool().
+
+\index{O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}!get\+List\+Size@{get\+List\+Size}}
+\index{get\+List\+Size@{get\+List\+Size}!O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}}
+\subsubsection[{get\+List\+Size()}]{\setlength{\rightskip}{0pt plus 5cm}int O\+P\+M\+Linked\+List\+::get\+List\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classOPMLinkedList_a6a5b51e56cfb66d65553cc20c3e1a119}
+Return the size of the List \index{O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}!insert\+First@{insert\+First}}
+\index{insert\+First@{insert\+First}!O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}}
+\subsubsection[{insert\+First(\+O\+P\+M\+Base $\ast$object)}]{\setlength{\rightskip}{0pt plus 5cm}void O\+P\+M\+Linked\+List\+::insert\+First (
+\begin{DoxyParamCaption}
+\item[{{\bf O\+P\+M\+Base} $\ast$}]{object}
+\end{DoxyParamCaption}
+)}\label{classOPMLinkedList_a17de6672f3eb1f7d0194782c8be0cbb1}
+Insert an \doxyref{O\+P\+M\+Base}{p.}{classOPMBase} object at the Head (First) of the Linked List 
+\begin{DoxyParams}{Parameters}
+{\em object} & Pointer to \doxyref{O\+P\+M\+Base}{p.}{classOPMBase} object to insert \\
+\hline
+\end{DoxyParams}
+
+
+References O\+P\+M\+Base\+::set\+Prev().
+
+
+
+Referenced by Object\+Pool\+::\+Object\+Pool(), Object\+Pool\+::release(), and Object\+Pool\+::reserve().
+
+\index{O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}!insert\+Last@{insert\+Last}}
+\index{insert\+Last@{insert\+Last}!O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}}
+\subsubsection[{insert\+Last(\+O\+P\+M\+Base $\ast$object)}]{\setlength{\rightskip}{0pt plus 5cm}void O\+P\+M\+Linked\+List\+::insert\+Last (
+\begin{DoxyParamCaption}
+\item[{{\bf O\+P\+M\+Base} $\ast$}]{object}
+\end{DoxyParamCaption}
+)}\label{classOPMLinkedList_a6139b51b41951bda68213aed2cbac3aa}
+Insert an \doxyref{O\+P\+M\+Base}{p.}{classOPMBase} object at the Tail (Last) of the Linked List 
+\begin{DoxyParams}{Parameters}
+{\em object} & Pointer to \doxyref{O\+P\+M\+Base}{p.}{classOPMBase} object to insert \\
+\hline
+\end{DoxyParams}
+
+
+References O\+P\+M\+Base\+::set\+Next().
+
+\index{O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}}
+\subsubsection[{is\+Empty()}]{\setlength{\rightskip}{0pt plus 5cm}bool O\+P\+M\+Linked\+List\+::is\+Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classOPMLinkedList_a021176899edec45c8a4bd7233895ec61}
+Check if the list is currently empty 
+
+Referenced by Object\+Pool\+::is\+Empty(), and Object\+Pool\+::reserve().
+
+\index{O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}!remove@{remove}}
+\index{remove@{remove}!O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}}
+\subsubsection[{remove(\+O\+P\+M\+Base $\ast$object)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf O\+P\+M\+Base} $\ast$ O\+P\+M\+Linked\+List\+::remove (
+\begin{DoxyParamCaption}
+\item[{{\bf O\+P\+M\+Base} $\ast$}]{object}
+\end{DoxyParamCaption}
+)}\label{classOPMLinkedList_a0f36c11ddfa293d95c64f5f347545320}
+Remove a specified \doxyref{O\+P\+M\+Base}{p.}{classOPMBase} object from the Linked List by manipulating the previous and next pointers and return the object back to the user. \begin{DoxyReturn}{Returns}
+\doxyref{O\+P\+M\+Base}{p.}{classOPMBase} pointer to object or null if the List is empty 
+\end{DoxyReturn}
+
+
+References O\+P\+M\+Base\+::get\+Next(), O\+P\+M\+Base\+::get\+Prev(), O\+P\+M\+Base\+::set\+Next(), and O\+P\+M\+Base\+::set\+Prev().
+
+
+
+Referenced by Object\+Pool\+::release().
+
+\index{O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}!remove\+First@{remove\+First}}
+\index{remove\+First@{remove\+First}!O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}}
+\subsubsection[{remove\+First()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf O\+P\+M\+Base} $\ast$ O\+P\+M\+Linked\+List\+::remove\+First (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classOPMLinkedList_a1d8fe3ddad39d40531297d372e08257d}
+Remove an \doxyref{O\+P\+M\+Base}{p.}{classOPMBase} object from the Head (First) of the Linked List and return the object back to the user. \begin{DoxyReturn}{Returns}
+\doxyref{O\+P\+M\+Base}{p.}{classOPMBase} pointer to object or null if the List is empty 
+\end{DoxyReturn}
+
+
+References O\+P\+M\+Base\+::get\+Next(), and O\+P\+M\+Base\+::set\+Prev().
+
+
+
+Referenced by Object\+Pool\+::release(), and Object\+Pool\+::reserve().
+
+\index{O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!O\+P\+M\+Linked\+List@{O\+P\+M\+Linked\+List}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string O\+P\+M\+Linked\+List\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classOPMLinkedList_a3ca6fada612ae1ea4f4b4fb9aee2c661}
+Display the contents of the list 
+
+References O\+P\+M\+Base\+::get\+Next(), O\+P\+M\+Base\+::is\+Next\+Null(), and O\+P\+M\+Base\+::to\+String().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+O\+P\+M\+Linked\+List.\+h\item 
+O\+P\+M\+Linked\+List.\+cpp\end{DoxyCompactItemize}

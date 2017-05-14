@@ -1,0 +1,24 @@
+[Configuration]
+DEBUGLEVEL=5
+
+[ConnectionSet Name]
+# Some comments
+# Perhaps some more comments
+USERID=userid
+PASSWORD=password (NOTE: This will need to be encrypted later...suggest MD5)
+DRIVERNAME=libpq
+CONNECTIONTYPE=LOCAL (or REMOTE)
+CONNECTIONSTRING="hostaddr=127.0.0.1 port=3180"
+NUMBERCONNECTIONS=1
+DSN=someDSN
+
+[Next ConnectionSet Name]
+# Some comments
+# Perhaps some more comments
+USERID=userid
+PASSWORD=password (NOTE: This will need to be encrypted later...suggest MD5)
+DRIVERNAME=libpq
+CONNECTIONTYPE=LOCAL (or REMOTE)
+CONNECTIONSTRING="hostaddr=127.0.0.1 port=3180"
+NUMBERCONNECTIONS=1
+DSN=someDSN

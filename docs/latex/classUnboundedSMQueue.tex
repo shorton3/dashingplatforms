@@ -1,0 +1,130 @@
+\section{Unbounded\+S\+M\+Queue$<$ T $>$ Class Template Reference}
+\label{classUnboundedSMQueue}\index{Unbounded\+S\+M\+Queue$<$ T $>$@{Unbounded\+S\+M\+Queue$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Unbounded\+S\+M\+Queue.\+h$>$}
+
+Inheritance diagram for Unbounded\+S\+M\+Queue$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classUnboundedSMQueue}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef A\+C\+E\+\_\+\+Unbounded\+\_\+\+Queue$<$ T $>$ {\bfseries B\+A\+SE}\label{classUnboundedSMQueue_ac34266fe86164b4508dc44f885d99537}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Unbounded\+S\+M\+Queue} (A\+C\+E\+\_\+\+Allocator $\ast$allocator)
+\item 
+virtual {\bf $\sim$\+Unbounded\+S\+M\+Queue} ()
+\item 
+int {\bf enqueue\+\_\+tail} (const T \&new\+\_\+item, A\+C\+E\+\_\+\+Allocator $\ast$allocator)
+\item 
+int {\bf dequeue\+\_\+head} (T \&item, A\+C\+E\+\_\+\+Allocator $\ast$allocator)
+\item 
+void {\bf delete\+\_\+nodes} (A\+C\+E\+\_\+\+Allocator $\ast$allocator)
+\item 
+int {\bf is\+\_\+empty} (A\+C\+E\+\_\+\+Allocator $\ast$allocator)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\\*
+class Unbounded\+S\+M\+Queue$<$ T $>$}
+
+\doxyref{Unbounded\+S\+M\+Queue}{p.}{classUnboundedSMQueue} extends the A\+CE Unbounded Queue (for infinite re-\/growth) to add allocation support for Shared Memory. Items added to this queue get copied to Position Independent shared memory where they become accessible to other processes. 
+
+\doxyref{Unbounded\+S\+M\+Queue}{p.}{classUnboundedSMQueue} is built to be the basis for exchanging tracelog messages between processes and for exchanges between Msg\+Mgr mailboxes in separate processes. 
+
+N\+O\+TE\+: Our Strategy for using Shared Memory is N\+OT to create/allocate pools of shared memory objects (which would use Position Independent pointers) that the applications would reference and use. Rather, we create our containers which enforce concurrency in shared memory (such as this queue), and then we pass process-\/local objects through the shared memory from one process to another. (A\+L\+SO N\+O\+TE\+: creating pools of objects in shared memory is the job of the in-\/memory database provider) 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Unbounded\+S\+M\+Queue@{Unbounded\+S\+M\+Queue}!Unbounded\+S\+M\+Queue@{Unbounded\+S\+M\+Queue}}
+\index{Unbounded\+S\+M\+Queue@{Unbounded\+S\+M\+Queue}!Unbounded\+S\+M\+Queue@{Unbounded\+S\+M\+Queue}}
+\subsubsection[{Unbounded\+S\+M\+Queue(\+A\+C\+E\+\_\+\+Allocator $\ast$allocator)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf Unbounded\+S\+M\+Queue}$<$ T $>$\+::{\bf Unbounded\+S\+M\+Queue} (
+\begin{DoxyParamCaption}
+\item[{A\+C\+E\+\_\+\+Allocator $\ast$}]{allocator}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classUnboundedSMQueue_a7ea14d78e2e0bb240ece7137305ee7cd}
+Constructor 
+
+Referenced by Unbounded\+S\+M\+Queue$<$ T $>$\+::is\+\_\+empty().
+
+\index{Unbounded\+S\+M\+Queue@{Unbounded\+S\+M\+Queue}!````~Unbounded\+S\+M\+Queue@{$\sim$\+Unbounded\+S\+M\+Queue}}
+\index{````~Unbounded\+S\+M\+Queue@{$\sim$\+Unbounded\+S\+M\+Queue}!Unbounded\+S\+M\+Queue@{Unbounded\+S\+M\+Queue}}
+\subsubsection[{$\sim$\+Unbounded\+S\+M\+Queue()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ virtual {\bf Unbounded\+S\+M\+Queue}$<$ T $>$\+::$\sim${\bf Unbounded\+S\+M\+Queue} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classUnboundedSMQueue_a2fcbfcf7fcf1875034a62ee426e4d190}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Unbounded\+S\+M\+Queue@{Unbounded\+S\+M\+Queue}!delete\+\_\+nodes@{delete\+\_\+nodes}}
+\index{delete\+\_\+nodes@{delete\+\_\+nodes}!Unbounded\+S\+M\+Queue@{Unbounded\+S\+M\+Queue}}
+\subsubsection[{delete\+\_\+nodes(\+A\+C\+E\+\_\+\+Allocator $\ast$allocator)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf Unbounded\+S\+M\+Queue}$<$ T $>$\+::delete\+\_\+nodes (
+\begin{DoxyParamCaption}
+\item[{A\+C\+E\+\_\+\+Allocator $\ast$}]{allocator}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classUnboundedSMQueue_a3217346ac4236f1d11fe14b31ba243e7}
+Clear the Contents 
+
+Referenced by Fault\+S\+M\+Queue\+::clear\+Queue(), Logger\+S\+M\+Queue\+::clear\+Queue(), and Local\+S\+M\+Mailbox\+Queue\+::clear\+Queue().
+
+\index{Unbounded\+S\+M\+Queue@{Unbounded\+S\+M\+Queue}!dequeue\+\_\+head@{dequeue\+\_\+head}}
+\index{dequeue\+\_\+head@{dequeue\+\_\+head}!Unbounded\+S\+M\+Queue@{Unbounded\+S\+M\+Queue}}
+\subsubsection[{dequeue\+\_\+head(\+T \&item, A\+C\+E\+\_\+\+Allocator $\ast$allocator)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ int {\bf Unbounded\+S\+M\+Queue}$<$ T $>$\+::dequeue\+\_\+head (
+\begin{DoxyParamCaption}
+\item[{T \&}]{item, }
+\item[{A\+C\+E\+\_\+\+Allocator $\ast$}]{allocator}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classUnboundedSMQueue_aa98a2eb174ba1ce0dd77404f7f77d90e}
+Dequeue Method 
+
+Referenced by Fault\+S\+M\+Queue\+::dequeue\+Alarm(), Logger\+S\+M\+Queue\+::dequeue\+Log(), and Local\+S\+M\+Mailbox\+Queue\+::dequeue\+Message().
+
+\index{Unbounded\+S\+M\+Queue@{Unbounded\+S\+M\+Queue}!enqueue\+\_\+tail@{enqueue\+\_\+tail}}
+\index{enqueue\+\_\+tail@{enqueue\+\_\+tail}!Unbounded\+S\+M\+Queue@{Unbounded\+S\+M\+Queue}}
+\subsubsection[{enqueue\+\_\+tail(const T \&new\+\_\+item, A\+C\+E\+\_\+\+Allocator $\ast$allocator)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ int {\bf Unbounded\+S\+M\+Queue}$<$ T $>$\+::enqueue\+\_\+tail (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{new\+\_\+item, }
+\item[{A\+C\+E\+\_\+\+Allocator $\ast$}]{allocator}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classUnboundedSMQueue_ac294934ea0b24157434c640c738bd5ae}
+Enqueue Method 
+
+Referenced by Fault\+S\+M\+Queue\+::enqueue\+Alarm(), Logger\+S\+M\+Queue\+::enqueue\+Log(), and Local\+S\+M\+Mailbox\+Queue\+::enqueue\+Message().
+
+\index{Unbounded\+S\+M\+Queue@{Unbounded\+S\+M\+Queue}!is\+\_\+empty@{is\+\_\+empty}}
+\index{is\+\_\+empty@{is\+\_\+empty}!Unbounded\+S\+M\+Queue@{Unbounded\+S\+M\+Queue}}
+\subsubsection[{is\+\_\+empty(\+A\+C\+E\+\_\+\+Allocator $\ast$allocator)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ int {\bf Unbounded\+S\+M\+Queue}$<$ T $>$\+::is\+\_\+empty (
+\begin{DoxyParamCaption}
+\item[{A\+C\+E\+\_\+\+Allocator $\ast$}]{allocator}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classUnboundedSMQueue_a6b05b6f10e5e5b07ef6fc4c561e1f6bd}
+Return if the queue is empty 
+
+References Unbounded\+S\+M\+Queue$<$ T $>$\+::\+Unbounded\+S\+M\+Queue().
+
+
+
+Referenced by Fault\+S\+M\+Queue\+::dequeue\+Alarm(), Logger\+S\+M\+Queue\+::dequeue\+Log(), Local\+S\+M\+Mailbox\+Queue\+::dequeue\+Message(), Logger\+S\+M\+Queue\+::is\+Empty(), Fault\+S\+M\+Queue\+::is\+Empty(), and Local\+S\+M\+Mailbox\+Queue\+::is\+Empty().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Unbounded\+S\+M\+Queue.\+h\end{DoxyCompactItemize}

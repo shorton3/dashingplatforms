@@ -1,0 +1,115 @@
+\section{Reusable\+Message\+Base Class Reference}
+\label{classReusableMessageBase}\index{Reusable\+Message\+Base@{Reusable\+Message\+Base}}
+
+
+{\ttfamily \#include $<$Reusable\+Message\+Base.\+h$>$}
+
+Inheritance diagram for Reusable\+Message\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{classReusableMessageBase}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Reusable\+Message\+Base} (const {\bf Mailbox\+Address} \&source\+Address, unsigned int version\+Number, unsigned int source\+Context\+Id=0, unsigned int destination\+Context\+Id=0)
+\item 
+virtual {\bf $\sim$\+Reusable\+Message\+Base} ()
+\item 
+void {\bf set\+Has\+Been\+Processed} (bool {\bf has\+Been\+Processed})
+\item 
+bool {\bf has\+Been\+Processed} ()
+\item 
+void {\bf set\+No\+Longer\+Reusable} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Reusable\+Message\+Base}{p.}{classReusableMessageBase} inherits from the \doxyref{Message\+Base}{p.}{classMessageBase} to provide for Messages that are reusable/resendable without the Msg\+Mgr framework consuming them; that is, they will not be consumed when the Msg\+Mgr is done processing them (so they can be sent over and over again). 
+
+Once the \doxyref{Reusable\+Message\+Base}{p.}{classReusableMessageBase} is no longer needed (in the case the Message is recurring for only a finite number of times), the developer can mark the message as no longer reusable which will cause the Msg\+Mgr framework to delete it when the current/next iteration is complete. 
+
+\doxyref{Reusable\+Message\+Base}{p.}{classReusableMessageBase} also provides the developer with a way to mark the message as \textquotesingle{}having\+Been\+Processed\textquotesingle{} in its current iteration, as well as a way to reset that condition on the next iteration. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Reusable\+Message\+Base@{Reusable\+Message\+Base}!Reusable\+Message\+Base@{Reusable\+Message\+Base}}
+\index{Reusable\+Message\+Base@{Reusable\+Message\+Base}!Reusable\+Message\+Base@{Reusable\+Message\+Base}}
+\subsubsection[{Reusable\+Message\+Base(const Mailbox\+Address \&source\+Address, unsigned int version\+Number, unsigned int source\+Context\+Id=0, unsigned int destination\+Context\+Id=0)}]{\setlength{\rightskip}{0pt plus 5cm}Reusable\+Message\+Base\+::\+Reusable\+Message\+Base (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{source\+Address, }
+\item[{unsigned int}]{version\+Number, }
+\item[{unsigned int}]{source\+Context\+Id = {\ttfamily 0}, }
+\item[{unsigned int}]{destination\+Context\+Id = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classReusableMessageBase_af55baa89bf6879b9b5525f9b9d480cb6}
+Constructor 
+
+References Message\+Base\+::is\+Reusable\+\_\+, and Reusable\+Message\+Base().
+
+
+
+Referenced by Reusable\+Message\+Base().
+
+\index{Reusable\+Message\+Base@{Reusable\+Message\+Base}!````~Reusable\+Message\+Base@{$\sim$\+Reusable\+Message\+Base}}
+\index{````~Reusable\+Message\+Base@{$\sim$\+Reusable\+Message\+Base}!Reusable\+Message\+Base@{Reusable\+Message\+Base}}
+\subsubsection[{$\sim$\+Reusable\+Message\+Base()}]{\setlength{\rightskip}{0pt plus 5cm}Reusable\+Message\+Base\+::$\sim$\+Reusable\+Message\+Base (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classReusableMessageBase_a4b4faac5b56886bd48a535ad428a5b8e}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Reusable\+Message\+Base@{Reusable\+Message\+Base}!has\+Been\+Processed@{has\+Been\+Processed}}
+\index{has\+Been\+Processed@{has\+Been\+Processed}!Reusable\+Message\+Base@{Reusable\+Message\+Base}}
+\subsubsection[{has\+Been\+Processed()}]{\setlength{\rightskip}{0pt plus 5cm}bool Reusable\+Message\+Base\+::has\+Been\+Processed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classReusableMessageBase_abe90e18accfe8b2a4f54efa50714880c}
+Accessor method used to determine if the Message has already been processed this time around 
+
+Referenced by set\+Has\+Been\+Processed().
+
+\index{Reusable\+Message\+Base@{Reusable\+Message\+Base}!set\+Has\+Been\+Processed@{set\+Has\+Been\+Processed}}
+\index{set\+Has\+Been\+Processed@{set\+Has\+Been\+Processed}!Reusable\+Message\+Base@{Reusable\+Message\+Base}}
+\subsubsection[{set\+Has\+Been\+Processed(bool has\+Been\+Processed)}]{\setlength{\rightskip}{0pt plus 5cm}void Reusable\+Message\+Base\+::set\+Has\+Been\+Processed (
+\begin{DoxyParamCaption}
+\item[{bool}]{has\+Been\+Processed}
+\end{DoxyParamCaption}
+)}\label{classReusableMessageBase_a4c921b2d662820b35d76d115e0ed6184}
+Mutator method to set whether or not the Message has already been processed this time around 
+
+References has\+Been\+Processed().
+
+\index{Reusable\+Message\+Base@{Reusable\+Message\+Base}!set\+No\+Longer\+Reusable@{set\+No\+Longer\+Reusable}}
+\index{set\+No\+Longer\+Reusable@{set\+No\+Longer\+Reusable}!Reusable\+Message\+Base@{Reusable\+Message\+Base}}
+\subsubsection[{set\+No\+Longer\+Reusable()}]{\setlength{\rightskip}{0pt plus 5cm}void Reusable\+Message\+Base\+::set\+No\+Longer\+Reusable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classReusableMessageBase_a234fe52f4419ea69e7b1041c29a2aa2a}
+Mark this Message as no longer reusable so that it can be consumed by the Msg\+Mgr framework 
+
+References Message\+Base\+::is\+Reusable\+\_\+.
+
+
+
+Referenced by Mailbox\+Owner\+Handle\+::reset\+Timer\+Interval().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Reusable\+Message\+Base.\+h\item 
+Reusable\+Message\+Base.\+cpp\end{DoxyCompactItemize}

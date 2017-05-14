@@ -1,0 +1,77 @@
+/******************************************************************************
+*
+* File name:   platformConfig.idl
+* Subsystem:   EMS
+* Description: Provides accessor / mutator methods for all Platform configuration
+*              parameters.
+*
+* Name                 Date       Release
+* -------------------- ---------- ---------------------------------------------
+* Stephen Horton       01/01/2014 Initial release
+*
+*
+******************************************************************************/
+
+#ifndef EMS_platformConfig_idl
+#define EMS_platformConfig_idl
+
+//-----------------------------------------------------------------------------
+// IDL include list
+//-----------------------------------------------------------------------------
+
+
+
+/**
+ * platformConfig provides accessor / mutator methods for all Platform
+ * configuration parameters.
+ * <p>
+ * $Author: Stephen Horton$
+ * $Revision: 1$
+ */
+
+module platformConfig
+{
+
+   /**
+    * Structure for describing a log level, including the subsystem Name
+    * and the severityLevel
+    */
+   struct platformConfigLogLevel
+   {
+      /** Should correspond to the sequence index */
+      short subsystemEnum;
+      string subsystemName;
+      short severityLevel;
+   };//end platformConfigLogLevel
+
+   /**
+    * Array of all of the subsystem log levels
+    */
+   typedef sequence<platformConfigLogLevel> platformConfigLogLevels;
+
+   /**
+    * Command/Method interface
+    */
+   interface platformConfig_I
+   {
+      /**
+       * Retrieve all of the subsystem log levels
+       */
+      void getLogLevels(out platformConfigLogLevels logLevels);
+
+      /**
+       * Set a specified log level 
+       */
+      void setLogLevel(in platformConfigLogLevel logLevel);
+
+      /**
+       * Set all of the log levels
+       */
+      void setLogLevels(in platformConfigLogLevels logLevels);
+
+   };//end interface
+
+};//end of platformConfig
+
+#endif
+

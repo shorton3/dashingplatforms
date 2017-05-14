@@ -1,0 +1,22 @@
+this package directory is for unit test programs:
+
+test1			Test C style Macros
+test2			Test ACE Thread Mutexes
+test3                   Test Misc c++ stuff
+loggertest		Test Logging Framework - output to Local stdout/stderr
+loggertest2             Test Logging via the Shared Memory Queue between processes
+cleanloggerSM           Utility for clearing out the contents of the Logger Shared Memory Queue
+datamgrtest             Test DataManager access to the database
+opmtest			Test Object Pool Mgr Framework
+msgmgrtest1		Test Local Mailbox functionality for MsgMgr
+msgmgrtest2		Test Distributed Mailbox functionality for MsgMgr (receiving)
+msgmgrtest3		Test Distributed Mailbox functionality for MsgMgr (sending)
+msgmgrtest2sm           Test Local Shared Memory Mailbox functionality for MsgMgr (receiving)
+msgmgrtest3sm           Test Local Shared Memory Mailbox functionality for MsgMgr (sending)
+msgmgrgrouptest1        Test Reliable Multicast Group Mailbox of MsgMgr (receiving)
+msgmgrgrouptest2        Test Reliable Multicast Group Mailbox of MsgMgr (sending)
+msgmgr_mt_recv          Test MT Thread Pool performing dequeue on Mailbox
+msgmgr_mt_send          Test MT Thread Pool performing Mailbox 'post'
+discoverytest1          Test Distributed Mailbox communications with different mailbox Names found through Discovery
+threadtest              Test thread monitoring, recovery, and restart
+versionid               Utility for reading the SCCS control string for a binary executable

@@ -1,0 +1,143 @@
+\section{Process\+Manager Class Reference}
+\label{classProcessManager}\index{Process\+Manager@{Process\+Manager}}
+
+
+{\ttfamily \#include $<$Process\+Manager.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Process\+Manager} ()
+\item 
+virtual {\bf $\sim$\+Process\+Manager} ()
+\item 
+void {\bf process\+Mailbox} ()
+\item 
+int {\bf initialize} (int argc, A\+C\+E\+\_\+\+T\+C\+H\+AR $\ast$argv[$\,$], string usage\+String)
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bf catch\+Shutdown\+Signal} ()
+\item 
+static void {\bf start\+Reactor} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The process manager provides for the configuration and startup of all platform and application processes as well as process monitoring 
+
+\doxyref{Process\+Manager}{p.}{classProcessManager} makes use of the A\+CE Service Configurator class to manage passing configuration information to the processes. The Service Configurator manages a configuration file (with default name \textquotesingle{}svc.\+conf\textquotesingle{}), and it provides for the dynamic reconfiguration of processes using the S\+I\+G\+H\+UP signal. The Service Configurator provides interfaces for starting, stopping, pausing, resuming, reconfiguring etc. the services (processes) on-\/the-\/fly without stopping the whole system. This feature forms the basis for the system patch management strategy. 
+
+\doxyref{Process\+Manager}{p.}{classProcessManager} also makes use of the A\+C\+E\+\_\+\+Process\+\_\+\+Manager class to handle spawning of processes, monitoring child process death, etc. 
+
+\doxyref{Process\+Manager}{p.}{classProcessManager} accepts the following startup options\+: -\/b Daemonize the Process Manager process -\/d Verbose diagnostics as process directives are forked -\/f Read a different file other than svc.\+conf -\/n Do not process static directives -\/s Designate which signal to use for reconfigure instead of S\+I\+G\+H\+UP -\/S Pass in a process directive not specified in the svc.\+conf file -\/y Process static directives -\/l Local \doxyref{Logger}{p.}{classLogger} Mode only (do not enqueue logs to shared memory) -\/r Redirect stdout/stderr to a specified file 
+
+The svc.\+conf configuration file that drives the Process Manager accepts the following format. For statically linked services (these are optional features that will run within the Process Manager OS process)\+: static $<$service name$>$=\char`\"{}\char`\"{}$>$ [\char`\"{}argc/argv options for the service\char`\"{}] For dynamically linked services, for example, those services intended to run within their own OS process\+: dynamic $<$service name$>$=\char`\"{}\char`\"{}$>$ $<$service type$>$=\char`\"{}\char`\"{}$>$ $<$D\+L\+L/.so name$>$\+:$<$factory\+\_\+function$>$ [\char`\"{}argc/argv options\char`\"{}] where the \textquotesingle{}service type\textquotesingle{} is either a Service\+\_\+\+Object $\ast$, Module $\ast$, or Stream $\ast$ -\/and-\/ where the \char`\"{}argc/argv options\char`\"{} have the following format\+: \char`\"{}$<$process executable name$>$ $<$\textquotesingle{}\+N\+U\+L\+L\textquotesingle{} or redirected I\+O filename$>$ $<$process options$>$\char`\"{} The following additional service directives are supported\+: remove $<$service name$>$=\char`\"{}\char`\"{}$>$ shuts down the service/process suspend $<$service name$>$=\char`\"{}\char`\"{}$>$ suspends activity for the process resume $<$service name$>$=\char`\"{}\char`\"{}$>$ resumes activity for the process Note that \char`\"{}argc/argv options\char`\"{} 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Process\+Manager@{Process\+Manager}!Process\+Manager@{Process\+Manager}}
+\index{Process\+Manager@{Process\+Manager}!Process\+Manager@{Process\+Manager}}
+\subsubsection[{Process\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Process\+Manager\+::\+Process\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classProcessManager_a41b83a8ef0a801ca3aee9a3d82568ac1}
+Constructor 
+
+Referenced by to\+String().
+
+\index{Process\+Manager@{Process\+Manager}!````~Process\+Manager@{$\sim$\+Process\+Manager}}
+\index{````~Process\+Manager@{$\sim$\+Process\+Manager}!Process\+Manager@{Process\+Manager}}
+\subsubsection[{$\sim$\+Process\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Process\+Manager\+::$\sim$\+Process\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classProcessManager_aed3cd2ca11d92395228b758d39030b5f}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Process\+Manager@{Process\+Manager}!catch\+Shutdown\+Signal@{catch\+Shutdown\+Signal}}
+\index{catch\+Shutdown\+Signal@{catch\+Shutdown\+Signal}!Process\+Manager@{Process\+Manager}}
+\subsubsection[{catch\+Shutdown\+Signal()}]{\setlength{\rightskip}{0pt plus 5cm}void Process\+Manager\+::catch\+Shutdown\+Signal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classProcessManager_a039580c3183e7c7daa84212d009c52b2}
+Method to catch OS signals 
+
+Referenced by initialize().
+
+\index{Process\+Manager@{Process\+Manager}!initialize@{initialize}}
+\index{initialize@{initialize}!Process\+Manager@{Process\+Manager}}
+\subsubsection[{initialize(int argc, A\+C\+E\+\_\+\+T\+C\+H\+A\+R $\ast$argv[], string usage\+String)}]{\setlength{\rightskip}{0pt plus 5cm}int Process\+Manager\+::initialize (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{A\+C\+E\+\_\+\+T\+C\+H\+AR $\ast$}]{argv[$\,$], }
+\item[{string}]{usage\+String}
+\end{DoxyParamCaption}
+)}\label{classProcessManager_ac75d8c9ecdc6a14fe6be17e3373858b3}
+Perform Process Manager initialization 
+
+References catch\+Shutdown\+Signal(), Thread\+Manager\+::create\+Thread(), System\+Info\+::get\+Local\+N\+E\+I\+D(), System\+Info\+::get\+Shelf\+Number(), System\+Info\+::get\+Slot\+Number(), Mailbox\+Address\+::location\+Type, and start\+Reactor().
+
+
+
+Referenced by to\+String().
+
+\index{Process\+Manager@{Process\+Manager}!process\+Mailbox@{process\+Mailbox}}
+\index{process\+Mailbox@{process\+Mailbox}!Process\+Manager@{Process\+Manager}}
+\subsubsection[{process\+Mailbox()}]{\setlength{\rightskip}{0pt plus 5cm}void Process\+Manager\+::process\+Mailbox (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classProcessManager_a2b8f58eaca56c71c426cb9f5b5b84146}
+Start the mailbox processing loop 
+
+References Mailbox\+Owner\+Handle\+::activate(), and Mailbox\+Processor\+::process\+Mailbox().
+
+
+
+Referenced by to\+String().
+
+\index{Process\+Manager@{Process\+Manager}!start\+Reactor@{start\+Reactor}}
+\index{start\+Reactor@{start\+Reactor}!Process\+Manager@{Process\+Manager}}
+\subsubsection[{start\+Reactor()}]{\setlength{\rightskip}{0pt plus 5cm}void Process\+Manager\+::start\+Reactor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classProcessManager_af5d405047d1fce9921645ad84a320f0a}
+This method starts the reactor thread needed for processing Process Death Handlers and auto-\/reaping the exit statuses of the child processes. 
+
+Referenced by initialize().
+
+\index{Process\+Manager@{Process\+Manager}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Process\+Manager@{Process\+Manager}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Process\+Manager\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classProcessManager_af7842b0734d8eba0713944fc80c39c36}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+References Local\+Mailbox\+::create\+Mailbox(), Logger\+::get\+Instance(), O\+P\+M\+::initialize(), initialize(), Logger\+::initialize(), process\+Mailbox(), Process\+Manager(), and Logger\+::set\+Subsystem\+Log\+Level().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Process\+Manager.\+h\item 
+Process\+Manager.\+cpp\end{DoxyCompactItemize}

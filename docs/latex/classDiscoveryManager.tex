@@ -1,0 +1,182 @@
+\section{Discovery\+Manager Class Reference}
+\label{classDiscoveryManager}\index{Discovery\+Manager@{Discovery\+Manager}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Discovery\+Manager} ()
+\item 
+virtual {\bf $\sim$\+Discovery\+Manager} ()
+\item 
+int {\bf initialize} ()
+\item 
+int {\bf register\+For\+Discovery\+Updates} (vector$<$ {\bf Mailbox\+Address} $>$ \&currently\+Registered\+Addresses, {\bf Mailbox\+Address} \&match\+Criteria, {\bf Mailbox\+Owner\+Handle} $\ast$mailbox\+To\+Notify)
+\item 
+int {\bf deregister\+For\+Discovery\+Updates} ({\bf Mailbox\+Owner\+Handle} $\ast$mailbox\+To\+Notify)
+\item 
+int {\bf register\+Local\+Address} ({\bf Mailbox\+Address} \&local\+Remote\+Type\+Address)
+\item 
+int {\bf deregister\+Local\+Address} ({\bf Mailbox\+Address} \&local\+Remote\+Type\+Address)
+\item 
+void {\bf list\+All\+Mailbox\+Addresses} ()
+\item 
+void {\bf process\+Mailbox} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Discovery\+Manager@{Discovery\+Manager}!Discovery\+Manager@{Discovery\+Manager}}
+\index{Discovery\+Manager@{Discovery\+Manager}!Discovery\+Manager@{Discovery\+Manager}}
+\subsubsection[{Discovery\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Discovery\+Manager\+::\+Discovery\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDiscoveryManager_aed0e13d6e72ab0b0595c47682a33f1a0}
+Constructor 
+
+References System\+Info\+::get\+Local\+N\+E\+I\+D(), Mailbox\+Address\+::inet\+Address, Mailbox\+Address\+::location\+Type, Mailbox\+Address\+::mailbox\+Name, and Mailbox\+Address\+::neid.
+
+\index{Discovery\+Manager@{Discovery\+Manager}!````~Discovery\+Manager@{$\sim$\+Discovery\+Manager}}
+\index{````~Discovery\+Manager@{$\sim$\+Discovery\+Manager}!Discovery\+Manager@{Discovery\+Manager}}
+\subsubsection[{$\sim$\+Discovery\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Discovery\+Manager\+::$\sim$\+Discovery\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classDiscoveryManager_a46b24a0aceacc21190a39c6052c5143e}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Discovery\+Manager@{Discovery\+Manager}!deregister\+For\+Discovery\+Updates@{deregister\+For\+Discovery\+Updates}}
+\index{deregister\+For\+Discovery\+Updates@{deregister\+For\+Discovery\+Updates}!Discovery\+Manager@{Discovery\+Manager}}
+\subsubsection[{deregister\+For\+Discovery\+Updates(\+Mailbox\+Owner\+Handle $\ast$mailbox\+To\+Notify)}]{\setlength{\rightskip}{0pt plus 5cm}int Discovery\+Manager\+::deregister\+For\+Discovery\+Updates (
+\begin{DoxyParamCaption}
+\item[{{\bf Mailbox\+Owner\+Handle} $\ast$}]{mailbox\+To\+Notify}
+\end{DoxyParamCaption}
+)}\label{classDiscoveryManager_a72976ec911ad5f6d6dadbf6a08194ff2}
+Allows mailboxes to deregister for Discovery Update notifications \begin{DoxyReturn}{Returns}
+OK upon success; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+Referenced by Mailbox\+Lookup\+Service\+::deregister\+Mailbox().
+
+\index{Discovery\+Manager@{Discovery\+Manager}!deregister\+Local\+Address@{deregister\+Local\+Address}}
+\index{deregister\+Local\+Address@{deregister\+Local\+Address}!Discovery\+Manager@{Discovery\+Manager}}
+\subsubsection[{deregister\+Local\+Address(\+Mailbox\+Address \&local\+Remote\+Type\+Address)}]{\setlength{\rightskip}{0pt plus 5cm}int Discovery\+Manager\+::deregister\+Local\+Address (
+\begin{DoxyParamCaption}
+\item[{{\bf Mailbox\+Address} \&}]{local\+Remote\+Type\+Address}
+\end{DoxyParamCaption}
+)}\label{classDiscoveryManager_ac7ffe28660fc54012599c22d52208554}
+Remove the local registration of a remote type Non-\/\+Proxy \doxyref{Mailbox\+Address}{p.}{structMailboxAddress}. This will facilitate a discovery D\+E\+R\+E\+G\+I\+S\+T\+ER update being sent to all other Discovery\+Managers. \begin{DoxyReturn}{Returns}
+OK upon successful registration; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Mailbox\+Owner\+Handle\+::post().
+
+
+
+Referenced by Mailbox\+Lookup\+Service\+::deregister\+Mailbox().
+
+\index{Discovery\+Manager@{Discovery\+Manager}!initialize@{initialize}}
+\index{initialize@{initialize}!Discovery\+Manager@{Discovery\+Manager}}
+\subsubsection[{initialize()}]{\setlength{\rightskip}{0pt plus 5cm}int Discovery\+Manager\+::initialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDiscoveryManager_ab4ede1f7bdf5e15ae869dfd34294f0ba}
+Perform initialization of Discovery Manager which communicates mailbox updates between distributed nodes. \begin{DoxyReturn}{Returns}
+OK upon success; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Mailbox\+Owner\+Handle\+::activate(), Message\+Handler\+List\+::add(), Group\+Mailbox\+::create\+Mailbox(), Discovery\+Message\+::deserialize(), and Message\+Factory\+::register\+Support().
+
+
+
+Referenced by Mailbox\+Lookup\+Service\+::initialize\+Discovery\+Manager().
+
+\index{Discovery\+Manager@{Discovery\+Manager}!list\+All\+Mailbox\+Addresses@{list\+All\+Mailbox\+Addresses}}
+\index{list\+All\+Mailbox\+Addresses@{list\+All\+Mailbox\+Addresses}!Discovery\+Manager@{Discovery\+Manager}}
+\subsubsection[{list\+All\+Mailbox\+Addresses()}]{\setlength{\rightskip}{0pt plus 5cm}void Discovery\+Manager\+::list\+All\+Mailbox\+Addresses (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDiscoveryManager_a7dd229bdb52456987c057c70fbdaf158}
+Display a list of all the registered remote type Non-\/\+Proxy mailbox addresses This method displays its output in trace logs. 
+
+References Mailbox\+Owner\+Handle\+::post().
+
+
+
+Referenced by Mailbox\+Lookup\+Service\+::list\+All\+Mailbox\+Addresses().
+
+\index{Discovery\+Manager@{Discovery\+Manager}!process\+Mailbox@{process\+Mailbox}}
+\index{process\+Mailbox@{process\+Mailbox}!Discovery\+Manager@{Discovery\+Manager}}
+\subsubsection[{process\+Mailbox()}]{\setlength{\rightskip}{0pt plus 5cm}void Discovery\+Manager\+::process\+Mailbox (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDiscoveryManager_a283c87c3116b5ad99604af150a99cb65}
+Start the mailbox processing loop 
+
+References Mailbox\+Owner\+Handle\+::activate(), Group\+Mailbox\+Proxy\+::create\+Mailbox(), Discovery\+Message\+::get\+Discovery\+Address(), Discovery\+Local\+Message\+::get\+Discovery\+Address(), Discovery\+Message\+::get\+Operation\+Type(), Discovery\+Local\+Message\+::get\+Operation\+Type(), Discovery\+Message\+::get\+Originating\+P\+I\+D(), Message\+Base\+::get\+Source\+Address(), Mailbox\+Address\+::is\+Matching\+Address(), Mailbox\+Owner\+Handle\+::post(), Mailbox\+Processor\+::process\+Mailbox(), Mailbox\+Owner\+Handle\+::set\+Debug\+Value(), Discovery\+Local\+Message\+::to\+String(), Discovery\+Message\+::to\+String(), and Mailbox\+Address\+::to\+String().
+
+
+
+Referenced by Mailbox\+Lookup\+Service\+::get\+Debug\+For\+All\+Mailbox\+Addresses().
+
+\index{Discovery\+Manager@{Discovery\+Manager}!register\+For\+Discovery\+Updates@{register\+For\+Discovery\+Updates}}
+\index{register\+For\+Discovery\+Updates@{register\+For\+Discovery\+Updates}!Discovery\+Manager@{Discovery\+Manager}}
+\subsubsection[{register\+For\+Discovery\+Updates(vector$<$ Mailbox\+Address $>$ \&currently\+Registered\+Addresses, Mailbox\+Address \&match\+Criteria, Mailbox\+Owner\+Handle $\ast$mailbox\+To\+Notify)}]{\setlength{\rightskip}{0pt plus 5cm}int Discovery\+Manager\+::register\+For\+Discovery\+Updates (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf Mailbox\+Address} $>$ \&}]{currently\+Registered\+Addresses, }
+\item[{{\bf Mailbox\+Address} \&}]{match\+Criteria, }
+\item[{{\bf Mailbox\+Owner\+Handle} $\ast$}]{mailbox\+To\+Notify}
+\end{DoxyParamCaption}
+)}\label{classDiscoveryManager_ad298a98899cb55f659f9bd4fcfacb2b5}
+Allows mailboxes to register for Discovery Update notifications. If a \doxyref{Discovery\+Message}{p.}{classDiscoveryMessage} update is received whose discovery Mailbox Address matches that of the match\+Criteria, then a copy of the \doxyref{Discovery\+Message}{p.}{classDiscoveryMessage} is posted to the mailbox\+To\+Notify. The caller is required to pre-\/allocate a vector of Mailbox\+Addresses which will be populated with \textquotesingle{}already-\/discovered\textquotesingle{} Mailbox\+Addresses and returned. 
+
+Note that current there is no support for a user-\/initiated deregistration mechanism. This is because the discovery update mechanism should not be used as a substitute for I\+PC between nodes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em match\+Criteria} & \doxyref{Mailbox\+Address}{p.}{structMailboxAddress} object used to determine which discovery Mailbox Addresses match what the application wants to be notified about. N\+O\+TE\+: The calling application should leave all fields default except those that the caller wished to be used in the match comparison. For example, if the caller wants to be notified when any Mailboxes with the Mailbox\+Name \textquotesingle{}Call\+Processor\textquotesingle{} are discovered, the match\+Criteria field \textquotesingle{}Mailbox\+Name\textquotesingle{} will be set to \textquotesingle{}Call\+Processor\textquotesingle{} and all other fields left as the default. \\
+\hline
+{\em mailbox\+To\+Notify} & \doxyref{Mailbox\+Owner\+Handle}{p.}{classMailboxOwnerHandle} of the mailbox that will receive the \doxyref{Discovery\+Message}{p.}{classDiscoveryMessage} notification when an update is received. This mailbox must provide a Message\+Handler method for the Discovery Message id (M\+S\+G\+M\+G\+R\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+M\+S\+G\+\_\+\+ID) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK upon successful registration; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Mailbox\+Address\+::is\+Matching\+Address().
+
+
+
+Referenced by Mailbox\+Lookup\+Service\+::register\+For\+Discovery\+Updates().
+
+\index{Discovery\+Manager@{Discovery\+Manager}!register\+Local\+Address@{register\+Local\+Address}}
+\index{register\+Local\+Address@{register\+Local\+Address}!Discovery\+Manager@{Discovery\+Manager}}
+\subsubsection[{register\+Local\+Address(\+Mailbox\+Address \&local\+Remote\+Type\+Address)}]{\setlength{\rightskip}{0pt plus 5cm}int Discovery\+Manager\+::register\+Local\+Address (
+\begin{DoxyParamCaption}
+\item[{{\bf Mailbox\+Address} \&}]{local\+Remote\+Type\+Address}
+\end{DoxyParamCaption}
+)}\label{classDiscoveryManager_a2639330443e70d8c6acfa7794225b3f6}
+Add local registration of a remote type Non-\/\+Proxy Mailbox Address. This will facilitate a discovery R\+E\+G\+I\+S\+T\+ER update being sent to all other Discovery\+Managers \begin{DoxyReturn}{Returns}
+OK upon successful registration; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Mailbox\+Owner\+Handle\+::post().
+
+
+
+Referenced by Mailbox\+Lookup\+Service\+::register\+Mailbox().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Discovery\+Manager.\+h\item 
+Discovery\+Manager.\+cpp\end{DoxyCompactItemize}

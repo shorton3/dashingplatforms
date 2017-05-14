@@ -1,0 +1,150 @@
+\section{Client\+Agent Class Reference}
+\label{classClientAgent}\index{Client\+Agent@{Client\+Agent}}
+
+
+{\ttfamily \#include $<$Client\+Agent.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Client\+Agent} ()
+\item 
+virtual {\bf $\sim$\+Client\+Agent} ()
+\item 
+void {\bf process\+Mailbox} ()
+\item 
+int {\bf initialize} (bool dotted\+Decimal\+I\+O\+R\+Flag, bool debug\+Flag, string \&debug\+Level, string \&debug\+Filename, string \&end\+Point\+String, string \&init\+Ref, string \&default\+Init\+Ref)
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bf catch\+Shutdown\+Signal} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+C\+O\+R\+BA Enabled Agent for receiving and processing client commands from the various client interfaces. 
+
+\doxyref{Client\+Agent}{p.}{classClientAgent} implements the C\+O\+R\+BA Server for handling the various client interfaces. This module uses the A\+C\+E/\+T\+AO Corba Orb, which is fully O\+MG C\+O\+R\+BA 2.\+3 compliant. 
+
+Note\+: Previous versions of the T\+AO Orb used T\+AO Exception Handling Macros to make the Standard Corba Exceptions compatible with platforms that do not support native C++ exception handling constructs. These T\+AO specific Macros have now been deprecated (they now cause compiler errors); they have been replaced with the base A\+CE Exception Handling Macros. However, since our development platform W\+I\+LL A\+L\+W\+A\+YS support native C++ exception handling, we are foregoing the use of the A\+CE Macros, and we will O\+N\+LY support the native exception handling for simplicity. 
+
+\doxyref{Client\+Agent}{p.}{classClientAgent} accepts the following startup options\+: -\/l Local Logger Mode only (do not enqueue logs to shared memory) -\/h Restricts the use of hostnames in I\+O\+Rs. Invokes -\/\+O\+R\+B\+Dotted\+Decimal\+Addresses 1 on the Orb -\/d Enable debug messages from within the Orb. Invokes -\/\+O\+R\+B\+Debug on the Orb. -\/v $<$\+Debug level$>$=\char`\"{}\char`\"{}$>$ Sets the debug level within the Orb (Max is 10). Invokes -\/\+O\+R\+B\+Debug\+Level on the Orb. -\/f $<$log filename$>$=\char`\"{}\char`\"{}$>$ Sets the log filename for Orb debug logs. Invokes -\/\+O\+R\+B\+Log\+File on the Orb. (Default is stdout) -\/e $<$\+Endpoint$>$ Orb listens for connections on the interfaces specified by the endpoint U\+RL (Invokes -\/\+O\+R\+B\+Listen\+Endpoints) -\/i $<$\+Initial reference$>$=\char`\"{}\char`\"{}$>$ U\+RL the Orb uses for initial resolution of Naming Service (corbaloc) (Invokes -\/\+O\+R\+B\+Init\+Ref) -\/r $<$\+Default init=\char`\"{}\char`\"{} ref$>$=\char`\"{}\char`\"{}$>$ U\+RL the Orb uses for default initial resolution of Naming Service (corbaloc) (Invokes -\/\+O\+R\+B\+Default\+Init\+Ref) 
+
+Note that the correct syntax for -\/i (the O\+R\+B\+Init\+Ref) -\/\+O\+R\+B\+Init\+Ref is\+: Name\+Service=corbaloc\+:iiop\+:localhost\+:12345/\+Name\+Service -- or -- Name\+Service=iiop\+://localhost\+:12345/\+Name\+Service The former (corbaloc) syntax is the standard (compliant with the Interoperable Naming Service specification) syntax. The latter syntax is T\+A\+O-\/specific and is deprecated. 
+
+Client Agent implements the following I\+DL interfaces\+: -\/session Performs heartbeat monitoring (bidirectionally) between agent and its clients -\/platform\+Config Handles get/set requests for the following platform configuration data sections\+: -- Log Level configuration, When updating log levels at runtime, the Agent will set the the new log levels in shared memory for all of the Log clients to use as well as set the same values in the database for persistence. These log level values will be read by the Agent upon startup each time and set in shared memory. -\/alarms Alarm Management and notification interface \begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Client\+Agent@{Client\+Agent}!Client\+Agent@{Client\+Agent}}
+\index{Client\+Agent@{Client\+Agent}!Client\+Agent@{Client\+Agent}}
+\subsubsection[{Client\+Agent()}]{\setlength{\rightskip}{0pt plus 5cm}Client\+Agent\+::\+Client\+Agent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classClientAgent_a5cd4050466b0996e48971251f4e53b42}
+Constructor 
+
+Referenced by to\+String().
+
+\index{Client\+Agent@{Client\+Agent}!````~Client\+Agent@{$\sim$\+Client\+Agent}}
+\index{````~Client\+Agent@{$\sim$\+Client\+Agent}!Client\+Agent@{Client\+Agent}}
+\subsubsection[{$\sim$\+Client\+Agent()}]{\setlength{\rightskip}{0pt plus 5cm}Client\+Agent\+::$\sim$\+Client\+Agent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classClientAgent_a7fb9b5f43eef48861b9154d88c0cb83f}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Client\+Agent@{Client\+Agent}!catch\+Shutdown\+Signal@{catch\+Shutdown\+Signal}}
+\index{catch\+Shutdown\+Signal@{catch\+Shutdown\+Signal}!Client\+Agent@{Client\+Agent}}
+\subsubsection[{catch\+Shutdown\+Signal()}]{\setlength{\rightskip}{0pt plus 5cm}void Client\+Agent\+::catch\+Shutdown\+Signal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classClientAgent_aaac1d4b9e5c81772d3a9a980b79c1fc8}
+Catch the shutdown signal and begin the graceful shutdown 
+
+Referenced by initialize().
+
+\index{Client\+Agent@{Client\+Agent}!initialize@{initialize}}
+\index{initialize@{initialize}!Client\+Agent@{Client\+Agent}}
+\subsubsection[{initialize(bool dotted\+Decimal\+I\+O\+R\+Flag, bool debug\+Flag, string \&debug\+Level, string \&debug\+Filename, string \&end\+Point\+String, string \&init\+Ref, string \&default\+Init\+Ref)}]{\setlength{\rightskip}{0pt plus 5cm}int Client\+Agent\+::initialize (
+\begin{DoxyParamCaption}
+\item[{bool}]{dotted\+Decimal\+I\+O\+R\+Flag, }
+\item[{bool}]{debug\+Flag, }
+\item[{string \&}]{debug\+Level, }
+\item[{string \&}]{debug\+Filename, }
+\item[{string \&}]{end\+Point\+String, }
+\item[{string \&}]{init\+Ref, }
+\item[{string \&}]{default\+Init\+Ref}
+\end{DoxyParamCaption}
+)}\label{classClientAgent_ad06f5421b2b7de5c56ae6b8d1f221ee6}
+Perform \doxyref{Client\+Agent}{p.}{classClientAgent} initialization 
+\begin{DoxyParams}{Parameters}
+{\em dotted\+Decimal\+I\+O\+R\+Flag} & If true, fore-\/go the use of hostnames in I\+O\+Rs. Instead use IP Addresses \\
+\hline
+{\em debug\+Flag} & If true, enable the Orb inner debug logging \\
+\hline
+{\em debug\+Level} & Max is 10 -- the most verbose logging \\
+\hline
+{\em debug\+Filename} & Redirect Orb debug logs to a file instead of stdout \\
+\hline
+{\em end\+Point\+String} & On a multihomed host, instruct the Orb to use the interface described by this endpoint \\
+\hline
+{\em init\+Ref} & Use the Interoperable Naming Service url for locating Naming Service reference \\
+\hline
+{\em default\+Init\+Ref} & Use the I\+NS url for default reference resolving \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E\+R\+R\+OR upon failure; otherwise OK 
+\end{DoxyReturn}
+
+
+References catch\+Shutdown\+Signal().
+
+
+
+Referenced by to\+String().
+
+\index{Client\+Agent@{Client\+Agent}!process\+Mailbox@{process\+Mailbox}}
+\index{process\+Mailbox@{process\+Mailbox}!Client\+Agent@{Client\+Agent}}
+\subsubsection[{process\+Mailbox()}]{\setlength{\rightskip}{0pt plus 5cm}void Client\+Agent\+::process\+Mailbox (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classClientAgent_ac88f546ca868b0d886ec61ab84630c0c}
+Start the mailbox processing loop 
+
+Referenced by to\+String().
+
+\index{Client\+Agent@{Client\+Agent}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Client\+Agent@{Client\+Agent}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Client\+Agent\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classClientAgent_a6ccb9b1f91b61a55f95ac7469c1ba24c}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+References Client\+Agent(), initialize(), and process\+Mailbox().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Client\+Agent.\+h\item 
+Client\+Agent.\+cpp\end{DoxyCompactItemize}

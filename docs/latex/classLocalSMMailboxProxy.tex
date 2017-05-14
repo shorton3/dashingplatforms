@@ -1,0 +1,210 @@
+\section{Local\+S\+M\+Mailbox\+Proxy Class Reference}
+\label{classLocalSMMailboxProxy}\index{Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}}
+Inheritance diagram for Local\+S\+M\+Mailbox\+Proxy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classLocalSMMailboxProxy}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual int {\bf post} ({\bf Message\+Base} $\ast$message\+Ptr, const A\+C\+E\+\_\+\+Time\+\_\+\+Value $\ast$timeout=\&A\+C\+E\+\_\+\+Time\+\_\+\+Value\+::zero)
+\item 
+virtual int {\bf activate} ({\bf Mailbox\+Owner\+Handle} $\ast$mailbox\+Owner\+Handle)
+\item 
+virtual int {\bf deactivate} ({\bf Mailbox\+Owner\+Handle} $\ast$mailbox\+Owner\+Handle)
+\item 
+virtual const A\+C\+E\+\_\+\+Time\+\_\+\+Value \& {\bf get\+Post\+Default\+Timeout} ()
+\item 
+virtual int {\bf get\+Debug\+Value} ()
+\item 
+virtual void {\bf set\+Debug\+Value} (int debug\+Value)
+\item 
+{\bf Mailbox\+Address} \& {\bf get\+Mailbox\+Address} ()
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf Mailbox\+Owner\+Handle} $\ast$ {\bf create\+Mailbox} (const {\bf Mailbox\+Address} \&local\+Address)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Local\+S\+M\+Mailbox\+Proxy} (const {\bf Mailbox\+Address} \&local\+Address, const char $\ast$queue\+Name, const char $\ast$coordinating\+Mutex\+Name)
+\item 
+virtual {\bf $\sim$\+Local\+S\+M\+Mailbox\+Proxy} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}!Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}}
+\index{Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}!Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}}
+\subsubsection[{Local\+S\+M\+Mailbox\+Proxy(const Mailbox\+Address \&local\+Address, const char $\ast$queue\+Name, const char $\ast$coordinating\+Mutex\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}Local\+S\+M\+Mailbox\+Proxy\+::\+Local\+S\+M\+Mailbox\+Proxy (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{local\+Address, }
+\item[{const char $\ast$}]{queue\+Name, }
+\item[{const char $\ast$}]{coordinating\+Mutex\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classLocalSMMailboxProxy_a292cf4c04d662f5a332e12be29795a33}
+Constructor 
+
+References O\+P\+M\+::create\+Pool(), Message\+Buffer\+::initialize(), Local\+S\+M\+Buffer\+::initialize(), Mailbox\+Base\+::is\+Proxy\+\_\+, Local\+S\+M\+Mailbox\+Proxy(), and Mailbox\+Address\+::to\+String().
+
+
+
+Referenced by Local\+S\+M\+Mailbox\+Proxy().
+
+\index{Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}!````~Local\+S\+M\+Mailbox\+Proxy@{$\sim$\+Local\+S\+M\+Mailbox\+Proxy}}
+\index{````~Local\+S\+M\+Mailbox\+Proxy@{$\sim$\+Local\+S\+M\+Mailbox\+Proxy}!Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}}
+\subsubsection[{$\sim$\+Local\+S\+M\+Mailbox\+Proxy()}]{\setlength{\rightskip}{0pt plus 5cm}Local\+S\+M\+Mailbox\+Proxy\+::$\sim$\+Local\+S\+M\+Mailbox\+Proxy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classLocalSMMailboxProxy_a177c1822f872f7cd9ddc188ccbf60a32}
+Virtual Destructor. Protected since this is a reference counted object. 
+
+References Mailbox\+Base\+::is\+Shutting\+Down\+\_\+.
+
+
+
+\subsection{Member Function Documentation}
+\index{Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}!activate@{activate}}
+\index{activate@{activate}!Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}}
+\subsubsection[{activate(\+Mailbox\+Owner\+Handle $\ast$mailbox\+Owner\+Handle)}]{\setlength{\rightskip}{0pt plus 5cm}int Local\+S\+M\+Mailbox\+Proxy\+::activate (
+\begin{DoxyParamCaption}
+\item[{{\bf Mailbox\+Owner\+Handle} $\ast$}]{mailbox\+Owner\+Handle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classLocalSMMailboxProxy_a472b03750fd8ef24db5c42b77c4dc0b8}
+Activate the mailbox. Here, activate always returns true since all we have to do is map into shared memory. It returns true regardless if the Shared Memory Queue already exists in shared memory or if we had to create it (meaning we are enqueuing, but no one is listening). 
+
+For security, one must possess an Owner Handle to activate the mailbox and register it with the Lookup Service. 
+
+Reimplemented from {\bf Mailbox\+Base} \doxyref{}{p.}{classMailboxBase_a98c6c4736af9c084d5395d7a4303ec67}.
+
+
+
+References Mailbox\+Base\+::is\+Active(), Mailbox\+Lookup\+Service\+::register\+Mailbox(), and Mailbox\+Base\+::set\+Active().
+
+\index{Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}!create\+Mailbox@{create\+Mailbox}}
+\index{create\+Mailbox@{create\+Mailbox}!Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}}
+\subsubsection[{create\+Mailbox(const Mailbox\+Address \&local\+Address)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mailbox\+Owner\+Handle} $\ast$ Local\+S\+M\+Mailbox\+Proxy\+::create\+Mailbox (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{local\+Address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classLocalSMMailboxProxy_aa98933b0c03489e5048fb9b050005acb}
+Allows applications to create a mailbox and get a handle to it.
+
+Since we do not want applications to have direct access to a mailbox object this method is provided. Applications that create mailboxes use this method to get a handle to their mailbox rather than have direct access. The handle returned is a owner handle which has all the privileges of the actual mailbox (get\+Message/post etc). This method creates the mailbox, activates it (which in turn registers it with the lookup service) and then creates an owner handle, acquires it and then returns that handle. Both the mailbox and the returned handle are created on the heap. 
+
+References Mailbox\+Address\+::mailbox\+Name, and Local\+S\+M\+Mailbox\+Queue\+::setup\+Queue().
+
+
+
+Referenced by Mailbox\+Lookup\+Service\+::find().
+
+\index{Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}!deactivate@{deactivate}}
+\index{deactivate@{deactivate}!Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}}
+\subsubsection[{deactivate(\+Mailbox\+Owner\+Handle $\ast$mailbox\+Owner\+Handle)}]{\setlength{\rightskip}{0pt plus 5cm}int Local\+S\+M\+Mailbox\+Proxy\+::deactivate (
+\begin{DoxyParamCaption}
+\item[{{\bf Mailbox\+Owner\+Handle} $\ast$}]{mailbox\+Owner\+Handle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classLocalSMMailboxProxy_afb58d2be281db9d6e32503f20d56c502}
+Deactivate the mailbox. For security, one must possess an Owner Handle to deactivate the mailbox and deregister it with the Lookup Service. 
+
+Reimplemented from {\bf Mailbox\+Base} \doxyref{}{p.}{classMailboxBase_a14ba6bd7936f32ecb51763acb89c507c}.
+
+
+
+References Mailbox\+Lookup\+Service\+::deregister\+Mailbox(), Mailbox\+Base\+::is\+Active(), and Mailbox\+Base\+::set\+Active().
+
+\index{Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}!get\+Debug\+Value@{get\+Debug\+Value}}
+\index{get\+Debug\+Value@{get\+Debug\+Value}!Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}}
+\subsubsection[{get\+Debug\+Value()}]{\setlength{\rightskip}{0pt plus 5cm}int Local\+S\+M\+Mailbox\+Proxy\+::get\+Debug\+Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classLocalSMMailboxProxy_a0e576a4c88e3e508e9ae960bf6a6388a}
+Return the debug flag 
+
+Implements {\bf Mailbox\+Base} \doxyref{}{p.}{classMailboxBase_af5d9b331f7cb55d27517def24cc16de6}.
+
+
+
+References Mailbox\+Base\+::debug\+Value\+\_\+.
+
+\index{Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}!get\+Mailbox\+Address@{get\+Mailbox\+Address}}
+\index{get\+Mailbox\+Address@{get\+Mailbox\+Address}!Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}}
+\subsubsection[{get\+Mailbox\+Address()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mailbox\+Address} \& Local\+S\+M\+Mailbox\+Proxy\+::get\+Mailbox\+Address (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classLocalSMMailboxProxy_ac67c6a84f660f518f2cb05c33fde8a1b}
+Return the mailbox address 
+
+Implements {\bf Mailbox\+Base} \doxyref{}{p.}{classMailboxBase_ace28a599cdadf1afa99c94602eb7e4a6}.
+
+\index{Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}!get\+Post\+Default\+Timeout@{get\+Post\+Default\+Timeout}}
+\index{get\+Post\+Default\+Timeout@{get\+Post\+Default\+Timeout}!Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}}
+\subsubsection[{get\+Post\+Default\+Timeout()}]{\setlength{\rightskip}{0pt plus 5cm}const A\+C\+E\+\_\+\+Time\+\_\+\+Value \& Local\+S\+M\+Mailbox\+Proxy\+::get\+Post\+Default\+Timeout (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classLocalSMMailboxProxy_a6a302fda048b18f75a48c1f9e3c58c2c}
+Return the appropriate default timeout for the \doxyref{post()}{p.}{classLocalSMMailboxProxy_a46a6e01b78e3a9c75b8ac020bbf894a8} 
+
+Implements {\bf Mailbox\+Base} \doxyref{}{p.}{classMailboxBase_a7e288209b5f7daf305f8a882a6b806c6}.
+
+\index{Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}!post@{post}}
+\index{post@{post}!Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}}
+\subsubsection[{post(\+Message\+Base $\ast$message\+Ptr, const A\+C\+E\+\_\+\+Time\+\_\+\+Value $\ast$timeout=\&\+A\+C\+E\+\_\+\+Time\+\_\+\+Value\+::zero)}]{\setlength{\rightskip}{0pt plus 5cm}int Local\+S\+M\+Mailbox\+Proxy\+::post (
+\begin{DoxyParamCaption}
+\item[{{\bf Message\+Base} $\ast$}]{message\+Ptr, }
+\item[{const A\+C\+E\+\_\+\+Time\+\_\+\+Value $\ast$}]{timeout = {\ttfamily \&ACE\+\_\+Time\+\_\+Value\+:\+:zero}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classLocalSMMailboxProxy_a46a6e01b78e3a9c75b8ac020bbf894a8}
+Post a message to the distributed remote mailbox. Subclass implementations should examine the \char`\"{}active\+\_\+\char`\"{} state. \begin{DoxyReturn}{Returns}
+zero for an error, non-\/zero otherwise. 
+\end{DoxyReturn}
+
+
+Implements {\bf Mailbox\+Base} \doxyref{}{p.}{classMailboxBase_a6ac15f4fcc8493e7cc1e79310f1129a7}.
+
+
+
+References Local\+S\+M\+Buffer\+::buffer, Local\+S\+M\+Buffer\+::buffer\+Length, Local\+S\+M\+Buffer\+::buffer\+PI, Mailbox\+Base\+::debug\+Value\+\_\+, Message\+Base\+::delete\+Message(), Local\+S\+M\+Mailbox\+Queue\+::enqueue\+Message(), Message\+Base\+::get\+Message\+Id(), Message\+Base\+::get\+Priority(), Message\+Base\+::get\+Source\+Address(), Mailbox\+Base\+::increment\+Sent\+Count(), Mailbox\+Address\+::inet\+Address, Mailbox\+Base\+::is\+Active(), Message\+Base\+::serialize(), Message\+Base\+::to\+String(), and Mailbox\+Address\+::to\+String().
+
+\index{Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}!set\+Debug\+Value@{set\+Debug\+Value}}
+\index{set\+Debug\+Value@{set\+Debug\+Value}!Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}}
+\subsubsection[{set\+Debug\+Value(int debug\+Value)}]{\setlength{\rightskip}{0pt plus 5cm}void Local\+S\+M\+Mailbox\+Proxy\+::set\+Debug\+Value (
+\begin{DoxyParamCaption}
+\item[{int}]{debug\+Value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classLocalSMMailboxProxy_a86ccba1d151ccc97aaeeae24dabf0c22}
+Set the debug flag 
+
+Implements {\bf Mailbox\+Base} \doxyref{}{p.}{classMailboxBase_a3be54965c1fafbc4de3d7e6087128a4f}.
+
+
+
+References Mailbox\+Base\+::debug\+Value\+\_\+.
+
+\index{Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Local\+S\+M\+Mailbox\+Proxy@{Local\+S\+M\+Mailbox\+Proxy}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Local\+S\+M\+Mailbox\+Proxy\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classLocalSMMailboxProxy_ae76b9e15bfa771eb283f0e6a17a1517b}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Local\+S\+M\+Mailbox\+Proxy.\+h\item 
+Local\+S\+M\+Mailbox\+Proxy.\+cpp\end{DoxyCompactItemize}

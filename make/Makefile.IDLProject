@@ -1,0 +1,29 @@
+Source = \
+	session.idl \
+
+IDL_CPP_OUTPUT_DIR = cppsession
+
+# Include 'idls' in the package -- since that directory is where
+# our Project Makefile originates from
+LocalJavaIDLCompilerOptions = -pkgPrefix session ems.idls -td ../..
+
+LocalIDLCompilerOptions = 
+
+IncludeDirs = \
+        /usr/include \
+        ${COMPILER_VERSION} \
+        ${ACE_ROOT} \
+	${TAO_ROOT} \
+
+LibraryDirs = \
+        /usr/lib \
+        ${ACE_ROOT}/ace \
+	${ACE_ROOT}/lib \
+
+Libraries = \
+        ACE \
+	TAO \
+
+Main    = 
+
+include $(DEV_ROOT)/make/Makefile

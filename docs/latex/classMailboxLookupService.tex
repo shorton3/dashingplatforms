@@ -1,0 +1,168 @@
+\section{Mailbox\+Lookup\+Service Class Reference}
+\label{classMailboxLookupService}\index{Mailbox\+Lookup\+Service@{Mailbox\+Lookup\+Service}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bf $\sim$\+Mailbox\+Lookup\+Service} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bf initialize\+Discovery\+Manager} ()
+\item 
+static void {\bf register\+Mailbox} ({\bf Mailbox\+Owner\+Handle} $\ast$mailbox\+Owner\+Handle, {\bf Mailbox\+Base} $\ast$mailbox\+Ptr)
+\item 
+static void {\bf deregister\+Mailbox} ({\bf Mailbox\+Owner\+Handle} $\ast$mailbox\+Owner\+Handle)
+\item 
+static {\bf Mailbox\+Handle} $\ast$ {\bf find} (const {\bf Mailbox\+Address} \&address)
+\item 
+static int {\bf register\+For\+Discovery\+Updates} (vector$<$ {\bf Mailbox\+Address} $>$ \&currently\+Registered\+Addresses, {\bf Mailbox\+Address} \&match\+Criteria, {\bf Mailbox\+Owner\+Handle} $\ast$mailbox\+To\+Notify)
+\item 
+static void {\bf list\+All\+Mailbox\+Addresses} ()
+\item 
+static void {\bf set\+Debug\+For\+All\+Mailbox\+Addresses} (int debug\+Value)
+\item 
+static void {\bf get\+Debug\+For\+All\+Mailbox\+Addresses} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Mailbox\+Lookup\+Service@{Mailbox\+Lookup\+Service}!````~Mailbox\+Lookup\+Service@{$\sim$\+Mailbox\+Lookup\+Service}}
+\index{````~Mailbox\+Lookup\+Service@{$\sim$\+Mailbox\+Lookup\+Service}!Mailbox\+Lookup\+Service@{Mailbox\+Lookup\+Service}}
+\subsubsection[{$\sim$\+Mailbox\+Lookup\+Service()}]{\setlength{\rightskip}{0pt plus 5cm}Mailbox\+Lookup\+Service\+::$\sim$\+Mailbox\+Lookup\+Service (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxLookupService_ad3c23482cf13107775fe71813f344139}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Mailbox\+Lookup\+Service@{Mailbox\+Lookup\+Service}!deregister\+Mailbox@{deregister\+Mailbox}}
+\index{deregister\+Mailbox@{deregister\+Mailbox}!Mailbox\+Lookup\+Service@{Mailbox\+Lookup\+Service}}
+\subsubsection[{deregister\+Mailbox(\+Mailbox\+Owner\+Handle $\ast$mailbox\+Owner\+Handle)}]{\setlength{\rightskip}{0pt plus 5cm}void Mailbox\+Lookup\+Service\+::deregister\+Mailbox (
+\begin{DoxyParamCaption}
+\item[{{\bf Mailbox\+Owner\+Handle} $\ast$}]{mailbox\+Owner\+Handle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMailboxLookupService_a893c031aa43c5a931fbc5bf5a9f504a6}
+Allows tasks to deregister their mailbox 
+
+References Discovery\+Manager\+::deregister\+For\+Discovery\+Updates(), Discovery\+Manager\+::deregister\+Local\+Address(), Mailbox\+Owner\+Handle\+::get\+Mailbox\+Address(), Logger\+::get\+Subsystem\+Log\+Level(), Mailbox\+Owner\+Handle\+::is\+Proxy(), list\+All\+Mailbox\+Addresses(), Mailbox\+Address\+::location\+Type, and Mailbox\+Address\+::mailbox\+Name.
+
+
+
+Referenced by Local\+Mailbox\+::deactivate(), Distributed\+Mailbox\+Proxy\+::deactivate(), Local\+S\+M\+Mailbox\+Proxy\+::deactivate(), Group\+Mailbox\+Proxy\+::deactivate(), and Mailbox\+Base\+::release().
+
+\index{Mailbox\+Lookup\+Service@{Mailbox\+Lookup\+Service}!find@{find}}
+\index{find@{find}!Mailbox\+Lookup\+Service@{Mailbox\+Lookup\+Service}}
+\subsubsection[{find(const Mailbox\+Address \&address)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mailbox\+Handle} $\ast$ Mailbox\+Lookup\+Service\+::find (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMailboxLookupService_a04a96883cc551682e635924884e433ac}
+Allows an application to lookup and get a handle to another specific mailbox. I\+M\+P\+O\+R\+T\+A\+NT\+: Here the returned \doxyref{Mailbox\+Handle}{p.}{classMailboxHandle} pointer is allocated on the heap. It is the responsibility of the Applications to delete the \doxyref{Mailbox\+Handle}{p.}{classMailboxHandle} when it is no longer needed (and to prevent a memory leak). 
+
+When the requested address is of Location\+Type L\+O\+C\+A\+L\+\_\+\+M\+A\+I\+L\+B\+OX, then the the returned handle will point to a Local Mailbox (and posted messages will be handled by the Local Mailbox post routine). If the requested address is of a remote Location\+Type (Distributed, Local\+SM, or Group), then the returned handle will point to a Proxy Mailbox (and posted messages will be serialized by the Proxy Mailbox\textquotesingle{}s post routine for remote delivery). 
+
+References Mailbox\+Owner\+Handle\+::activate(), Distributed\+Mailbox\+Proxy\+::create\+Mailbox(), Local\+S\+M\+Mailbox\+Proxy\+::create\+Mailbox(), Group\+Mailbox\+Proxy\+::create\+Mailbox(), Mailbox\+Owner\+Handle\+::generate\+Mailbox\+Handle\+Copy(), Mailbox\+Handle\+::get\+Mailbox\+Address(), Logger\+::get\+Subsystem\+Log\+Level(), Mailbox\+Handle\+::is\+Proxy(), and Mailbox\+Address\+::location\+Type.
+
+
+
+Referenced by Fault\+Manager\+::initialize(), and Fault\+Manager\+::process\+Mailbox().
+
+\index{Mailbox\+Lookup\+Service@{Mailbox\+Lookup\+Service}!get\+Debug\+For\+All\+Mailbox\+Addresses@{get\+Debug\+For\+All\+Mailbox\+Addresses}}
+\index{get\+Debug\+For\+All\+Mailbox\+Addresses@{get\+Debug\+For\+All\+Mailbox\+Addresses}!Mailbox\+Lookup\+Service@{Mailbox\+Lookup\+Service}}
+\subsubsection[{get\+Debug\+For\+All\+Mailbox\+Addresses()}]{\setlength{\rightskip}{0pt plus 5cm}void Mailbox\+Lookup\+Service\+::get\+Debug\+For\+All\+Mailbox\+Addresses (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMailboxLookupService_a0982492ef6b8cd6a323bc7d94a55247a}
+Method to set debug value for all mailboxes 
+
+References Mailbox\+Owner\+Handle\+::get\+Mailbox\+Address(), Logger\+::get\+Subsystem\+Log\+Level(), Mailbox\+Owner\+Handle\+::is\+Proxy(), Mailbox\+Address\+::location\+Type, and Discovery\+Manager\+::process\+Mailbox().
+
+\index{Mailbox\+Lookup\+Service@{Mailbox\+Lookup\+Service}!initialize\+Discovery\+Manager@{initialize\+Discovery\+Manager}}
+\index{initialize\+Discovery\+Manager@{initialize\+Discovery\+Manager}!Mailbox\+Lookup\+Service@{Mailbox\+Lookup\+Service}}
+\subsubsection[{initialize\+Discovery\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}void Mailbox\+Lookup\+Service\+::initialize\+Discovery\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMailboxLookupService_a82138b36a836f680ef5d82a6f7373549}
+Instantiate and start the Discovery Manager 
+
+References Thread\+Manager\+::create\+Thread(), and Discovery\+Manager\+::initialize().
+
+\index{Mailbox\+Lookup\+Service@{Mailbox\+Lookup\+Service}!list\+All\+Mailbox\+Addresses@{list\+All\+Mailbox\+Addresses}}
+\index{list\+All\+Mailbox\+Addresses@{list\+All\+Mailbox\+Addresses}!Mailbox\+Lookup\+Service@{Mailbox\+Lookup\+Service}}
+\subsubsection[{list\+All\+Mailbox\+Addresses()}]{\setlength{\rightskip}{0pt plus 5cm}void Mailbox\+Lookup\+Service\+::list\+All\+Mailbox\+Addresses (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMailboxLookupService_a773065f3c76858bb3727f9e11a265ee9}
+Display a list of all the registered mailbox addresses This method displays its output in trace logs. 
+
+References Discovery\+Manager\+::list\+All\+Mailbox\+Addresses().
+
+
+
+Referenced by deregister\+Mailbox(), and register\+Mailbox().
+
+\index{Mailbox\+Lookup\+Service@{Mailbox\+Lookup\+Service}!register\+For\+Discovery\+Updates@{register\+For\+Discovery\+Updates}}
+\index{register\+For\+Discovery\+Updates@{register\+For\+Discovery\+Updates}!Mailbox\+Lookup\+Service@{Mailbox\+Lookup\+Service}}
+\subsubsection[{register\+For\+Discovery\+Updates(vector$<$ Mailbox\+Address $>$ \&currently\+Registered\+Addresses, Mailbox\+Address \&match\+Criteria, Mailbox\+Owner\+Handle $\ast$mailbox\+To\+Notify)}]{\setlength{\rightskip}{0pt plus 5cm}int Mailbox\+Lookup\+Service\+::register\+For\+Discovery\+Updates (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf Mailbox\+Address} $>$ \&}]{currently\+Registered\+Addresses, }
+\item[{{\bf Mailbox\+Address} \&}]{match\+Criteria, }
+\item[{{\bf Mailbox\+Owner\+Handle} $\ast$}]{mailbox\+To\+Notify}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMailboxLookupService_af2daa9911e9bce7c040f3b57615b5ca2}
+Allows mailboxes to register for Discovery Update notifications. If a \doxyref{Discovery\+Message}{p.}{classDiscoveryMessage} update is received whose discovery Mailbox Address matches that of the match\+Criteria, then a copy of the \doxyref{Discovery\+Message}{p.}{classDiscoveryMessage} is posted to the mailbox\+To\+Notify. The caller is required to pre-\/allocate a vector of Mailbox\+Addresses which will be populated with \textquotesingle{}already-\/discovered\textquotesingle{} Mailbox\+Addresses and returned. 
+
+Note that current there is no support for a user-\/initiated deregistration mechanism. This is because the discovery update mechanism should not be used as a substitute for I\+PC between nodes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em match\+Criteria} & \doxyref{Mailbox\+Address}{p.}{structMailboxAddress} object used to determine which discovery Mailbox Addresses match what the application wants to be notified about. N\+O\+TE\+: The calling application should leave all fields default except those that the caller wished to be used in the match comparison. For example, if the caller wants to be notified when any Mailboxes with the Mailbox\+Name \textquotesingle{}Call\+Processor\textquotesingle{} are discovered, the match\+Criteria field \textquotesingle{}Mailbox\+Name\textquotesingle{} will be set to \textquotesingle{}Call\+Processor\textquotesingle{} and all other fields left as the default. \\
+\hline
+{\em mailbox\+To\+Notify} & \doxyref{Mailbox\+Owner\+Handle}{p.}{classMailboxOwnerHandle} of the mailbox that will receive the \doxyref{Discovery\+Message}{p.}{classDiscoveryMessage} notification when an update is received. This mailbox must provide a Message\+Handler method for the Discovery Message id (M\+S\+G\+M\+G\+R\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+M\+S\+G\+\_\+\+ID) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK upon successful registration; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Discovery\+Manager\+::register\+For\+Discovery\+Updates().
+
+\index{Mailbox\+Lookup\+Service@{Mailbox\+Lookup\+Service}!register\+Mailbox@{register\+Mailbox}}
+\index{register\+Mailbox@{register\+Mailbox}!Mailbox\+Lookup\+Service@{Mailbox\+Lookup\+Service}}
+\subsubsection[{register\+Mailbox(\+Mailbox\+Owner\+Handle $\ast$mailbox\+Owner\+Handle, Mailbox\+Base $\ast$mailbox\+Ptr)}]{\setlength{\rightskip}{0pt plus 5cm}void Mailbox\+Lookup\+Service\+::register\+Mailbox (
+\begin{DoxyParamCaption}
+\item[{{\bf Mailbox\+Owner\+Handle} $\ast$}]{mailbox\+Owner\+Handle, }
+\item[{{\bf Mailbox\+Base} $\ast$}]{mailbox\+Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMailboxLookupService_a982f51643b1bcddee5b4949d637ea798}
+Allows tasks to register their mailbox 
+
+References Mailbox\+Base\+::deactivate(), Mailbox\+Owner\+Handle\+::get\+Mailbox\+Address(), Logger\+::get\+Subsystem\+Log\+Level(), Mailbox\+Base\+::is\+Proxy(), list\+All\+Mailbox\+Addresses(), Mailbox\+Address\+::location\+Type, Mailbox\+Address\+::mailbox\+Name, Discovery\+Manager\+::register\+Local\+Address(), and Mailbox\+Address\+::to\+String().
+
+
+
+Referenced by Local\+Mailbox\+::activate(), Distributed\+Mailbox\+Proxy\+::activate(), Local\+S\+M\+Mailbox\+Proxy\+::activate(), and Group\+Mailbox\+Proxy\+::activate().
+
+\index{Mailbox\+Lookup\+Service@{Mailbox\+Lookup\+Service}!set\+Debug\+For\+All\+Mailbox\+Addresses@{set\+Debug\+For\+All\+Mailbox\+Addresses}}
+\index{set\+Debug\+For\+All\+Mailbox\+Addresses@{set\+Debug\+For\+All\+Mailbox\+Addresses}!Mailbox\+Lookup\+Service@{Mailbox\+Lookup\+Service}}
+\subsubsection[{set\+Debug\+For\+All\+Mailbox\+Addresses(int debug\+Value)}]{\setlength{\rightskip}{0pt plus 5cm}void Mailbox\+Lookup\+Service\+::set\+Debug\+For\+All\+Mailbox\+Addresses (
+\begin{DoxyParamCaption}
+\item[{int}]{debug\+Value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMailboxLookupService_a75aba76514133e2c7c40ca30bbb66578}
+Method to set debug value for all mailboxes 
+
+Referenced by Fault\+Manager\+::process\+Mailbox().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Mailbox\+Lookup\+Service.\+h\item 
+Mailbox\+Lookup\+Service.\+cpp\end{DoxyCompactItemize}

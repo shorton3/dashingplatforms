@@ -1,0 +1,70 @@
+\section{Mailbox\+Processor Class Reference}
+\label{classMailboxProcessor}\index{Mailbox\+Processor@{Mailbox\+Processor}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Mailbox\+Processor} ({\bf Message\+Handler\+List} $\ast$handler\+List, {\bf Mailbox\+Owner\+Handle} \&mailbox\+Owner\+Handle)
+\item 
+virtual {\bf $\sim$\+Mailbox\+Processor} ()
+\item 
+void {\bf process\+Mailbox} (int number\+Threads=1)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Mailbox\+Processor@{Mailbox\+Processor}!Mailbox\+Processor@{Mailbox\+Processor}}
+\index{Mailbox\+Processor@{Mailbox\+Processor}!Mailbox\+Processor@{Mailbox\+Processor}}
+\subsubsection[{Mailbox\+Processor(\+Message\+Handler\+List $\ast$handler\+List, Mailbox\+Owner\+Handle \&mailbox\+Owner\+Handle)}]{\setlength{\rightskip}{0pt plus 5cm}Mailbox\+Processor\+::\+Mailbox\+Processor (
+\begin{DoxyParamCaption}
+\item[{{\bf Message\+Handler\+List} $\ast$}]{handler\+List, }
+\item[{{\bf Mailbox\+Owner\+Handle} \&}]{mailbox\+Owner\+Handle}
+\end{DoxyParamCaption}
+)}\label{classMailboxProcessor_a90880b96695a3a72f7fabf3ea7551f66}
+Constructor. Associate a Mailbox with its Message Handler List 
+
+References Mailbox\+Processor().
+
+
+
+Referenced by Mailbox\+Processor().
+
+\index{Mailbox\+Processor@{Mailbox\+Processor}!````~Mailbox\+Processor@{$\sim$\+Mailbox\+Processor}}
+\index{````~Mailbox\+Processor@{$\sim$\+Mailbox\+Processor}!Mailbox\+Processor@{Mailbox\+Processor}}
+\subsubsection[{$\sim$\+Mailbox\+Processor()}]{\setlength{\rightskip}{0pt plus 5cm}Mailbox\+Processor\+::$\sim$\+Mailbox\+Processor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxProcessor_ab195da8106b2128ab1049ca90fc2ecb5}
+Virtual Destructor. 
+
+\subsection{Member Function Documentation}
+\index{Mailbox\+Processor@{Mailbox\+Processor}!process\+Mailbox@{process\+Mailbox}}
+\index{process\+Mailbox@{process\+Mailbox}!Mailbox\+Processor@{Mailbox\+Processor}}
+\subsubsection[{process\+Mailbox(int number\+Threads=1)}]{\setlength{\rightskip}{0pt plus 5cm}void Mailbox\+Processor\+::process\+Mailbox (
+\begin{DoxyParamCaption}
+\item[{int}]{number\+Threads = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{classMailboxProcessor_a464c9e9eb3df8dd68a72df4b37a61b0f}
+Reads messages from the queue and calls the appropriate message handler. 
+
+If the queue is empty it will block. After the message has been processed it will be deleted (or it will be checked in to the \doxyref{O\+PM}{p.}{classOPM} if it is an \doxyref{O\+PM}{p.}{classOPM} managed object). So applications S\+H\+O\+U\+LD N\+OT D\+E\+L\+E\+TE messages when they handle them. If the mailbox has not be activated by the application, then get\+Message() will return N\+U\+LL, and this method will return. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\+Threads} & if more than 1 thread is given as a parameter, then a \doxyref{Thread\+Manager}{p.}{classThreadManager} thread pool will be created to service the Mailbox queue. N\+O\+T\+E!! If the developer chooses to use a Thread\+Pool for processing the the Mailbox queue, the developer is responsible for ensuring that all of the Mailbox Handlers are T\+H\+R\+E\+AD S\+A\+F\+E!!! \\
+\hline
+\end{DoxyParams}
+
+
+References Thread\+Manager\+::create\+Thread\+Pool(), Message\+Base\+::delete\+Message(), Message\+Handler\+List\+::find(), Mailbox\+Owner\+Handle\+::get\+Message(), and Message\+Base\+::get\+Message\+Id().
+
+
+
+Referenced by Resource\+Monitor\+::process\+Mailbox(), Process\+Manager\+::process\+Mailbox(), Fault\+Manager\+::process\+Mailbox(), and Discovery\+Manager\+::process\+Mailbox().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Mailbox\+Processor.\+h\item 
+Mailbox\+Processor.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,60 @@
+\section{Fix\+Compiler\+Warning Class Reference}
+\label{classFixCompilerWarning}\index{Fix\+Compiler\+Warning@{Fix\+Compiler\+Warning}}
+
+
+{\ttfamily \#include $<$Fix\+Compiler\+Warning.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Fix\+Compiler\+Warning} ()
+\item 
+virtual {\bf $\sim$\+Fix\+Compiler\+Warning} ()
+\item 
+virtual void {\bf never\+Implement\+This} (void)=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Fix\+Compiler\+Warning}{p.}{classFixCompilerWarning} is a class created strictly to remove a warning that the compiler is generating. 
+
+If the compiler finds a class that does not have a public constructor and does not have any friend classes, it will generate a warning. This situation occurs fairly often in our code. To remove the warning include this file and add\+: friend class Rz\+Fix\+Compiler\+Warning; to the class definition that is generating the warning. The \doxyref{Fix\+Compiler\+Warning}{p.}{classFixCompilerWarning} class has no implementation and no methods. But, because the compiler sees it as a friend of the class with a private constructor, it will not generate the warning messsage. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Fix\+Compiler\+Warning@{Fix\+Compiler\+Warning}!Fix\+Compiler\+Warning@{Fix\+Compiler\+Warning}}
+\index{Fix\+Compiler\+Warning@{Fix\+Compiler\+Warning}!Fix\+Compiler\+Warning@{Fix\+Compiler\+Warning}}
+\subsubsection[{Fix\+Compiler\+Warning()}]{\setlength{\rightskip}{0pt plus 5cm}Fix\+Compiler\+Warning\+::\+Fix\+Compiler\+Warning (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classFixCompilerWarning_a32e543577ccaf6bbb47df28682179c55}
+Constructor \index{Fix\+Compiler\+Warning@{Fix\+Compiler\+Warning}!````~Fix\+Compiler\+Warning@{$\sim$\+Fix\+Compiler\+Warning}}
+\index{````~Fix\+Compiler\+Warning@{$\sim$\+Fix\+Compiler\+Warning}!Fix\+Compiler\+Warning@{Fix\+Compiler\+Warning}}
+\subsubsection[{$\sim$\+Fix\+Compiler\+Warning()}]{\setlength{\rightskip}{0pt plus 5cm}virtual Fix\+Compiler\+Warning\+::$\sim$\+Fix\+Compiler\+Warning (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classFixCompilerWarning_aa2c00893dcb52d2c7eec8dc8769969b1}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Fix\+Compiler\+Warning@{Fix\+Compiler\+Warning}!never\+Implement\+This@{never\+Implement\+This}}
+\index{never\+Implement\+This@{never\+Implement\+This}!Fix\+Compiler\+Warning@{Fix\+Compiler\+Warning}}
+\subsubsection[{never\+Implement\+This(void)=0}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Fix\+Compiler\+Warning\+::never\+Implement\+This (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classFixCompilerWarning_a8062832ba0a761967426732483a05a08}
+Dummy method 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Fix\+Compiler\+Warning.\+h\end{DoxyCompactItemize}

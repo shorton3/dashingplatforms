@@ -1,0 +1,304 @@
+\section{O\+P\+M\+Base Class Reference}
+\label{classOPMBase}\index{O\+P\+M\+Base@{O\+P\+M\+Base}}
+Inheritance diagram for O\+P\+M\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.966887cm]{classOPMBase}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf O\+P\+M\+Base} ()
+\item 
+virtual {\bf $\sim$\+O\+P\+M\+Base} ()
+\item 
+bool {\bf is\+Next\+Null} ()
+\item 
+bool {\bf is\+Prev\+Null} ()
+\item 
+{\bf O\+P\+M\+Base} $\ast$ {\bf get\+Next} ()
+\item 
+void {\bf set\+Next} ({\bf O\+P\+M\+Base} $\ast$new\+Object)
+\item 
+{\bf O\+P\+M\+Base} $\ast$ {\bf get\+Prev} ()
+\item 
+void {\bf set\+Prev} ({\bf O\+P\+M\+Base} $\ast$new\+Object)
+\item 
+int {\bf get\+Pool\+ID} ()
+\item 
+void {\bf set\+Pool\+ID} (int pool\+ID)
+\item 
+const char $\ast$ {\bf get\+Object\+Type\+Str} ()
+\item 
+void {\bf set\+Object\+Type\+Str} (const char $\ast$object\+Type)
+\item 
+string {\bf to\+String} ()
+\item 
+virtual void {\bf clean} ()=0
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf O\+P\+M\+Base} $\ast$ {\bf initialize} (int initializer)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf O\+P\+M\+Base} $\ast$ {\bf next\+\_\+}
+\item 
+{\bf O\+P\+M\+Base} $\ast$ {\bf prev\+\_\+}
+\item 
+const char $\ast$ {\bf object\+Type\+\_\+}
+\item 
+int {\bf pool\+I\+D\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{O\+P\+M\+Base@{O\+P\+M\+Base}!O\+P\+M\+Base@{O\+P\+M\+Base}}
+\index{O\+P\+M\+Base@{O\+P\+M\+Base}!O\+P\+M\+Base@{O\+P\+M\+Base}}
+\subsubsection[{O\+P\+M\+Base()}]{\setlength{\rightskip}{0pt plus 5cm}O\+P\+M\+Base\+::\+O\+P\+M\+Base (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classOPMBase_a70bbac1c076d071b9d4d0104bb7359c8}
+Constructor 
+
+References Object\+Base\+::set\+Poolable().
+
+\index{O\+P\+M\+Base@{O\+P\+M\+Base}!````~O\+P\+M\+Base@{$\sim$\+O\+P\+M\+Base}}
+\index{````~O\+P\+M\+Base@{$\sim$\+O\+P\+M\+Base}!O\+P\+M\+Base@{O\+P\+M\+Base}}
+\subsubsection[{$\sim$\+O\+P\+M\+Base()}]{\setlength{\rightskip}{0pt plus 5cm}O\+P\+M\+Base\+::$\sim$\+O\+P\+M\+Base (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classOPMBase_a795d42f84fa6eea1d398331bd1b10527}
+Virtual Destructor 
+
+References object\+Type\+\_\+.
+
+
+
+\subsection{Member Function Documentation}
+\index{O\+P\+M\+Base@{O\+P\+M\+Base}!clean@{clean}}
+\index{clean@{clean}!O\+P\+M\+Base@{O\+P\+M\+Base}}
+\subsubsection[{clean()=0}]{\setlength{\rightskip}{0pt plus 5cm}virtual void O\+P\+M\+Base\+::clean (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classOPMBase_ad9ff8bb1ca9a1edfaaeb702f341713e9}
+Pure Virtual method will be called before releasing the object back into the pool. 
+
+Implemented in {\bf Db\+Connection\+Handle} \doxyref{}{p.}{classDbConnectionHandle_a0743d6c001a8d40733b40f99317f5316}, {\bf Local\+S\+M\+Buffer} \doxyref{}{p.}{structLocalSMBuffer_a5f30eb58740b77fc5aee9f39ae81f439}, {\bf Pg\+Connection} \doxyref{}{p.}{classPgConnection_a1ad1676fa4fd96ac7f27ec6b9341f71d}, {\bf Message\+Buffer} \doxyref{}{p.}{classMessageBuffer_a5f97e8b2995f91fa097b1cf330fe11f6}, and {\bf Message\+Block\+Wrapper} \doxyref{}{p.}{classMessageBlockWrapper_ade112487b46f4657a938a718eeaa8bd1}.
+
+\index{O\+P\+M\+Base@{O\+P\+M\+Base}!get\+Next@{get\+Next}}
+\index{get\+Next@{get\+Next}!O\+P\+M\+Base@{O\+P\+M\+Base}}
+\subsubsection[{get\+Next()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf O\+P\+M\+Base} $\ast$ O\+P\+M\+Base\+::get\+Next (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classOPMBase_ab17174974f29602da7f4233cdf707a63}
+Return the next \doxyref{O\+P\+M\+Base}{p.}{classOPMBase} object referred to in the Linked List 
+
+References next\+\_\+.
+
+
+
+Referenced by O\+P\+M\+Linked\+List\+::contains\+Object(), O\+P\+M\+Linked\+List\+::delete\+List\+Contents(), O\+P\+M\+Linked\+List\+::remove(), O\+P\+M\+Linked\+List\+::remove\+First(), and O\+P\+M\+Linked\+List\+::to\+String().
+
+\index{O\+P\+M\+Base@{O\+P\+M\+Base}!get\+Object\+Type\+Str@{get\+Object\+Type\+Str}}
+\index{get\+Object\+Type\+Str@{get\+Object\+Type\+Str}!O\+P\+M\+Base@{O\+P\+M\+Base}}
+\subsubsection[{get\+Object\+Type\+Str()}]{\setlength{\rightskip}{0pt plus 5cm}const char $\ast$ O\+P\+M\+Base\+::get\+Object\+Type\+Str (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classOPMBase_ad33b43aedb4c64931083b0641e5b41c4}
+Return a pointer to the object type string for this object 
+
+References object\+Type\+\_\+.
+
+\index{O\+P\+M\+Base@{O\+P\+M\+Base}!get\+Pool\+ID@{get\+Pool\+ID}}
+\index{get\+Pool\+ID@{get\+Pool\+ID}!O\+P\+M\+Base@{O\+P\+M\+Base}}
+\subsubsection[{get\+Pool\+I\+D()}]{\setlength{\rightskip}{0pt plus 5cm}int O\+P\+M\+Base\+::get\+Pool\+ID (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classOPMBase_a01f00881e033020b14592a7b6c2ddf89}
+Return the integer pool\+ID that identifies which pool this object belongs to 
+
+References pool\+I\+D\+\_\+.
+
+
+
+Referenced by O\+P\+M\+::is\+Created\+By\+O\+P\+M(), and Object\+Pool\+::release().
+
+\index{O\+P\+M\+Base@{O\+P\+M\+Base}!get\+Prev@{get\+Prev}}
+\index{get\+Prev@{get\+Prev}!O\+P\+M\+Base@{O\+P\+M\+Base}}
+\subsubsection[{get\+Prev()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf O\+P\+M\+Base} $\ast$ O\+P\+M\+Base\+::get\+Prev (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classOPMBase_a8f455b13f4520b6fbc033b4c77d28e4e}
+Return the previous \doxyref{O\+P\+M\+Base}{p.}{classOPMBase} object referred to in the Linked List 
+
+References prev\+\_\+.
+
+
+
+Referenced by O\+P\+M\+Linked\+List\+::remove().
+
+\index{O\+P\+M\+Base@{O\+P\+M\+Base}!initialize@{initialize}}
+\index{initialize@{initialize}!O\+P\+M\+Base@{O\+P\+M\+Base}}
+\subsubsection[{initialize(int initializer)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf O\+P\+M\+Base}$\ast$ O\+P\+M\+Base\+::initialize (
+\begin{DoxyParamCaption}
+\item[{int}]{initializer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classOPMBase_a0de2f47a2f34606fe4379a81d0cc5c18}
+Static method will be called when the pool is created with these objects. This method bootstraps the creation of each object. This method must be static, but S\+H\+O\+U\+LD A\+L\+SO BE V\+I\+R\+T\+U\+AL so users are forced to implement it. 
+\begin{DoxyParams}{Parameters}
+{\em initializer} & -\/ Initializer integer or pointer to initialization data needed by the object -\/ may be 0 if unused. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the new \doxyref{O\+P\+M\+Base}{p.}{classOPMBase} object. 
+\end{DoxyReturn}
+\index{O\+P\+M\+Base@{O\+P\+M\+Base}!is\+Next\+Null@{is\+Next\+Null}}
+\index{is\+Next\+Null@{is\+Next\+Null}!O\+P\+M\+Base@{O\+P\+M\+Base}}
+\subsubsection[{is\+Next\+Null()}]{\setlength{\rightskip}{0pt plus 5cm}bool O\+P\+M\+Base\+::is\+Next\+Null (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classOPMBase_a503b2db7a4d10135bb1d6259e19ba645}
+Return whether or not there is a next node in the Linked List 
+
+References next\+\_\+.
+
+
+
+Referenced by O\+P\+M\+Linked\+List\+::contains\+Object(), O\+P\+M\+Linked\+List\+::delete\+List\+Contents(), and O\+P\+M\+Linked\+List\+::to\+String().
+
+\index{O\+P\+M\+Base@{O\+P\+M\+Base}!is\+Prev\+Null@{is\+Prev\+Null}}
+\index{is\+Prev\+Null@{is\+Prev\+Null}!O\+P\+M\+Base@{O\+P\+M\+Base}}
+\subsubsection[{is\+Prev\+Null()}]{\setlength{\rightskip}{0pt plus 5cm}bool O\+P\+M\+Base\+::is\+Prev\+Null (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classOPMBase_a4a07d57be73bd0205528ff61edf09ae4}
+Return whether or not there is a previous node in the Linked List 
+
+References prev\+\_\+.
+
+\index{O\+P\+M\+Base@{O\+P\+M\+Base}!set\+Next@{set\+Next}}
+\index{set\+Next@{set\+Next}!O\+P\+M\+Base@{O\+P\+M\+Base}}
+\subsubsection[{set\+Next(\+O\+P\+M\+Base $\ast$new\+Object)}]{\setlength{\rightskip}{0pt plus 5cm}void O\+P\+M\+Base\+::set\+Next (
+\begin{DoxyParamCaption}
+\item[{{\bf O\+P\+M\+Base} $\ast$}]{new\+Object}
+\end{DoxyParamCaption}
+)}\label{classOPMBase_a817e3de22d7ee27ec2e2eae086563454}
+Set the next \doxyref{O\+P\+M\+Base}{p.}{classOPMBase} object referred to in the Linked List 
+
+References next\+\_\+.
+
+
+
+Referenced by O\+P\+M\+Linked\+List\+::delete\+List\+Contents(), O\+P\+M\+Linked\+List\+::insert\+Last(), and O\+P\+M\+Linked\+List\+::remove().
+
+\index{O\+P\+M\+Base@{O\+P\+M\+Base}!set\+Object\+Type\+Str@{set\+Object\+Type\+Str}}
+\index{set\+Object\+Type\+Str@{set\+Object\+Type\+Str}!O\+P\+M\+Base@{O\+P\+M\+Base}}
+\subsubsection[{set\+Object\+Type\+Str(const char $\ast$object\+Type)}]{\setlength{\rightskip}{0pt plus 5cm}void O\+P\+M\+Base\+::set\+Object\+Type\+Str (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{object\+Type}
+\end{DoxyParamCaption}
+)}\label{classOPMBase_a7c2681c0eb4fb0f6433f80fd5061ad88}
+Set the object type string for this object -\/ called upon object creation 
+
+References object\+Type\+\_\+.
+
+
+
+Referenced by Local\+S\+M\+Buffer\+::\+Local\+S\+M\+Buffer().
+
+\index{O\+P\+M\+Base@{O\+P\+M\+Base}!set\+Pool\+ID@{set\+Pool\+ID}}
+\index{set\+Pool\+ID@{set\+Pool\+ID}!O\+P\+M\+Base@{O\+P\+M\+Base}}
+\subsubsection[{set\+Pool\+I\+D(int pool\+I\+D)}]{\setlength{\rightskip}{0pt plus 5cm}void O\+P\+M\+Base\+::set\+Pool\+ID (
+\begin{DoxyParamCaption}
+\item[{int}]{pool\+ID}
+\end{DoxyParamCaption}
+)}\label{classOPMBase_aa8a9184c44f820e950cc82d43cd64b6a}
+Set the integer pool\+ID that identifies which pool this object belongs to 
+
+References pool\+I\+D\+\_\+.
+
+
+
+Referenced by Object\+Pool\+::release().
+
+\index{O\+P\+M\+Base@{O\+P\+M\+Base}!set\+Prev@{set\+Prev}}
+\index{set\+Prev@{set\+Prev}!O\+P\+M\+Base@{O\+P\+M\+Base}}
+\subsubsection[{set\+Prev(\+O\+P\+M\+Base $\ast$new\+Object)}]{\setlength{\rightskip}{0pt plus 5cm}void O\+P\+M\+Base\+::set\+Prev (
+\begin{DoxyParamCaption}
+\item[{{\bf O\+P\+M\+Base} $\ast$}]{new\+Object}
+\end{DoxyParamCaption}
+)}\label{classOPMBase_a71de17249a599a8ec843155232ae1d2b}
+Set the previous \doxyref{O\+P\+M\+Base}{p.}{classOPMBase} object referred to in the Linked List 
+
+References prev\+\_\+.
+
+
+
+Referenced by O\+P\+M\+Linked\+List\+::delete\+List\+Contents(), O\+P\+M\+Linked\+List\+::insert\+First(), O\+P\+M\+Linked\+List\+::remove(), and O\+P\+M\+Linked\+List\+::remove\+First().
+
+\index{O\+P\+M\+Base@{O\+P\+M\+Base}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!O\+P\+M\+Base@{O\+P\+M\+Base}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string O\+P\+M\+Base\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classOPMBase_a2820c7b2a85b1d75c925f4404a110c7f}
+String\textquotesingle{}ized debugging tool 
+
+References object\+Type\+\_\+, and pool\+I\+D\+\_\+.
+
+
+
+Referenced by O\+P\+M\+Linked\+List\+::to\+String().
+
+
+
+\subsection{Member Data Documentation}
+\index{O\+P\+M\+Base@{O\+P\+M\+Base}!next\+\_\+@{next\+\_\+}}
+\index{next\+\_\+@{next\+\_\+}!O\+P\+M\+Base@{O\+P\+M\+Base}}
+\subsubsection[{next\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf O\+P\+M\+Base}$\ast$ O\+P\+M\+Base\+::next\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classOPMBase_a112da1f1cd377e94e2b0ef30c82883e2}
+Pointer reference to the \textquotesingle{}next\textquotesingle{} \doxyref{O\+P\+M\+Base}{p.}{classOPMBase} object in the Linked List implemented in Object Pool. 
+
+Referenced by get\+Next(), is\+Next\+Null(), and set\+Next().
+
+\index{O\+P\+M\+Base@{O\+P\+M\+Base}!object\+Type\+\_\+@{object\+Type\+\_\+}}
+\index{object\+Type\+\_\+@{object\+Type\+\_\+}!O\+P\+M\+Base@{O\+P\+M\+Base}}
+\subsubsection[{object\+Type\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ O\+P\+M\+Base\+::object\+Type\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classOPMBase_aff0d91409d3bf021742a0d6243d33a74}
+Pointer to the char$\ast$ object type for this object 
+
+Referenced by get\+Object\+Type\+Str(), set\+Object\+Type\+Str(), to\+String(), and $\sim$\+O\+P\+M\+Base().
+
+\index{O\+P\+M\+Base@{O\+P\+M\+Base}!pool\+I\+D\+\_\+@{pool\+I\+D\+\_\+}}
+\index{pool\+I\+D\+\_\+@{pool\+I\+D\+\_\+}!O\+P\+M\+Base@{O\+P\+M\+Base}}
+\subsubsection[{pool\+I\+D\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int O\+P\+M\+Base\+::pool\+I\+D\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classOPMBase_a815ec1cf18f79a9c094d7e1cbfb42b7d}
+Pool\+ID used to -\/self-\/ identify which object pool this object belongs to 
+
+Referenced by get\+Pool\+I\+D(), set\+Pool\+I\+D(), and to\+String().
+
+\index{O\+P\+M\+Base@{O\+P\+M\+Base}!prev\+\_\+@{prev\+\_\+}}
+\index{prev\+\_\+@{prev\+\_\+}!O\+P\+M\+Base@{O\+P\+M\+Base}}
+\subsubsection[{prev\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf O\+P\+M\+Base}$\ast$ O\+P\+M\+Base\+::prev\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classOPMBase_a8d56c5e4bce62ddae6d2a31396fb5c29}
+Pointer reference to the \textquotesingle{}previous\textquotesingle{} \doxyref{O\+P\+M\+Base}{p.}{classOPMBase} object in the Linked List implemented in Object Pool. 
+
+Referenced by get\+Prev(), is\+Prev\+Null(), and set\+Prev().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+O\+P\+M\+Base.\+h\item 
+O\+P\+M\+Base.\+cpp\end{DoxyCompactItemize}

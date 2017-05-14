@@ -1,0 +1,16 @@
+# Quick Reference hints for running the gdb debugger
+gdb -d /opt/ACE_wrappers/ace -d /opt/ACE_wrappers/TAO/tao -d /opt/ACE_wrappers/TAO/orbsvcs/orbsvcs -c core.5178 -se OPMTest
+# then issue 'bt' to get the stack trace
+
+# For shared library symbol debugging
+nm <shared library file>
+
+# To see the contents / file paths of an RPM:
+rpm -qil <rpm name without .i686.rpm extension>
+
+# To see the description text inside an RPM:
+rpm -qip <package file name>
+
+# To detect freeing memory twice:
+Glibc has a method to force program termination on double deletes. Run the application with the MALLOC_CHECK_ variable set:export MALLOC_CHECK_=2. This will force an abort at the first instance of duplicate delete giving you a core with the
+exact location of the bug.

@@ -1,0 +1,166 @@
+\section{Fault\+S\+M\+Queue Class Reference}
+\label{classFaultSMQueue}\index{Fault\+S\+M\+Queue@{Fault\+S\+M\+Queue}}
+
+
+{\ttfamily \#include $<$Fault\+S\+M\+Queue.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef {\bf Unbounded\+S\+M\+Queue}$<$ {\bf Fault\+Message} $>$ {\bf F\+A\+U\+L\+T\+S\+M\+Q\+U\+E\+UE}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Fault\+S\+M\+Queue} (const char $\ast$queue\+Name, const char $\ast$coordinating\+Mutex\+Name)
+\item 
+virtual {\bf $\sim$\+Fault\+S\+M\+Queue} ()
+\item 
+int {\bf setup\+Queue} ()
+\item 
+int {\bf enqueue\+Alarm} ({\bf Fault\+Message} \&message)
+\item 
+int {\bf dequeue\+Alarm} ({\bf Fault\+Message} \&message)
+\item 
+void {\bf clear\+Queue} ()
+\item 
+bool {\bf is\+Empty} ()
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Fault\+S\+M\+Queue}{p.}{classFaultSMQueue} sets up an Unbounded Queue in Shared Memory for the purpose of raising and clearing Fault\+Message\+Type messages (alarms, clear alarms, and informational event reports) to the Fault Manager which will raise those to the E\+MS. 
+
+This shared memory queue uses the Position Independent Malloc/\+Allocation factory in A\+CE, and it handles queue growth using the automatic OS exception handling facilities to trap S\+I\+G\+S\+E\+GV and perform an A\+C\+E\+::remap. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Member Typedef Documentation}
+\index{Fault\+S\+M\+Queue@{Fault\+S\+M\+Queue}!F\+A\+U\+L\+T\+S\+M\+Q\+U\+E\+UE@{F\+A\+U\+L\+T\+S\+M\+Q\+U\+E\+UE}}
+\index{F\+A\+U\+L\+T\+S\+M\+Q\+U\+E\+UE@{F\+A\+U\+L\+T\+S\+M\+Q\+U\+E\+UE}!Fault\+S\+M\+Queue@{Fault\+S\+M\+Queue}}
+\subsubsection[{F\+A\+U\+L\+T\+S\+M\+Q\+U\+E\+UE}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Unbounded\+S\+M\+Queue}$<${\bf Fault\+Message}$>$ {\bf Fault\+S\+M\+Queue\+::\+F\+A\+U\+L\+T\+S\+M\+Q\+U\+E\+UE}}\label{classFaultSMQueue_a435275b5110ee8a6c7de71c111614fe7}
+Shared Memory Queue type for Fault\+Messages 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Fault\+S\+M\+Queue@{Fault\+S\+M\+Queue}!Fault\+S\+M\+Queue@{Fault\+S\+M\+Queue}}
+\index{Fault\+S\+M\+Queue@{Fault\+S\+M\+Queue}!Fault\+S\+M\+Queue@{Fault\+S\+M\+Queue}}
+\subsubsection[{Fault\+S\+M\+Queue(const char $\ast$queue\+Name, const char $\ast$coordinating\+Mutex\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}Fault\+S\+M\+Queue\+::\+Fault\+S\+M\+Queue (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{queue\+Name, }
+\item[{const char $\ast$}]{coordinating\+Mutex\+Name}
+\end{DoxyParamCaption}
+)}\label{classFaultSMQueue_aec1e86274c5707b02fad4fa3fba78bd8}
+Constructor \index{Fault\+S\+M\+Queue@{Fault\+S\+M\+Queue}!````~Fault\+S\+M\+Queue@{$\sim$\+Fault\+S\+M\+Queue}}
+\index{````~Fault\+S\+M\+Queue@{$\sim$\+Fault\+S\+M\+Queue}!Fault\+S\+M\+Queue@{Fault\+S\+M\+Queue}}
+\subsubsection[{$\sim$\+Fault\+S\+M\+Queue()}]{\setlength{\rightskip}{0pt plus 5cm}Fault\+S\+M\+Queue\+::$\sim$\+Fault\+S\+M\+Queue (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classFaultSMQueue_aab932089047643992e569887199c0c2a}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Fault\+S\+M\+Queue@{Fault\+S\+M\+Queue}!clear\+Queue@{clear\+Queue}}
+\index{clear\+Queue@{clear\+Queue}!Fault\+S\+M\+Queue@{Fault\+S\+M\+Queue}}
+\subsubsection[{clear\+Queue()}]{\setlength{\rightskip}{0pt plus 5cm}void Fault\+S\+M\+Queue\+::clear\+Queue (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classFaultSMQueue_a2a378cc01f650b5a9f6d0b4368bfcfde}
+Clears the contents (alarms) of the shared memory queue 
+
+References Unbounded\+S\+M\+Queue$<$ T $>$\+::delete\+\_\+nodes().
+
+\index{Fault\+S\+M\+Queue@{Fault\+S\+M\+Queue}!dequeue\+Alarm@{dequeue\+Alarm}}
+\index{dequeue\+Alarm@{dequeue\+Alarm}!Fault\+S\+M\+Queue@{Fault\+S\+M\+Queue}}
+\subsubsection[{dequeue\+Alarm(\+Fault\+Message \&message)}]{\setlength{\rightskip}{0pt plus 5cm}int Fault\+S\+M\+Queue\+::dequeue\+Alarm (
+\begin{DoxyParamCaption}
+\item[{{\bf Fault\+Message} \&}]{message}
+\end{DoxyParamCaption}
+)}\label{classFaultSMQueue_a3a47dfa4330a5732d7285b303109b383}
+Dequeue a \doxyref{Fault\+Message}{p.}{structFaultMessage} from the shared memory queue. The calling code is responsible for allocating the \doxyref{Fault\+Message}{p.}{structFaultMessage} and passing it in as a reference to be populated. \begin{DoxyReturn}{Returns}
+OK on success; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Unbounded\+S\+M\+Queue$<$ T $>$\+::dequeue\+\_\+head(), and Unbounded\+S\+M\+Queue$<$ T $>$\+::is\+\_\+empty().
+
+
+
+Referenced by Fault\+Manager\+::process\+Mailbox().
+
+\index{Fault\+S\+M\+Queue@{Fault\+S\+M\+Queue}!enqueue\+Alarm@{enqueue\+Alarm}}
+\index{enqueue\+Alarm@{enqueue\+Alarm}!Fault\+S\+M\+Queue@{Fault\+S\+M\+Queue}}
+\subsubsection[{enqueue\+Alarm(\+Fault\+Message \&message)}]{\setlength{\rightskip}{0pt plus 5cm}int Fault\+S\+M\+Queue\+::enqueue\+Alarm (
+\begin{DoxyParamCaption}
+\item[{{\bf Fault\+Message} \&}]{message}
+\end{DoxyParamCaption}
+)}\label{classFaultSMQueue_add6d63546c4469d94cb8dc30033dbe31}
+Enqueue a \doxyref{Fault\+Message}{p.}{structFaultMessage} to the shared memory queue \begin{DoxyReturn}{Returns}
+OK on success; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Unbounded\+S\+M\+Queue$<$ T $>$\+::enqueue\+\_\+tail().
+
+
+
+Referenced by Faults\+::clear\+Alarm(), Faults\+::raise\+Alarm(), and Faults\+::report\+Event().
+
+\index{Fault\+S\+M\+Queue@{Fault\+S\+M\+Queue}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!Fault\+S\+M\+Queue@{Fault\+S\+M\+Queue}}
+\subsubsection[{is\+Empty()}]{\setlength{\rightskip}{0pt plus 5cm}bool Fault\+S\+M\+Queue\+::is\+Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classFaultSMQueue_aeb0e225aad39d4058be3bf4bc2d4a3a5}
+Returns true if the queue is empty 
+
+References Unbounded\+S\+M\+Queue$<$ T $>$\+::is\+\_\+empty().
+
+
+
+Referenced by Fault\+Manager\+::process\+Mailbox().
+
+\index{Fault\+S\+M\+Queue@{Fault\+S\+M\+Queue}!setup\+Queue@{setup\+Queue}}
+\index{setup\+Queue@{setup\+Queue}!Fault\+S\+M\+Queue@{Fault\+S\+M\+Queue}}
+\subsubsection[{setup\+Queue()}]{\setlength{\rightskip}{0pt plus 5cm}int Fault\+S\+M\+Queue\+::setup\+Queue (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classFaultSMQueue_a24a9ffc81e856a500f93dd08dea6084b}
+Create the (or get a reference to an already created) queue \begin{DoxyReturn}{Returns}
+OK on success; otherwise E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Shared\+Memory\+Manager\+::get\+Allocator().
+
+
+
+Referenced by Faults\+::initialize(), and Fault\+Manager\+::initialize().
+
+\index{Fault\+S\+M\+Queue@{Fault\+S\+M\+Queue}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Fault\+S\+M\+Queue@{Fault\+S\+M\+Queue}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Fault\+S\+M\+Queue\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classFaultSMQueue_a3650ee3548fd77588102b82cc277028e}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Fault\+S\+M\+Queue.\+h\item 
+Fault\+S\+M\+Queue.\+cpp\end{DoxyCompactItemize}

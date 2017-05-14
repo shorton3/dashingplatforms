@@ -1,0 +1,47 @@
+\section{Debug\+Utils Class Reference}
+\label{classDebugUtils}\index{Debug\+Utils@{Debug\+Utils}}
+
+
+{\ttfamily \#include $<$Debug\+Utils.\+h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bf print\+Stack\+Trace} ()
+\item 
+static void {\bf print\+Stack\+Trace\+To\+File} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Debug\+Utils}{p.}{classDebugUtils} contains various debugging methods for use within the system by development 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Member Function Documentation}
+\index{Debug\+Utils@{Debug\+Utils}!print\+Stack\+Trace@{print\+Stack\+Trace}}
+\index{print\+Stack\+Trace@{print\+Stack\+Trace}!Debug\+Utils@{Debug\+Utils}}
+\subsubsection[{print\+Stack\+Trace()}]{\setlength{\rightskip}{0pt plus 5cm}void Debug\+Utils\+::print\+Stack\+Trace (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classDebugUtils_ad7d54f5a1add9c6cfa87898cb2c00ec4}
+Capture a full system stack trace and output it to stdout \index{Debug\+Utils@{Debug\+Utils}!print\+Stack\+Trace\+To\+File@{print\+Stack\+Trace\+To\+File}}
+\index{print\+Stack\+Trace\+To\+File@{print\+Stack\+Trace\+To\+File}!Debug\+Utils@{Debug\+Utils}}
+\subsubsection[{print\+Stack\+Trace\+To\+File()}]{\setlength{\rightskip}{0pt plus 5cm}void Debug\+Utils\+::print\+Stack\+Trace\+To\+File (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classDebugUtils_a6b30289c73219b794d15a1463c230bb7}
+Capture a full system stack trace and output it to a file (/tmp/platform.stack\+Trace) Use this version when malloc is broken and will not allow print\+Stack\+Trace to work. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Debug\+Utils.\+h\item 
+Debug\+Utils.\+cpp\end{DoxyCompactItemize}

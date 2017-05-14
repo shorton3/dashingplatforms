@@ -1,0 +1,286 @@
+\section{Message\+Buffer Class Reference}
+\label{classMessageBuffer}\index{Message\+Buffer@{Message\+Buffer}}
+Inheritance diagram for Message\+Buffer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classMessageBuffer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Message\+Buffer} (unsigned short buffer\+Size=M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH, bool perform\+Network\+Conversion=true)
+\item 
+{\bf Message\+Buffer} (unsigned char $\ast$buffer\+Ptr, unsigned short buffer\+Size, bool perform\+Network\+Conversion=true)
+\item 
+virtual {\bf $\sim$\+Message\+Buffer} ()
+\item 
+void {\bf clean} ()
+\item 
+unsigned char $\ast$ {\bf get\+Buffer} ()
+\item 
+unsigned int {\bf get\+Buffer\+Length} ()
+\item 
+unsigned int {\bf get\+Max\+Buffer\+Length} ()
+\item 
+void {\bf set\+Insert\+Position} (unsigned short n\+Bytes)
+\item 
+void {\bf set\+Network\+Conversion} (bool perform\+Network\+Conversion)
+\item 
+void {\bf clear\+Buffer} ()
+\item 
+void {\bf assign\+Buffer} (unsigned char $\ast$buffer\+Ptr, unsigned short buffer\+Size)
+\item 
+void {\bf assign\+Empty\+Buffer} (unsigned char $\ast$buffer\+Ptr, unsigned short max\+Buffer\+Size)
+\item 
+{\bf Message\+Buffer} \& {\bf operator$<$$<$} (int int\+Value)
+\item 
+{\bf Message\+Buffer} \& {\bfseries operator$<$$<$} (unsigned char char\+Value)\label{classMessageBuffer_a551bcb283b590d954613b395296958ea}
+
+\item 
+{\bf Message\+Buffer} \& {\bfseries operator$<$$<$} (unsigned short short\+Value)\label{classMessageBuffer_aa2ab455e5a2d9165db2149e42653f187}
+
+\item 
+{\bf Message\+Buffer} \& {\bfseries operator$<$$<$} (unsigned int uint\+Value)\label{classMessageBuffer_af71605c4b1c89eedf108dcc7b0221fbb}
+
+\item 
+{\bf Message\+Buffer} \& {\bfseries operator$<$$<$} (string \&string\+Value)\label{classMessageBuffer_ad9fd51746adc47ae47c79b0b8153eb73}
+
+\item 
+{\bf Message\+Buffer} \& {\bfseries operator$<$$<$} (bool bool\+Value)\label{classMessageBuffer_af7aa4d06473c56f796495be918d0ac2c}
+
+\item 
+{\bf Message\+Buffer} \& {\bfseries operator$<$$<$} ({\bf Mailbox\+Address} \&mailbox\+Value)\label{classMessageBuffer_aa2c70c2b734e29c5bc578be0e1f748d5}
+
+\item 
+{\bf Message\+Buffer} \& {\bf operator$>$$>$} (int \&int\+Value)
+\item 
+{\bf Message\+Buffer} \& {\bfseries operator$>$$>$} (unsigned char \&char\+Value)\label{classMessageBuffer_ac57752c30da4e3bd14417ac29dc002a6}
+
+\item 
+{\bf Message\+Buffer} \& {\bfseries operator$>$$>$} (unsigned short \&short\+Value)\label{classMessageBuffer_ab2aef585a5a37e587f29e7da21f44a5b}
+
+\item 
+{\bf Message\+Buffer} \& {\bfseries operator$>$$>$} (unsigned int \&uint\+Value)\label{classMessageBuffer_a634f1dd53abde314022a7d64ed8ed7a4}
+
+\item 
+{\bf Message\+Buffer} \& {\bfseries operator$>$$>$} (string \&string\+Value)\label{classMessageBuffer_a246f8473335ce5f94bba9eb5c2a6ca64}
+
+\item 
+{\bf Message\+Buffer} \& {\bfseries operator$>$$>$} (bool \&bool\+Value)\label{classMessageBuffer_a8fc7c8c27d13167bc128c304b6b448cc}
+
+\item 
+{\bf Message\+Buffer} \& {\bfseries operator$>$$>$} ({\bf Mailbox\+Address} \&mailbox\+Value)\label{classMessageBuffer_aae51c6593edf71c99a97af104f051e47}
+
+\item 
+bool {\bf are\+Contents\+Processed} ()
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf O\+P\+M\+Base} $\ast$ {\bf initialize} (int initializer)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Message\+Buffer@{Message\+Buffer}!Message\+Buffer@{Message\+Buffer}}
+\index{Message\+Buffer@{Message\+Buffer}!Message\+Buffer@{Message\+Buffer}}
+\subsubsection[{Message\+Buffer(unsigned short buffer\+Size=\+M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+T\+H, bool perform\+Network\+Conversion=true)}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Buffer\+::\+Message\+Buffer (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{buffer\+Size = {\ttfamily MAX\+\_\+MESSAGE\+\_\+LENGTH}, }
+\item[{bool}]{perform\+Network\+Conversion = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{classMessageBuffer_a36cb07e689ea4bf59df9b7fb97c086ab}
+Constructor 
+
+References Message\+Buffer().
+
+
+
+Referenced by Message\+Buffer().
+
+\index{Message\+Buffer@{Message\+Buffer}!Message\+Buffer@{Message\+Buffer}}
+\index{Message\+Buffer@{Message\+Buffer}!Message\+Buffer@{Message\+Buffer}}
+\subsubsection[{Message\+Buffer(unsigned char $\ast$buffer\+Ptr, unsigned short buffer\+Size, bool perform\+Network\+Conversion=true)}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Buffer\+::\+Message\+Buffer (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{buffer\+Ptr, }
+\item[{unsigned short}]{buffer\+Size, }
+\item[{bool}]{perform\+Network\+Conversion = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{classMessageBuffer_a2bdfb271aa5d6f41fb762862ceeaa55d}
+Constructor 
+
+References Message\+Buffer().
+
+\index{Message\+Buffer@{Message\+Buffer}!````~Message\+Buffer@{$\sim$\+Message\+Buffer}}
+\index{````~Message\+Buffer@{$\sim$\+Message\+Buffer}!Message\+Buffer@{Message\+Buffer}}
+\subsubsection[{$\sim$\+Message\+Buffer()}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Buffer\+::$\sim$\+Message\+Buffer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMessageBuffer_a9b75bc9b932dd5ac39c35b35b4f18a80}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Message\+Buffer@{Message\+Buffer}!are\+Contents\+Processed@{are\+Contents\+Processed}}
+\index{are\+Contents\+Processed@{are\+Contents\+Processed}!Message\+Buffer@{Message\+Buffer}}
+\subsubsection[{are\+Contents\+Processed()}]{\setlength{\rightskip}{0pt plus 5cm}bool Message\+Buffer\+::are\+Contents\+Processed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageBuffer_a5197b286c2cd806b1d8654eca141e2e2}
+Method to return whether or not this Message Buffer has been completely deserialized based on the position of the deserialize\+From\+Ptr 
+
+Referenced by Distributed\+Mailbox\+::create\+Mailbox(), and Group\+Mailbox\+::create\+Mailbox().
+
+\index{Message\+Buffer@{Message\+Buffer}!assign\+Buffer@{assign\+Buffer}}
+\index{assign\+Buffer@{assign\+Buffer}!Message\+Buffer@{Message\+Buffer}}
+\subsubsection[{assign\+Buffer(unsigned char $\ast$buffer\+Ptr, unsigned short buffer\+Size)}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Buffer\+::assign\+Buffer (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{buffer\+Ptr, }
+\item[{unsigned short}]{buffer\+Size}
+\end{DoxyParamCaption}
+)}\label{classMessageBuffer_aa169ea82877e13c796cf2a1ba4033e91}
+Method to assign the contents of the buffer 
+
+Referenced by Local\+S\+M\+Mailbox\+::get\+Mailbox\+Address().
+
+\index{Message\+Buffer@{Message\+Buffer}!assign\+Empty\+Buffer@{assign\+Empty\+Buffer}}
+\index{assign\+Empty\+Buffer@{assign\+Empty\+Buffer}!Message\+Buffer@{Message\+Buffer}}
+\subsubsection[{assign\+Empty\+Buffer(unsigned char $\ast$buffer\+Ptr, unsigned short max\+Buffer\+Size)}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Buffer\+::assign\+Empty\+Buffer (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{buffer\+Ptr, }
+\item[{unsigned short}]{max\+Buffer\+Size}
+\end{DoxyParamCaption}
+)}\label{classMessageBuffer_ac04f7e9aa9e84ae44f532a6c5b7e38dd}
+Method to assign empty contents to the buffer \index{Message\+Buffer@{Message\+Buffer}!clean@{clean}}
+\index{clean@{clean}!Message\+Buffer@{Message\+Buffer}}
+\subsubsection[{clean()}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Buffer\+::clean (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMessageBuffer_a5f97e8b2995f91fa097b1cf330fe11f6}
+\doxyref{O\+P\+M\+Base}{p.}{classOPMBase} clean method gets called when the object gets released back into its pool 
+
+Implements {\bf O\+P\+M\+Base} \doxyref{}{p.}{classOPMBase_ad9ff8bb1ca9a1edfaaeb702f341713e9}.
+
+
+
+References clear\+Buffer().
+
+\index{Message\+Buffer@{Message\+Buffer}!clear\+Buffer@{clear\+Buffer}}
+\index{clear\+Buffer@{clear\+Buffer}!Message\+Buffer@{Message\+Buffer}}
+\subsubsection[{clear\+Buffer()}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Buffer\+::clear\+Buffer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageBuffer_a6762227db0063df8dc178b3898702102}
+Method to clear out the buffer 
+
+Referenced by clean(), Distributed\+Mailbox\+::create\+Mailbox(), Group\+Mailbox\+::create\+Mailbox(), and Local\+S\+M\+Mailbox\+::get\+Mailbox\+Address().
+
+\index{Message\+Buffer@{Message\+Buffer}!get\+Buffer@{get\+Buffer}}
+\index{get\+Buffer@{get\+Buffer}!Message\+Buffer@{Message\+Buffer}}
+\subsubsection[{get\+Buffer()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char $\ast$ Message\+Buffer\+::get\+Buffer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageBuffer_af531cf3d510640553a97257f1a912955}
+Method to return the encapsulated buffer 
+
+Referenced by Distributed\+Mailbox\+::create\+Mailbox(), and Group\+Mailbox\+::create\+Mailbox().
+
+\index{Message\+Buffer@{Message\+Buffer}!get\+Buffer\+Length@{get\+Buffer\+Length}}
+\index{get\+Buffer\+Length@{get\+Buffer\+Length}!Message\+Buffer@{Message\+Buffer}}
+\subsubsection[{get\+Buffer\+Length()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Message\+Buffer\+::get\+Buffer\+Length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageBuffer_af762a91a8c47018d0babe6fb1c280563}
+Return the size of the encapsulated buffer contents \index{Message\+Buffer@{Message\+Buffer}!get\+Max\+Buffer\+Length@{get\+Max\+Buffer\+Length}}
+\index{get\+Max\+Buffer\+Length@{get\+Max\+Buffer\+Length}!Message\+Buffer@{Message\+Buffer}}
+\subsubsection[{get\+Max\+Buffer\+Length()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Message\+Buffer\+::get\+Max\+Buffer\+Length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageBuffer_aa77dc3c359fd77dab76eef8fdcc530a1}
+Return the max buffer length \index{Message\+Buffer@{Message\+Buffer}!initialize@{initialize}}
+\index{initialize@{initialize}!Message\+Buffer@{Message\+Buffer}}
+\subsubsection[{initialize(int initializer)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf O\+P\+M\+Base} $\ast$ Message\+Buffer\+::initialize (
+\begin{DoxyParamCaption}
+\item[{int}]{initializer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMessageBuffer_ab8e6c549bd00fed6a754169ed1bce678}
+\doxyref{O\+P\+M\+Base}{p.}{classOPMBase} static initializer method for bootstrapping the objects 
+\begin{DoxyParams}{Parameters}
+{\em initializer} & Here the initializer will be the message buffer size to create. This assumes that we will have an \doxyref{O\+PM}{p.}{classOPM} object pool for each size of Message Buffer that we need. \\
+\hline
+\end{DoxyParams}
+
+
+Referenced by Distributed\+Mailbox\+Proxy\+::\+Distributed\+Mailbox\+Proxy(), Group\+Mailbox\+Proxy\+::\+Group\+Mailbox\+Proxy(), and Local\+S\+M\+Mailbox\+Proxy\+::\+Local\+S\+M\+Mailbox\+Proxy().
+
+\index{Message\+Buffer@{Message\+Buffer}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Message\+Buffer@{Message\+Buffer}}
+\subsubsection[{operator$<$$<$(int int\+Value)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Message\+Buffer} \& Message\+Buffer\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{int}]{int\+Value}
+\end{DoxyParamCaption}
+)}\label{classMessageBuffer_a2e33a7215d756ce35592ba9e238f1c25}
+Overloaded insertion operators for the buffer 
+
+References Mailbox\+Address\+::inet\+Address, Mailbox\+Address\+::location\+Type, Mailbox\+Address\+::mailbox\+Name, Mailbox\+Address\+::mailbox\+Type, Mailbox\+Address\+::neid, Mailbox\+Address\+::redundant\+Role, Mailbox\+Address\+::shelf\+Number, and Mailbox\+Address\+::slot\+Number.
+
+\index{Message\+Buffer@{Message\+Buffer}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Message\+Buffer@{Message\+Buffer}}
+\subsubsection[{operator$>$$>$(int \&int\+Value)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Message\+Buffer} \& Message\+Buffer\+::operator$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{int \&}]{int\+Value}
+\end{DoxyParamCaption}
+)}\label{classMessageBuffer_ae72aee5f48781456c4dd945fa041d017}
+Overloaded extraction operators for the buffer 
+
+References Mailbox\+Address\+::inet\+Address, Mailbox\+Address\+::location\+Type, Mailbox\+Address\+::mailbox\+Name, Mailbox\+Address\+::mailbox\+Type, Mailbox\+Address\+::neid, Mailbox\+Address\+::redundant\+Role, Mailbox\+Address\+::shelf\+Number, and Mailbox\+Address\+::slot\+Number.
+
+\index{Message\+Buffer@{Message\+Buffer}!set\+Insert\+Position@{set\+Insert\+Position}}
+\index{set\+Insert\+Position@{set\+Insert\+Position}!Message\+Buffer@{Message\+Buffer}}
+\subsubsection[{set\+Insert\+Position(unsigned short n\+Bytes)}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Buffer\+::set\+Insert\+Position (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{n\+Bytes}
+\end{DoxyParamCaption}
+)}\label{classMessageBuffer_a7acd8585185a7b1e35cd990e4e5058d8}
+Method to control the insertion position into the buffer 
+
+Referenced by Distributed\+Mailbox\+::create\+Mailbox(), Group\+Mailbox\+::create\+Mailbox(), and Local\+S\+M\+Mailbox\+::get\+Mailbox\+Address().
+
+\index{Message\+Buffer@{Message\+Buffer}!set\+Network\+Conversion@{set\+Network\+Conversion}}
+\index{set\+Network\+Conversion@{set\+Network\+Conversion}!Message\+Buffer@{Message\+Buffer}}
+\subsubsection[{set\+Network\+Conversion(bool perform\+Network\+Conversion)}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Buffer\+::set\+Network\+Conversion (
+\begin{DoxyParamCaption}
+\item[{bool}]{perform\+Network\+Conversion}
+\end{DoxyParamCaption}
+)}\label{classMessageBuffer_ace12cc1ef4e22d9946138010831853ac}
+Method to set the Network Conversion mode. 
+\begin{DoxyParams}{Parameters}
+{\em perform\+Network\+Conversion} & true is network bit conversion should be performed; otherwise false (for shared memory operations) \\
+\hline
+\end{DoxyParams}
+\index{Message\+Buffer@{Message\+Buffer}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Message\+Buffer@{Message\+Buffer}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Message\+Buffer\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageBuffer_ac8d138f69669b78bbbdc243d5262b319}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Message\+Buffer.\+h\item 
+Message\+Buffer.\+cpp\end{DoxyCompactItemize}

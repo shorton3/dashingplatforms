@@ -1,0 +1,120 @@
+\section{Message\+Test\+Group Class Reference}
+\label{classMessageTestGroup}\index{Message\+Test\+Group@{Message\+Test\+Group}}
+
+
+{\ttfamily \#include $<$Message\+Test\+Group.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Message\+Test\+Group} ()
+\item 
+virtual {\bf $\sim$\+Message\+Test\+Group} ()
+\item 
+void {\bf process\+Mailbox} ()
+\item 
+Mailbox\+Owner\+Handle $\ast$ {\bf get\+Owner\+Handle} ()
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf Message\+Test\+Group} $\ast$ {\bf get\+Instance} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Message\+Test\+Group}{p.}{classMessageTestGroup} is a collection of unit test procedures for the Msg\+Mgr framework. This class deals exclusively with Group Mailboxes. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Message\+Test\+Group@{Message\+Test\+Group}!Message\+Test\+Group@{Message\+Test\+Group}}
+\index{Message\+Test\+Group@{Message\+Test\+Group}!Message\+Test\+Group@{Message\+Test\+Group}}
+\subsubsection[{Message\+Test\+Group()}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Test\+Group\+::\+Message\+Test\+Group (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestGroup_a4f8c7e1d8ccaad92d755e39f8ca50c4c}
+Constructor 
+
+Referenced by to\+String().
+
+\index{Message\+Test\+Group@{Message\+Test\+Group}!````~Message\+Test\+Group@{$\sim$\+Message\+Test\+Group}}
+\index{````~Message\+Test\+Group@{$\sim$\+Message\+Test\+Group}!Message\+Test\+Group@{Message\+Test\+Group}}
+\subsubsection[{$\sim$\+Message\+Test\+Group()}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Test\+Group\+::$\sim$\+Message\+Test\+Group (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMessageTestGroup_a39964199f709ac1590dc89a28d9f5414}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Message\+Test\+Group@{Message\+Test\+Group}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Message\+Test\+Group@{Message\+Test\+Group}}
+\subsubsection[{get\+Instance()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Message\+Test\+Group} $\ast$ Message\+Test\+Group\+::get\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMessageTestGroup_a724a9e896050c90838d859661c567012}
+Returns static singleton instance 
+
+Referenced by to\+String().
+
+\index{Message\+Test\+Group@{Message\+Test\+Group}!get\+Owner\+Handle@{get\+Owner\+Handle}}
+\index{get\+Owner\+Handle@{get\+Owner\+Handle}!Message\+Test\+Group@{Message\+Test\+Group}}
+\subsubsection[{get\+Owner\+Handle()}]{\setlength{\rightskip}{0pt plus 5cm}Mailbox\+Owner\+Handle $\ast$ Message\+Test\+Group\+::get\+Owner\+Handle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestGroup_abc2a5b0227d37aee1ff17cb4fdd99678}
+Returns pointer to the owner handle of the main mailbox 
+
+References Message\+Test\+Group\+Message\+::deserialize().
+
+
+
+Referenced by to\+String().
+
+\index{Message\+Test\+Group@{Message\+Test\+Group}!process\+Mailbox@{process\+Mailbox}}
+\index{process\+Mailbox@{process\+Mailbox}!Message\+Test\+Group@{Message\+Test\+Group}}
+\subsubsection[{process\+Mailbox()}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Test\+Group\+::process\+Mailbox (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestGroup_a716a250d6ff453f2bc7e466b53007d46}
+Start the mailbox processing loop 
+
+References Message\+Test1\+Message\+::to\+String(), and Message\+Test\+Group\+Message\+::to\+String().
+
+
+
+Referenced by to\+String().
+
+\index{Message\+Test\+Group@{Message\+Test\+Group}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Message\+Test\+Group@{Message\+Test\+Group}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Message\+Test\+Group\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestGroup_a3b63a6c1b4a670ff73ec324d7c25117f}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+References get\+Instance(), get\+Owner\+Handle(), Message\+Test\+Group(), and process\+Mailbox().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Message\+Test\+Group.\+h\item 
+Message\+Test\+Group.\+cpp\end{DoxyCompactItemize}

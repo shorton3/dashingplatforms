@@ -1,0 +1,140 @@
+\section{Message\+Block\+Wrapper Class Reference}
+\label{classMessageBlockWrapper}\index{Message\+Block\+Wrapper@{Message\+Block\+Wrapper}}
+
+
+{\ttfamily \#include $<$Message\+Block\+Wrapper.\+h$>$}
+
+Inheritance diagram for Message\+Block\+Wrapper\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classMessageBlockWrapper}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Message\+Block\+Wrapper} (int block\+Size=0)
+\item 
+virtual {\bf $\sim$\+Message\+Block\+Wrapper} ()
+\item 
+void {\bf clean} ()
+\item 
+void {\bf base} (char $\ast$data, size\+\_\+t size)
+\item 
+char $\ast$ {\bf base} (void) const 
+\item 
+void {\bf msg\+\_\+priority} (unsigned long priority)
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf O\+P\+M\+Base} $\ast$ {\bf initialize} (int initializer)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Message\+Block\+Wrapper}{p.}{classMessageBlockWrapper} is a wrapper class around the A\+C\+E\+\_\+\+Message\+\_\+\+Block class. 
+
+This simple wrapper exists so that we can create a pool of A\+C\+E\+\_\+\+Message\+\_\+\+Blocks inside the \doxyref{O\+PM}{p.}{classOPM}. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Message\+Block\+Wrapper@{Message\+Block\+Wrapper}!Message\+Block\+Wrapper@{Message\+Block\+Wrapper}}
+\index{Message\+Block\+Wrapper@{Message\+Block\+Wrapper}!Message\+Block\+Wrapper@{Message\+Block\+Wrapper}}
+\subsubsection[{Message\+Block\+Wrapper(int block\+Size=0)}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Block\+Wrapper\+::\+Message\+Block\+Wrapper (
+\begin{DoxyParamCaption}
+\item[{int}]{block\+Size = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classMessageBlockWrapper_ae6696f050d676c745b6805ad4c63ba31}
+Constructor 
+
+Referenced by initialize().
+
+\index{Message\+Block\+Wrapper@{Message\+Block\+Wrapper}!````~Message\+Block\+Wrapper@{$\sim$\+Message\+Block\+Wrapper}}
+\index{````~Message\+Block\+Wrapper@{$\sim$\+Message\+Block\+Wrapper}!Message\+Block\+Wrapper@{Message\+Block\+Wrapper}}
+\subsubsection[{$\sim$\+Message\+Block\+Wrapper()}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Block\+Wrapper\+::$\sim$\+Message\+Block\+Wrapper (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMessageBlockWrapper_af036f589367805f0123a5b9bbd86a243}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Message\+Block\+Wrapper@{Message\+Block\+Wrapper}!base@{base}}
+\index{base@{base}!Message\+Block\+Wrapper@{Message\+Block\+Wrapper}}
+\subsubsection[{base(char $\ast$data, size\+\_\+t size)}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Block\+Wrapper\+::base (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{data, }
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\label{classMessageBlockWrapper_a018269b029b1c9b9f4833384d81117ff}
+Overridden A\+C\+E\+\_\+\+Message\+\_\+\+Block Method 
+
+Referenced by Local\+Mailbox\+::post().
+
+\index{Message\+Block\+Wrapper@{Message\+Block\+Wrapper}!base@{base}}
+\index{base@{base}!Message\+Block\+Wrapper@{Message\+Block\+Wrapper}}
+\subsubsection[{base(void) const }]{\setlength{\rightskip}{0pt plus 5cm}char $\ast$ Message\+Block\+Wrapper\+::base (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\label{classMessageBlockWrapper_af2a929b1b7b36098d21f7d12e970e8ee}
+Overridden A\+C\+E\+\_\+\+Message\+\_\+\+Block Method \index{Message\+Block\+Wrapper@{Message\+Block\+Wrapper}!clean@{clean}}
+\index{clean@{clean}!Message\+Block\+Wrapper@{Message\+Block\+Wrapper}}
+\subsubsection[{clean()}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Block\+Wrapper\+::clean (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMessageBlockWrapper_ade112487b46f4657a938a718eeaa8bd1}
+\doxyref{O\+P\+M\+Base}{p.}{classOPMBase} clean method gets called when the object gets released back into its pool 
+
+Implements {\bf O\+P\+M\+Base} \doxyref{}{p.}{classOPMBase_ad9ff8bb1ca9a1edfaaeb702f341713e9}.
+
+\index{Message\+Block\+Wrapper@{Message\+Block\+Wrapper}!initialize@{initialize}}
+\index{initialize@{initialize}!Message\+Block\+Wrapper@{Message\+Block\+Wrapper}}
+\subsubsection[{initialize(int initializer)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf O\+P\+M\+Base} $\ast$ Message\+Block\+Wrapper\+::initialize (
+\begin{DoxyParamCaption}
+\item[{int}]{initializer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMessageBlockWrapper_afc84906d300caffd1763e70475b79b4d}
+\doxyref{O\+P\+M\+Base}{p.}{classOPMBase} static initializer method for bootstrapping the objects 
+
+References Message\+Block\+Wrapper().
+
+
+
+Referenced by Local\+Mailbox\+::\+Local\+Mailbox().
+
+\index{Message\+Block\+Wrapper@{Message\+Block\+Wrapper}!msg\+\_\+priority@{msg\+\_\+priority}}
+\index{msg\+\_\+priority@{msg\+\_\+priority}!Message\+Block\+Wrapper@{Message\+Block\+Wrapper}}
+\subsubsection[{msg\+\_\+priority(unsigned long priority)}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Block\+Wrapper\+::msg\+\_\+priority (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{priority}
+\end{DoxyParamCaption}
+)}\label{classMessageBlockWrapper_a51162d5e00457ad61a3e8ec040a92819}
+Overridden A\+C\+E\+\_\+\+Message\+\_\+\+Block Method \index{Message\+Block\+Wrapper@{Message\+Block\+Wrapper}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Message\+Block\+Wrapper@{Message\+Block\+Wrapper}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Message\+Block\+Wrapper\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageBlockWrapper_a746ec5b33c23d2ab39f6362daddd40aa}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Message\+Block\+Wrapper.\+h\item 
+Message\+Block\+Wrapper.\+cpp\end{DoxyCompactItemize}

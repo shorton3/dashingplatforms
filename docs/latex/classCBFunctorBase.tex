@@ -1,0 +1,79 @@
+\section{C\+B\+Functor\+Base Class Reference}
+\label{classCBFunctorBase}\index{C\+B\+Functor\+Base@{C\+B\+Functor\+Base}}
+Inheritance diagram for C\+B\+Functor\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{classCBFunctorBase}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class {\bf Dummy\+Init}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ {\bfseries M\+E\+M\+\_\+\+F\+U\+N\+C\+\_\+\+S\+I\+ZE} = sizeof(P\+Mem\+Func)
+ \}\label{classCBFunctorBase_abd5a4f1e7a01526a7531a0a10baea05a}
+
+\item 
+typedef void(C\+B\+Functor\+Base\+::$\ast$ {\bfseries P\+Mem\+Func}) ()\label{classCBFunctorBase_a0b6994a0ae24a0179f34884c3b3b1f81}
+
+\item 
+typedef void($\ast$ {\bfseries P\+Func}) ()\label{classCBFunctorBase_a4f0b9826c15d940e073292ce7bfae312}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries operator R\+H\+C\+B\+\_\+\+B\+O\+OL} () const \label{classCBFunctorBase_af34a298bd07b00a2c7a89c98e7b96f79}
+
+\item 
+P\+Func {\bfseries get\+Func} () const \label{classCBFunctorBase_a6429f4fb4cedd4d37f9dac39e93e4e21}
+
+\item 
+void $\ast$ {\bfseries get\+Callee} () const \label{classCBFunctorBase_a914255b831c1278ba0587b7496a08313}
+
+\item 
+const char $\ast$ {\bfseries get\+Mem\+Func} () const \label{classCBFunctorBase_a360081a2dde017999e385eff7448be64}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries C\+B\+Functor\+Base} (const void $\ast$c, P\+Func f, const void $\ast$mf, size\+\_\+t sz)\label{classCBFunctorBase_ad26c29cddb39d6b9767c2d04f9490e65}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ {\bfseries callee}\label{classCBFunctorBase_a4350b45a3bc31a07ef188c61ee7af584}
+
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>PFunc {\bfseries func}\\
+\>char {\bfseries memFunc} [MEM\_FUNC\_SIZE]\\
+\}; \label{classCBFunctorBase_af130b02d1cd0d194b552c70725830164}
+\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+R\+H\+C\+B\+\_\+\+B\+O\+OL {\bfseries operator==} (const {\bf C\+B\+Functor\+Base} \&lhs, const {\bf C\+B\+Functor\+Base} \&rhs)\label{classCBFunctorBase_a227c0f351c0050b1d8c8fb5eb21fda4a}
+
+\item 
+R\+H\+C\+B\+\_\+\+B\+O\+OL {\bfseries operator!=} (const {\bf C\+B\+Functor\+Base} \&lhs, const {\bf C\+B\+Functor\+Base} \&rhs)\label{classCBFunctorBase_a71e018e8e95ad4ac2722f07bcf006fbc}
+
+\item 
+R\+H\+C\+B\+\_\+\+B\+O\+OL {\bfseries operator$<$} (const {\bf C\+B\+Functor\+Base} \&lhs, const {\bf C\+B\+Functor\+Base} \&rhs)\label{classCBFunctorBase_a34ea68bc41f2e609f96a31cc6c224c70}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Callback.\+h\end{DoxyCompactItemize}

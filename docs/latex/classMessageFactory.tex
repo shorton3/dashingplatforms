@@ -1,0 +1,78 @@
+\section{Message\+Factory Class Reference}
+\label{classMessageFactory}\index{Message\+Factory@{Message\+Factory}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef map$<$ unsigned short, {\bf Message\+Boot\+Strap\+Method} $>$ {\bf Message\+Factory\+Registry}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bf $\sim$\+Message\+Factory} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bf register\+Support} (unsigned short message\+Id, {\bf Message\+Boot\+Strap\+Method} \&message\+Creator)
+\item 
+static {\bf Message\+Base} $\ast$ {\bf recreate\+Message\+From\+Buffer} ({\bf Message\+Buffer} \&buffer)
+\item 
+static void {\bf list\+Registered\+Messages} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\index{Message\+Factory@{Message\+Factory}!Message\+Factory\+Registry@{Message\+Factory\+Registry}}
+\index{Message\+Factory\+Registry@{Message\+Factory\+Registry}!Message\+Factory@{Message\+Factory}}
+\subsubsection[{Message\+Factory\+Registry}]{\setlength{\rightskip}{0pt plus 5cm}typedef map$<$unsigned short, {\bf Message\+Boot\+Strap\+Method}$>$ {\bf Message\+Factory\+::\+Message\+Factory\+Registry}}\label{classMessageFactory_a96fbe1691ebd3a2f9b9cbc494e2677c2}
+\doxyref{Map}{p.}{classMap} to implement the registry for mapping Message Bootstrap methods to their Message Ids 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Message\+Factory@{Message\+Factory}!````~Message\+Factory@{$\sim$\+Message\+Factory}}
+\index{````~Message\+Factory@{$\sim$\+Message\+Factory}!Message\+Factory@{Message\+Factory}}
+\subsubsection[{$\sim$\+Message\+Factory()}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Factory\+::$\sim$\+Message\+Factory (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMessageFactory_a9fe54aba5d7aad2fdb4c2af043d3141f}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Message\+Factory@{Message\+Factory}!list\+Registered\+Messages@{list\+Registered\+Messages}}
+\index{list\+Registered\+Messages@{list\+Registered\+Messages}!Message\+Factory@{Message\+Factory}}
+\subsubsection[{list\+Registered\+Messages()}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Factory\+::list\+Registered\+Messages (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMessageFactory_a3d14a8757ae75bdc9eacb5183de62df1}
+Output registered message Ids \index{Message\+Factory@{Message\+Factory}!recreate\+Message\+From\+Buffer@{recreate\+Message\+From\+Buffer}}
+\index{recreate\+Message\+From\+Buffer@{recreate\+Message\+From\+Buffer}!Message\+Factory@{Message\+Factory}}
+\subsubsection[{recreate\+Message\+From\+Buffer(\+Message\+Buffer \&buffer)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Message\+Base} $\ast$ Message\+Factory\+::recreate\+Message\+From\+Buffer (
+\begin{DoxyParamCaption}
+\item[{{\bf Message\+Buffer} \&}]{buffer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMessageFactory_ad92e202008ffd351855fe95900e26ab7}
+Convert the buffer back into its Message object form 
+
+Referenced by Distributed\+Mailbox\+::create\+Mailbox(), Group\+Mailbox\+::create\+Mailbox(), and Local\+S\+M\+Mailbox\+::get\+Mailbox\+Address().
+
+\index{Message\+Factory@{Message\+Factory}!register\+Support@{register\+Support}}
+\index{register\+Support@{register\+Support}!Message\+Factory@{Message\+Factory}}
+\subsubsection[{register\+Support(unsigned short message\+Id, Message\+Boot\+Strap\+Method \&message\+Creator)}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Factory\+::register\+Support (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{message\+Id, }
+\item[{{\bf Message\+Boot\+Strap\+Method} \&}]{message\+Creator}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMessageFactory_a8d4f06fb7053776fa46c953a8d1e96e4}
+Allows applications to register Message Factory support for a specified Message Id and supplied static initializer (bootstrap) method. 
+
+Developers should note that the static bootstrap method is most usually the overriden static \textquotesingle{}deserialize\textquotesingle{} method implemented within the Message class (inherited from \doxyref{Message\+Base}{p.}{classMessageBase}). However, if complex deserialization logic is required (or if deserialization is dependent on application variables), any static bootstrap method can be supplied here. 
+
+Referenced by Discovery\+Manager\+::initialize().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Message\+Factory.\+h\item 
+Message\+Factory.\+cpp\end{DoxyCompactItemize}

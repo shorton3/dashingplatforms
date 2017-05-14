@@ -1,0 +1,73 @@
+\section{O\+P\+M\+Test Class Reference}
+\label{classOPMTest}\index{O\+P\+M\+Test@{O\+P\+M\+Test}}
+
+
+{\ttfamily \#include $<$O\+P\+M\+Test.\+h$>$}
+
+Inheritance diagram for O\+P\+M\+Test\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classOPMTest}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf clean} ()
+\item 
+void {\bf do\+Something} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static O\+P\+M\+Base $\ast$ {\bf initialize} (int initializer)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Test class header file inherits from O\+P\+M\+Base 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Member Function Documentation}
+\index{O\+P\+M\+Test@{O\+P\+M\+Test}!clean@{clean}}
+\index{clean@{clean}!O\+P\+M\+Test@{O\+P\+M\+Test}}
+\subsubsection[{clean()}]{\setlength{\rightskip}{0pt plus 5cm}void O\+P\+M\+Test\+::clean (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classOPMTest_a5619347fd31657c0e1ef9739a7e52dc8}
+Pure Virtual method will be called before releasing the object back into the pool. \index{O\+P\+M\+Test@{O\+P\+M\+Test}!do\+Something@{do\+Something}}
+\index{do\+Something@{do\+Something}!O\+P\+M\+Test@{O\+P\+M\+Test}}
+\subsubsection[{do\+Something()}]{\setlength{\rightskip}{0pt plus 5cm}void O\+P\+M\+Test\+::do\+Something (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classOPMTest_ad3b8bd39a68ed32fab3fbfc1835e5199}
+Test method \index{O\+P\+M\+Test@{O\+P\+M\+Test}!initialize@{initialize}}
+\index{initialize@{initialize}!O\+P\+M\+Test@{O\+P\+M\+Test}}
+\subsubsection[{initialize(int initializer)}]{\setlength{\rightskip}{0pt plus 5cm}O\+P\+M\+Base $\ast$ O\+P\+M\+Test\+::initialize (
+\begin{DoxyParamCaption}
+\item[{int}]{initializer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classOPMTest_a61a7ecc4f24502989619f73ea86136b9}
+Method will be called when the pool is created with these objects. This method bootstraps the creation of each object. T\+H\+IS O\+V\+E\+R\+R\+I\+D\+ES the initialize method in O\+P\+M\+B\+A\+SE (can\textquotesingle{}t be both virtual and static) 
+\begin{DoxyParams}{Parameters}
+{\em initializer} & -\/ Initializer integer or pointer to initialization data needed by the object -\/ may be 0 if unused. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the new O\+P\+M\+Base object. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+O\+P\+M\+Test.\+h\item 
+O\+P\+M\+Test.\+cpp\end{DoxyCompactItemize}

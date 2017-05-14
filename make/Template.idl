@@ -1,0 +1,64 @@
+/******************************************************************************
+*
+* File name:   Template.idl
+* Subsystem:   EMS
+* Description: !!!! Put your description here !!!!
+*
+* Name                 Date       Release
+* -------------------- ---------- ---------------------------------------------
+* Your Name            01/01/2014 Initial release
+*
+*
+******************************************************************************/
+
+#ifndef EMS_Template_idl
+#define EMS_Template_idl
+
+//-----------------------------------------------------------------------------
+// IDL include list
+//-----------------------------------------------------------------------------
+
+
+/**
+ * Template short description here.
+ * <p>
+ * Template long description here.
+ * blah, blah, blah
+ * <p>
+ * $Author: Your Name$
+ * $Revision: 1$
+ */
+
+module Template
+{
+
+   /**
+    * some structure 
+    */
+   struct someStruct
+   {
+      string someValue1;
+      string someValue2;
+   };//end someStruct
+
+
+   /**
+    * Command/Method interface
+    */
+   interface Template_I
+   {
+      /**
+       * Do some procedure/method call
+       */
+      void doSomething(in someStruct values, out short status);
+
+      /**
+       * Some string attribute
+       */
+      attribute string someString;
+   };//end interface
+
+};//end of Template
+
+#endif
+

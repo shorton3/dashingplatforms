@@ -1,0 +1,202 @@
+\section{Distributed\+Mailbox\+Proxy Class Reference}
+\label{classDistributedMailboxProxy}\index{Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}}
+Inheritance diagram for Distributed\+Mailbox\+Proxy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classDistributedMailboxProxy}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual int {\bf post} ({\bf Message\+Base} $\ast$message\+Ptr, const A\+C\+E\+\_\+\+Time\+\_\+\+Value $\ast$timeout=\&A\+C\+E\+\_\+\+Time\+\_\+\+Value\+::zero)
+\item 
+virtual int {\bf activate} ({\bf Mailbox\+Owner\+Handle} $\ast$mailbox\+Owner\+Handle)
+\item 
+virtual int {\bf deactivate} ({\bf Mailbox\+Owner\+Handle} $\ast$mailbox\+Owner\+Handle)
+\item 
+virtual const A\+C\+E\+\_\+\+Time\+\_\+\+Value \& {\bf get\+Post\+Default\+Timeout} ()
+\item 
+virtual int {\bf get\+Debug\+Value} ()
+\item 
+virtual void {\bf set\+Debug\+Value} (int debug\+Value)
+\item 
+{\bf Mailbox\+Address} \& {\bf get\+Mailbox\+Address} ()
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf Mailbox\+Owner\+Handle} $\ast$ {\bf create\+Mailbox} (const {\bf Mailbox\+Address} \&remote\+Address)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Distributed\+Mailbox\+Proxy} (const {\bf Mailbox\+Address} \&remote\+Address)
+\item 
+virtual {\bf $\sim$\+Distributed\+Mailbox\+Proxy} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}!Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}}
+\index{Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}!Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}}
+\subsubsection[{Distributed\+Mailbox\+Proxy(const Mailbox\+Address \&remote\+Address)}]{\setlength{\rightskip}{0pt plus 5cm}Distributed\+Mailbox\+Proxy\+::\+Distributed\+Mailbox\+Proxy (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{remote\+Address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classDistributedMailboxProxy_a529676c5c5d33eae4814bb08b847b3e9}
+Constructor 
+
+References O\+P\+M\+::create\+Pool(), Distributed\+Mailbox\+Proxy(), Message\+Buffer\+::initialize(), and Mailbox\+Base\+::is\+Proxy\+\_\+.
+
+
+
+Referenced by Distributed\+Mailbox\+Proxy().
+
+\index{Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}!````~Distributed\+Mailbox\+Proxy@{$\sim$\+Distributed\+Mailbox\+Proxy}}
+\index{````~Distributed\+Mailbox\+Proxy@{$\sim$\+Distributed\+Mailbox\+Proxy}!Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}}
+\subsubsection[{$\sim$\+Distributed\+Mailbox\+Proxy()}]{\setlength{\rightskip}{0pt plus 5cm}Distributed\+Mailbox\+Proxy\+::$\sim$\+Distributed\+Mailbox\+Proxy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classDistributedMailboxProxy_a7bc239e37eb849e0dc8037dbebb621e6}
+Virtual Destructor. Protected since this is a reference counted object. 
+
+References Mailbox\+Base\+::is\+Shutting\+Down\+\_\+.
+
+
+
+\subsection{Member Function Documentation}
+\index{Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}!activate@{activate}}
+\index{activate@{activate}!Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}}
+\subsubsection[{activate(\+Mailbox\+Owner\+Handle $\ast$mailbox\+Owner\+Handle)}]{\setlength{\rightskip}{0pt plus 5cm}int Distributed\+Mailbox\+Proxy\+::activate (
+\begin{DoxyParamCaption}
+\item[{{\bf Mailbox\+Owner\+Handle} $\ast$}]{mailbox\+Owner\+Handle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classDistributedMailboxProxy_a0eca78d4f87db3a4237fc972e6f187e9}
+Activate the mailbox. For security, one must possess an Owner Handle to activate the mailbox and register it with the Lookup Service. 
+
+Reimplemented from {\bf Mailbox\+Base} \doxyref{}{p.}{classMailboxBase_a98c6c4736af9c084d5395d7a4303ec67}.
+
+
+
+References Mailbox\+Address\+::inet\+Address, Mailbox\+Base\+::is\+Active(), Mailbox\+Lookup\+Service\+::register\+Mailbox(), and Mailbox\+Base\+::set\+Active().
+
+\index{Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}!create\+Mailbox@{create\+Mailbox}}
+\index{create\+Mailbox@{create\+Mailbox}!Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}}
+\subsubsection[{create\+Mailbox(const Mailbox\+Address \&remote\+Address)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mailbox\+Owner\+Handle} $\ast$ Distributed\+Mailbox\+Proxy\+::create\+Mailbox (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{remote\+Address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classDistributedMailboxProxy_a4b680a5ef52a6eaab732df6dd0c8eebb}
+Allows applications to create a mailbox and get a handle to it.
+
+Since we do not want applications to have direct access to a mailbox object this method is provided. Applications that create mailboxes use this method to get a handle to their mailbox rather than have direct access. The handle returned is a owner handle which has all the privileges of the actual mailbox (get\+Message/post etc). This method creates the mailbox, activates it (which in turn registers it with the lookup service) and then creates an owner handle, acquires it and then returns that handle. Both the mailbox and the returned handle are created on the heap. 
+
+Referenced by Mailbox\+Lookup\+Service\+::find().
+
+\index{Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}!deactivate@{deactivate}}
+\index{deactivate@{deactivate}!Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}}
+\subsubsection[{deactivate(\+Mailbox\+Owner\+Handle $\ast$mailbox\+Owner\+Handle)}]{\setlength{\rightskip}{0pt plus 5cm}int Distributed\+Mailbox\+Proxy\+::deactivate (
+\begin{DoxyParamCaption}
+\item[{{\bf Mailbox\+Owner\+Handle} $\ast$}]{mailbox\+Owner\+Handle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classDistributedMailboxProxy_a4d984ccc9f6591abd671e9eb6dadbcc4}
+Deactivate the mailbox. For security, one must possess an Owner Handle to deactivate the mailbox and deregister it with the Lookup Service. 
+
+Reimplemented from {\bf Mailbox\+Base} \doxyref{}{p.}{classMailboxBase_a14ba6bd7936f32ecb51763acb89c507c}.
+
+
+
+References Mailbox\+Lookup\+Service\+::deregister\+Mailbox(), Mailbox\+Base\+::is\+Active(), and Mailbox\+Base\+::set\+Active().
+
+\index{Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}!get\+Debug\+Value@{get\+Debug\+Value}}
+\index{get\+Debug\+Value@{get\+Debug\+Value}!Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}}
+\subsubsection[{get\+Debug\+Value()}]{\setlength{\rightskip}{0pt plus 5cm}int Distributed\+Mailbox\+Proxy\+::get\+Debug\+Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classDistributedMailboxProxy_a36039bde300d10e2b5dc104e1e61a057}
+Return the debug flag 
+
+Implements {\bf Mailbox\+Base} \doxyref{}{p.}{classMailboxBase_af5d9b331f7cb55d27517def24cc16de6}.
+
+
+
+References Mailbox\+Base\+::debug\+Value\+\_\+.
+
+\index{Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}!get\+Mailbox\+Address@{get\+Mailbox\+Address}}
+\index{get\+Mailbox\+Address@{get\+Mailbox\+Address}!Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}}
+\subsubsection[{get\+Mailbox\+Address()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mailbox\+Address} \& Distributed\+Mailbox\+Proxy\+::get\+Mailbox\+Address (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classDistributedMailboxProxy_ab1263cbe93c584d84022b480190e7080}
+Return the mailbox distributed address 
+
+Implements {\bf Mailbox\+Base} \doxyref{}{p.}{classMailboxBase_ace28a599cdadf1afa99c94602eb7e4a6}.
+
+\index{Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}!get\+Post\+Default\+Timeout@{get\+Post\+Default\+Timeout}}
+\index{get\+Post\+Default\+Timeout@{get\+Post\+Default\+Timeout}!Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}}
+\subsubsection[{get\+Post\+Default\+Timeout()}]{\setlength{\rightskip}{0pt plus 5cm}const A\+C\+E\+\_\+\+Time\+\_\+\+Value \& Distributed\+Mailbox\+Proxy\+::get\+Post\+Default\+Timeout (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classDistributedMailboxProxy_a413c9f5b24771d55bbacdab4f9bb20f5}
+Return the appropriate default timeout for the \doxyref{post()}{p.}{classDistributedMailboxProxy_af73348ca55313a5e1a6b699ec9900cf7} 
+
+Implements {\bf Mailbox\+Base} \doxyref{}{p.}{classMailboxBase_a7e288209b5f7daf305f8a882a6b806c6}.
+
+\index{Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}!post@{post}}
+\index{post@{post}!Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}}
+\subsubsection[{post(\+Message\+Base $\ast$message\+Ptr, const A\+C\+E\+\_\+\+Time\+\_\+\+Value $\ast$timeout=\&\+A\+C\+E\+\_\+\+Time\+\_\+\+Value\+::zero)}]{\setlength{\rightskip}{0pt plus 5cm}int Distributed\+Mailbox\+Proxy\+::post (
+\begin{DoxyParamCaption}
+\item[{{\bf Message\+Base} $\ast$}]{message\+Ptr, }
+\item[{const A\+C\+E\+\_\+\+Time\+\_\+\+Value $\ast$}]{timeout = {\ttfamily \&ACE\+\_\+Time\+\_\+Value\+:\+:zero}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classDistributedMailboxProxy_af73348ca55313a5e1a6b699ec9900cf7}
+Post a message to the distributed remote mailbox. Subclass implementations should examine the \char`\"{}active\+\_\+\char`\"{} state. Upon initial failure of the post, this proxy mailbox will close and re-\/open the socket and attempt to post the message again automatically. If the the repost fails, then E\+R\+R\+OR will be returned, and it becomes the responsibility of the application to retry the message after deleting the mailbox handle and performing \doxyref{Mailbox\+Lookup\+Service\+::find}{p.}{classMailboxLookupService_a04a96883cc551682e635924884e433ac} (which may return a redundant mate\textquotesingle{}s handle); or, the application can give up and delete the message off of the heap. \begin{DoxyReturn}{Returns}
+zero for an error, non-\/zero otherwise. 
+\end{DoxyReturn}
+
+
+Implements {\bf Mailbox\+Base} \doxyref{}{p.}{classMailboxBase_a6ac15f4fcc8493e7cc1e79310f1129a7}.
+
+
+
+References Mailbox\+Base\+::debug\+Value\+\_\+, Message\+Base\+::delete\+Message(), Message\+Base\+::get\+Message\+Id(), Message\+Base\+::get\+Priority(), Message\+Base\+::get\+Source\+Address(), Mailbox\+Base\+::increment\+Sent\+Count(), Mailbox\+Address\+::inet\+Address, Mailbox\+Base\+::is\+Active(), Message\+Base\+::serialize(), Message\+Base\+::to\+String(), and Mailbox\+Address\+::to\+String().
+
+\index{Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}!set\+Debug\+Value@{set\+Debug\+Value}}
+\index{set\+Debug\+Value@{set\+Debug\+Value}!Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}}
+\subsubsection[{set\+Debug\+Value(int debug\+Value)}]{\setlength{\rightskip}{0pt plus 5cm}void Distributed\+Mailbox\+Proxy\+::set\+Debug\+Value (
+\begin{DoxyParamCaption}
+\item[{int}]{debug\+Value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classDistributedMailboxProxy_a993b782f3aeb9a15c17271169b0442a0}
+Set the debug flag 
+
+Implements {\bf Mailbox\+Base} \doxyref{}{p.}{classMailboxBase_a3be54965c1fafbc4de3d7e6087128a4f}.
+
+
+
+References Mailbox\+Base\+::debug\+Value\+\_\+.
+
+\index{Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Distributed\+Mailbox\+Proxy@{Distributed\+Mailbox\+Proxy}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Distributed\+Mailbox\+Proxy\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDistributedMailboxProxy_a5838564ce52194552e6f26eaf270d391}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Distributed\+Mailbox\+Proxy.\+h\item 
+Distributed\+Mailbox\+Proxy.\+cpp\end{DoxyCompactItemize}

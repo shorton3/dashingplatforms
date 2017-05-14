@@ -1,0 +1,74 @@
+\section{P\+O\+A\+\_\+alarms\+:\+:alarm\+Interface Class Reference}
+\label{classPOA__alarms_1_1alarmInterface}\index{P\+O\+A\+\_\+alarms\+::alarm\+Interface@{P\+O\+A\+\_\+alarms\+::alarm\+Interface}}
+Inheritance diagram for P\+O\+A\+\_\+alarms\+:\+:alarm\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classPOA__alarms_1_1alarmInterface}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef \+::{\bf alarms\+::alarm\+Interface} {\bfseries \+\_\+stub\+\_\+type}\label{classPOA__alarms_1_1alarmInterface_a19c4d001c7378df3cd7780f496a92df1}
+
+\item 
+typedef \+::{\bf alarms\+::alarm\+Interface\+\_\+ptr} {\bfseries \+\_\+stub\+\_\+ptr\+\_\+type}\label{classPOA__alarms_1_1alarmInterface_a0be83487e2b62c501cc02be879ddad99}
+
+\item 
+typedef \+::alarms\+::alarm\+Interface\+\_\+var {\bfseries \+\_\+stub\+\_\+var\+\_\+type}\label{classPOA__alarms_1_1alarmInterface_a7df076c41d2a69ba44c14d8301595178}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries alarm\+Interface} (const {\bf alarm\+Interface} \&rhs)\label{classPOA__alarms_1_1alarmInterface_a2b8cc8b8f609d8ffb8d8ed52265928e7}
+
+\item 
+virtual \+::C\+O\+R\+B\+A\+::\+Boolean {\bfseries \+\_\+is\+\_\+a} (const char $\ast$logical\+\_\+type\+\_\+id)\label{classPOA__alarms_1_1alarmInterface_a254f5738de29b3c689e541a65c8ee4c4}
+
+\item 
+virtual void {\bfseries \+\_\+dispatch} (T\+A\+O\+\_\+\+Server\+Request \&req, void $\ast$servant\+\_\+upcall)\label{classPOA__alarms_1_1alarmInterface_a312627f52989ddc02dd467eb553002e4}
+
+\item 
+\+::{\bf alarms\+::alarm\+Interface} $\ast$ {\bfseries \+\_\+this} (void)\label{classPOA__alarms_1_1alarmInterface_a5e8db78a4bc35212c8e8b5e3744a681b}
+
+\item 
+virtual const char $\ast$ {\bfseries \+\_\+interface\+\_\+repository\+\_\+id} (void) const \label{classPOA__alarms_1_1alarmInterface_a4412493f1fa7f47dadfa2c113664500b}
+
+\item 
+virtual void {\bfseries get\+Outstanding\+Alarms} (\+::alarms\+::\+Alarm\+Notification\+Sequence\+\_\+out outstanding\+Alarms)=0\label{classPOA__alarms_1_1alarmInterface_a53634e90027ff593b08e2e988c145e85}
+
+\item 
+virtual void {\bfseries get\+Alarm\+Inventory} (\+::alarms\+::\+Alarm\+Information\+Sequence\+\_\+out alarm\+Inventory)=0\label{classPOA__alarms_1_1alarmInterface_aae27d7d589b1d16be339c97cf086d02c}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bfseries \+\_\+is\+\_\+a\+\_\+skel} (T\+A\+O\+\_\+\+Server\+Request \&req, void $\ast$servant\+\_\+upcall, void $\ast$servant)\label{classPOA__alarms_1_1alarmInterface_aacd4ea956c0abf70473e5d3a76e93788}
+
+\item 
+static void {\bfseries \+\_\+non\+\_\+existent\+\_\+skel} (T\+A\+O\+\_\+\+Server\+Request \&req, void $\ast$servant\+\_\+upcall, void $\ast$servant)\label{classPOA__alarms_1_1alarmInterface_ad3123e5a8bf16eabeb30685c1944c26c}
+
+\item 
+static void {\bfseries \+\_\+interface\+\_\+skel} (T\+A\+O\+\_\+\+Server\+Request \&req, void $\ast$servant\+\_\+upcall, void $\ast$servant)\label{classPOA__alarms_1_1alarmInterface_ad5362a63bc61c721f626a3da02de23d8}
+
+\item 
+static void {\bfseries \+\_\+component\+\_\+skel} (T\+A\+O\+\_\+\+Server\+Request \&req, void $\ast$servant\+\_\+upcall, void $\ast$servant)\label{classPOA__alarms_1_1alarmInterface_a8892e244f3ef72ead6c038f82ae5f79d}
+
+\item 
+static void {\bfseries \+\_\+repository\+\_\+id\+\_\+skel} (T\+A\+O\+\_\+\+Server\+Request \&req, void $\ast$servant\+\_\+upcall, void $\ast$servant)\label{classPOA__alarms_1_1alarmInterface_adbadea5bda03e03bc68c97eb4e4c2ad7}
+
+\item 
+static void {\bfseries get\+Outstanding\+Alarms\+\_\+skel} (T\+A\+O\+\_\+\+Server\+Request \&server\+\_\+request, void $\ast$servant\+\_\+upcall, void $\ast$servant)\label{classPOA__alarms_1_1alarmInterface_a90beeb7bdfa84c70ceca46198ae23f19}
+
+\item 
+static void {\bfseries get\+Alarm\+Inventory\+\_\+skel} (T\+A\+O\+\_\+\+Server\+Request \&server\+\_\+request, void $\ast$servant\+\_\+upcall, void $\ast$servant)\label{classPOA__alarms_1_1alarmInterface_aba24947d1172829395ada1b9131c823a}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+alarms\+S.\+h\item 
+alarms\+S.\+cpp\end{DoxyCompactItemize}

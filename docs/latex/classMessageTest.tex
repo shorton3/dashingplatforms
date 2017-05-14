@@ -1,0 +1,116 @@
+\section{Message\+Test Class Reference}
+\label{classMessageTest}\index{Message\+Test@{Message\+Test}}
+
+
+{\ttfamily \#include $<$Message\+Test.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Message\+Test} ()
+\item 
+virtual {\bf $\sim$\+Message\+Test} ()
+\item 
+void {\bf process\+Mailbox} ()
+\item 
+Mailbox\+Owner\+Handle $\ast$ {\bf get\+Owner\+Handle} ()
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf Message\+Test} $\ast$ {\bf get\+Instance} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Message\+Test}{p.}{classMessageTest} is a collection of unit test procedures for the Msg\+Mgr framework. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Message\+Test@{Message\+Test}!Message\+Test@{Message\+Test}}
+\index{Message\+Test@{Message\+Test}!Message\+Test@{Message\+Test}}
+\subsubsection[{Message\+Test()}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Test\+::\+Message\+Test (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTest_add1a9f5c8f30a09e5a887b5069e0715e}
+Constructor 
+
+Referenced by to\+String().
+
+\index{Message\+Test@{Message\+Test}!````~Message\+Test@{$\sim$\+Message\+Test}}
+\index{````~Message\+Test@{$\sim$\+Message\+Test}!Message\+Test@{Message\+Test}}
+\subsubsection[{$\sim$\+Message\+Test()}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Test\+::$\sim$\+Message\+Test (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMessageTest_af39ae6229c1543628d1b7c24711199a9}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Message\+Test@{Message\+Test}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Message\+Test@{Message\+Test}}
+\subsubsection[{get\+Instance()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Message\+Test} $\ast$ Message\+Test\+::get\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMessageTest_adf2d841090493687f3fbb16f6cfb7ad9}
+Returns static singleton instance 
+
+Referenced by to\+String().
+
+\index{Message\+Test@{Message\+Test}!get\+Owner\+Handle@{get\+Owner\+Handle}}
+\index{get\+Owner\+Handle@{get\+Owner\+Handle}!Message\+Test@{Message\+Test}}
+\subsubsection[{get\+Owner\+Handle()}]{\setlength{\rightskip}{0pt plus 5cm}Mailbox\+Owner\+Handle $\ast$ Message\+Test\+::get\+Owner\+Handle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTest_a25de159121782f02cf484660d9ec5302}
+Returns pointer to the owner handle of the main mailbox 
+
+Referenced by to\+String().
+
+\index{Message\+Test@{Message\+Test}!process\+Mailbox@{process\+Mailbox}}
+\index{process\+Mailbox@{process\+Mailbox}!Message\+Test@{Message\+Test}}
+\subsubsection[{process\+Mailbox()}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+Test\+::process\+Mailbox (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTest_a7157a64cacd18a9a1df765479d968c7b}
+Start the mailbox processing loop 
+
+References Message\+Test1\+Message\+::to\+String(), and Message\+Test2\+Message\+::to\+String().
+
+
+
+Referenced by to\+String().
+
+\index{Message\+Test@{Message\+Test}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Message\+Test@{Message\+Test}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Message\+Test\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTest_a4bdbe200118c460659e1e47a420ac61e}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+References get\+Instance(), get\+Owner\+Handle(), Message\+Test(), and process\+Mailbox().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Message\+Test.\+h\item 
+Message\+Test.\+cpp\end{DoxyCompactItemize}

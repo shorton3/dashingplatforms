@@ -1,0 +1,401 @@
+\section{O\+PM Class Reference}
+\label{classOPM}\index{O\+PM@{O\+PM}}
+
+
+{\ttfamily \#include $<$O\+P\+M.\+h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool {\bf initialize} ()
+\item 
+static void {\bf shutdown} ()
+\item 
+static int {\bf create\+Pool} (const char $\ast$object\+Type, long object\+Init\+Param, O\+P\+M\+\_\+\+I\+N\+I\+T\+\_\+\+P\+TR boot\+Strap\+Method, double threshold\+Percentage, int capacity\+Increment, int initial\+Size, bool thread\+Safe, O\+P\+M\+Growth\+Mode\+Type growth\+Mode)
+\item 
+static bool {\bf is\+Pool\+Created} (const char $\ast$object\+Type, long object\+Init\+Param)
+\item 
+static int {\bf get\+Object\+Pool\+ID} (const char $\ast$object\+Type, long object\+Init\+Param)
+\item 
+static {\bf O\+P\+M\+Base} $\ast$ {\bf reserve\+Object} (int object\+Pool\+ID, bool block\+Waiting\+For\+Access=true)
+\item 
+static bool {\bf release\+Object} ({\bf O\+P\+M\+Base} $\ast$object, const char $\ast$calling\+File\+Name, int calling\+Line\+Numb)
+\item 
+static bool {\bf is\+Created\+By\+O\+PM} ({\bf O\+P\+M\+Base} $\ast$object\+Ref)
+\item 
+static bool {\bf set\+Pool\+Capacity\+Increment} (int object\+Pool\+ID, int capacity\+Increment)
+\item 
+static int {\bf get\+Pool\+Capacity\+Increment} (int object\+Pool\+ID)
+\item 
+static double {\bf get\+Pool\+Threshold\+Percentage} (int object\+Pool\+ID)
+\item 
+static int {\bf get\+Pool\+Object\+Init\+Param} (int object\+Pool\+ID)
+\item 
+static void {\bf print\+All\+Pools\+Summary} ()
+\item 
+static void {\bf print\+Pool\+Summary} (int object\+Pool\+ID)
+\item 
+static void {\bf check\+For\+Unreleased\+Objects} ()
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf cli\+Print\+All\+Pools\+Summary} ()
+\item 
+void {\bf cli\+Print\+O\+P\+M\+Pool\+Summary} (int object\+Pool\+ID)
+\item 
+void {\bf check\+For\+Unreleased\+O\+P\+M\+Objects} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{O\+PM}{p.}{classOPM} (Object Pool Manager) manages the creation of a pool of reusable objects that can be reserved for use within the program and made available again for reuse. 
+
+\doxyref{O\+PM}{p.}{classOPM} contains overloaded methods for creating the object pool, getting the objects from the pool and releasing the objects back into the pool. N\+O\+TE\+: There currently is no support for deleting/destroying existing pools and their objects. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Member Function Documentation}
+\index{O\+PM@{O\+PM}!check\+For\+Unreleased\+Objects@{check\+For\+Unreleased\+Objects}}
+\index{check\+For\+Unreleased\+Objects@{check\+For\+Unreleased\+Objects}!O\+PM@{O\+PM}}
+\subsubsection[{check\+For\+Unreleased\+Objects()}]{\setlength{\rightskip}{0pt plus 5cm}void O\+P\+M\+::check\+For\+Unreleased\+Objects (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classOPM_a543df5c5d1661e58f6f3eb91ac45d70b}
+Method tests all of the pools and prints the statistics per Object Pool for objects which H\+A\+VE N\+OT been properly returned/released into the \doxyref{O\+PM}{p.}{classOPM}. 
+
+References Object\+Pool\+::get\+Current\+Capacity(), Object\+Pool\+::get\+Current\+Used\+Objects(), and Object\+Pool\+::get\+Object\+Type().
+
+\index{O\+PM@{O\+PM}!create\+Pool@{create\+Pool}}
+\index{create\+Pool@{create\+Pool}!O\+PM@{O\+PM}}
+\subsubsection[{create\+Pool(const char $\ast$object\+Type, long object\+Init\+Param, O\+P\+M\+\_\+\+I\+N\+I\+T\+\_\+\+P\+T\+R boot\+Strap\+Method, double threshold\+Percentage, int capacity\+Increment, int initial\+Size, bool thread\+Safe, O\+P\+M\+Growth\+Mode\+Type growth\+Mode)}]{\setlength{\rightskip}{0pt plus 5cm}int O\+P\+M\+::create\+Pool (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{object\+Type, }
+\item[{long}]{object\+Init\+Param, }
+\item[{O\+P\+M\+\_\+\+I\+N\+I\+T\+\_\+\+P\+TR}]{boot\+Strap\+Method, }
+\item[{double}]{threshold\+Percentage, }
+\item[{int}]{capacity\+Increment, }
+\item[{int}]{initial\+Size, }
+\item[{bool}]{thread\+Safe, }
+\item[{O\+P\+M\+Growth\+Mode\+Type}]{growth\+Mode}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classOPM_ad2a7529f3ebc6fef92bdecace7d96bec}
+Method for Creating an Object Pool of Specified Object Type, Object Count, Initial capacity, capacity increment, threshold, and growth Mode. 
+
+Note that this method allows for an object Initializer to be specified for all objects in the pool. 
+
+Note that if the Object Pool already exists (ie. was created earlier by another part of the application), then the existing object Pool ID is returned. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em object\+Type} & Type of the object to be Created \\
+\hline
+{\em object\+Init\+Param} & long or pointer to initialization data needed by each of the objects in the pool, or N\+U\+LL if none is needed \\
+\hline
+{\em boot\+Strap\+Method} & pointer to a function or method (\doxyref{O\+P\+M\+Base\+::initialize}{p.}{classOPMBase_a0de2f47a2f34606fe4379a81d0cc5c18}) that will create the object and return a pointer to it \\
+\hline
+{\em threshold\+Percentage} & double representing the percentage of the initial capacity above which to autoincrease the pool size. \\
+\hline
+{\em capacity\+Increment} & integer number of objects to add to the pool when autoincrementing the pool capacity \\
+\hline
+{\em initial\+Size} & initial capacity of objects to create within the pool \\
+\hline
+{\em thread\+Safe} & Boolean to determine if the \doxyref{Object\+Pool}{p.}{classObjectPool} should be created as thread safe or not \\
+\hline
+{\em growth\+Mode} & Either N\+O\+\_\+\+G\+R\+O\+W\+TH, G\+R\+O\+W\+T\+H\+\_\+\+A\+L\+L\+O\+W\+ED, or G\+R\+O\+W\+\_\+\+A\+N\+D\+\_\+\+S\+H\+R\+I\+NK \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+integer object\+Pool\+ID used by applications in referencing this particular object pool for retrieving objects (or E\+R\+R\+OR if pool already exists for the specified object\+Type and initializer). 
+\end{DoxyReturn}
+
+
+References get\+Object\+Pool\+I\+D().
+
+
+
+Referenced by Distributed\+Mailbox\+Proxy\+::\+Distributed\+Mailbox\+Proxy(), Group\+Mailbox\+Proxy\+::\+Group\+Mailbox\+Proxy(), Local\+Mailbox\+::\+Local\+Mailbox(), Local\+S\+M\+Mailbox\+Proxy\+::\+Local\+S\+M\+Mailbox\+Proxy(), and Connection\+Set\+::perform\+Activation().
+
+\index{O\+PM@{O\+PM}!get\+Object\+Pool\+ID@{get\+Object\+Pool\+ID}}
+\index{get\+Object\+Pool\+ID@{get\+Object\+Pool\+ID}!O\+PM@{O\+PM}}
+\subsubsection[{get\+Object\+Pool\+I\+D(const char $\ast$object\+Type, long object\+Init\+Param)}]{\setlength{\rightskip}{0pt plus 5cm}int O\+P\+M\+::get\+Object\+Pool\+ID (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{object\+Type, }
+\item[{long}]{object\+Init\+Param}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classOPM_a6b46906b76fbb87f820c78fee229d4e7}
+Method to return the Object Pool ID for an existing object Pool. 
+\begin{DoxyParams}{Parameters}
+{\em object\+Type} & type string of the objects being pooled \\
+\hline
+{\em object\+Init\+Param} & long or pointer to initialization data needed by each of the objects in the pool \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the Object Pool ID for an existing object Pool; otherwise, E\+R\+R\+OR if the object pool does not exist. 
+\end{DoxyReturn}
+
+
+Referenced by create\+Pool().
+
+\index{O\+PM@{O\+PM}!get\+Pool\+Capacity\+Increment@{get\+Pool\+Capacity\+Increment}}
+\index{get\+Pool\+Capacity\+Increment@{get\+Pool\+Capacity\+Increment}!O\+PM@{O\+PM}}
+\subsubsection[{get\+Pool\+Capacity\+Increment(int object\+Pool\+I\+D)}]{\setlength{\rightskip}{0pt plus 5cm}int O\+P\+M\+::get\+Pool\+Capacity\+Increment (
+\begin{DoxyParamCaption}
+\item[{int}]{object\+Pool\+ID}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classOPM_a7087f7659caa3204d83e5e00e40abce6}
+Get the Pool Capacity Increment value which is the number of objects to add to the pool when the threshold value is reached. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em object\+Pool\+ID} & integer used by applications in referencing this particular object pool for retrieving objects (this is returned by create\+Pool) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the Pool Capacity Increment or -\/1 if there is an error 
+\end{DoxyReturn}
+
+
+References Object\+Pool\+::get\+Capacity\+Increment(), and Object\+Pool\+::release().
+
+\index{O\+PM@{O\+PM}!get\+Pool\+Object\+Init\+Param@{get\+Pool\+Object\+Init\+Param}}
+\index{get\+Pool\+Object\+Init\+Param@{get\+Pool\+Object\+Init\+Param}!O\+PM@{O\+PM}}
+\subsubsection[{get\+Pool\+Object\+Init\+Param(int object\+Pool\+I\+D)}]{\setlength{\rightskip}{0pt plus 5cm}int O\+P\+M\+::get\+Pool\+Object\+Init\+Param (
+\begin{DoxyParamCaption}
+\item[{int}]{object\+Pool\+ID}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classOPM_a75e8dff0a30102615680879ac5f91113}
+Get the Pool\textquotesingle{}s object initializer (or 0/\+N\+U\+LL if there is none). 
+\begin{DoxyParams}{Parameters}
+{\em object\+Pool\+ID} & integer used by applications in referencing this particular object pool for retrieving objects (this is returned by create\+Pool) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the integer initializer, pointer to data, or 0(N\+U\+LL) if there is none 
+\end{DoxyReturn}
+
+
+References Object\+Pool\+::get\+Object\+Init\+Param(), and Object\+Pool\+::release().
+
+\index{O\+PM@{O\+PM}!get\+Pool\+Threshold\+Percentage@{get\+Pool\+Threshold\+Percentage}}
+\index{get\+Pool\+Threshold\+Percentage@{get\+Pool\+Threshold\+Percentage}!O\+PM@{O\+PM}}
+\subsubsection[{get\+Pool\+Threshold\+Percentage(int object\+Pool\+I\+D)}]{\setlength{\rightskip}{0pt plus 5cm}double O\+P\+M\+::get\+Pool\+Threshold\+Percentage (
+\begin{DoxyParamCaption}
+\item[{int}]{object\+Pool\+ID}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classOPM_af8073a69db2fe34305b9ad1d6974dfe0}
+Get the Pool Threshold Percentage value which is the factor (double) of the current capacity at which to increase the capacity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em object\+Pool\+ID} & integer used by applications in referencing this particular object pool for retrieving objects (this is returned by create\+Pool) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the Pool threshold percentage as a float or 0 if there is an error 
+\end{DoxyReturn}
+
+
+References Object\+Pool\+::get\+Threshold\+Percentage(), and Object\+Pool\+::release().
+
+\index{O\+PM@{O\+PM}!initialize@{initialize}}
+\index{initialize@{initialize}!O\+PM@{O\+PM}}
+\subsubsection[{initialize()}]{\setlength{\rightskip}{0pt plus 5cm}bool O\+P\+M\+::initialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classOPM_a9ebe3b3d68d5a012539ec7f126c95b0b}
+initializes the Object Pool Manager (\doxyref{O\+PM}{p.}{classOPM}). 
+
+Referenced by Fault\+Manager\+::process\+Mailbox(), Resource\+Monitor\+::to\+String(), and Process\+Manager\+::to\+String().
+
+\index{O\+PM@{O\+PM}!is\+Created\+By\+O\+PM@{is\+Created\+By\+O\+PM}}
+\index{is\+Created\+By\+O\+PM@{is\+Created\+By\+O\+PM}!O\+PM@{O\+PM}}
+\subsubsection[{is\+Created\+By\+O\+P\+M(\+O\+P\+M\+Base $\ast$object\+Ref)}]{\setlength{\rightskip}{0pt plus 5cm}bool O\+P\+M\+::is\+Created\+By\+O\+PM (
+\begin{DoxyParamCaption}
+\item[{{\bf O\+P\+M\+Base} $\ast$}]{object\+Ref}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classOPM_afcee6b13423eabac1f7486b39c23454f}
+Method to test if an Object was created by the \doxyref{O\+PM}{p.}{classOPM}. Remember that for this to be called from Multiple threads, the object pool must be thread safe. 
+\begin{DoxyParams}{Parameters}
+{\em object} & \doxyref{O\+P\+M\+Base}{p.}{classOPMBase} Object pointer to test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the specified Object was created by \doxyref{O\+PM}{p.}{classOPM} ~\newline
+ {\ttfamily false} if the specified Object was created elsewhere 
+\end{DoxyReturn}
+
+
+References Object\+Pool\+::contains\+Object(), O\+P\+M\+Base\+::get\+Pool\+I\+D(), and Object\+Pool\+::release().
+
+
+
+Referenced by Mailbox\+Owner\+Handle\+::cancel\+Timer(), and Message\+Base\+::delete\+Message().
+
+\index{O\+PM@{O\+PM}!is\+Pool\+Created@{is\+Pool\+Created}}
+\index{is\+Pool\+Created@{is\+Pool\+Created}!O\+PM@{O\+PM}}
+\subsubsection[{is\+Pool\+Created(const char $\ast$object\+Type, long object\+Init\+Param)}]{\setlength{\rightskip}{0pt plus 5cm}bool O\+P\+M\+::is\+Pool\+Created (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{object\+Type, }
+\item[{long}]{object\+Init\+Param}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classOPM_aa23640aac75311f237031827e9d5f2be}
+Method to verify if an object pool has been created for the specified Object type 
+\begin{DoxyParams}{Parameters}
+{\em object\+Type} & type string of the objects being pooled \\
+\hline
+{\em object\+Init\+Param} & long or pointer to initialization data needed by each of the objects in the pool \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the named object pool exists ~\newline
+ {\ttfamily false} if the named object pool does not exist 
+\end{DoxyReturn}
+\index{O\+PM@{O\+PM}!print\+All\+Pools\+Summary@{print\+All\+Pools\+Summary}}
+\index{print\+All\+Pools\+Summary@{print\+All\+Pools\+Summary}!O\+PM@{O\+PM}}
+\subsubsection[{print\+All\+Pools\+Summary()}]{\setlength{\rightskip}{0pt plus 5cm}void O\+P\+M\+::print\+All\+Pools\+Summary (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classOPM_a9a67a90b8ce57743cf0d3a5779e28a73}
+Method prints the usage summary for all Object Pools being managed within the \doxyref{O\+PM}{p.}{classOPM}. This method is called by default when the shutdown method is called. \index{O\+PM@{O\+PM}!print\+Pool\+Summary@{print\+Pool\+Summary}}
+\index{print\+Pool\+Summary@{print\+Pool\+Summary}!O\+PM@{O\+PM}}
+\subsubsection[{print\+Pool\+Summary(int object\+Pool\+I\+D)}]{\setlength{\rightskip}{0pt plus 5cm}void O\+P\+M\+::print\+Pool\+Summary (
+\begin{DoxyParamCaption}
+\item[{int}]{object\+Pool\+ID}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classOPM_a23405fdbdb3383f3153ab8ffa4ce8ee1}
+Method prints the usage summary for a particular Object Pool. 
+\begin{DoxyParams}{Parameters}
+{\em object\+Pool\+ID} & integer used by applications in referencing this particular object pool for retrieving objects (this is returned by create\+Pool) \\
+\hline
+\end{DoxyParams}
+
+
+References Object\+Pool\+::release().
+
+\index{O\+PM@{O\+PM}!release\+Object@{release\+Object}}
+\index{release\+Object@{release\+Object}!O\+PM@{O\+PM}}
+\subsubsection[{release\+Object(\+O\+P\+M\+Base $\ast$object, const char $\ast$calling\+File\+Name, int calling\+Line\+Numb)}]{\setlength{\rightskip}{0pt plus 5cm}bool O\+P\+M\+::release\+Object (
+\begin{DoxyParamCaption}
+\item[{{\bf O\+P\+M\+Base} $\ast$}]{object, }
+\item[{const char $\ast$}]{calling\+File\+Name, }
+\item[{int}]{calling\+Line\+Numb}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classOPM_a6b772945a6f1193321038223f5f76d09}
+Method for releasing the specified object back into the \doxyref{O\+PM}{p.}{classOPM} pool after it is no longer in-\/use. 
+\begin{DoxyParams}{Parameters}
+{\em object} & Pointer to the Object to be released back into the Pool \\
+\hline
+{\em calling\+File\+Name} & -\/ Specifies the source file from which the object is being released (this will be printed as a D\+E\+B\+UG log using a M\+A\+C\+RO) \\
+\hline
+{\em calling\+Line\+Numb} & -\/ Specifies the source line from which the object is being released (this will be printed as a D\+E\+B\+UG log using a M\+A\+C\+RO) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the specified Object was successfully released~\newline
+ {\ttfamily false} if the Object Reference was not found in the Pool\textquotesingle{}s U\+S\+ED data structure (could be wrong pool, is already released, or) was not created via \doxyref{O\+PM}{p.}{classOPM}) 
+\end{DoxyReturn}
+
+
+References Object\+Pool\+::release().
+
+\index{O\+PM@{O\+PM}!reserve\+Object@{reserve\+Object}}
+\index{reserve\+Object@{reserve\+Object}!O\+PM@{O\+PM}}
+\subsubsection[{reserve\+Object(int object\+Pool\+I\+D, bool block\+Waiting\+For\+Access=true)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf O\+P\+M\+Base} $\ast$ O\+P\+M\+::reserve\+Object (
+\begin{DoxyParamCaption}
+\item[{int}]{object\+Pool\+ID, }
+\item[{bool}]{block\+Waiting\+For\+Access = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classOPM_a1eadbad1308dbfb2cec8fa9e4b08d829}
+Method to retrieve an object from a specified pool being managed within \doxyref{O\+PM}{p.}{classOPM}. 
+\begin{DoxyParams}{Parameters}
+{\em object\+Pool\+ID} & integer used by applications in referencing this particular object pool for retrieving objects (this is returned by create\+Pool) \\
+\hline
+{\em block\+Waiting\+For\+Access} & If true, this method will block until an object becomes available if they are all in use. Otherwise, if false, this method will return N\+U\+LL if all objects are in use. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{O\+P\+M\+Base}{p.}{classOPMBase} object if the specified object type exists within \doxyref{O\+PM}{p.}{classOPM}; otherwise, it returns {\ttfamily N\+U\+LL}. N\+O\+TE that it can also return N\+U\+LL if the user has requested a non-\/blocking call (block\+Waiting\+For\+Access = false)~\newline
+ 
+\end{DoxyReturn}
+
+
+References Object\+Pool\+::release(), and Object\+Pool\+::reserve().
+
+\index{O\+PM@{O\+PM}!set\+Pool\+Capacity\+Increment@{set\+Pool\+Capacity\+Increment}}
+\index{set\+Pool\+Capacity\+Increment@{set\+Pool\+Capacity\+Increment}!O\+PM@{O\+PM}}
+\subsubsection[{set\+Pool\+Capacity\+Increment(int object\+Pool\+I\+D, int capacity\+Increment)}]{\setlength{\rightskip}{0pt plus 5cm}bool O\+P\+M\+::set\+Pool\+Capacity\+Increment (
+\begin{DoxyParamCaption}
+\item[{int}]{object\+Pool\+ID, }
+\item[{int}]{capacity\+Increment}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classOPM_a48e6432c0f79a16826997a460c252ded}
+Method sets the capacity\+Increment for the specified Object Pool. This value is either initially specified as a parameter to the \doxyref{create\+Pool()}{p.}{classOPM_ad2a7529f3ebc6fef92bdecace7d96bec} method or is chosen by the default constructor of \doxyref{Object\+Pool}{p.}{classObjectPool}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em object\+Pool\+ID} & integer used by applications in referencing this particular object pool for retrieving objects (this is returned by create\+Pool) \\
+\hline
+{\em capacity\+Increment} & Number of objects to add to the pool when increasing \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the capacity increment was successfully changed~\newline
+ {\ttfamily false} if setting the capacity increment failed 
+\end{DoxyReturn}
+
+
+References Object\+Pool\+::release(), and Object\+Pool\+::set\+Capacity\+Increment().
+
+\index{O\+PM@{O\+PM}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!O\+PM@{O\+PM}}
+\subsubsection[{shutdown()}]{\setlength{\rightskip}{0pt plus 5cm}void O\+P\+M\+::shutdown (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classOPM_a88f9f45ea12da8dd8c109f650cc97a80}
+Method to be called when the node is shutdown. This method will reset all Objects to {\ttfamily  N\+U\+LL } 
+
+\subsection{Friends And Related Function Documentation}
+\index{O\+PM@{O\+PM}!check\+For\+Unreleased\+O\+P\+M\+Objects@{check\+For\+Unreleased\+O\+P\+M\+Objects}}
+\index{check\+For\+Unreleased\+O\+P\+M\+Objects@{check\+For\+Unreleased\+O\+P\+M\+Objects}!O\+PM@{O\+PM}}
+\subsubsection[{check\+For\+Unreleased\+O\+P\+M\+Objects}]{\setlength{\rightskip}{0pt plus 5cm}void check\+For\+Unreleased\+O\+P\+M\+Objects (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{classOPM_ad4433b4c59f8ca4727b5f3eab70b2dc0}
+Friend function tests all of the pools and prints the statistics per Object Pool for objects which H\+A\+VE N\+OT been properly returned/released into the \doxyref{O\+PM}{p.}{classOPM}. \index{O\+PM@{O\+PM}!cli\+Print\+All\+Pools\+Summary@{cli\+Print\+All\+Pools\+Summary}}
+\index{cli\+Print\+All\+Pools\+Summary@{cli\+Print\+All\+Pools\+Summary}!O\+PM@{O\+PM}}
+\subsubsection[{cli\+Print\+All\+Pools\+Summary}]{\setlength{\rightskip}{0pt plus 5cm}void cli\+Print\+All\+Pools\+Summary (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{classOPM_a072577912315a7304738a35fc268ca9c}
+Friend function prints the usage summary for all Object Pools being managed within the \doxyref{O\+PM}{p.}{classOPM}. \index{O\+PM@{O\+PM}!cli\+Print\+O\+P\+M\+Pool\+Summary@{cli\+Print\+O\+P\+M\+Pool\+Summary}}
+\index{cli\+Print\+O\+P\+M\+Pool\+Summary@{cli\+Print\+O\+P\+M\+Pool\+Summary}!O\+PM@{O\+PM}}
+\subsubsection[{cli\+Print\+O\+P\+M\+Pool\+Summary}]{\setlength{\rightskip}{0pt plus 5cm}void cli\+Print\+O\+P\+M\+Pool\+Summary (
+\begin{DoxyParamCaption}
+\item[{int}]{object\+Pool\+ID}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{classOPM_a96339febbfac516fe85f48962dd416f0}
+Friend function prints the usage summary for a particular Object Pool. 
+\begin{DoxyParams}{Parameters}
+{\em object\+Pool\+ID} & integer used by applications in referencing this particular object pool for retrieving objects (this is returned by create\+Pool) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+O\+P\+M.\+h\item 
+O\+P\+M.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,191 @@
+\section{Fault\+Message Struct Reference}
+\label{structFaultMessage}\index{Fault\+Message@{Fault\+Message}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Fault\+Message} ()
+\item 
+{\bf Fault\+Message} (const {\bf Fault\+Message} \&rhs)
+\item 
+{\bf $\sim$\+Fault\+Message} (void)
+\item 
+void {\bf reset} (void)
+\item 
+{\bf Fault\+Message} \& {\bf operator=} (const {\bf Fault\+Message} \&rhs)
+\item 
+bool {\bf operator==} (const {\bf Fault\+Message} \&rhs) const 
+\item 
+bool {\bf operator$<$} (const {\bf Fault\+Message} \&rhs) const 
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char {\bf neid} [N\+E\+I\+D\+\_\+\+L\+E\+N\+G\+TH]
+\item 
+A\+C\+E\+\_\+\+Based\+\_\+\+Pointer\+\_\+\+Basic$<$ char $>$ {\bf neid\+PI}
+\item 
+Managed\+Object\+Type {\bf managed\+Object}
+\item 
+unsigned int {\bf managed\+Object\+Instance}
+\item 
+Alarm\+Code\+Type {\bf alarm\+Code}
+\item 
+Event\+Code\+Type {\bf event\+Code}
+\item 
+Alarm\+Severity\+Type {\bf alarm\+Severity}
+\item 
+unsigned int {\bf pid}
+\item 
+unsigned int {\bf time\+Stamp}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Fault\+Message@{Fault\+Message}!Fault\+Message@{Fault\+Message}}
+\index{Fault\+Message@{Fault\+Message}!Fault\+Message@{Fault\+Message}}
+\subsubsection[{Fault\+Message()}]{\setlength{\rightskip}{0pt plus 5cm}Fault\+Message\+::\+Fault\+Message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{structFaultMessage_aee21d16af0af20e259631033e4073fee}
+Default Constructor 
+
+References neid, and neid\+PI.
+
+\index{Fault\+Message@{Fault\+Message}!Fault\+Message@{Fault\+Message}}
+\index{Fault\+Message@{Fault\+Message}!Fault\+Message@{Fault\+Message}}
+\subsubsection[{Fault\+Message(const Fault\+Message \&rhs)}]{\setlength{\rightskip}{0pt plus 5cm}Fault\+Message\+::\+Fault\+Message (
+\begin{DoxyParamCaption}
+\item[{const {\bf Fault\+Message} \&}]{rhs}
+\end{DoxyParamCaption}
+)}\label{structFaultMessage_aad1811f08e881a2a4c60554eda811f89}
+Copy Constructor 
+
+References alarm\+Code, alarm\+Severity, event\+Code, managed\+Object, managed\+Object\+Instance, neid, neid\+PI, pid, and time\+Stamp.
+
+\index{Fault\+Message@{Fault\+Message}!````~Fault\+Message@{$\sim$\+Fault\+Message}}
+\index{````~Fault\+Message@{$\sim$\+Fault\+Message}!Fault\+Message@{Fault\+Message}}
+\subsubsection[{$\sim$\+Fault\+Message(void)}]{\setlength{\rightskip}{0pt plus 5cm}Fault\+Message\+::$\sim$\+Fault\+Message (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{structFaultMessage_a1c090e1fd6c1657e11a0aa2beb8e504e}
+Destructor 
+
+\subsection{Member Function Documentation}
+\index{Fault\+Message@{Fault\+Message}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Fault\+Message@{Fault\+Message}}
+\subsubsection[{operator$<$(const Fault\+Message \&rhs) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Fault\+Message\+::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Fault\+Message} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}\label{structFaultMessage_af7c4d27d6f7729cea21439d8fa9b266b}
+Overloaded comparison operator 
+
+References alarm\+Code, alarm\+Severity, event\+Code, managed\+Object, managed\+Object\+Instance, neid\+PI, pid, and time\+Stamp.
+
+\index{Fault\+Message@{Fault\+Message}!operator=@{operator=}}
+\index{operator=@{operator=}!Fault\+Message@{Fault\+Message}}
+\subsubsection[{operator=(const Fault\+Message \&rhs)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Fault\+Message} \& Fault\+Message\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Fault\+Message} \&}]{rhs}
+\end{DoxyParamCaption}
+)}\label{structFaultMessage_aa3a1b8a8bfb6cc8bfaa7145bdc71f3da}
+Overloaded assignment operator 
+
+References alarm\+Code, alarm\+Severity, event\+Code, managed\+Object, managed\+Object\+Instance, neid, neid\+PI, pid, and time\+Stamp.
+
+\index{Fault\+Message@{Fault\+Message}!operator==@{operator==}}
+\index{operator==@{operator==}!Fault\+Message@{Fault\+Message}}
+\subsubsection[{operator==(const Fault\+Message \&rhs) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Fault\+Message\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Fault\+Message} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}\label{structFaultMessage_afd8f0d09202f017cd55339795c2ed65d}
+Overloaded equality operator 
+
+References alarm\+Code, alarm\+Severity, event\+Code, managed\+Object, managed\+Object\+Instance, neid\+PI, pid, and time\+Stamp.
+
+\index{Fault\+Message@{Fault\+Message}!reset@{reset}}
+\index{reset@{reset}!Fault\+Message@{Fault\+Message}}
+\subsubsection[{reset(void)}]{\setlength{\rightskip}{0pt plus 5cm}void Fault\+Message\+::reset (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{structFaultMessage_a7f190a980a73819bf7a63e6f26646e3c}
+Reset data members 
+
+References alarm\+Code, alarm\+Severity, event\+Code, managed\+Object, managed\+Object\+Instance, neid, neid\+PI, pid, and time\+Stamp.
+
+
+
+\subsection{Member Data Documentation}
+\index{Fault\+Message@{Fault\+Message}!alarm\+Code@{alarm\+Code}}
+\index{alarm\+Code@{alarm\+Code}!Fault\+Message@{Fault\+Message}}
+\subsubsection[{alarm\+Code}]{\setlength{\rightskip}{0pt plus 5cm}Alarm\+Code\+Type Fault\+Message\+::alarm\+Code}\label{structFaultMessage_a1cc9b6c3b4bf8b644fe9a814a0d25df2}
+Alarm code that applies to the fault condition 
+
+Referenced by Faults\+::clear\+Alarm(), Fault\+Message(), operator$<$(), operator=(), operator==(), Fault\+Manager\+::process\+Mailbox(), Faults\+::raise\+Alarm(), and reset().
+
+\index{Fault\+Message@{Fault\+Message}!alarm\+Severity@{alarm\+Severity}}
+\index{alarm\+Severity@{alarm\+Severity}!Fault\+Message@{Fault\+Message}}
+\subsubsection[{alarm\+Severity}]{\setlength{\rightskip}{0pt plus 5cm}Alarm\+Severity\+Type Fault\+Message\+::alarm\+Severity}\label{structFaultMessage_a8f2f9744d6f2a76c82126ec72256a75d}
+Severity. This field is used for event reports and clear alarms, but for raising alarms, this severity will be re-\/assigned/overriden by the severity in the database since we need to support severity reassignment by the user 
+
+Referenced by Faults\+::clear\+Alarm(), Fault\+Message(), operator$<$(), operator=(), operator==(), Fault\+Manager\+::process\+Mailbox(), Faults\+::raise\+Alarm(), Faults\+::report\+Event(), and reset().
+
+\index{Fault\+Message@{Fault\+Message}!event\+Code@{event\+Code}}
+\index{event\+Code@{event\+Code}!Fault\+Message@{Fault\+Message}}
+\subsubsection[{event\+Code}]{\setlength{\rightskip}{0pt plus 5cm}Event\+Code\+Type Fault\+Message\+::event\+Code}\label{structFaultMessage_a6e0ec292fcea91f8c40443f2c5123ead}
+Event Report code if the fault message is an event report instead 
+
+Referenced by Fault\+Message(), operator$<$(), operator=(), operator==(), Fault\+Manager\+::process\+Mailbox(), Faults\+::report\+Event(), and reset().
+
+\index{Fault\+Message@{Fault\+Message}!managed\+Object@{managed\+Object}}
+\index{managed\+Object@{managed\+Object}!Fault\+Message@{Fault\+Message}}
+\subsubsection[{managed\+Object}]{\setlength{\rightskip}{0pt plus 5cm}Managed\+Object\+Type Fault\+Message\+::managed\+Object}\label{structFaultMessage_a338dc5f9d9d52a9478b474b584f82b9b}
+Managed Object type (M\+E\+M\+O\+RY, C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+O\+NS L\+I\+NK, H\+A\+RD D\+I\+SK, etc.) 
+
+Referenced by Faults\+::clear\+Alarm(), Fault\+Message(), operator$<$(), operator=(), operator==(), Fault\+Manager\+::process\+Mailbox(), Faults\+::raise\+Alarm(), Faults\+::report\+Event(), and reset().
+
+\index{Fault\+Message@{Fault\+Message}!managed\+Object\+Instance@{managed\+Object\+Instance}}
+\index{managed\+Object\+Instance@{managed\+Object\+Instance}!Fault\+Message@{Fault\+Message}}
+\subsubsection[{managed\+Object\+Instance}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Fault\+Message\+::managed\+Object\+Instance}\label{structFaultMessage_af32676d42b21fe98ddd5bb3ebcf06b29}
+Managed Object instance (L\+I\+NK 12, L\+I\+NK 13, etc.) 
+
+Referenced by Faults\+::clear\+Alarm(), Fault\+Message(), operator$<$(), operator=(), operator==(), Fault\+Manager\+::process\+Mailbox(), Faults\+::raise\+Alarm(), Faults\+::report\+Event(), and reset().
+
+\index{Fault\+Message@{Fault\+Message}!neid@{neid}}
+\index{neid@{neid}!Fault\+Message@{Fault\+Message}}
+\subsubsection[{neid}]{\setlength{\rightskip}{0pt plus 5cm}char Fault\+Message\+::neid[N\+E\+I\+D\+\_\+\+L\+E\+N\+G\+TH]}\label{structFaultMessage_ab9f4d48f5451798fb95dcca348118535}
+N\+E\+ID (network element Id) that the Fault applies to. 9 character string 
+
+Referenced by Faults\+::clear\+Alarm(), Fault\+Message(), operator=(), Faults\+::raise\+Alarm(), and reset().
+
+\index{Fault\+Message@{Fault\+Message}!neid\+PI@{neid\+PI}}
+\index{neid\+PI@{neid\+PI}!Fault\+Message@{Fault\+Message}}
+\subsubsection[{neid\+PI}]{\setlength{\rightskip}{0pt plus 5cm}A\+C\+E\+\_\+\+Based\+\_\+\+Pointer\+\_\+\+Basic$<$char$>$ Fault\+Message\+::neid\+PI}\label{structFaultMessage_af4985a4765181e55dfdc16464f6b9c0a}
+Position Independent pointer to the N\+E\+ID 
+
+Referenced by Faults\+::clear\+Alarm(), Fault\+Message(), operator$<$(), operator=(), operator==(), Fault\+Manager\+::process\+Mailbox(), Faults\+::raise\+Alarm(), and reset().
+
+\index{Fault\+Message@{Fault\+Message}!pid@{pid}}
+\index{pid@{pid}!Fault\+Message@{Fault\+Message}}
+\subsubsection[{pid}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Fault\+Message\+::pid}\label{structFaultMessage_a28230466de03857454649d3e16f84594}
+OS Process ID originating the alarm 
+
+Referenced by Faults\+::clear\+Alarm(), Fault\+Message(), operator$<$(), operator=(), operator==(), Fault\+Manager\+::process\+Mailbox(), Faults\+::raise\+Alarm(), Faults\+::report\+Event(), and reset().
+
+\index{Fault\+Message@{Fault\+Message}!time\+Stamp@{time\+Stamp}}
+\index{time\+Stamp@{time\+Stamp}!Fault\+Message@{Fault\+Message}}
+\subsubsection[{time\+Stamp}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Fault\+Message\+::time\+Stamp}\label{structFaultMessage_a22b2d875be78a7143b0916f5e86fd1f4}
+Time stamp for alarm origination 
+
+Referenced by Faults\+::clear\+Alarm(), Fault\+Message(), operator$<$(), operator=(), operator==(), Fault\+Manager\+::process\+Mailbox(), Faults\+::raise\+Alarm(), Faults\+::report\+Event(), and reset().
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Fault\+Message.\+h\item 
+Fault\+Message.\+cpp\end{DoxyCompactItemize}

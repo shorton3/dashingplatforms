@@ -1,0 +1,208 @@
+\section{Data\+Manager Class Reference}
+\label{classDataManager}\index{Data\+Manager@{Data\+Manager}}
+
+
+{\ttfamily \#include $<$Data\+Manager.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bf $\sim$\+Data\+Manager} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bf initialize} (string configuration\+File\+Location)
+\item 
+static int {\bf activate\+Connection\+Set} (string connection\+Set\+Name)
+\item 
+static int {\bf de\+Activate\+Connection\+Set} (string connection\+Set\+Name)
+\item 
+static int {\bf de\+Activate\+All\+Connection\+Sets} ()
+\item 
+static {\bf Db\+Connection\+Handle} $\ast$ {\bf reserve\+Connection} (string connection\+Set\+Name)
+\item 
+static {\bf Db\+Connection\+Handle} $\ast$ {\bf reserve\+Connection\+Non\+Blocking} (string connection\+Set\+Name)
+\item 
+static void {\bf release\+Connection} ({\bf Db\+Connection\+Handle} $\ast$connection\+Handle)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Data\+Manager}{p.}{classDataManager} provides an application interface for setting and retrieving data to and from the persistent store. 
+
+\doxyref{Data\+Manager}{p.}{classDataManager} is provided to hide some of the complexity of working with the database. It is intended to allow the database to be transparently replaced by different products/mechanisms without requiring the applications to do major surgery. Additionally, the \doxyref{Data\+Manager}{p.}{classDataManager} defines the concurrency model for how the applications will interact with the database. For example, an application program will have multiple threads; each thread requires periodic access to the database. A connection set will be created for this application that contains F\+E\+W\+ER connections than the number of threads that need them. Each thread is required to reserve a database connection, use it, and then release it back into the \doxyref{Data\+Manager}{p.}{classDataManager} pool so that another thread can then reserve and access. Of course the number of pooled connections versus the number of application threads is a systems engineering exercise and is configurable. Note that each connection is itself N\+OT thread safe and multiple threads should not attempt to access the same connection object (\doxyref{Db\+Connection\+Handle}{p.}{classDbConnectionHandle}) after it has been reserved by a single thread (this is typically the concurrency architecture for most database drivers). (This is possible with additional mutex/concurrency mechanisms implemented by the application, but it is N\+OT A\+D\+V\+I\+S\+A\+B\+LE, and not necessary). 
+
+The general error handling strategy for the application developer should be as follows. If any errors are encountered while issuing query/update/insert/delete commands or while analyzing results, the developer should release the connection back into the pool and attempt to reserve another connection for use. The release process includes a health check on the connection that will attempt to re-\/establish/ renew that connection in the event of a failure. 
+
+\doxyref{Data\+Manager}{p.}{classDataManager} exists as a library for each of the application processes to use for managing its database connections. \doxyref{Data\+Manager}{p.}{classDataManager} supports pooling of connections, and connection re-\/establishment and retry. Because the \doxyref{Data\+Manager}{p.}{classDataManager} is a bootstrap requirement for the applications obtaining all of their other configuration information (from the database), the \doxyref{Data\+Manager}{p.}{classDataManager} reads I\+TS configuration from a file. Furthermore, because \doxyref{Data\+Manager}{p.}{classDataManager} is used by multiple processes, this file must contain process-\/specific configuration sections to meet each process\textquotesingle{}s unique database connection requirements (with regards to the number of connections, both local and remote, etc.) 
+
+The format of the \doxyref{Data\+Manager}{p.}{classDataManager} configuration file is\+: 
+\begin{DoxyPre}
+  [Configuration]
+  DEBUGLEVEL=5
+  ~\newline
+~\newline
+
+  [\doxyref{ConnectionSet}{p.}{classConnectionSet} Name]
+  \# Some comments
+  \# Perhaps some more comments
+  USERID=userid
+  PASSWORD=password (NOTE: This will need to be encrypted later...suggest MD5)
+  DRIVERNAME=libpq
+  CONNECTIONTYPE=LOCAL (or REMOTE)
+  CONNECTIONSTRING="hostaddr=127.0.0.1 port=3180"
+  NUMBERCONNECTIONS=1
+  DSN=someDSN
+  ~\newline
+~\newline
+
+  [Next \doxyref{ConnectionSet}{p.}{classConnectionSet} Name]
+  ...
+\end{DoxyPre}
+ 
+
+The above [Configuration] section exists in order to set Data\+Manager-\/wide configuration parameters. Each subsequent [\doxyref{Connection\+Set}{p.}{classConnectionSet} Name] section establishes the configuration for a pool of connections. Note that an \doxyref{O\+PM}{p.}{classOPM} object pool is created even if only 1 connection is indicated. An application process can have multiple [\doxyref{Connection\+Set}{p.}{classConnectionSet}] sections for its use in the configuration file. The application process would then call \doxyref{Data\+Manager\+::activate\+Connection\+Set(string connection\+Set\+Name)}{p.}{classDataManager_a6c829d2c98f72e26edeae47bc777b4ad} for each configured connection set that it needs to use. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Data\+Manager@{Data\+Manager}!````~Data\+Manager@{$\sim$\+Data\+Manager}}
+\index{````~Data\+Manager@{$\sim$\+Data\+Manager}!Data\+Manager@{Data\+Manager}}
+\subsubsection[{$\sim$\+Data\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Data\+Manager\+::$\sim$\+Data\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classDataManager_a291f3b4df4392598b2d7064da062705f}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Data\+Manager@{Data\+Manager}!activate\+Connection\+Set@{activate\+Connection\+Set}}
+\index{activate\+Connection\+Set@{activate\+Connection\+Set}!Data\+Manager@{Data\+Manager}}
+\subsubsection[{activate\+Connection\+Set(string connection\+Set\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Manager\+::activate\+Connection\+Set (
+\begin{DoxyParamCaption}
+\item[{string}]{connection\+Set\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classDataManager_a6c829d2c98f72e26edeae47bc777b4ad}
+Application processes will call this method for each \doxyref{Connection\+Set}{p.}{classConnectionSet} in the configuration file that they need to use. This method will create the database connection pools. 
+\begin{DoxyParams}{Parameters}
+{\em connection\+Set\+Name} & must match a name in the configuration file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E\+R\+R\+OR for database connection failures; otherwise OK 
+\end{DoxyReturn}
+
+
+Referenced by Resource\+Monitor\+::initialize(), and Fault\+Manager\+::initialize().
+
+\index{Data\+Manager@{Data\+Manager}!de\+Activate\+All\+Connection\+Sets@{de\+Activate\+All\+Connection\+Sets}}
+\index{de\+Activate\+All\+Connection\+Sets@{de\+Activate\+All\+Connection\+Sets}!Data\+Manager@{Data\+Manager}}
+\subsubsection[{de\+Activate\+All\+Connection\+Sets()}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Manager\+::de\+Activate\+All\+Connection\+Sets (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classDataManager_a805386d5936b55c4f4df1879f04a6e4a}
+Method for performing de\+Activation of All Connection Sets within this application process. All connections to the database are closed. \begin{DoxyReturn}{Returns}
+E\+R\+R\+OR for database connection shutdown failures; otherwise OK 
+\end{DoxyReturn}
+\index{Data\+Manager@{Data\+Manager}!de\+Activate\+Connection\+Set@{de\+Activate\+Connection\+Set}}
+\index{de\+Activate\+Connection\+Set@{de\+Activate\+Connection\+Set}!Data\+Manager@{Data\+Manager}}
+\subsubsection[{de\+Activate\+Connection\+Set(string connection\+Set\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Manager\+::de\+Activate\+Connection\+Set (
+\begin{DoxyParamCaption}
+\item[{string}]{connection\+Set\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classDataManager_a1cee756be321b4450c925af620d52eaa}
+Method for performing de\+Activation of the Connection Set. All connections to the database are closed. 
+\begin{DoxyParams}{Parameters}
+{\em connection\+Set\+Name} & must match a name in the configuration file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E\+R\+R\+OR for database connection shutdown failures; otherwise OK 
+\end{DoxyReturn}
+\index{Data\+Manager@{Data\+Manager}!initialize@{initialize}}
+\index{initialize@{initialize}!Data\+Manager@{Data\+Manager}}
+\subsubsection[{initialize(string configuration\+File\+Location)}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Manager\+::initialize (
+\begin{DoxyParamCaption}
+\item[{string}]{configuration\+File\+Location}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classDataManager_a0ba01f5300cdbe6ff1b347eb32d78c2b}
+Initialize the \doxyref{Data\+Manager}{p.}{classDataManager} with the location of the configuration file. 
+
+Open and parse the entire configuration file. This creates a \doxyref{Connection\+Set}{p.}{classConnectionSet} object for each section in the file. \begin{DoxyReturn}{Returns}
+E\+R\+R\+OR for File IO or File format parsing errors; otherwise OK 
+\end{DoxyReturn}
+
+
+References Connection\+Set\+::set\+Connection\+String(), Connection\+Set\+::set\+Connection\+Type(), Connection\+Set\+::set\+Driver\+Name(), Connection\+Set\+::set\+D\+S\+N(), Connection\+Set\+::set\+Number\+Connections(), Connection\+Set\+::set\+Password(), and Connection\+Set\+::set\+Userid().
+
+
+
+Referenced by Resource\+Monitor\+::initialize(), and Fault\+Manager\+::initialize().
+
+\index{Data\+Manager@{Data\+Manager}!release\+Connection@{release\+Connection}}
+\index{release\+Connection@{release\+Connection}!Data\+Manager@{Data\+Manager}}
+\subsubsection[{release\+Connection(\+Db\+Connection\+Handle $\ast$connection\+Handle)}]{\setlength{\rightskip}{0pt plus 5cm}void Data\+Manager\+::release\+Connection (
+\begin{DoxyParamCaption}
+\item[{{\bf Db\+Connection\+Handle} $\ast$}]{connection\+Handle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classDataManager_a0ea951bb2bb1db77965f7625549d9ab2}
+Method to release the \doxyref{Db\+Connection}{p.}{classDbConnection} back into the Connection Set pool. 
+\begin{DoxyParams}{Parameters}
+{\em connection\+Handle} & wraps the connection to be released to the pool \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\+U\+LL if the connection\+Set\+Name could not be found 
+\end{DoxyReturn}
+
+
+Referenced by O\+S\+Resource\+::initialize(), and Fault\+Manager\+::process\+Mailbox().
+
+\index{Data\+Manager@{Data\+Manager}!reserve\+Connection@{reserve\+Connection}}
+\index{reserve\+Connection@{reserve\+Connection}!Data\+Manager@{Data\+Manager}}
+\subsubsection[{reserve\+Connection(string connection\+Set\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Db\+Connection\+Handle} $\ast$ Data\+Manager\+::reserve\+Connection (
+\begin{DoxyParamCaption}
+\item[{string}]{connection\+Set\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classDataManager_a686c287dbe16fad94f62abc5834281ee}
+Method to retrieve a pointer to a \doxyref{Db\+Connection}{p.}{classDbConnection} from the Connection Set pool. This method blocks until a \doxyref{Db\+Connection}{p.}{classDbConnection} becomes available if they are all currently in use. 
+\begin{DoxyParams}{Parameters}
+{\em connection\+Set\+Name} & must match a name in the configuration file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\+U\+LL if the connection\+Set\+Name could not be found 
+\end{DoxyReturn}
+
+
+Referenced by O\+S\+Resource\+::initialize(), and Fault\+Manager\+::process\+Mailbox().
+
+\index{Data\+Manager@{Data\+Manager}!reserve\+Connection\+Non\+Blocking@{reserve\+Connection\+Non\+Blocking}}
+\index{reserve\+Connection\+Non\+Blocking@{reserve\+Connection\+Non\+Blocking}!Data\+Manager@{Data\+Manager}}
+\subsubsection[{reserve\+Connection\+Non\+Blocking(string connection\+Set\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Db\+Connection\+Handle} $\ast$ Data\+Manager\+::reserve\+Connection\+Non\+Blocking (
+\begin{DoxyParamCaption}
+\item[{string}]{connection\+Set\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classDataManager_af43582d1b3a7f53bb5c1077d8b2e4900}
+Method to retrieve a pointer to a \doxyref{Db\+Connection}{p.}{classDbConnection} from the Connection Set pool. This method does N\+OT block if there are no Db\+Connections available in the pool. N\+O\+TE that the pools are configured not to G\+R\+OW and/or S\+H\+R\+I\+NK 
+\begin{DoxyParams}{Parameters}
+{\em connection\+Set\+Name} & must match a name in the configuration file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\+U\+LL if no \doxyref{Db\+Connection}{p.}{classDbConnection} available, or if the connection\+Set\+Name could not be found 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Data\+Manager.\+h\item 
+Data\+Manager.\+cpp\end{DoxyCompactItemize}

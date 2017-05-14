@@ -1,0 +1,466 @@
+\section{alarms Module Reference}
+\label{namespacealarms}\index{alarms@{alarms}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf Alarm\+Information}
+\item 
+class {\bf Alarm\+Information\+Sequence}
+\item 
+class {\bf alarm\+Interface}
+\item 
+struct {\bf Alarm\+Notification}
+\item 
+class {\bf Alarm\+Notification\+Sequence}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef string {\bf N\+E\+I\+D\+Type}
+\item 
+typedef long {\bf Alarm\+Code}
+\item 
+typedef long {\bf Managed\+Object}
+\item 
+typedef long long {\bf Managed\+Object\+Instance}
+\item 
+typedef string {\bf Time\+Stamp}
+\item 
+typedef string {\bf Acknowledgement}
+\item 
+typedef sequence$<$ {\bf Alarm\+Notification} $>$ {\bf Alarm\+Notification\+Sequence}
+\item 
+typedef long long {\bf High\+Water\+Mark}
+\item 
+typedef long long {\bf Low\+Water\+Mark}
+\item 
+typedef boolean {\bf Is\+Auto\+Clearing}
+\item 
+typedef boolean {\bf Is\+Filter\+Enabled}
+\item 
+typedef string {\bf Description}
+\item 
+typedef string {\bf Resolution}
+\item 
+typedef sequence$<$ {\bf Alarm\+Information} $>$ {\bf Alarm\+Information\+Sequence}
+\item 
+typedef \+::C\+O\+R\+B\+A\+::\+String\+\_\+var {\bfseries N\+E\+I\+D\+Type\+\_\+var}\label{namespacealarms_a8ad7a47c962910bad3790e687423388c}
+
+\item 
+typedef \+::C\+O\+R\+B\+A\+::\+String\+\_\+out {\bfseries N\+E\+I\+D\+Type\+\_\+out}\label{namespacealarms_a493ecca3032e68613a2b146069696f85}
+
+\item 
+typedef \+::C\+O\+R\+B\+A\+::\+Long\+\_\+out {\bfseries Alarm\+Code\+\_\+out}\label{namespacealarms_a15016a5b95430a58dcab6ddfebe612f1}
+
+\item 
+typedef \+::C\+O\+R\+B\+A\+::\+Long\+\_\+out {\bfseries Managed\+Object\+\_\+out}\label{namespacealarms_ad26af676a5eb412dc0b77dc7201a1f77}
+
+\item 
+typedef \+::C\+O\+R\+B\+A\+::\+Long\+Long\+\_\+out {\bfseries Managed\+Object\+Instance\+\_\+out}\label{namespacealarms_a9682f8cf469775cd6b9a4aa2ce190551}
+
+\item 
+typedef {\bf Severity} \& {\bfseries Severity\+\_\+out}\label{namespacealarms_ab7542fd52bb033d561bbd37d5fc81f50}
+
+\item 
+typedef \+::C\+O\+R\+B\+A\+::\+String\+\_\+var {\bfseries Time\+Stamp\+\_\+var}\label{namespacealarms_adb475b75a9e1bd8d8b5b795f91ae235b}
+
+\item 
+typedef \+::C\+O\+R\+B\+A\+::\+String\+\_\+out {\bfseries Time\+Stamp\+\_\+out}\label{namespacealarms_a555cb10c7a8edee1d8200aacf9de58e1}
+
+\item 
+typedef \+::C\+O\+R\+B\+A\+::\+String\+\_\+var {\bfseries Acknowledgement\+\_\+var}\label{namespacealarms_a87d7d15c4817610a80cb244452a2694d}
+
+\item 
+typedef \+::C\+O\+R\+B\+A\+::\+String\+\_\+out {\bfseries Acknowledgement\+\_\+out}\label{namespacealarms_aaace83b733660765dc0485544e99b844}
+
+\item 
+typedef T\+A\+O\+\_\+\+Var\+\_\+\+Var\+\_\+T$<$ {\bf Alarm\+Notification} $>$ {\bfseries Alarm\+Notification\+\_\+var}\label{namespacealarms_af267430bb85f32ecc0adc79e604d5f81}
+
+\item 
+typedef T\+A\+O\+\_\+\+Out\+\_\+T$<$ {\bf Alarm\+Notification} $>$ {\bfseries Alarm\+Notification\+\_\+out}\label{namespacealarms_a8fe339b490351e13a53024798025c4a8}
+
+\item 
+typedef T\+A\+O\+\_\+\+Var\+Seq\+\_\+\+Var\+\_\+T$<$ {\bf Alarm\+Notification\+Sequence} $>$ {\bfseries Alarm\+Notification\+Sequence\+\_\+var}\label{namespacealarms_a43af7e3afff859f3363951f35a434337}
+
+\item 
+typedef T\+A\+O\+\_\+\+Seq\+\_\+\+Out\+\_\+T$<$ {\bf Alarm\+Notification\+Sequence} $>$ {\bfseries Alarm\+Notification\+Sequence\+\_\+out}\label{namespacealarms_ac3c87c42f80355d7c7803314056b6648}
+
+\item 
+typedef {\bf Alarm\+Category} \& {\bfseries Alarm\+Category\+\_\+out}\label{namespacealarms_a5b353af4b09ef2a651e1d3e7142bba28}
+
+\item 
+typedef \+::C\+O\+R\+B\+A\+::\+Long\+Long\+\_\+out {\bfseries High\+Water\+Mark\+\_\+out}\label{namespacealarms_a56500d32b31648c43e8b51664c4fac31}
+
+\item 
+typedef \+::C\+O\+R\+B\+A\+::\+Long\+Long\+\_\+out {\bfseries Low\+Water\+Mark\+\_\+out}\label{namespacealarms_ab78b836eeb17afe2dbf5d840aff6b797}
+
+\item 
+typedef \+::C\+O\+R\+B\+A\+::\+Boolean\+\_\+out {\bfseries Is\+Auto\+Clearing\+\_\+out}\label{namespacealarms_ac354c76217383b3c71693517c486d8e1}
+
+\item 
+typedef \+::C\+O\+R\+B\+A\+::\+Boolean\+\_\+out {\bfseries Is\+Filter\+Enabled\+\_\+out}\label{namespacealarms_a1001d5552d63dcb74d751a37e2358436}
+
+\item 
+typedef \+::C\+O\+R\+B\+A\+::\+String\+\_\+var {\bfseries Description\+\_\+var}\label{namespacealarms_a42addde9cb730b2556e935c3114e2af1}
+
+\item 
+typedef \+::C\+O\+R\+B\+A\+::\+String\+\_\+out {\bfseries Description\+\_\+out}\label{namespacealarms_aae9c473baae16e942d056edb952b1a01}
+
+\item 
+typedef \+::C\+O\+R\+B\+A\+::\+String\+\_\+var {\bfseries Resolution\+\_\+var}\label{namespacealarms_a20caf0831a6616c7137a01a38026065b}
+
+\item 
+typedef \+::C\+O\+R\+B\+A\+::\+String\+\_\+out {\bfseries Resolution\+\_\+out}\label{namespacealarms_a780201e6fa2181f2173312f391310802}
+
+\item 
+typedef T\+A\+O\+\_\+\+Var\+\_\+\+Var\+\_\+T$<$ {\bf Alarm\+Information} $>$ {\bfseries Alarm\+Information\+\_\+var}\label{namespacealarms_a3774d285c2937f1f473cc883b7d4cd35}
+
+\item 
+typedef T\+A\+O\+\_\+\+Out\+\_\+T$<$ {\bf Alarm\+Information} $>$ {\bfseries Alarm\+Information\+\_\+out}\label{namespacealarms_a74afcc738f19a608d30814b34889ea11}
+
+\item 
+typedef T\+A\+O\+\_\+\+Var\+Seq\+\_\+\+Var\+\_\+T$<$ {\bf Alarm\+Information\+Sequence} $>$ {\bfseries Alarm\+Information\+Sequence\+\_\+var}\label{namespacealarms_a5526844cd08c5dc852417f53997874b6}
+
+\item 
+typedef T\+A\+O\+\_\+\+Seq\+\_\+\+Out\+\_\+T$<$ {\bf Alarm\+Information\+Sequence} $>$ {\bfseries Alarm\+Information\+Sequence\+\_\+out}\label{namespacealarms_a4b5cb03957cc24c2283404d600774476}
+
+\item 
+typedef {\bf alarm\+Interface} $\ast$ {\bfseries alarm\+Interface\+\_\+ptr}\label{namespacealarms_ae6ff11a4b406ad49b7bfc02efaaf3c5a}
+
+\item 
+typedef T\+A\+O\+\_\+\+Objref\+\_\+\+Var\+\_\+T$<$ {\bf alarm\+Interface} $>$ {\bfseries alarm\+Interface\+\_\+var}\label{namespacealarms_a526d327d85dac21686e93c45bb3ce044}
+
+\item 
+typedef T\+A\+O\+\_\+\+Objref\+\_\+\+Out\+\_\+T$<$ {\bf alarm\+Interface} $>$ {\bfseries alarm\+Interface\+\_\+out}\label{namespacealarms_a5c773d3f0821ca4958b5a76cb1d300e3}
+
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf Severity} \{ \\*
+{\bfseries C\+R\+I\+T\+I\+C\+AL}, 
+{\bfseries M\+A\+J\+OR}, 
+{\bfseries M\+I\+N\+OR}, 
+{\bfseries W\+A\+R\+N\+I\+NG}, 
+\\*
+{\bfseries C\+L\+E\+AR}, 
+{\bfseries C\+R\+I\+T\+I\+C\+AL}, 
+{\bfseries M\+A\+J\+OR}, 
+{\bfseries M\+I\+N\+OR}, 
+\\*
+{\bfseries W\+A\+R\+N\+I\+NG}, 
+{\bfseries C\+L\+E\+AR}
+ \}
+\item 
+enum {\bf Alarm\+Category} \{ \\*
+{\bfseries C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+O\+N\+S\+\_\+\+A\+L\+A\+RM}, 
+{\bfseries Q\+U\+A\+L\+I\+T\+Y\+\_\+\+O\+F\+\_\+\+S\+E\+R\+V\+I\+C\+E\+\_\+\+A\+L\+A\+RM}, 
+{\bfseries P\+R\+O\+C\+E\+S\+S\+I\+N\+G\+\_\+\+E\+R\+R\+O\+R\+\_\+\+A\+L\+A\+RM}, 
+{\bfseries E\+Q\+U\+I\+P\+M\+E\+N\+T\+\_\+\+A\+L\+A\+RM}, 
+\\*
+{\bfseries E\+N\+V\+I\+R\+O\+N\+M\+E\+N\+T\+A\+L\+\_\+\+A\+L\+A\+RM}, 
+{\bfseries C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+O\+N\+S\+\_\+\+A\+L\+A\+RM}, 
+{\bfseries Q\+U\+A\+L\+I\+T\+Y\+\_\+\+O\+F\+\_\+\+S\+E\+R\+V\+I\+C\+E\+\_\+\+A\+L\+A\+RM}, 
+{\bfseries P\+R\+O\+C\+E\+S\+S\+I\+N\+G\+\_\+\+E\+R\+R\+O\+R\+\_\+\+A\+L\+A\+RM}, 
+\\*
+{\bfseries E\+Q\+U\+I\+P\+M\+E\+N\+T\+\_\+\+A\+L\+A\+RM}, 
+{\bfseries E\+N\+V\+I\+R\+O\+N\+M\+E\+N\+T\+A\+L\+\_\+\+A\+L\+A\+RM}
+ \}
+\item 
+enum {\bfseries Severity} \{ \\*
+{\bfseries C\+R\+I\+T\+I\+C\+AL}, 
+{\bfseries M\+A\+J\+OR}, 
+{\bfseries M\+I\+N\+OR}, 
+{\bfseries W\+A\+R\+N\+I\+NG}, 
+\\*
+{\bfseries C\+L\+E\+AR}, 
+{\bfseries C\+R\+I\+T\+I\+C\+AL}, 
+{\bfseries M\+A\+J\+OR}, 
+{\bfseries M\+I\+N\+OR}, 
+\\*
+{\bfseries W\+A\+R\+N\+I\+NG}, 
+{\bfseries C\+L\+E\+AR}
+ \}\label{namespacealarms_a780f8021301cfd1f3cfb813e3d6cfdcd}
+
+\item 
+enum {\bfseries Alarm\+Category} \{ \\*
+{\bfseries C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+O\+N\+S\+\_\+\+A\+L\+A\+RM}, 
+{\bfseries Q\+U\+A\+L\+I\+T\+Y\+\_\+\+O\+F\+\_\+\+S\+E\+R\+V\+I\+C\+E\+\_\+\+A\+L\+A\+RM}, 
+{\bfseries P\+R\+O\+C\+E\+S\+S\+I\+N\+G\+\_\+\+E\+R\+R\+O\+R\+\_\+\+A\+L\+A\+RM}, 
+{\bfseries E\+Q\+U\+I\+P\+M\+E\+N\+T\+\_\+\+A\+L\+A\+RM}, 
+\\*
+{\bfseries E\+N\+V\+I\+R\+O\+N\+M\+E\+N\+T\+A\+L\+\_\+\+A\+L\+A\+RM}, 
+{\bfseries C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+O\+N\+S\+\_\+\+A\+L\+A\+RM}, 
+{\bfseries Q\+U\+A\+L\+I\+T\+Y\+\_\+\+O\+F\+\_\+\+S\+E\+R\+V\+I\+C\+E\+\_\+\+A\+L\+A\+RM}, 
+{\bfseries P\+R\+O\+C\+E\+S\+S\+I\+N\+G\+\_\+\+E\+R\+R\+O\+R\+\_\+\+A\+L\+A\+RM}, 
+\\*
+{\bfseries E\+Q\+U\+I\+P\+M\+E\+N\+T\+\_\+\+A\+L\+A\+RM}, 
+{\bfseries E\+N\+V\+I\+R\+O\+N\+M\+E\+N\+T\+A\+L\+\_\+\+A\+L\+A\+RM}
+ \}\label{namespacealarms_aa7155bef1b5d819641bee40814252e7f}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\+::C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const {\bfseries \+\_\+tc\+\_\+\+N\+E\+I\+D\+Type}
+\item 
+\+::C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const {\bfseries \+\_\+tc\+\_\+\+Alarm\+Code}
+\item 
+\+::C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const {\bfseries \+\_\+tc\+\_\+\+Managed\+Object}
+\item 
+\+::C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const {\bfseries \+\_\+tc\+\_\+\+Managed\+Object\+Instance}
+\item 
+\+::C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const {\bfseries \+\_\+tc\+\_\+\+Severity}
+\item 
+\+::C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const {\bfseries \+\_\+tc\+\_\+\+Time\+Stamp}
+\item 
+\+::C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const {\bfseries \+\_\+tc\+\_\+\+Acknowledgement}
+\item 
+\+::C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const {\bfseries \+\_\+tc\+\_\+\+Alarm\+Notification}
+\item 
+\+::C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const {\bfseries \+\_\+tc\+\_\+\+Alarm\+Notification\+Sequence}
+\item 
+\+::C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const {\bfseries \+\_\+tc\+\_\+\+Alarm\+Category}
+\item 
+\+::C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const {\bfseries \+\_\+tc\+\_\+\+High\+Water\+Mark}
+\item 
+\+::C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const {\bfseries \+\_\+tc\+\_\+\+Low\+Water\+Mark}
+\item 
+\+::C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const {\bfseries \+\_\+tc\+\_\+\+Is\+Auto\+Clearing}
+\item 
+\+::C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const {\bfseries \+\_\+tc\+\_\+\+Is\+Filter\+Enabled}
+\item 
+\+::C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const {\bfseries \+\_\+tc\+\_\+\+Description}
+\item 
+\+::C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const {\bfseries \+\_\+tc\+\_\+\+Resolution}
+\item 
+\+::C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const {\bfseries \+\_\+tc\+\_\+\+Alarm\+Information}
+\item 
+\+::C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const {\bfseries \+\_\+tc\+\_\+\+Alarm\+Information\+Sequence}
+\item 
+\+::C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const {\bfseries \+\_\+tc\+\_\+alarm\+Interface}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interface for sending alarm notification from the E\+MS to its clients. 
+
+Also allows clients to interrogate the E\+MS for alarm inventory, as well as resend/resync outstanding alarms, and apply filters. 
+
+Beware of using a symbol named \textquotesingle{}alarm\textquotesingle{} as this conflicts with symbols in $<$unistd.\+h$>$ 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Typedef Documentation}
+\index{alarms@{alarms}!Acknowledgement@{Acknowledgement}}
+\index{Acknowledgement@{Acknowledgement}!alarms@{alarms}}
+\subsubsection[{Acknowledgement}]{\setlength{\rightskip}{0pt plus 5cm}typedef char $\ast$ {\bf alarms\+::\+Acknowledgement}}\label{namespacealarms_acdd3fbd3ef705f7f8e89119bef749620}
+Acknowledgement String Type \index{alarms@{alarms}!Alarm\+Code@{Alarm\+Code}}
+\index{Alarm\+Code@{Alarm\+Code}!alarms@{alarms}}
+\subsubsection[{Alarm\+Code}]{\setlength{\rightskip}{0pt plus 5cm}typedef\+::\+C\+O\+R\+B\+A\+::\+Long {\bf alarms\+::\+Alarm\+Code}}\label{namespacealarms_ae902bbe17c62f6f2bcde033fa9c335ae}
+Alarm Identifier Type \index{alarms@{alarms}!Alarm\+Information\+Sequence@{Alarm\+Information\+Sequence}}
+\index{Alarm\+Information\+Sequence@{Alarm\+Information\+Sequence}!alarms@{alarms}}
+\subsubsection[{Alarm\+Information\+Sequence}]{\setlength{\rightskip}{0pt plus 5cm}typedef sequence$<${\bf Alarm\+Information}$>$ {\bf alarms\+::\+Alarm\+Information\+Sequence}}\label{namespacealarms_a640733a9bac065ffd5a6378b2af0c816}
+Sequence(vector) of Alarm Information structures \index{alarms@{alarms}!Alarm\+Notification\+Sequence@{Alarm\+Notification\+Sequence}}
+\index{Alarm\+Notification\+Sequence@{Alarm\+Notification\+Sequence}!alarms@{alarms}}
+\subsubsection[{Alarm\+Notification\+Sequence}]{\setlength{\rightskip}{0pt plus 5cm}typedef sequence$<${\bf Alarm\+Notification}$>$ {\bf alarms\+::\+Alarm\+Notification\+Sequence}}\label{namespacealarms_ac9f16218b3cd56761116de624a850bce}
+Sequence(\+Vector) of \doxyref{Alarm\+Notification}{p.}{structalarms_1_1AlarmNotification} structures \index{alarms@{alarms}!Description@{Description}}
+\index{Description@{Description}!alarms@{alarms}}
+\subsubsection[{Description}]{\setlength{\rightskip}{0pt plus 5cm}typedef char $\ast$ {\bf alarms\+::\+Description}}\label{namespacealarms_a79cb813ea7295394f1e90f70a2a16bfd}
+Description String Type \index{alarms@{alarms}!High\+Water\+Mark@{High\+Water\+Mark}}
+\index{High\+Water\+Mark@{High\+Water\+Mark}!alarms@{alarms}}
+\subsubsection[{High\+Water\+Mark}]{\setlength{\rightskip}{0pt plus 5cm}typedef\+::\+C\+O\+R\+B\+A\+::\+Long\+Long {\bf alarms\+::\+High\+Water\+Mark}}\label{namespacealarms_a32499d1717df0c62355569ec63f7e4df}
+Alarm High\+Water Mark Type \index{alarms@{alarms}!Is\+Auto\+Clearing@{Is\+Auto\+Clearing}}
+\index{Is\+Auto\+Clearing@{Is\+Auto\+Clearing}!alarms@{alarms}}
+\subsubsection[{Is\+Auto\+Clearing}]{\setlength{\rightskip}{0pt plus 5cm}typedef\+::\+C\+O\+R\+B\+A\+::\+Boolean {\bf alarms\+::\+Is\+Auto\+Clearing}}\label{namespacealarms_acbe0f70fc0de1e4aaae4e2cb3646d290}
+Auto Clearing Indicator (If manual clearing is required) \index{alarms@{alarms}!Is\+Filter\+Enabled@{Is\+Filter\+Enabled}}
+\index{Is\+Filter\+Enabled@{Is\+Filter\+Enabled}!alarms@{alarms}}
+\subsubsection[{Is\+Filter\+Enabled}]{\setlength{\rightskip}{0pt plus 5cm}typedef\+::\+C\+O\+R\+B\+A\+::\+Boolean {\bf alarms\+::\+Is\+Filter\+Enabled}}\label{namespacealarms_a1b5f2466accd1c1799491ad704ce7523}
+Filter Enabled Indicator \index{alarms@{alarms}!Low\+Water\+Mark@{Low\+Water\+Mark}}
+\index{Low\+Water\+Mark@{Low\+Water\+Mark}!alarms@{alarms}}
+\subsubsection[{Low\+Water\+Mark}]{\setlength{\rightskip}{0pt plus 5cm}typedef\+::\+C\+O\+R\+B\+A\+::\+Long\+Long {\bf alarms\+::\+Low\+Water\+Mark}}\label{namespacealarms_a44d15b95ab988402589d566aba34b91a}
+Alarm Low\+Water Mark Type \index{alarms@{alarms}!Managed\+Object@{Managed\+Object}}
+\index{Managed\+Object@{Managed\+Object}!alarms@{alarms}}
+\subsubsection[{Managed\+Object}]{\setlength{\rightskip}{0pt plus 5cm}typedef\+::\+C\+O\+R\+B\+A\+::\+Long {\bf alarms\+::\+Managed\+Object}}\label{namespacealarms_a42625288a538e2c49c8e461f29ec654e}
+Managed Object Identifier Type \index{alarms@{alarms}!Managed\+Object\+Instance@{Managed\+Object\+Instance}}
+\index{Managed\+Object\+Instance@{Managed\+Object\+Instance}!alarms@{alarms}}
+\subsubsection[{Managed\+Object\+Instance}]{\setlength{\rightskip}{0pt plus 5cm}typedef\+::\+C\+O\+R\+B\+A\+::\+Long\+Long {\bf alarms\+::\+Managed\+Object\+Instance}}\label{namespacealarms_a115dcb6ef934dfcb4be74e68d709d8a6}
+Managed Object Instance Identifier Type \index{alarms@{alarms}!N\+E\+I\+D\+Type@{N\+E\+I\+D\+Type}}
+\index{N\+E\+I\+D\+Type@{N\+E\+I\+D\+Type}!alarms@{alarms}}
+\subsubsection[{N\+E\+I\+D\+Type}]{\setlength{\rightskip}{0pt plus 5cm}typedef char $\ast$ {\bf alarms\+::\+N\+E\+I\+D\+Type}}\label{namespacealarms_a0a2f6d7bf7a28186a0f1253316a17be0}
+N\+E\+ID -\/ Network Element Id that the Alarm applies to \index{alarms@{alarms}!Resolution@{Resolution}}
+\index{Resolution@{Resolution}!alarms@{alarms}}
+\subsubsection[{Resolution}]{\setlength{\rightskip}{0pt plus 5cm}typedef char $\ast$ {\bf alarms\+::\+Resolution}}\label{namespacealarms_af02c5d95ba08885ecc4a0996f3c7dae1}
+Resolution String Type \index{alarms@{alarms}!Time\+Stamp@{Time\+Stamp}}
+\index{Time\+Stamp@{Time\+Stamp}!alarms@{alarms}}
+\subsubsection[{Time\+Stamp}]{\setlength{\rightskip}{0pt plus 5cm}typedef char $\ast$ {\bf alarms\+::\+Time\+Stamp}}\label{namespacealarms_a8e7f70ea3d4662d5c09d4f4f4cbe62ad}
+Time\+Stamp Type 
+
+\subsection{Enumeration Type Documentation}
+\index{alarms@{alarms}!Alarm\+Category@{Alarm\+Category}}
+\index{Alarm\+Category@{Alarm\+Category}!alarms@{alarms}}
+\subsubsection[{Alarm\+Category}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf alarms\+::\+Alarm\+Category}}\label{namespacealarms_aa7155bef1b5d819641bee40814252e7f}
+Alarm Category Type \index{alarms@{alarms}!Severity@{Severity}}
+\index{Severity@{Severity}!alarms@{alarms}}
+\subsubsection[{Severity}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf alarms\+::\+Severity}}\label{namespacealarms_a780f8021301cfd1f3cfb813e3d6cfdcd}
+Alarm Severity Type (User Severity gets reported) 
+
+\subsection{Variable Documentation}
+\index{alarms@{alarms}!\+\_\+tc\+\_\+\+Acknowledgement@{\+\_\+tc\+\_\+\+Acknowledgement}}
+\index{\+\_\+tc\+\_\+\+Acknowledgement@{\+\_\+tc\+\_\+\+Acknowledgement}!alarms@{alarms}}
+\subsubsection[{\+\_\+tc\+\_\+\+Acknowledgement}]{\setlength{\rightskip}{0pt plus 5cm}extern\+::\+C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const alarms\+::\+\_\+tc\+\_\+\+Acknowledgement}\label{namespacealarms_a1a624e424441356d920954dad2ee406f}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    &\_tao\_tc\_alarms\_Acknowledgement
+\end{DoxyCode}
+\index{alarms@{alarms}!\+\_\+tc\+\_\+\+Alarm\+Category@{\+\_\+tc\+\_\+\+Alarm\+Category}}
+\index{\+\_\+tc\+\_\+\+Alarm\+Category@{\+\_\+tc\+\_\+\+Alarm\+Category}!alarms@{alarms}}
+\subsubsection[{\+\_\+tc\+\_\+\+Alarm\+Category}]{\setlength{\rightskip}{0pt plus 5cm}extern\+::\+C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const alarms\+::\+\_\+tc\+\_\+\+Alarm\+Category}\label{namespacealarms_a3b58d2cc69772ec355a667ffbcc46893}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    &\_tao\_tc\_alarms\_AlarmCategory
+\end{DoxyCode}
+\index{alarms@{alarms}!\+\_\+tc\+\_\+\+Alarm\+Code@{\+\_\+tc\+\_\+\+Alarm\+Code}}
+\index{\+\_\+tc\+\_\+\+Alarm\+Code@{\+\_\+tc\+\_\+\+Alarm\+Code}!alarms@{alarms}}
+\subsubsection[{\+\_\+tc\+\_\+\+Alarm\+Code}]{\setlength{\rightskip}{0pt plus 5cm}extern\+::\+C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const alarms\+::\+\_\+tc\+\_\+\+Alarm\+Code}\label{namespacealarms_aeb97b37c4404af6a8b1b8e702fc488c1}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    &\_tao\_tc\_alarms\_AlarmCode
+\end{DoxyCode}
+\index{alarms@{alarms}!\+\_\+tc\+\_\+\+Alarm\+Information@{\+\_\+tc\+\_\+\+Alarm\+Information}}
+\index{\+\_\+tc\+\_\+\+Alarm\+Information@{\+\_\+tc\+\_\+\+Alarm\+Information}!alarms@{alarms}}
+\subsubsection[{\+\_\+tc\+\_\+\+Alarm\+Information}]{\setlength{\rightskip}{0pt plus 5cm}extern\+::\+C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const alarms\+::\+\_\+tc\+\_\+\+Alarm\+Information}\label{namespacealarms_a4f0c0f7fe4a5802168927c81b899c256}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    &\_tao\_tc\_alarms\_AlarmInformation
+\end{DoxyCode}
+\index{alarms@{alarms}!\+\_\+tc\+\_\+\+Alarm\+Information\+Sequence@{\+\_\+tc\+\_\+\+Alarm\+Information\+Sequence}}
+\index{\+\_\+tc\+\_\+\+Alarm\+Information\+Sequence@{\+\_\+tc\+\_\+\+Alarm\+Information\+Sequence}!alarms@{alarms}}
+\subsubsection[{\+\_\+tc\+\_\+\+Alarm\+Information\+Sequence}]{\setlength{\rightskip}{0pt plus 5cm}extern\+::\+C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const alarms\+::\+\_\+tc\+\_\+\+Alarm\+Information\+Sequence}\label{namespacealarms_adfe8199277e83dac50fea4cdadafea56}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    &\_tao\_tc\_alarms\_AlarmInformationSequence
+\end{DoxyCode}
+\index{alarms@{alarms}!\+\_\+tc\+\_\+alarm\+Interface@{\+\_\+tc\+\_\+alarm\+Interface}}
+\index{\+\_\+tc\+\_\+alarm\+Interface@{\+\_\+tc\+\_\+alarm\+Interface}!alarms@{alarms}}
+\subsubsection[{\+\_\+tc\+\_\+alarm\+Interface}]{\setlength{\rightskip}{0pt plus 5cm}extern\+::\+C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const alarms\+::\+\_\+tc\+\_\+alarm\+Interface}\label{namespacealarms_a13b2e412126fe00f4f2f490af8e98593}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    &\_tao\_tc\_alarms\_alarmInterface
+\end{DoxyCode}
+\index{alarms@{alarms}!\+\_\+tc\+\_\+\+Alarm\+Notification@{\+\_\+tc\+\_\+\+Alarm\+Notification}}
+\index{\+\_\+tc\+\_\+\+Alarm\+Notification@{\+\_\+tc\+\_\+\+Alarm\+Notification}!alarms@{alarms}}
+\subsubsection[{\+\_\+tc\+\_\+\+Alarm\+Notification}]{\setlength{\rightskip}{0pt plus 5cm}extern\+::\+C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const alarms\+::\+\_\+tc\+\_\+\+Alarm\+Notification}\label{namespacealarms_a7f2a20dfc383dfb72c5f914bd38bf11e}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    &\_tao\_tc\_alarms\_AlarmNotification
+\end{DoxyCode}
+\index{alarms@{alarms}!\+\_\+tc\+\_\+\+Alarm\+Notification\+Sequence@{\+\_\+tc\+\_\+\+Alarm\+Notification\+Sequence}}
+\index{\+\_\+tc\+\_\+\+Alarm\+Notification\+Sequence@{\+\_\+tc\+\_\+\+Alarm\+Notification\+Sequence}!alarms@{alarms}}
+\subsubsection[{\+\_\+tc\+\_\+\+Alarm\+Notification\+Sequence}]{\setlength{\rightskip}{0pt plus 5cm}extern\+::\+C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const alarms\+::\+\_\+tc\+\_\+\+Alarm\+Notification\+Sequence}\label{namespacealarms_a038f5488bca56f97f10d6794dd4837b9}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    &\_tao\_tc\_alarms\_AlarmNotificationSequence
+\end{DoxyCode}
+\index{alarms@{alarms}!\+\_\+tc\+\_\+\+Description@{\+\_\+tc\+\_\+\+Description}}
+\index{\+\_\+tc\+\_\+\+Description@{\+\_\+tc\+\_\+\+Description}!alarms@{alarms}}
+\subsubsection[{\+\_\+tc\+\_\+\+Description}]{\setlength{\rightskip}{0pt plus 5cm}extern\+::\+C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const alarms\+::\+\_\+tc\+\_\+\+Description}\label{namespacealarms_a13e56a57763f943e984f231dffa34e64}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    &\_tao\_tc\_alarms\_Description
+\end{DoxyCode}
+\index{alarms@{alarms}!\+\_\+tc\+\_\+\+High\+Water\+Mark@{\+\_\+tc\+\_\+\+High\+Water\+Mark}}
+\index{\+\_\+tc\+\_\+\+High\+Water\+Mark@{\+\_\+tc\+\_\+\+High\+Water\+Mark}!alarms@{alarms}}
+\subsubsection[{\+\_\+tc\+\_\+\+High\+Water\+Mark}]{\setlength{\rightskip}{0pt plus 5cm}extern\+::\+C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const alarms\+::\+\_\+tc\+\_\+\+High\+Water\+Mark}\label{namespacealarms_a2461c82af7d41e561e8de9d4a27857ec}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    &\_tao\_tc\_alarms\_HighWaterMark
+\end{DoxyCode}
+\index{alarms@{alarms}!\+\_\+tc\+\_\+\+Is\+Auto\+Clearing@{\+\_\+tc\+\_\+\+Is\+Auto\+Clearing}}
+\index{\+\_\+tc\+\_\+\+Is\+Auto\+Clearing@{\+\_\+tc\+\_\+\+Is\+Auto\+Clearing}!alarms@{alarms}}
+\subsubsection[{\+\_\+tc\+\_\+\+Is\+Auto\+Clearing}]{\setlength{\rightskip}{0pt plus 5cm}extern\+::\+C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const alarms\+::\+\_\+tc\+\_\+\+Is\+Auto\+Clearing}\label{namespacealarms_a0c3b2aaf475ae29a06bbc339ea51ff39}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    &\_tao\_tc\_alarms\_IsAutoClearing
+\end{DoxyCode}
+\index{alarms@{alarms}!\+\_\+tc\+\_\+\+Is\+Filter\+Enabled@{\+\_\+tc\+\_\+\+Is\+Filter\+Enabled}}
+\index{\+\_\+tc\+\_\+\+Is\+Filter\+Enabled@{\+\_\+tc\+\_\+\+Is\+Filter\+Enabled}!alarms@{alarms}}
+\subsubsection[{\+\_\+tc\+\_\+\+Is\+Filter\+Enabled}]{\setlength{\rightskip}{0pt plus 5cm}extern\+::\+C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const alarms\+::\+\_\+tc\+\_\+\+Is\+Filter\+Enabled}\label{namespacealarms_a4d8e4b0f9f5e328234e2aaa932e27d16}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    &\_tao\_tc\_alarms\_IsFilterEnabled
+\end{DoxyCode}
+\index{alarms@{alarms}!\+\_\+tc\+\_\+\+Low\+Water\+Mark@{\+\_\+tc\+\_\+\+Low\+Water\+Mark}}
+\index{\+\_\+tc\+\_\+\+Low\+Water\+Mark@{\+\_\+tc\+\_\+\+Low\+Water\+Mark}!alarms@{alarms}}
+\subsubsection[{\+\_\+tc\+\_\+\+Low\+Water\+Mark}]{\setlength{\rightskip}{0pt plus 5cm}extern\+::\+C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const alarms\+::\+\_\+tc\+\_\+\+Low\+Water\+Mark}\label{namespacealarms_a4a66c16b6d7b248a17b41d062af2a94a}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    &\_tao\_tc\_alarms\_LowWaterMark
+\end{DoxyCode}
+\index{alarms@{alarms}!\+\_\+tc\+\_\+\+Managed\+Object@{\+\_\+tc\+\_\+\+Managed\+Object}}
+\index{\+\_\+tc\+\_\+\+Managed\+Object@{\+\_\+tc\+\_\+\+Managed\+Object}!alarms@{alarms}}
+\subsubsection[{\+\_\+tc\+\_\+\+Managed\+Object}]{\setlength{\rightskip}{0pt plus 5cm}extern\+::\+C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const alarms\+::\+\_\+tc\+\_\+\+Managed\+Object}\label{namespacealarms_a4e51d6f711f97ef29cce1a1567987a70}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    &\_tao\_tc\_alarms\_ManagedObject
+\end{DoxyCode}
+\index{alarms@{alarms}!\+\_\+tc\+\_\+\+Managed\+Object\+Instance@{\+\_\+tc\+\_\+\+Managed\+Object\+Instance}}
+\index{\+\_\+tc\+\_\+\+Managed\+Object\+Instance@{\+\_\+tc\+\_\+\+Managed\+Object\+Instance}!alarms@{alarms}}
+\subsubsection[{\+\_\+tc\+\_\+\+Managed\+Object\+Instance}]{\setlength{\rightskip}{0pt plus 5cm}extern\+::\+C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const alarms\+::\+\_\+tc\+\_\+\+Managed\+Object\+Instance}\label{namespacealarms_aa84f2d1930cb33ed50166f1c899e209f}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    &\_tao\_tc\_alarms\_ManagedObjectInstance
+\end{DoxyCode}
+\index{alarms@{alarms}!\+\_\+tc\+\_\+\+N\+E\+I\+D\+Type@{\+\_\+tc\+\_\+\+N\+E\+I\+D\+Type}}
+\index{\+\_\+tc\+\_\+\+N\+E\+I\+D\+Type@{\+\_\+tc\+\_\+\+N\+E\+I\+D\+Type}!alarms@{alarms}}
+\subsubsection[{\+\_\+tc\+\_\+\+N\+E\+I\+D\+Type}]{\setlength{\rightskip}{0pt plus 5cm}extern\+::\+C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const alarms\+::\+\_\+tc\+\_\+\+N\+E\+I\+D\+Type}\label{namespacealarms_a07dd1c1f1684789ae305617e001017be}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    &\_tao\_tc\_alarms\_NEIDType
+\end{DoxyCode}
+\index{alarms@{alarms}!\+\_\+tc\+\_\+\+Resolution@{\+\_\+tc\+\_\+\+Resolution}}
+\index{\+\_\+tc\+\_\+\+Resolution@{\+\_\+tc\+\_\+\+Resolution}!alarms@{alarms}}
+\subsubsection[{\+\_\+tc\+\_\+\+Resolution}]{\setlength{\rightskip}{0pt plus 5cm}extern\+::\+C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const alarms\+::\+\_\+tc\+\_\+\+Resolution}\label{namespacealarms_aa16b613c1c0258c12740146b0c14e28f}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    &\_tao\_tc\_alarms\_Resolution
+\end{DoxyCode}
+\index{alarms@{alarms}!\+\_\+tc\+\_\+\+Severity@{\+\_\+tc\+\_\+\+Severity}}
+\index{\+\_\+tc\+\_\+\+Severity@{\+\_\+tc\+\_\+\+Severity}!alarms@{alarms}}
+\subsubsection[{\+\_\+tc\+\_\+\+Severity}]{\setlength{\rightskip}{0pt plus 5cm}extern\+::\+C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const alarms\+::\+\_\+tc\+\_\+\+Severity}\label{namespacealarms_a819a7f96075cb6074b620f880bdb4338}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    &\_tao\_tc\_alarms\_Severity
+\end{DoxyCode}
+\index{alarms@{alarms}!\+\_\+tc\+\_\+\+Time\+Stamp@{\+\_\+tc\+\_\+\+Time\+Stamp}}
+\index{\+\_\+tc\+\_\+\+Time\+Stamp@{\+\_\+tc\+\_\+\+Time\+Stamp}!alarms@{alarms}}
+\subsubsection[{\+\_\+tc\+\_\+\+Time\+Stamp}]{\setlength{\rightskip}{0pt plus 5cm}extern\+::\+C\+O\+R\+B\+A\+::\+Type\+Code\+\_\+ptr const alarms\+::\+\_\+tc\+\_\+\+Time\+Stamp}\label{namespacealarms_a09609752833c4ce06bc90290889466c1}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    &\_tao\_tc\_alarms\_TimeStamp
+\end{DoxyCode}

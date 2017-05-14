@@ -1,0 +1,328 @@
+\section{Mailbox\+Owner\+Handle Class Reference}
+\label{classMailboxOwnerHandle}\index{Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Mailbox\+Owner\+Handle} ({\bf Mailbox\+Base} $\ast$mailbox\+Ptr)
+\item 
+virtual {\bf $\sim$\+Mailbox\+Owner\+Handle} ()
+\item 
+virtual int {\bf post} ({\bf Message\+Base} $\ast$message\+Ptr, const A\+C\+E\+\_\+\+Time\+\_\+\+Value $\ast$timeout=\&A\+C\+E\+\_\+\+Time\+\_\+\+Value\+::zero)
+\item 
+long {\bf schedule\+Timer} ({\bf Timer\+Message} $\ast$timer\+Message\+Ptr)
+\item 
+int {\bf cancel\+Timer} (long timer\+Id, {\bf Timer\+Message} $\ast$timer\+Message\+Ptr)
+\item 
+int {\bf reset\+Timer\+Interval} (long timer\+Id, {\bf Timer\+Message} $\ast$timer\+Message\+Ptr, const A\+C\+E\+\_\+\+Time\+\_\+\+Value \&new\+Interval)
+\item 
+int {\bf activate} ()
+\item 
+int {\bf deactivate} ()
+\item 
+virtual {\bf Message\+Base} $\ast$ {\bf get\+Message} (unsigned short timeout=0)
+\item 
+virtual {\bf Message\+Base} $\ast$ {\bf get\+Message\+Non\+Blocking} ()
+\item 
+virtual int {\bf get\+Debug\+Value} ()
+\item 
+virtual void {\bf set\+Debug\+Value} (int debug\+Value)
+\item 
+virtual bool {\bf is\+Proxy} ()
+\item 
+virtual {\bf Mailbox\+Address} \& {\bf get\+Mailbox\+Address} ()
+\item 
+virtual unsigned int {\bf get\+Sent\+Count} ()
+\item 
+bool {\bf rename} (const {\bf Mailbox\+Address} \&new\+Remote\+Address)
+\item 
+{\bf Mailbox\+Handle} $\ast$ {\bf generate\+Mailbox\+Handle\+Copy} ()
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Mailbox\+Base} $\ast$ {\bf mailbox\+Ptr\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}!Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}}
+\index{Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}!Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}}
+\subsubsection[{Mailbox\+Owner\+Handle(\+Mailbox\+Base $\ast$mailbox\+Ptr)}]{\setlength{\rightskip}{0pt plus 5cm}Mailbox\+Owner\+Handle\+::\+Mailbox\+Owner\+Handle (
+\begin{DoxyParamCaption}
+\item[{{\bf Mailbox\+Base} $\ast$}]{mailbox\+Ptr}
+\end{DoxyParamCaption}
+)}\label{classMailboxOwnerHandle_a822f117abf617af5a930ffe92502a4be}
+Constructor. Stores a pointer to the mailbox 
+
+References Mailbox\+Base\+::acquire(), Mailbox\+Owner\+Handle(), and mailbox\+Ptr\+\_\+.
+
+
+
+Referenced by Mailbox\+Owner\+Handle().
+
+\index{Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}!````~Mailbox\+Owner\+Handle@{$\sim$\+Mailbox\+Owner\+Handle}}
+\index{````~Mailbox\+Owner\+Handle@{$\sim$\+Mailbox\+Owner\+Handle}!Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}}
+\subsubsection[{$\sim$\+Mailbox\+Owner\+Handle()}]{\setlength{\rightskip}{0pt plus 5cm}Mailbox\+Owner\+Handle\+::$\sim$\+Mailbox\+Owner\+Handle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxOwnerHandle_ae57a495e306c4da5eea466bda2c69aa8}
+Virtual Destructor 
+
+References mailbox\+Ptr\+\_\+, and Mailbox\+Base\+::release().
+
+
+
+\subsection{Member Function Documentation}
+\index{Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}!activate@{activate}}
+\index{activate@{activate}!Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}}
+\subsubsection[{activate()}]{\setlength{\rightskip}{0pt plus 5cm}int Mailbox\+Owner\+Handle\+::activate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMailboxOwnerHandle_a03b5a1020ae3c9349d27096faeca7485}
+This method activates the mailbox \begin{DoxyReturn}{Returns}
+OK on success; E\+R\+R\+OR for failure 
+\end{DoxyReturn}
+
+
+References Mailbox\+Base\+::activate(), and mailbox\+Ptr\+\_\+.
+
+
+
+Referenced by Mailbox\+Lookup\+Service\+::find(), Discovery\+Manager\+::initialize(), Resource\+Monitor\+::process\+Mailbox(), Process\+Manager\+::process\+Mailbox(), Fault\+Manager\+::process\+Mailbox(), and Discovery\+Manager\+::process\+Mailbox().
+
+\index{Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}!cancel\+Timer@{cancel\+Timer}}
+\index{cancel\+Timer@{cancel\+Timer}!Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}}
+\subsubsection[{cancel\+Timer(long timer\+Id, Timer\+Message $\ast$timer\+Message\+Ptr)}]{\setlength{\rightskip}{0pt plus 5cm}int Mailbox\+Owner\+Handle\+::cancel\+Timer (
+\begin{DoxyParamCaption}
+\item[{long}]{timer\+Id, }
+\item[{{\bf Timer\+Message} $\ast$}]{timer\+Message\+Ptr}
+\end{DoxyParamCaption}
+)}\label{classMailboxOwnerHandle_a5d35b5dd6cc34655b01e20213faa66e7}
+Cancel an outstanding, active Timer Message. N\+O\+TE that the \doxyref{Timer\+Message}{p.}{classTimerMessage} is provided here and is deleted when the timer is canceled -\/if-\/ the Timer is not Owned/\+Pooled by the \doxyref{O\+PM}{p.}{classOPM} and its not reusable. If the timer is Owned/\+Pooled by the \doxyref{O\+PM}{p.}{classOPM}, then it will be released back into the pool here. If the timer is reusable, then it is upto the application to delete it. \begin{DoxyReturn}{Returns}
+OK if cancellation succeeded and E\+R\+R\+OR if the Timer\+Id wasn\textquotesingle{}t found 
+\end{DoxyReturn}
+
+
+References Mailbox\+Base\+::decrement\+Active\+Timers(), Mailbox\+Base\+::get\+Reactor(), O\+P\+M\+::is\+Created\+By\+O\+P\+M(), Message\+Base\+::is\+Poolable(), Message\+Base\+::is\+Reusable(), and mailbox\+Ptr\+\_\+.
+
+\index{Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}!deactivate@{deactivate}}
+\index{deactivate@{deactivate}!Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}}
+\subsubsection[{deactivate()}]{\setlength{\rightskip}{0pt plus 5cm}int Mailbox\+Owner\+Handle\+::deactivate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMailboxOwnerHandle_ac537b2a75c9d28ff4d0f06c0e869a85d}
+This method deactivates the mailbox \begin{DoxyReturn}{Returns}
+OK on success; E\+R\+R\+OR for failure 
+\end{DoxyReturn}
+
+
+References Mailbox\+Base\+::deactivate(), and mailbox\+Ptr\+\_\+.
+
+\index{Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}!generate\+Mailbox\+Handle\+Copy@{generate\+Mailbox\+Handle\+Copy}}
+\index{generate\+Mailbox\+Handle\+Copy@{generate\+Mailbox\+Handle\+Copy}!Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}}
+\subsubsection[{generate\+Mailbox\+Handle\+Copy()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mailbox\+Handle} $\ast$ Mailbox\+Owner\+Handle\+::generate\+Mailbox\+Handle\+Copy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMailboxOwnerHandle_a34b32408b31d92f4d1bcf701391fe540}
+Return a regular Mailbox Handle to this same encapsulated Mailbox. N\+O\+TE\+: This method call creates a Mailbox Handle on the heap. It then becomes the callers responsibility to delete the regular handle when finished with it to prevent a memory leak. 
+
+References mailbox\+Ptr\+\_\+.
+
+
+
+Referenced by Mailbox\+Lookup\+Service\+::find().
+
+\index{Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}!get\+Debug\+Value@{get\+Debug\+Value}}
+\index{get\+Debug\+Value@{get\+Debug\+Value}!Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}}
+\subsubsection[{get\+Debug\+Value()}]{\setlength{\rightskip}{0pt plus 5cm}int Mailbox\+Owner\+Handle\+::get\+Debug\+Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxOwnerHandle_a94bda04b2be441422fa628dd385411d1}
+Returns the Debug flag value for this mailbox. 
+
+References Mailbox\+Base\+::get\+Debug\+Value(), and mailbox\+Ptr\+\_\+.
+
+\index{Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}!get\+Mailbox\+Address@{get\+Mailbox\+Address}}
+\index{get\+Mailbox\+Address@{get\+Mailbox\+Address}!Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}}
+\subsubsection[{get\+Mailbox\+Address()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mailbox\+Address} \& Mailbox\+Owner\+Handle\+::get\+Mailbox\+Address (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxOwnerHandle_ad20f19e5a38e84262f36d3694b4c32a6}
+Return the mailbox address 
+
+References Mailbox\+Base\+::get\+Mailbox\+Address(), and mailbox\+Ptr\+\_\+.
+
+
+
+Referenced by Mailbox\+Lookup\+Service\+::deregister\+Mailbox(), Mailbox\+Lookup\+Service\+::get\+Debug\+For\+All\+Mailbox\+Addresses(), Fault\+Manager\+::process\+Mailbox(), and Mailbox\+Lookup\+Service\+::register\+Mailbox().
+
+\index{Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}!get\+Message@{get\+Message}}
+\index{get\+Message@{get\+Message}!Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}}
+\subsubsection[{get\+Message(unsigned short timeout=0)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Message\+Base} $\ast$ Mailbox\+Owner\+Handle\+::get\+Message (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{timeout = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxOwnerHandle_a9f4581478da78a6dd12f2b7a44aad170}
+Will block until a message is available. May return N\+U\+LL if no message available (if mailbox deactivated). 
+
+References Mailbox\+Base\+::get\+Message(), and mailbox\+Ptr\+\_\+.
+
+
+
+Referenced by Mailbox\+Processor\+::process\+Mailbox().
+
+\index{Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}!get\+Message\+Non\+Blocking@{get\+Message\+Non\+Blocking}}
+\index{get\+Message\+Non\+Blocking@{get\+Message\+Non\+Blocking}!Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}}
+\subsubsection[{get\+Message\+Non\+Blocking()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Message\+Base} $\ast$ Mailbox\+Owner\+Handle\+::get\+Message\+Non\+Blocking (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxOwnerHandle_a1b9481f8ad896c7696d0ff6aa64c970f}
+Will not block until a message is available. 
+
+If the application has a need to do non-\/blocking calls to get (or check to see if) messages pending on the mailbox queue, then the application needs to implement this call -\/instead-\/ of calling Mailbox\+Process\+::process\+Mailbox(). If this is indeed the case, then the application will either need to implement the case switching on the Message Type -\/or-\/ implement the find for the \doxyref{Message\+Handler\+List}{p.}{classMessageHandlerList} (functor lookup). \begin{DoxyReturn}{Returns}
+N\+U\+LL if no message available (and if mailbox deactivated). 
+\end{DoxyReturn}
+
+
+References Mailbox\+Base\+::get\+Message\+Non\+Blocking(), and mailbox\+Ptr\+\_\+.
+
+\index{Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}!get\+Sent\+Count@{get\+Sent\+Count}}
+\index{get\+Sent\+Count@{get\+Sent\+Count}!Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}}
+\subsubsection[{get\+Sent\+Count()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Mailbox\+Owner\+Handle\+::get\+Sent\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxOwnerHandle_af6840365882fa10293f63aa065bec5b1}
+Return the sent message counter value 
+
+References Mailbox\+Base\+::get\+Sent\+Count(), and mailbox\+Ptr\+\_\+.
+
+\index{Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}!is\+Proxy@{is\+Proxy}}
+\index{is\+Proxy@{is\+Proxy}!Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}}
+\subsubsection[{is\+Proxy()}]{\setlength{\rightskip}{0pt plus 5cm}bool Mailbox\+Owner\+Handle\+::is\+Proxy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxOwnerHandle_a3d2bab319018cc5b5f2b9dd65ed0b3d7}
+Return whether this mailbox is a remote proxy or not 
+
+References Mailbox\+Base\+::is\+Proxy(), and mailbox\+Ptr\+\_\+.
+
+
+
+Referenced by Mailbox\+Lookup\+Service\+::deregister\+Mailbox(), and Mailbox\+Lookup\+Service\+::get\+Debug\+For\+All\+Mailbox\+Addresses().
+
+\index{Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}!post@{post}}
+\index{post@{post}!Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}}
+\subsubsection[{post(\+Message\+Base $\ast$message\+Ptr, const A\+C\+E\+\_\+\+Time\+\_\+\+Value $\ast$timeout=\&\+A\+C\+E\+\_\+\+Time\+\_\+\+Value\+::zero)}]{\setlength{\rightskip}{0pt plus 5cm}int Mailbox\+Owner\+Handle\+::post (
+\begin{DoxyParamCaption}
+\item[{{\bf Message\+Base} $\ast$}]{message\+Ptr, }
+\item[{const A\+C\+E\+\_\+\+Time\+\_\+\+Value $\ast$}]{timeout = {\ttfamily \&ACE\+\_\+Time\+\_\+Value\+:\+:zero}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxOwnerHandle_a3ca30a36ac12cf8da4d2a43b53e08d1f}
+Post a message to this mailbox \begin{DoxyReturn}{Returns}
+E\+R\+R\+OR for an error; otherwise OK 
+\end{DoxyReturn}
+
+
+References mailbox\+Ptr\+\_\+, and Mailbox\+Base\+::post().
+
+
+
+Referenced by Discovery\+Manager\+::deregister\+Local\+Address(), Discovery\+Manager\+::list\+All\+Mailbox\+Addresses(), Discovery\+Manager\+::process\+Mailbox(), and Discovery\+Manager\+::register\+Local\+Address().
+
+\index{Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}!rename@{rename}}
+\index{rename@{rename}!Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}}
+\subsubsection[{rename(const Mailbox\+Address \&new\+Remote\+Address)}]{\setlength{\rightskip}{0pt plus 5cm}bool Mailbox\+Owner\+Handle\+::rename (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{new\+Remote\+Address}
+\end{DoxyParamCaption}
+)}\label{classMailboxOwnerHandle_a1b5cd451c7710b3c3919b25c0fce0e94}
+Rename the Mailbox address 
+
+References mailbox\+Ptr\+\_\+, and Mailbox\+Base\+::rename().
+
+\index{Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}!reset\+Timer\+Interval@{reset\+Timer\+Interval}}
+\index{reset\+Timer\+Interval@{reset\+Timer\+Interval}!Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}}
+\subsubsection[{reset\+Timer\+Interval(long timer\+Id, Timer\+Message $\ast$timer\+Message\+Ptr, const A\+C\+E\+\_\+\+Time\+\_\+\+Value \&new\+Interval)}]{\setlength{\rightskip}{0pt plus 5cm}int Mailbox\+Owner\+Handle\+::reset\+Timer\+Interval (
+\begin{DoxyParamCaption}
+\item[{long}]{timer\+Id, }
+\item[{{\bf Timer\+Message} $\ast$}]{timer\+Message\+Ptr, }
+\item[{const A\+C\+E\+\_\+\+Time\+\_\+\+Value \&}]{new\+Interval}
+\end{DoxyParamCaption}
+)}\label{classMailboxOwnerHandle_a18e10b28cabf855151b651c775b6a5bb}
+Reset the timer interval for a specified outstanding, active Timer Message. In other words, change how often the timer is periodically restarted. A value of A\+C\+E\+\_\+\+Time\+\_\+\+Value\+::zero will cause the timer to N\+OT be restarted again. \begin{DoxyReturn}{Returns}
+OK if successful, E\+R\+R\+OR if not. 
+\end{DoxyReturn}
+
+
+References Mailbox\+Base\+::get\+Reactor(), mailbox\+Ptr\+\_\+, and Reusable\+Message\+Base\+::set\+No\+Longer\+Reusable().
+
+\index{Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}!schedule\+Timer@{schedule\+Timer}}
+\index{schedule\+Timer@{schedule\+Timer}!Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}}
+\subsubsection[{schedule\+Timer(\+Timer\+Message $\ast$timer\+Message\+Ptr)}]{\setlength{\rightskip}{0pt plus 5cm}long Mailbox\+Owner\+Handle\+::schedule\+Timer (
+\begin{DoxyParamCaption}
+\item[{{\bf Timer\+Message} $\ast$}]{timer\+Message\+Ptr}
+\end{DoxyParamCaption}
+)}\label{classMailboxOwnerHandle_acb38f7615bdacbda0bc9b9fed4b33688}
+Schedule a Timer Message to expire at the specified timeout. When the Timer expires, it is enqueued to the local mailbox. \begin{DoxyReturn}{Returns}
+Timer\+Id for this Timer, or E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+References Mailbox\+Base\+::get\+Reactor(), Timer\+Message\+::get\+Restart\+Interval(), Timer\+Message\+::get\+Timeout(), Mailbox\+Base\+::increment\+Active\+Timers(), and mailbox\+Ptr\+\_\+.
+
+
+
+Referenced by Resource\+Monitor\+::initialize(), and Fault\+Manager\+::initialize().
+
+\index{Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}!set\+Debug\+Value@{set\+Debug\+Value}}
+\index{set\+Debug\+Value@{set\+Debug\+Value}!Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}}
+\subsubsection[{set\+Debug\+Value(int debug\+Value)}]{\setlength{\rightskip}{0pt plus 5cm}void Mailbox\+Owner\+Handle\+::set\+Debug\+Value (
+\begin{DoxyParamCaption}
+\item[{int}]{debug\+Value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMailboxOwnerHandle_aed6857e45359815e4df8bc537fbcc3ac}
+Sets the Debug flag value for this mailbox. 
+
+References mailbox\+Ptr\+\_\+, and Mailbox\+Base\+::set\+Debug\+Value().
+
+
+
+Referenced by Fault\+Manager\+::process\+Mailbox(), and Discovery\+Manager\+::process\+Mailbox().
+
+\index{Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Mailbox\+Owner\+Handle\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMailboxOwnerHandle_a56d1fffe47500d9f2c7ab5a6ac78cd21}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}!mailbox\+Ptr\+\_\+@{mailbox\+Ptr\+\_\+}}
+\index{mailbox\+Ptr\+\_\+@{mailbox\+Ptr\+\_\+}!Mailbox\+Owner\+Handle@{Mailbox\+Owner\+Handle}}
+\subsubsection[{mailbox\+Ptr\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mailbox\+Base}$\ast$ Mailbox\+Owner\+Handle\+::mailbox\+Ptr\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classMailboxOwnerHandle_aefde0fc1bf30aecbe7a0d308af9c4573}
+Pointer to the encapsulated mailbox 
+
+Referenced by activate(), cancel\+Timer(), deactivate(), generate\+Mailbox\+Handle\+Copy(), get\+Debug\+Value(), get\+Mailbox\+Address(), get\+Message(), get\+Message\+Non\+Blocking(), get\+Sent\+Count(), is\+Proxy(), Mailbox\+Owner\+Handle(), post(), rename(), reset\+Timer\+Interval(), schedule\+Timer(), set\+Debug\+Value(), and $\sim$\+Mailbox\+Owner\+Handle().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Mailbox\+Owner\+Handle.\+h\item 
+Mailbox\+Owner\+Handle.\+cpp\end{DoxyCompactItemize}

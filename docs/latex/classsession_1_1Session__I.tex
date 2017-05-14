@@ -1,0 +1,133 @@
+\section{session\+:\+:Session\+\_\+I Interface Reference}
+\label{classsession_1_1Session__I}\index{session\+::\+Session\+\_\+I@{session\+::\+Session\+\_\+I}}
+
+
+{\ttfamily \#include $<$session.\+idl$>$}
+
+Inheritance diagram for session\+:\+:Session\+\_\+I\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsession_1_1Session__I}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef {\bf Session\+\_\+\+I\+\_\+ptr} {\bfseries \+\_\+ptr\+\_\+type}\label{classsession_1_1Session__I_a21e2921149d53d04acb2e35772d31d6a}
+
+\item 
+typedef Session\+\_\+\+I\+\_\+var {\bfseries \+\_\+var\+\_\+type}\label{classsession_1_1Session__I_a4444b385fdb2123dfab49c0f108b6100}
+
+\item 
+typedef Session\+\_\+\+I\+\_\+out {\bfseries \+\_\+out\+\_\+type}\label{classsession_1_1Session__I_a0d519b700650d5552773bd36e7a41c76}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \+::{\bf session\+::\+Session\+\_\+\+I\+\_\+ptr} {\bfseries associated\+Session} (void)\label{classsession_1_1Session__I_a4f4fe37586ebb255efbf9e7a0e6a24ee}
+
+\item 
+virtual void {\bfseries ping} (void)\label{classsession_1_1Session__I_ad8d76929736d3d57fb465ea59ffe1276}
+
+\item 
+virtual void {\bfseries end\+Session} (void)\label{classsession_1_1Session__I_ab1f3e4f221aa8f6803ab1412443b45ad}
+
+\item 
+virtual \+::C\+O\+R\+B\+A\+::\+Boolean {\bfseries \+\_\+is\+\_\+a} (const char $\ast$type\+\_\+id)\label{classsession_1_1Session__I_ae70889523c08ef4339e4fe6b2e454589}
+
+\item 
+virtual const char $\ast$ {\bfseries \+\_\+interface\+\_\+repository\+\_\+id} (void) const \label{classsession_1_1Session__I_a79fefb729c091df69115d1a4e493e31f}
+
+\item 
+virtual \+::C\+O\+R\+B\+A\+::\+Boolean {\bfseries marshal} (T\+A\+O\+\_\+\+Output\+C\+DR \&cdr)\label{classsession_1_1Session__I_a76cb1f7dae8035432a15c2408909a2ff}
+
+\item 
+void {\bf ping} ()
+\item 
+oneway void {\bf end\+Session} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf Session\+\_\+\+I\+\_\+ptr} {\bfseries \+\_\+duplicate} ({\bf Session\+\_\+\+I\+\_\+ptr} obj)\label{classsession_1_1Session__I_a4ecce9daf90ac9eaac8f2d4d6529597a}
+
+\item 
+static void {\bfseries \+\_\+tao\+\_\+release} ({\bf Session\+\_\+\+I\+\_\+ptr} obj)\label{classsession_1_1Session__I_a561f2669d78536419f29b7ba0a45c256}
+
+\item 
+static {\bf Session\+\_\+\+I\+\_\+ptr} {\bfseries \+\_\+narrow} (\+::C\+O\+R\+B\+A\+::\+Object\+\_\+ptr obj)\label{classsession_1_1Session__I_a64cb2bf234bd8263c9814261e309cbaa}
+
+\item 
+static {\bf Session\+\_\+\+I\+\_\+ptr} {\bfseries \+\_\+unchecked\+\_\+narrow} (\+::C\+O\+R\+B\+A\+::\+Object\+\_\+ptr obj)\label{classsession_1_1Session__I_afe4a7d3e65192dacf983e8a8562e4a39}
+
+\item 
+static {\bf Session\+\_\+\+I\+\_\+ptr} {\bfseries \+\_\+nil} (void)\label{classsession_1_1Session__I_a4499f59f0bb02979aedc664e756e04be}
+
+\item 
+static void {\bfseries \+\_\+tao\+\_\+any\+\_\+destructor} (void $\ast$)\label{classsession_1_1Session__I_a3057db12fea5b0a7230576650916eeb2}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+readonly attribute {\bf Session\+\_\+I} {\bf associated\+Session}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void {\bfseries session\+\_\+\+Session\+\_\+\+I\+\_\+setup\+\_\+collocation} (void)\label{classsession_1_1Session__I_af8f8e5b44a76331daf670ebd7ee4b361}
+
+\item 
+{\bfseries Session\+\_\+I} (I\+O\+P\+::\+I\+OR $\ast$ior, T\+A\+O\+\_\+\+O\+R\+B\+\_\+\+Core $\ast$orb\+\_\+core=0)\label{classsession_1_1Session__I_a3f26c7aec3d7712e153b2f61869ef75b}
+
+\item 
+{\bfseries Session\+\_\+I} (T\+A\+O\+\_\+\+Stub $\ast$objref,\+::C\+O\+R\+B\+A\+::\+Boolean \+\_\+tao\+\_\+collocated=false, T\+A\+O\+\_\+\+Abstract\+\_\+\+Servant\+Base $\ast$servant=0, T\+A\+O\+\_\+\+O\+R\+B\+\_\+\+Core $\ast$orb\+\_\+core=0)\label{classsession_1_1Session__I_a968528d2ab56c07664fc701c1d998708}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries T\+A\+O\+::\+Narrow\+\_\+\+Utils$<$ Session\+\_\+\+I $>$}\label{classsession_1_1Session__I_a6e5d500e6467e415c0a6c7b12cc72e1f}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \doxyref{Session\+\_\+I}{p.}{classsession_1_1Session__I} interface provides capabilities to manage the client-\/server connection. Its main purpose is to enable either a client or server to detect the loss of communication with the associated party.
+
+For a single communication session between an N\+MS and an E\+MS, there are two \doxyref{Session\+\_\+I}{p.}{classsession_1_1Session__I} objects. One is maintained on the N\+MS; the other one is maintained on the E\+MS. The \doxyref{Session\+\_\+I}{p.}{classsession_1_1Session__I} object maintained on the E\+MS is actually an Ems\+Session\+\_\+I, while the \doxyref{Session\+\_\+I}{p.}{classsession_1_1Session__I} object maintained on the N\+MS is actually an Nms\+Session\+\_\+I (both inherit from \doxyref{Session\+\_\+I}{p.}{classsession_1_1Session__I}).
+
+Each \doxyref{Session\+\_\+I}{p.}{classsession_1_1Session__I} object is responsible to \char`\"{}ping\char`\"{} the other \doxyref{Session\+\_\+I}{p.}{classsession_1_1Session__I} object periodically to detect communication failures. Exactly when this is done is up to the implementation.
+
+When a \doxyref{Session\+\_\+I}{p.}{classsession_1_1Session__I} object detects a communication failure, or when the end\+Session operation is called on it, all resources allocated with that communication session must be freed and the \doxyref{Session\+\_\+I}{p.}{classsession_1_1Session__I} object must be deleted.
+
+\subsection{Member Function Documentation}
+\index{session\+::\+Session\+\_\+I@{session\+::\+Session\+\_\+I}!end\+Session@{end\+Session}}
+\index{end\+Session@{end\+Session}!session\+::\+Session\+\_\+I@{session\+::\+Session\+\_\+I}}
+\subsubsection[{end\+Session()}]{\setlength{\rightskip}{0pt plus 5cm}oneway void session\+::\+Session\+\_\+\+I\+::end\+Session (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classsession_1_1Session__I_aac7dce4d2dcb2336c34903397133923c}
+Allows for a controlled disconnect between parties. All resources allocated for the session are deleted by operation.\index{session\+::\+Session\+\_\+I@{session\+::\+Session\+\_\+I}!ping@{ping}}
+\index{ping@{ping}!session\+::\+Session\+\_\+I@{session\+::\+Session\+\_\+I}}
+\subsubsection[{ping()}]{\setlength{\rightskip}{0pt plus 5cm}void session\+::\+Session\+\_\+\+I\+::ping (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classsession_1_1Session__I_a3123e107fb69db24335f859d84f32a93}
+Allows for the detection of loss of communication. It is implementation specific to differenciate intermittent problems from loss of connection.
+
+\subsection{Member Data Documentation}
+\index{session\+::\+Session\+\_\+I@{session\+::\+Session\+\_\+I}!associated\+Session@{associated\+Session}}
+\index{associated\+Session@{associated\+Session}!session\+::\+Session\+\_\+I@{session\+::\+Session\+\_\+I}}
+\subsubsection[{associated\+Session}]{\setlength{\rightskip}{0pt plus 5cm}{\bf session\+::\+Session\+\_\+\+I\+\_\+ptr} session\+::\+Session\+\_\+\+I\+::associated\+Session}\label{classsession_1_1Session__I_ad3a505c161191ff5ceb94fea63467122}
+This attribute contains a reference to the \doxyref{Session\+\_\+I}{p.}{classsession_1_1Session__I} on the other side (N\+M\+S/\+E\+MS) to which the object is associated. This attribute can be checked to make sure the Nms\+Session\+\_\+\+I/\+Ems\+Session\+\_\+I association is still valid (in particular in case of communication failures).
+
+The documentation for this interface was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+session\+C.\+h\item 
+session.\+idl\item 
+session\+C.\+cpp\item 
+session\+C.\+inl\end{DoxyCompactItemize}

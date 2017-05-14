@@ -1,0 +1,173 @@
+\section{Group\+Mailbox Class Reference}
+\label{classGroupMailbox}\index{Group\+Mailbox@{Group\+Mailbox}}
+Inheritance diagram for Group\+Mailbox\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classGroupMailbox}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bf rename} (const {\bf Mailbox\+Address} \&new\+Group\+Address)
+\item 
+virtual int {\bf activate} ({\bf Mailbox\+Owner\+Handle} $\ast$mailbox\+Owner\+Handle)
+\item 
+virtual int {\bf deactivate} ({\bf Mailbox\+Owner\+Handle} $\ast$mailbox\+Owner\+Handle)
+\item 
+{\bf Mailbox\+Address} \& {\bf get\+Mailbox\+Address} ()
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf Mailbox\+Owner\+Handle} $\ast$ {\bf create\+Mailbox} (const {\bf Mailbox\+Address} \&group\+Address, unsigned int multicast\+Loopback\+Enabled=T\+R\+UE, unsigned int multicast\+T\+TL=1)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Group\+Mailbox} (const {\bf Mailbox\+Address} \&group\+Address, unsigned int multicast\+Loopback\+Enabled\+\_\+, unsigned int multicast\+T\+T\+L\+\_\+)
+\item 
+virtual {\bf $\sim$\+Group\+Mailbox} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Group\+Mailbox@{Group\+Mailbox}!Group\+Mailbox@{Group\+Mailbox}}
+\index{Group\+Mailbox@{Group\+Mailbox}!Group\+Mailbox@{Group\+Mailbox}}
+\subsubsection[{Group\+Mailbox(const Mailbox\+Address \&group\+Address, unsigned int multicast\+Loopback\+Enabled\+\_\+, unsigned int multicast\+T\+T\+L\+\_\+)}]{\setlength{\rightskip}{0pt plus 5cm}Group\+Mailbox\+::\+Group\+Mailbox (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{group\+Address, }
+\item[{unsigned int}]{multicast\+Loopback\+Enabled\+\_\+, }
+\item[{unsigned int}]{multicast\+T\+T\+L\+\_\+}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classGroupMailbox_afc08cda431d7126f36019a936c0e663e}
+Constructor -\/ protected so that applications cannot create their own mailboxes and must use the static \doxyref{create\+Mailbox()}{p.}{classGroupMailbox_a2c557e67a0ddc8518623d9cedcaa283f} method 
+
+References Group\+Mailbox().
+
+
+
+Referenced by Group\+Mailbox().
+
+\index{Group\+Mailbox@{Group\+Mailbox}!````~Group\+Mailbox@{$\sim$\+Group\+Mailbox}}
+\index{````~Group\+Mailbox@{$\sim$\+Group\+Mailbox}!Group\+Mailbox@{Group\+Mailbox}}
+\subsubsection[{$\sim$\+Group\+Mailbox()}]{\setlength{\rightskip}{0pt plus 5cm}Group\+Mailbox\+::$\sim$\+Group\+Mailbox (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classGroupMailbox_aa5b47c0b7af860a1255691f4fa036a13}
+Virtual Destructor. Protected since this is a reference counted object. 
+
+References Mailbox\+Base\+::is\+Shutting\+Down\+\_\+.
+
+
+
+\subsection{Member Function Documentation}
+\index{Group\+Mailbox@{Group\+Mailbox}!activate@{activate}}
+\index{activate@{activate}!Group\+Mailbox@{Group\+Mailbox}}
+\subsubsection[{activate(\+Mailbox\+Owner\+Handle $\ast$mailbox\+Owner\+Handle)}]{\setlength{\rightskip}{0pt plus 5cm}int Group\+Mailbox\+::activate (
+\begin{DoxyParamCaption}
+\item[{{\bf Mailbox\+Owner\+Handle} $\ast$}]{mailbox\+Owner\+Handle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classGroupMailbox_a8376e1dfb4d001d6095ea3d7419765f6}
+Activate the mailbox. For security, one must possess an Owner Handle in order to activate the mailbox and register it with the Lookup Service. 
+
+Reimplemented from {\bf Local\+Mailbox} \doxyref{}{p.}{classLocalMailbox_a90a0b182b76f38934302d613c74b626f}.
+
+
+
+References Local\+Mailbox\+::activate(), Local\+Mailbox\+::deactivate(), Mailbox\+Address\+::inet\+Address, and Mailbox\+Base\+::is\+Active().
+
+\index{Group\+Mailbox@{Group\+Mailbox}!create\+Mailbox@{create\+Mailbox}}
+\index{create\+Mailbox@{create\+Mailbox}!Group\+Mailbox@{Group\+Mailbox}}
+\subsubsection[{create\+Mailbox(const Mailbox\+Address \&group\+Address, unsigned int multicast\+Loopback\+Enabled=\+T\+R\+U\+E, unsigned int multicast\+T\+T\+L=1)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mailbox\+Owner\+Handle} $\ast$ Group\+Mailbox\+::create\+Mailbox (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{group\+Address, }
+\item[{unsigned int}]{multicast\+Loopback\+Enabled = {\ttfamily TRUE}, }
+\item[{unsigned int}]{multicast\+T\+TL = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classGroupMailbox_a2c557e67a0ddc8518623d9cedcaa283f}
+Allows applications to create a mailbox and get a handle to it.
+
+Since we do not want applications to have direct access to a mailbox object this method is provided. Applications that create mailboxes use this method to get a handle to their mailbox rather than have direct access. The handle returned is a owner handle which has all the privileges of the actual mailbox (get\+Message/post etc). This method creates the mailbox, activates it (which in turn registers it with the lookup service) and then creates an owner handle, acquires it and then returns that handle. Both the mailbox and the returned handle are created on the heap. 
+\begin{DoxyParams}{Parameters}
+{\em group\+Address} & source mailbox address that this mailbox will have \\
+\hline
+{\em multicast\+Loopback\+Enabled} & set to T\+R\+UE to enable multicast loopback \\
+\hline
+{\em multicast\+T\+TL} & If we experience problems with Multicast packets getting from one network to another, we need to probably change the T\+TL. By default, it is set to 1 to allow for only 1 hop (within the same subnet, routers will not forward). Also, setting to 0 will restrict to within the same host. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to a mailbox owner handle 
+\end{DoxyReturn}
+
+
+References Message\+Buffer\+::are\+Contents\+Processed(), Message\+Buffer\+::clear\+Buffer(), Thread\+Manager\+::create\+Thread(), Mailbox\+Base\+::debug\+Value\+\_\+, Message\+Buffer\+::get\+Buffer(), Message\+Base\+::get\+Message\+Id(), Message\+Base\+::get\+Source\+Address(), Mailbox\+Base\+::increment\+Received\+Count(), Mailbox\+Address\+::inet\+Address, Mailbox\+Address\+::location\+Type, Local\+Mailbox\+::post(), Message\+Factory\+::recreate\+Message\+From\+Buffer(), Mailbox\+Base\+::select\+Reactor\+\_\+, Message\+Buffer\+::set\+Insert\+Position(), Message\+Base\+::set\+Priority(), Local\+Mailbox\+::start\+Reactor(), and Message\+Base\+::to\+String().
+
+
+
+Referenced by Discovery\+Manager\+::initialize().
+
+\index{Group\+Mailbox@{Group\+Mailbox}!deactivate@{deactivate}}
+\index{deactivate@{deactivate}!Group\+Mailbox@{Group\+Mailbox}}
+\subsubsection[{deactivate(\+Mailbox\+Owner\+Handle $\ast$mailbox\+Owner\+Handle)}]{\setlength{\rightskip}{0pt plus 5cm}int Group\+Mailbox\+::deactivate (
+\begin{DoxyParamCaption}
+\item[{{\bf Mailbox\+Owner\+Handle} $\ast$}]{mailbox\+Owner\+Handle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classGroupMailbox_ae1aac18804e7584a90816ad6c840074d}
+Deactivate the mailbox. For security, one must possess an Owner Handle in order to deactivate the mailbox and deregister it with the Lookup Service. 
+
+Reimplemented from {\bf Local\+Mailbox} \doxyref{}{p.}{classLocalMailbox_a257122f75a72d9cbba8692cd1d8c431c}.
+
+
+
+References Local\+Mailbox\+::deactivate(), and Mailbox\+Address\+::inet\+Address.
+
+\index{Group\+Mailbox@{Group\+Mailbox}!get\+Mailbox\+Address@{get\+Mailbox\+Address}}
+\index{get\+Mailbox\+Address@{get\+Mailbox\+Address}!Group\+Mailbox@{Group\+Mailbox}}
+\subsubsection[{get\+Mailbox\+Address()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mailbox\+Address} \& Group\+Mailbox\+::get\+Mailbox\+Address (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classGroupMailbox_af3d24965817e7a326977ed01c59dfc7f}
+Return the mailbox group address 
+
+Implements {\bf Mailbox\+Base} \doxyref{}{p.}{classMailboxBase_ace28a599cdadf1afa99c94602eb7e4a6}.
+
+
+
+References Mailbox\+Base\+::is\+Shutting\+Down\+\_\+.
+
+\index{Group\+Mailbox@{Group\+Mailbox}!rename@{rename}}
+\index{rename@{rename}!Group\+Mailbox@{Group\+Mailbox}}
+\subsubsection[{rename(const Mailbox\+Address \&new\+Group\+Address)}]{\setlength{\rightskip}{0pt plus 5cm}bool Group\+Mailbox\+::rename (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{new\+Group\+Address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classGroupMailbox_a3f31059b9ea8924a92ef65b1afb44609}
+Method to allow application to rename a mailbox\textquotesingle{}s group address.
+
+T\+BD\+: What are the redundancy implications and usage here?? 
+
+Reimplemented from {\bf Mailbox\+Base} \doxyref{}{p.}{classMailboxBase_a93bf1108b770d273af5c4282bdcdfe47}.
+
+\index{Group\+Mailbox@{Group\+Mailbox}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Group\+Mailbox@{Group\+Mailbox}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Group\+Mailbox\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classGroupMailbox_a80922f6cd661a095be6e8840ad59240a}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Group\+Mailbox.\+h\item 
+Group\+Mailbox.\+cpp\end{DoxyCompactItemize}

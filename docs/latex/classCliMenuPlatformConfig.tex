@@ -1,0 +1,97 @@
+\section{Cli\+Menu\+Platform\+Config Class Reference}
+\label{classCliMenuPlatformConfig}\index{Cli\+Menu\+Platform\+Config@{Cli\+Menu\+Platform\+Config}}
+
+
+{\ttfamily \#include $<$Cli\+Menu\+Platform\+Config.\+h$>$}
+
+Inheritance diagram for Cli\+Menu\+Platform\+Config\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCliMenuPlatformConfig}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Cli\+Menu\+Platform\+Config} ()
+\item 
+virtual {\bf $\sim$\+Cli\+Menu\+Platform\+Config} ()
+\item 
+void {\bf initialize} ({\bf platform\+Config\+::platform\+Config\+\_\+\+I\+\_\+ptr} platform\+Config\+\_\+\+I\+\_\+ptr)
+\item 
+string {\bf get\+Log\+Levels} ()
+\item 
+void {\bf set\+Log\+Level} (int subsystem, int severity\+Level)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Cli\+Menu\+Platform\+Config}{p.}{classCliMenuPlatformConfig} contains static handler methods for platform configuration requests. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Cli\+Menu\+Platform\+Config@{Cli\+Menu\+Platform\+Config}!Cli\+Menu\+Platform\+Config@{Cli\+Menu\+Platform\+Config}}
+\index{Cli\+Menu\+Platform\+Config@{Cli\+Menu\+Platform\+Config}!Cli\+Menu\+Platform\+Config@{Cli\+Menu\+Platform\+Config}}
+\subsubsection[{Cli\+Menu\+Platform\+Config()}]{\setlength{\rightskip}{0pt plus 5cm}Cli\+Menu\+Platform\+Config\+::\+Cli\+Menu\+Platform\+Config (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classCliMenuPlatformConfig_a8a309df8c5e1ef094c020fc2514a57a6}
+Constructor \index{Cli\+Menu\+Platform\+Config@{Cli\+Menu\+Platform\+Config}!````~Cli\+Menu\+Platform\+Config@{$\sim$\+Cli\+Menu\+Platform\+Config}}
+\index{````~Cli\+Menu\+Platform\+Config@{$\sim$\+Cli\+Menu\+Platform\+Config}!Cli\+Menu\+Platform\+Config@{Cli\+Menu\+Platform\+Config}}
+\subsubsection[{$\sim$\+Cli\+Menu\+Platform\+Config()}]{\setlength{\rightskip}{0pt plus 5cm}Cli\+Menu\+Platform\+Config\+::$\sim$\+Cli\+Menu\+Platform\+Config (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classCliMenuPlatformConfig_a4a26246efd3be51b8c045eb6776220d2}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Cli\+Menu\+Platform\+Config@{Cli\+Menu\+Platform\+Config}!get\+Log\+Levels@{get\+Log\+Levels}}
+\index{get\+Log\+Levels@{get\+Log\+Levels}!Cli\+Menu\+Platform\+Config@{Cli\+Menu\+Platform\+Config}}
+\subsubsection[{get\+Log\+Levels()}]{\setlength{\rightskip}{0pt plus 5cm}string Cli\+Menu\+Platform\+Config\+::get\+Log\+Levels (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classCliMenuPlatformConfig_a81512dbb0863af75c82c4133d99d54c9}
+Retrieve all of the subsystem / severity log level pairs from the agent 
+
+Referenced by Cli\+Menu\+Controller\+::initialize().
+
+\index{Cli\+Menu\+Platform\+Config@{Cli\+Menu\+Platform\+Config}!initialize@{initialize}}
+\index{initialize@{initialize}!Cli\+Menu\+Platform\+Config@{Cli\+Menu\+Platform\+Config}}
+\subsubsection[{initialize(platform\+Config\+::platform\+Config\+\_\+\+I\+\_\+ptr platform\+Config\+\_\+\+I\+\_\+ptr)}]{\setlength{\rightskip}{0pt plus 5cm}void Cli\+Menu\+Platform\+Config\+::initialize (
+\begin{DoxyParamCaption}
+\item[{{\bf platform\+Config\+::platform\+Config\+\_\+\+I\+\_\+ptr}}]{platform\+Config\+\_\+\+I\+\_\+ptr}
+\end{DoxyParamCaption}
+)}\label{classCliMenuPlatformConfig_a9b096da99d2b61d7c73fd907f4f05c7b}
+Initialization Method 
+
+Referenced by Cli\+Menu\+Controller\+::initialize().
+
+\index{Cli\+Menu\+Platform\+Config@{Cli\+Menu\+Platform\+Config}!set\+Log\+Level@{set\+Log\+Level}}
+\index{set\+Log\+Level@{set\+Log\+Level}!Cli\+Menu\+Platform\+Config@{Cli\+Menu\+Platform\+Config}}
+\subsubsection[{set\+Log\+Level(int subsystem, int severity\+Level)}]{\setlength{\rightskip}{0pt plus 5cm}void Cli\+Menu\+Platform\+Config\+::set\+Log\+Level (
+\begin{DoxyParamCaption}
+\item[{int}]{subsystem, }
+\item[{int}]{severity\+Level}
+\end{DoxyParamCaption}
+)}\label{classCliMenuPlatformConfig_a7d09905c3035bc786d34414648cd4585}
+Set the log level severity based on the subsystem id 
+
+Referenced by Cli\+Menu\+Controller\+::initialize().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cli\+Menu\+Platform\+Config.\+h\item 
+Cli\+Menu\+Platform\+Config.\+cpp\end{DoxyCompactItemize}

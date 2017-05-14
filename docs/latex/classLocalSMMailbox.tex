@@ -1,0 +1,140 @@
+\section{Local\+S\+M\+Mailbox Class Reference}
+\label{classLocalSMMailbox}\index{Local\+S\+M\+Mailbox@{Local\+S\+M\+Mailbox}}
+Inheritance diagram for Local\+S\+M\+Mailbox\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classLocalSMMailbox}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual int {\bf activate} ({\bf Mailbox\+Owner\+Handle} $\ast$mailbox\+Owner\+Handle)
+\item 
+virtual int {\bf deactivate} ({\bf Mailbox\+Owner\+Handle} $\ast$mailbox\+Owner\+Handle)
+\item 
+{\bf Mailbox\+Address} \& {\bf get\+Mailbox\+Address} ()
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf Mailbox\+Owner\+Handle} $\ast$ {\bf create\+Mailbox} (const {\bf Mailbox\+Address} \&local\+Address)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Local\+S\+M\+Mailbox} (const {\bf Mailbox\+Address} \&local\+Address, const char $\ast$queue\+Name, const char $\ast$coordinating\+Mutex\+Name)
+\item 
+virtual {\bf $\sim$\+Local\+S\+M\+Mailbox} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Local\+S\+M\+Mailbox@{Local\+S\+M\+Mailbox}!Local\+S\+M\+Mailbox@{Local\+S\+M\+Mailbox}}
+\index{Local\+S\+M\+Mailbox@{Local\+S\+M\+Mailbox}!Local\+S\+M\+Mailbox@{Local\+S\+M\+Mailbox}}
+\subsubsection[{Local\+S\+M\+Mailbox(const Mailbox\+Address \&local\+Address, const char $\ast$queue\+Name, const char $\ast$coordinating\+Mutex\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}Local\+S\+M\+Mailbox\+::\+Local\+S\+M\+Mailbox (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{local\+Address, }
+\item[{const char $\ast$}]{queue\+Name, }
+\item[{const char $\ast$}]{coordinating\+Mutex\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classLocalSMMailbox_a264d5de94f7b11b0040f31f4d4a5a2e1}
+Constructor -\/ protected so that applications cannot create their own mailboxes and must use the static \doxyref{create\+Mailbox()}{p.}{classLocalSMMailbox_a68bdc7dd5d5b5cec2b8a1b86c2a02d07} method 
+
+References Mailbox\+Base\+::debug\+Value\+\_\+, Local\+S\+M\+Mailbox(), and Mailbox\+Address\+::to\+String().
+
+
+
+Referenced by Local\+S\+M\+Mailbox().
+
+\index{Local\+S\+M\+Mailbox@{Local\+S\+M\+Mailbox}!````~Local\+S\+M\+Mailbox@{$\sim$\+Local\+S\+M\+Mailbox}}
+\index{````~Local\+S\+M\+Mailbox@{$\sim$\+Local\+S\+M\+Mailbox}!Local\+S\+M\+Mailbox@{Local\+S\+M\+Mailbox}}
+\subsubsection[{$\sim$\+Local\+S\+M\+Mailbox()}]{\setlength{\rightskip}{0pt plus 5cm}Local\+S\+M\+Mailbox\+::$\sim$\+Local\+S\+M\+Mailbox (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classLocalSMMailbox_a25bdecf4ace66c7fcdde4e645ab4ba39}
+Virtual Destructor. Protected since this is a reference counted object. 
+
+References Mailbox\+Base\+::is\+Shutting\+Down\+\_\+.
+
+
+
+\subsection{Member Function Documentation}
+\index{Local\+S\+M\+Mailbox@{Local\+S\+M\+Mailbox}!activate@{activate}}
+\index{activate@{activate}!Local\+S\+M\+Mailbox@{Local\+S\+M\+Mailbox}}
+\subsubsection[{activate(\+Mailbox\+Owner\+Handle $\ast$mailbox\+Owner\+Handle)}]{\setlength{\rightskip}{0pt plus 5cm}int Local\+S\+M\+Mailbox\+::activate (
+\begin{DoxyParamCaption}
+\item[{{\bf Mailbox\+Owner\+Handle} $\ast$}]{mailbox\+Owner\+Handle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classLocalSMMailbox_a0a392404de9ca6224d0ed114c260b26a}
+Activate the mailbox. For security, one must possess an Owner handle to activate the mailbox and register it with the Lookup Service. 
+
+Reimplemented from {\bf Local\+Mailbox} \doxyref{}{p.}{classLocalMailbox_a90a0b182b76f38934302d613c74b626f}.
+
+
+
+References Local\+Mailbox\+::activate(), Thread\+Manager\+::create\+Thread(), and Mailbox\+Base\+::is\+Active().
+
+\index{Local\+S\+M\+Mailbox@{Local\+S\+M\+Mailbox}!create\+Mailbox@{create\+Mailbox}}
+\index{create\+Mailbox@{create\+Mailbox}!Local\+S\+M\+Mailbox@{Local\+S\+M\+Mailbox}}
+\subsubsection[{create\+Mailbox(const Mailbox\+Address \&local\+Address)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mailbox\+Owner\+Handle} $\ast$ Local\+S\+M\+Mailbox\+::create\+Mailbox (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{local\+Address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classLocalSMMailbox_a68bdc7dd5d5b5cec2b8a1b86c2a02d07}
+Allows applications to create a mailbox and get a handle to it.
+
+Since we do not want applications to have direct access to a mailbox object this method is provided. Applications that create mailboxes use this method to get a handle to their mailbox rather than have direct access. The handle returned is a owner handle which has all the privileges of the actual mailbox (get\+Message/post etc). This method creates the mailbox, activates it (which in turn registers it with the lookup service) and then creates an owner handle, acquires it and then returns that handle. Both the mailbox and the returned handle are created on the heap. 
+
+References Thread\+Manager\+::create\+Thread(), Mailbox\+Address\+::location\+Type, Mailbox\+Address\+::mailbox\+Name, Mailbox\+Base\+::select\+Reactor\+\_\+, Local\+S\+M\+Mailbox\+Queue\+::setup\+Queue(), and Local\+Mailbox\+::start\+Reactor().
+
+\index{Local\+S\+M\+Mailbox@{Local\+S\+M\+Mailbox}!deactivate@{deactivate}}
+\index{deactivate@{deactivate}!Local\+S\+M\+Mailbox@{Local\+S\+M\+Mailbox}}
+\subsubsection[{deactivate(\+Mailbox\+Owner\+Handle $\ast$mailbox\+Owner\+Handle)}]{\setlength{\rightskip}{0pt plus 5cm}int Local\+S\+M\+Mailbox\+::deactivate (
+\begin{DoxyParamCaption}
+\item[{{\bf Mailbox\+Owner\+Handle} $\ast$}]{mailbox\+Owner\+Handle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classLocalSMMailbox_ab78244c89f7fa411c40addc650906c3f}
+Deactivate the mailbox. For security, one must possess an Owner handle to deactivate the mailbox and deregister it with the Lookup Service. 
+
+Reimplemented from {\bf Local\+Mailbox} \doxyref{}{p.}{classLocalMailbox_a257122f75a72d9cbba8692cd1d8c431c}.
+
+
+
+References Local\+Mailbox\+::deactivate().
+
+\index{Local\+S\+M\+Mailbox@{Local\+S\+M\+Mailbox}!get\+Mailbox\+Address@{get\+Mailbox\+Address}}
+\index{get\+Mailbox\+Address@{get\+Mailbox\+Address}!Local\+S\+M\+Mailbox@{Local\+S\+M\+Mailbox}}
+\subsubsection[{get\+Mailbox\+Address()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mailbox\+Address} \& Local\+S\+M\+Mailbox\+::get\+Mailbox\+Address (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classLocalSMMailbox_a7dda4c081fcb30b3a653d13fb5530432}
+Return the mailbox address 
+
+Reimplemented from {\bf Local\+Mailbox} \doxyref{}{p.}{classLocalMailbox_a9524d5026b91c5f706ebdc22e58cfc76}.
+
+
+
+References Message\+Buffer\+::assign\+Buffer(), Local\+S\+M\+Buffer\+::buffer\+Length, Local\+S\+M\+Buffer\+::buffer\+PI, Message\+Buffer\+::clear\+Buffer(), Mailbox\+Base\+::debug\+Value\+\_\+, Local\+S\+M\+Mailbox\+Queue\+::dequeue\+Message(), Message\+Base\+::get\+Message\+Id(), Message\+Base\+::get\+Source\+Address(), Mailbox\+Base\+::increment\+Received\+Count(), Mailbox\+Address\+::inet\+Address, Mailbox\+Base\+::is\+Active(), Local\+S\+M\+Mailbox\+Queue\+::is\+Empty(), Local\+Mailbox\+::post(), Local\+S\+M\+Buffer\+::priority\+Level, Message\+Factory\+::recreate\+Message\+From\+Buffer(), Local\+S\+M\+Buffer\+::reset(), Message\+Buffer\+::set\+Insert\+Position(), Message\+Base\+::set\+Priority(), and Message\+Base\+::to\+String().
+
+\index{Local\+S\+M\+Mailbox@{Local\+S\+M\+Mailbox}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Local\+S\+M\+Mailbox@{Local\+S\+M\+Mailbox}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Local\+S\+M\+Mailbox\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classLocalSMMailbox_ae7c8cd2fea80619bfdb51708efdfa41e}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Local\+S\+M\+Mailbox.\+h\item 
+Local\+S\+M\+Mailbox.\+cpp\end{DoxyCompactItemize}

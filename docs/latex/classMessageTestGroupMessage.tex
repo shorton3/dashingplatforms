@@ -1,0 +1,175 @@
+\section{Message\+Test\+Group\+Message Class Reference}
+\label{classMessageTestGroupMessage}\index{Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}}
+
+
+{\ttfamily \#include $<$Message\+Test\+Group\+Message.\+h$>$}
+
+Inheritance diagram for Message\+Test\+Group\+Message\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMessageTestGroupMessage}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Message\+Test\+Group\+Message} (const Mailbox\+Address \&source\+Address, int our\+Int\+Value, string our\+String\+Value)
+\item 
+virtual {\bf $\sim$\+Message\+Test\+Group\+Message} ()
+\item 
+unsigned short {\bf get\+Message\+Id} () const 
+\item 
+int {\bf serialize} (Message\+Buffer \&buffer)
+\item 
+string {\bf to\+String} ()
+\item 
+{\bf Message\+Test\+Group\+Message} (const Mailbox\+Address \&source\+Address, int our\+Int\+Value, string our\+String\+Value)
+\item 
+virtual {\bf $\sim$\+Message\+Test\+Group\+Message} ()
+\item 
+unsigned short {\bf get\+Message\+Id} () const 
+\item 
+int {\bf serialize} (Message\+Buffer \&buffer)
+\item 
+string {\bf to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Message\+Base $\ast$ {\bf deserialize} (Message\+Buffer $\ast$buffer)
+\item 
+static Message\+Base $\ast$ {\bf deserialize} (Message\+Buffer $\ast$buffer)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Message\+Test\+Group\+Message}{p.}{classMessageTestGroupMessage} is a Test Message for the Group Mailbox. 
+
+This message demonstrates distributed and local mailbox message passing. \begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}!Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}}
+\index{Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}!Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}}
+\subsubsection[{Message\+Test\+Group\+Message(const Mailbox\+Address \&source\+Address, int our\+Int\+Value, string our\+String\+Value)}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Test\+Group\+Message\+::\+Message\+Test\+Group\+Message (
+\begin{DoxyParamCaption}
+\item[{const Mailbox\+Address \&}]{source\+Address, }
+\item[{int}]{our\+Int\+Value, }
+\item[{string}]{our\+String\+Value}
+\end{DoxyParamCaption}
+)}\label{classMessageTestGroupMessage_a543400a7437990c6f663383a668ee480}
+Constructor 
+
+Referenced by deserialize().
+
+\index{Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}!````~Message\+Test\+Group\+Message@{$\sim$\+Message\+Test\+Group\+Message}}
+\index{````~Message\+Test\+Group\+Message@{$\sim$\+Message\+Test\+Group\+Message}!Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}}
+\subsubsection[{$\sim$\+Message\+Test\+Group\+Message()}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Test\+Group\+Message\+::$\sim$\+Message\+Test\+Group\+Message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMessageTestGroupMessage_aeb29c3c3df7b3a0f15946c6e9a869607}
+Virtual Destructor \index{Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}!Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}}
+\index{Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}!Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}}
+\subsubsection[{Message\+Test\+Group\+Message(const Mailbox\+Address \&source\+Address, int our\+Int\+Value, string our\+String\+Value)}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Test\+Group\+Message\+::\+Message\+Test\+Group\+Message (
+\begin{DoxyParamCaption}
+\item[{const Mailbox\+Address \&}]{source\+Address, }
+\item[{int}]{our\+Int\+Value, }
+\item[{string}]{our\+String\+Value}
+\end{DoxyParamCaption}
+)}\label{classMessageTestGroupMessage_a543400a7437990c6f663383a668ee480}
+Constructor \index{Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}!````~Message\+Test\+Group\+Message@{$\sim$\+Message\+Test\+Group\+Message}}
+\index{````~Message\+Test\+Group\+Message@{$\sim$\+Message\+Test\+Group\+Message}!Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}}
+\subsubsection[{$\sim$\+Message\+Test\+Group\+Message()}]{\setlength{\rightskip}{0pt plus 5cm}virtual Message\+Test\+Group\+Message\+::$\sim$\+Message\+Test\+Group\+Message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classMessageTestGroupMessage_a179d9628e257139774546e5af6c44e9d}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}!deserialize@{deserialize}}
+\index{deserialize@{deserialize}!Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}}
+\subsubsection[{deserialize(\+Message\+Buffer $\ast$buffer)}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Base $\ast$ Message\+Test\+Group\+Message\+::deserialize (
+\begin{DoxyParamCaption}
+\item[{Message\+Buffer $\ast$}]{buffer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMessageTestGroupMessage_add4b379a514891fee997ca8285d74c27}
+Subclassed deserialization / bootstrap implementation 
+
+References Message\+Test\+Group\+Message().
+
+
+
+Referenced by Message\+Test\+Group\+::get\+Owner\+Handle().
+
+\index{Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}!deserialize@{deserialize}}
+\index{deserialize@{deserialize}!Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}}
+\subsubsection[{deserialize(\+Message\+Buffer $\ast$buffer)}]{\setlength{\rightskip}{0pt plus 5cm}static Message\+Base$\ast$ Message\+Test\+Group\+Message\+::deserialize (
+\begin{DoxyParamCaption}
+\item[{Message\+Buffer $\ast$}]{buffer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMessageTestGroupMessage_af768fdb5a6f58b891b702f81f4bfb2e3}
+Subclassed deserialization / bootstrap implementation \index{Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}!get\+Message\+Id@{get\+Message\+Id}}
+\index{get\+Message\+Id@{get\+Message\+Id}!Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}}
+\subsubsection[{get\+Message\+Id() const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned short Message\+Test\+Group\+Message\+::get\+Message\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classMessageTestGroupMessage_acd5c40df2566e9486f831b6c7a0d3c78}
+Returns the Message Id \index{Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}!get\+Message\+Id@{get\+Message\+Id}}
+\index{get\+Message\+Id@{get\+Message\+Id}!Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}}
+\subsubsection[{get\+Message\+Id() const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned short Message\+Test\+Group\+Message\+::get\+Message\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classMessageTestGroupMessage_acd5c40df2566e9486f831b6c7a0d3c78}
+Returns the Message Id \index{Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}!serialize@{serialize}}
+\index{serialize@{serialize}!Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}}
+\subsubsection[{serialize(\+Message\+Buffer \&buffer)}]{\setlength{\rightskip}{0pt plus 5cm}int Message\+Test\+Group\+Message\+::serialize (
+\begin{DoxyParamCaption}
+\item[{Message\+Buffer \&}]{buffer}
+\end{DoxyParamCaption}
+)}\label{classMessageTestGroupMessage_a1af52d6307b679438a8d777e37da313f}
+Subclassed serialization implementation \index{Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}!serialize@{serialize}}
+\index{serialize@{serialize}!Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}}
+\subsubsection[{serialize(\+Message\+Buffer \&buffer)}]{\setlength{\rightskip}{0pt plus 5cm}int Message\+Test\+Group\+Message\+::serialize (
+\begin{DoxyParamCaption}
+\item[{Message\+Buffer \&}]{buffer}
+\end{DoxyParamCaption}
+)}\label{classMessageTestGroupMessage_a1af52d6307b679438a8d777e37da313f}
+Subclassed serialization implementation \index{Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Message\+Test\+Group\+Message\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestGroupMessage_a5b89d4c0bc25b4925e39c42462b33ca9}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+Referenced by Message\+Test\+Group\+::process\+Mailbox().
+
+\index{Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Message\+Test\+Group\+Message@{Message\+Test\+Group\+Message}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Message\+Test\+Group\+Message\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMessageTestGroupMessage_a5b89d4c0bc25b4925e39c42462b33ca9}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+msgmgrgrouptest1/\+Message\+Test\+Group\+Message.\+h\item 
+msgmgrgrouptest1/\+Message\+Test\+Group\+Message.\+cpp\end{DoxyCompactItemize}

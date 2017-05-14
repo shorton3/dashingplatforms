@@ -1,0 +1,140 @@
+\section{O\+S\+Resource Class Reference}
+\label{classOSResource}\index{O\+S\+Resource@{O\+S\+Resource}}
+
+
+{\ttfamily \#include $<$O\+S\+Resource.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf O\+S\+Resource} ()
+\item 
+virtual {\bf $\sim$\+O\+S\+Resource} ()
+\item 
+int {\bf initialize} ()
+\item 
+int {\bf check\+Disk\+Usage} ()
+\item 
+int {\bf check\+C\+P\+U\+Usage} ()
+\item 
+int {\bf check\+Memory\+Usage} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{O\+S\+Resource}{p.}{classOSResource} provides the mechanisms for monitoring O\+S-\/controlled resources including Memory, C\+PU, and Disk usages. 
+
+With regard to measuring C\+PU usage on Linux\+: Linux provides cumulative counts for the number of jiffies spent in user, nice, system, and idle C\+PU mode since the system was booted, or since the jiffy count last wrapped round. A jiffy is a proverbial short amount of time, which is 1/100 second on most C\+P\+Us (1/1024 on Alphas). 
+
+The four jiffy counts are given in the /proc/stat file, on a line beginning with the word cpu. On multiprocessor systems, the counts are given for each cpu, each on a line beginning with the word cpun, where n is the zero-\/based C\+PU number, and the line starting with cpu contains the sums for all processors. 
+
+The duration of a jiffy, and the cumulative number of jiffies, are not much use to us; what is important is the number of jiffies spent in each mode since the last time we had a look. We calculate the differences for each of the modes, and express each difference as a percentage of the total difference. 
+
+For measuring memory usage, we inspect the fields taken from /proc/meminfo. Note that this calculation should agree with the output of the \textquotesingle{}free\textquotesingle{} utility (2nd output line). The calculations are as follows\+: Memory Used = Mem\+Total -\/ Mem\+Free -\/ Buffers -\/ Cached Also perform Swap calculation\+: Swap Used = Swap\+Total -\/ Swap\+Free -\/ Swap\+Cached 
+
+Disk usage values are gathered by comparing /etc/fstab with the output from the statfs library call. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{O\+S\+Resource@{O\+S\+Resource}!O\+S\+Resource@{O\+S\+Resource}}
+\index{O\+S\+Resource@{O\+S\+Resource}!O\+S\+Resource@{O\+S\+Resource}}
+\subsubsection[{O\+S\+Resource()}]{\setlength{\rightskip}{0pt plus 5cm}O\+S\+Resource\+::\+O\+S\+Resource (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classOSResource_ad1d2d809528b66aab67eb20301849831}
+Constructor \index{O\+S\+Resource@{O\+S\+Resource}!````~O\+S\+Resource@{$\sim$\+O\+S\+Resource}}
+\index{````~O\+S\+Resource@{$\sim$\+O\+S\+Resource}!O\+S\+Resource@{O\+S\+Resource}}
+\subsubsection[{$\sim$\+O\+S\+Resource()}]{\setlength{\rightskip}{0pt plus 5cm}O\+S\+Resource\+::$\sim$\+O\+S\+Resource (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classOSResource_a8537c46082b3e1a159ffb24235dd8d6b}
+Virtual Destructor 
+
+\subsection{Member Function Documentation}
+\index{O\+S\+Resource@{O\+S\+Resource}!check\+C\+P\+U\+Usage@{check\+C\+P\+U\+Usage}}
+\index{check\+C\+P\+U\+Usage@{check\+C\+P\+U\+Usage}!O\+S\+Resource@{O\+S\+Resource}}
+\subsubsection[{check\+C\+P\+U\+Usage()}]{\setlength{\rightskip}{0pt plus 5cm}int O\+S\+Resource\+::check\+C\+P\+U\+Usage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classOSResource_a1e002cee5aedf02e39960b760263f65b}
+Check C\+PU usage based on statistics in the Linux proc filesystem \begin{DoxyReturn}{Returns}
+E\+R\+R\+OR upon failure; otherwise OK 
+\end{DoxyReturn}
+Could use N\+E\+ID as the managed object instance?? 
+
+References System\+Info\+::get\+Local\+N\+E\+I\+D().
+
+
+
+Referenced by Resource\+Monitor\+::to\+String().
+
+\index{O\+S\+Resource@{O\+S\+Resource}!check\+Disk\+Usage@{check\+Disk\+Usage}}
+\index{check\+Disk\+Usage@{check\+Disk\+Usage}!O\+S\+Resource@{O\+S\+Resource}}
+\subsubsection[{check\+Disk\+Usage()}]{\setlength{\rightskip}{0pt plus 5cm}int O\+S\+Resource\+::check\+Disk\+Usage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classOSResource_a81cc54b9fe818967b4327ae03f1f22b0}
+Check disk usage for all detected filesystem partitions \begin{DoxyReturn}{Returns}
+E\+R\+R\+OR upon failure; otherwise OK 
+\end{DoxyReturn}
+
+
+References System\+Info\+::get\+Local\+N\+E\+I\+D().
+
+
+
+Referenced by Resource\+Monitor\+::to\+String().
+
+\index{O\+S\+Resource@{O\+S\+Resource}!check\+Memory\+Usage@{check\+Memory\+Usage}}
+\index{check\+Memory\+Usage@{check\+Memory\+Usage}!O\+S\+Resource@{O\+S\+Resource}}
+\subsubsection[{check\+Memory\+Usage()}]{\setlength{\rightskip}{0pt plus 5cm}int O\+S\+Resource\+::check\+Memory\+Usage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classOSResource_a421330f1e4ddbfbcde386d3d84e5365b}
+Check memory usage based on statistics in the Linux proc filesystem \begin{DoxyReturn}{Returns}
+E\+R\+R\+OR upon failure; otherwise OK 
+\end{DoxyReturn}
+Could use N\+E\+ID as the managed object instance?? 
+
+References System\+Info\+::get\+Local\+N\+E\+I\+D().
+
+
+
+Referenced by Resource\+Monitor\+::to\+String().
+
+\index{O\+S\+Resource@{O\+S\+Resource}!initialize@{initialize}}
+\index{initialize@{initialize}!O\+S\+Resource@{O\+S\+Resource}}
+\subsubsection[{initialize()}]{\setlength{\rightskip}{0pt plus 5cm}int O\+S\+Resource\+::initialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classOSResource_a3d5a001b4ce6046431d0fa8dfa82786c}
+Initialize the structures for tracking resource usage \begin{DoxyReturn}{Returns}
+E\+R\+R\+OR upon failure; otherwise OK 
+\end{DoxyReturn}
+
+
+References Db\+Connection\+Handle\+::close\+Command\+Result(), Db\+Connection\+Handle\+::execute\+Command(), Db\+Connection\+Handle\+::get\+Column\+Count(), Db\+Connection\+Handle\+::get\+Column\+Index(), Db\+Connection\+Handle\+::get\+Int\+Value\+At(), Db\+Connection\+Handle\+::get\+Row\+Count(), Db\+Connection\+Handle\+::get\+Short\+Value\+At(), Logger\+::get\+Subsystem\+Log\+Level(), Data\+Manager\+::release\+Connection(), and Data\+Manager\+::reserve\+Connection().
+
+
+
+Referenced by Resource\+Monitor\+::initialize().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+O\+S\+Resource.\+h\item 
+O\+S\+Resource.\+cpp\end{DoxyCompactItemize}

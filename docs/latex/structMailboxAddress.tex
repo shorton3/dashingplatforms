@@ -1,0 +1,301 @@
+\section{Mailbox\+Address Struct Reference}
+\label{structMailboxAddress}\index{Mailbox\+Address@{Mailbox\+Address}}
+
+
+{\ttfamily \#include $<$Mailbox\+Address.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Mailbox\+Address} ()
+\item 
+virtual {\bf $\sim$\+Mailbox\+Address} ()
+\item 
+void {\bf reset} ()
+\item 
+{\bf Mailbox\+Address} (const {\bf Mailbox\+Address} \&rhs)
+\item 
+{\bf Mailbox\+Address} \& {\bf operator=} (const {\bf Mailbox\+Address} \&rhs)
+\item 
+bool {\bf operator==} (const {\bf Mailbox\+Address} \&rhs) const 
+\item 
+bool {\bf operator$<$} (const {\bf Mailbox\+Address} \&rhs) const 
+\item 
+bool {\bf operator$<$=} (const {\bf Mailbox\+Address} \&rhs) const 
+\item 
+bool {\bf operator!=} (const {\bf Mailbox\+Address} \&rhs) const 
+\item 
+bool {\bf operator$>$} (const {\bf Mailbox\+Address} \&rhs) const 
+\item 
+bool {\bf operator$>$=} (const {\bf Mailbox\+Address} \&rhs) const 
+\item 
+string {\bf to\+String} () const 
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool {\bf is\+Matching\+Address} (const {\bf Mailbox\+Address} \&match\+Criteria, const {\bf Mailbox\+Address} \&address\+To\+Check)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Mailbox\+Address\+Type {\bf mailbox\+Type}
+\item 
+Mailbox\+Location\+Type {\bf location\+Type}
+\item 
+int {\bf shelf\+Number}
+\item 
+int {\bf slot\+Number}
+\item 
+string {\bf mailbox\+Name}
+\item 
+string {\bf neid}
+\item 
+A\+C\+E\+\_\+\+I\+N\+E\+T\+\_\+\+Addr {\bf inet\+Address}
+\item 
+Preferred\+Redundant\+Role {\bf redundant\+Role}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const A\+C\+E\+\_\+\+I\+N\+E\+T\+\_\+\+Addr {\bf default\+Unknown\+Inet\+Address\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Mailbox\+Address}{p.}{structMailboxAddress} encapsulates all of the necessary information for identifying the various types of Mailboxes in the system. 
+
+\begin{DoxyParagraph}{Author}
+Stephen Horton
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Revision}
+1
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Mailbox\+Address@{Mailbox\+Address}!Mailbox\+Address@{Mailbox\+Address}}
+\index{Mailbox\+Address@{Mailbox\+Address}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{Mailbox\+Address()}]{\setlength{\rightskip}{0pt plus 5cm}Mailbox\+Address\+::\+Mailbox\+Address (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{structMailboxAddress_a3e224d32539db580d36d88a57029fb80}
+Constructor \index{Mailbox\+Address@{Mailbox\+Address}!````~Mailbox\+Address@{$\sim$\+Mailbox\+Address}}
+\index{````~Mailbox\+Address@{$\sim$\+Mailbox\+Address}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{$\sim$\+Mailbox\+Address()}]{\setlength{\rightskip}{0pt plus 5cm}Mailbox\+Address\+::$\sim$\+Mailbox\+Address (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{structMailboxAddress_a3b09516715d62cc9a84c35b007e384a0}
+Virtual Destructor \index{Mailbox\+Address@{Mailbox\+Address}!Mailbox\+Address@{Mailbox\+Address}}
+\index{Mailbox\+Address@{Mailbox\+Address}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{Mailbox\+Address(const Mailbox\+Address \&rhs)}]{\setlength{\rightskip}{0pt plus 5cm}Mailbox\+Address\+::\+Mailbox\+Address (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{rhs}
+\end{DoxyParamCaption}
+)}\label{structMailboxAddress_a1b0fa4952c5bdc103e11640b01a2c35d}
+Copy Constructor 
+
+References inet\+Address, location\+Type, mailbox\+Name, mailbox\+Type, neid, redundant\+Role, shelf\+Number, and slot\+Number.
+
+
+
+\subsection{Member Function Documentation}
+\index{Mailbox\+Address@{Mailbox\+Address}!is\+Matching\+Address@{is\+Matching\+Address}}
+\index{is\+Matching\+Address@{is\+Matching\+Address}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{is\+Matching\+Address(const Mailbox\+Address \&match\+Criteria, const Mailbox\+Address \&address\+To\+Check)}]{\setlength{\rightskip}{0pt plus 5cm}bool Mailbox\+Address\+::is\+Matching\+Address (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{match\+Criteria, }
+\item[{const {\bf Mailbox\+Address} \&}]{address\+To\+Check}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{structMailboxAddress_a6ab5f65859ab13cdbb4245c1dc49a0f4}
+Performs a filter matching algorithm based on non-\/defaulted fields in the Mailbox Address structure. At least 1 field must be non-\/default and must match for this to return true; also, for \doxyref{Local\+Mailbox}{p.}{classLocalMailbox} Location\+Types, we only check the Location\+Type and the Mailbox\+Name. \begin{DoxyReturn}{Returns}
+true if the address\+To\+Check is a match to all non-\/default fields in the match\+Criteria. 
+\end{DoxyReturn}
+
+
+References default\+Unknown\+Inet\+Address\+\_\+, inet\+Address, location\+Type, mailbox\+Name, mailbox\+Type, neid, redundant\+Role, shelf\+Number, and slot\+Number.
+
+
+
+Referenced by Discovery\+Manager\+::process\+Mailbox(), and Discovery\+Manager\+::register\+For\+Discovery\+Updates().
+
+\index{Mailbox\+Address@{Mailbox\+Address}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{operator"!=(const Mailbox\+Address \&rhs) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Mailbox\+Address\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}\label{structMailboxAddress_aa383386013d54ada41840d12177bf9b8}
+Overloaded Comparison Operator. Not implemented!! 
+
+References mailbox\+Name.
+
+\index{Mailbox\+Address@{Mailbox\+Address}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{operator$<$(const Mailbox\+Address \&rhs) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Mailbox\+Address\+::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}\label{structMailboxAddress_a77e2a2063a87e2d0cd91731c12ac4992}
+Overloaded Comparison Operator. N\+O\+TE\+: Currently only base comparison on name, location, IP 
+
+References inet\+Address, location\+Type, and mailbox\+Name.
+
+\index{Mailbox\+Address@{Mailbox\+Address}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{operator$<$=(const Mailbox\+Address \&rhs) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Mailbox\+Address\+::operator$<$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}\label{structMailboxAddress_abee7d0a71ce9064c3b32a4d860aac7a4}
+Overloaded Comparison Operator. Not implemented!! 
+
+References mailbox\+Name.
+
+\index{Mailbox\+Address@{Mailbox\+Address}!operator=@{operator=}}
+\index{operator=@{operator=}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{operator=(const Mailbox\+Address \&rhs)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mailbox\+Address} \& Mailbox\+Address\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{rhs}
+\end{DoxyParamCaption}
+)}\label{structMailboxAddress_abdbe64ded96b605b1bac758e1232746b}
+Overloaded Assignment Operator 
+
+References inet\+Address, location\+Type, mailbox\+Name, mailbox\+Type, neid, redundant\+Role, shelf\+Number, and slot\+Number.
+
+\index{Mailbox\+Address@{Mailbox\+Address}!operator==@{operator==}}
+\index{operator==@{operator==}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{operator==(const Mailbox\+Address \&rhs) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Mailbox\+Address\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}\label{structMailboxAddress_a21da80a2b676064da4da49b93db0b490}
+Overloaded Equality Operator 
+
+References inet\+Address, location\+Type, mailbox\+Name, mailbox\+Type, neid, redundant\+Role, shelf\+Number, and slot\+Number.
+
+\index{Mailbox\+Address@{Mailbox\+Address}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{operator$>$(const Mailbox\+Address \&rhs) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Mailbox\+Address\+::operator$>$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}\label{structMailboxAddress_a1900e92e396dbcb7188001cec9a2a2ad}
+Overloaded Comparison Operator. Not implemented!! 
+
+References mailbox\+Name.
+
+\index{Mailbox\+Address@{Mailbox\+Address}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{operator$>$=(const Mailbox\+Address \&rhs) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Mailbox\+Address\+::operator$>$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mailbox\+Address} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}\label{structMailboxAddress_aafd72c8682fd06532e80d33c19773b06}
+Overloaded Comparison Operator. Not implemented!! 
+
+References mailbox\+Name.
+
+\index{Mailbox\+Address@{Mailbox\+Address}!reset@{reset}}
+\index{reset@{reset}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{reset()}]{\setlength{\rightskip}{0pt plus 5cm}void Mailbox\+Address\+::reset (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{structMailboxAddress_a7895b7630702fc3c2fcbbb51627a2f9c}
+Reset all member variables 
+
+References default\+Unknown\+Inet\+Address\+\_\+, inet\+Address, location\+Type, mailbox\+Name, mailbox\+Type, neid, redundant\+Role, shelf\+Number, and slot\+Number.
+
+\index{Mailbox\+Address@{Mailbox\+Address}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{to\+String() const }]{\setlength{\rightskip}{0pt plus 5cm}string Mailbox\+Address\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{structMailboxAddress_aff1473fce573e821cb4d9f42108328dd}
+String\textquotesingle{}ized debugging method \begin{DoxyReturn}{Returns}
+string representation of the contents of this object 
+\end{DoxyReturn}
+
+
+References inet\+Address, location\+Type, mailbox\+Name, mailbox\+Type, neid, redundant\+Role, shelf\+Number, and slot\+Number.
+
+
+
+Referenced by Local\+S\+M\+Mailbox\+::\+Local\+S\+M\+Mailbox(), Local\+S\+M\+Mailbox\+Proxy\+::\+Local\+S\+M\+Mailbox\+Proxy(), Distributed\+Mailbox\+Proxy\+::post(), Local\+S\+M\+Mailbox\+Proxy\+::post(), Local\+Mailbox\+::post(), Group\+Mailbox\+Proxy\+::post(), Discovery\+Manager\+::process\+Mailbox(), Mailbox\+Lookup\+Service\+::register\+Mailbox(), Discovery\+Local\+Message\+::to\+String(), Discovery\+Message\+::to\+String(), and Alarm\+Event\+Message\+::to\+String().
+
+
+
+\subsection{Member Data Documentation}
+\index{Mailbox\+Address@{Mailbox\+Address}!default\+Unknown\+Inet\+Address\+\_\+@{default\+Unknown\+Inet\+Address\+\_\+}}
+\index{default\+Unknown\+Inet\+Address\+\_\+@{default\+Unknown\+Inet\+Address\+\_\+}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{default\+Unknown\+Inet\+Address\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}const A\+C\+E\+\_\+\+I\+N\+E\+T\+\_\+\+Addr Mailbox\+Address\+::default\+Unknown\+Inet\+Address\+\_\+\hspace{0.3cm}{\ttfamily [static]}}\label{structMailboxAddress_a3cc0c5fecad210146f92414e9395cabe}
+Static default A\+C\+E\+\_\+\+I\+N\+E\+T\+\_\+\+Addr with unknown IP and port (for defaults) 
+
+Referenced by Local\+Mailbox\+::create\+Mailbox(), is\+Matching\+Address(), and reset().
+
+\index{Mailbox\+Address@{Mailbox\+Address}!inet\+Address@{inet\+Address}}
+\index{inet\+Address@{inet\+Address}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{inet\+Address}]{\setlength{\rightskip}{0pt plus 5cm}A\+C\+E\+\_\+\+I\+N\+E\+T\+\_\+\+Addr Mailbox\+Address\+::inet\+Address}\label{structMailboxAddress_a4d32eca5b378e19a34741c3cf1819550}
+IP Address and Port Number for the Mailbox. Loopback IP (127.\+0.\+0.\+1) can be used for higher performance with applications that will only communicate on-\/card 
+
+Referenced by Distributed\+Mailbox\+Proxy\+::activate(), Distributed\+Mailbox\+::activate(), Group\+Mailbox\+Proxy\+::activate(), Group\+Mailbox\+::activate(), Distributed\+Mailbox\+::create\+Mailbox(), Group\+Mailbox\+::create\+Mailbox(), Local\+Mailbox\+::create\+Mailbox(), Group\+Mailbox\+Proxy\+::deactivate(), Group\+Mailbox\+::deactivate(), Discovery\+Manager\+::\+Discovery\+Manager(), Local\+S\+M\+Mailbox\+::get\+Mailbox\+Address(), Resource\+Monitor\+::initialize(), Fault\+Manager\+::initialize(), is\+Matching\+Address(), Mailbox\+Address(), operator$<$(), Message\+Buffer\+::operator$<$$<$(), operator=(), operator==(), Message\+Buffer\+::operator$>$$>$(), Distributed\+Mailbox\+Proxy\+::post(), Local\+S\+M\+Mailbox\+Proxy\+::post(), Group\+Mailbox\+Proxy\+::post(), reset(), and to\+String().
+
+\index{Mailbox\+Address@{Mailbox\+Address}!location\+Type@{location\+Type}}
+\index{location\+Type@{location\+Type}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{location\+Type}]{\setlength{\rightskip}{0pt plus 5cm}Mailbox\+Location\+Type Mailbox\+Address\+::location\+Type}\label{structMailboxAddress_a817e06f2b7c74bb6a21f4e37b9c5df40}
+Defines the type of communication this mailbox will be involved with (is capable of)\+: Local, Local Shared Memory, Distributed, Group 
+
+Referenced by Distributed\+Mailbox\+::create\+Mailbox(), Local\+S\+M\+Mailbox\+::create\+Mailbox(), Group\+Mailbox\+::create\+Mailbox(), Local\+Mailbox\+::create\+Mailbox(), Mailbox\+Lookup\+Service\+::deregister\+Mailbox(), Discovery\+Manager\+::\+Discovery\+Manager(), Mailbox\+Lookup\+Service\+::find(), Mailbox\+Lookup\+Service\+::get\+Debug\+For\+All\+Mailbox\+Addresses(), Resource\+Monitor\+::initialize(), Process\+Manager\+::initialize(), Fault\+Manager\+::initialize(), is\+Matching\+Address(), Mailbox\+Address(), operator$<$(), Message\+Buffer\+::operator$<$$<$(), operator=(), operator==(), Message\+Buffer\+::operator$>$$>$(), Mailbox\+Lookup\+Service\+::register\+Mailbox(), reset(), and to\+String().
+
+\index{Mailbox\+Address@{Mailbox\+Address}!mailbox\+Name@{mailbox\+Name}}
+\index{mailbox\+Name@{mailbox\+Name}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{mailbox\+Name}]{\setlength{\rightskip}{0pt plus 5cm}string Mailbox\+Address\+::mailbox\+Name}\label{structMailboxAddress_acb8f28e5a72f7ec0804e1e4489523a06}
+Application-\/given well-\/known mailbox name. 
+
+Referenced by Local\+S\+M\+Mailbox\+Proxy\+::create\+Mailbox(), Local\+S\+M\+Mailbox\+::create\+Mailbox(), Local\+Mailbox\+::create\+Mailbox(), Mailbox\+Lookup\+Service\+::deregister\+Mailbox(), Discovery\+Manager\+::\+Discovery\+Manager(), Resource\+Monitor\+::initialize(), Fault\+Manager\+::initialize(), is\+Matching\+Address(), Mailbox\+Address(), operator!=(), operator$<$(), Message\+Buffer\+::operator$<$$<$(), operator$<$=(), operator=(), operator==(), operator$>$(), operator$>$=(), Message\+Buffer\+::operator$>$$>$(), Mailbox\+Lookup\+Service\+::register\+Mailbox(), reset(), and to\+String().
+
+\index{Mailbox\+Address@{Mailbox\+Address}!mailbox\+Type@{mailbox\+Type}}
+\index{mailbox\+Type@{mailbox\+Type}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{mailbox\+Type}]{\setlength{\rightskip}{0pt plus 5cm}Mailbox\+Address\+Type Mailbox\+Address\+::mailbox\+Type}\label{structMailboxAddress_a6fe215618779e5f28f06cc2cbdcdf21d}
+Defines this mailbox as playing a physical or logical role. Physical roles are typically associated with each specific card. Logical roles may be shared across physical card barriers, such as with Redundancy 
+
+Referenced by Local\+Mailbox\+::create\+Mailbox(), is\+Matching\+Address(), Mailbox\+Address(), Message\+Buffer\+::operator$<$$<$(), operator=(), operator==(), Message\+Buffer\+::operator$>$$>$(), reset(), and to\+String().
+
+\index{Mailbox\+Address@{Mailbox\+Address}!neid@{neid}}
+\index{neid@{neid}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{neid}]{\setlength{\rightskip}{0pt plus 5cm}string Mailbox\+Address\+::neid}\label{structMailboxAddress_a8bb14b82e31280b3e0377686c08813f4}
+N\+E\+ID (Network Element Identifier) of the node/card 
+
+Referenced by Local\+Mailbox\+::create\+Mailbox(), Discovery\+Manager\+::\+Discovery\+Manager(), Resource\+Monitor\+::initialize(), Fault\+Manager\+::initialize(), is\+Matching\+Address(), Mailbox\+Address(), Message\+Buffer\+::operator$<$$<$(), operator=(), operator==(), Message\+Buffer\+::operator$>$$>$(), reset(), and to\+String().
+
+\index{Mailbox\+Address@{Mailbox\+Address}!redundant\+Role@{redundant\+Role}}
+\index{redundant\+Role@{redundant\+Role}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{redundant\+Role}]{\setlength{\rightskip}{0pt plus 5cm}Preferred\+Redundant\+Role Mailbox\+Address\+::redundant\+Role}\label{structMailboxAddress_a9888c25d87e4ecd9df7890b79554b05c}
+Redundancy Role for the Application Mailbox\+: Active, Standby, Loadshared 
+
+Referenced by Local\+Mailbox\+::create\+Mailbox(), is\+Matching\+Address(), Mailbox\+Address(), Message\+Buffer\+::operator$<$$<$(), operator=(), operator==(), Message\+Buffer\+::operator$>$$>$(), reset(), and to\+String().
+
+\index{Mailbox\+Address@{Mailbox\+Address}!shelf\+Number@{shelf\+Number}}
+\index{shelf\+Number@{shelf\+Number}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{shelf\+Number}]{\setlength{\rightskip}{0pt plus 5cm}int Mailbox\+Address\+::shelf\+Number}\label{structMailboxAddress_a0dbf05ffb071d9bc9e7fe1ad21ea1406}
+Geographic shelf number that the Mailbox resides in 
+
+Referenced by Local\+Mailbox\+::create\+Mailbox(), is\+Matching\+Address(), Mailbox\+Address(), Message\+Buffer\+::operator$<$$<$(), operator=(), operator==(), Message\+Buffer\+::operator$>$$>$(), reset(), and to\+String().
+
+\index{Mailbox\+Address@{Mailbox\+Address}!slot\+Number@{slot\+Number}}
+\index{slot\+Number@{slot\+Number}!Mailbox\+Address@{Mailbox\+Address}}
+\subsubsection[{slot\+Number}]{\setlength{\rightskip}{0pt plus 5cm}int Mailbox\+Address\+::slot\+Number}\label{structMailboxAddress_af7105a4c171bcf37cfa61a12283d16ca}
+Geographic slot number that the Mailbox resides in 
+
+Referenced by Local\+Mailbox\+::create\+Mailbox(), is\+Matching\+Address(), Mailbox\+Address(), Message\+Buffer\+::operator$<$$<$(), operator=(), operator==(), Message\+Buffer\+::operator$>$$>$(), reset(), and to\+String().
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Mailbox\+Address.\+h\item 
+Mailbox\+Address.\+cpp\end{DoxyCompactItemize}
