@@ -1,4 +1,4 @@
-![](http://imgur.com/a/7Xr70)
+![](http://imgur.com/UxSihwF)
 # Dashing Platforms
 Platform infrastructure middleware supports event dispatch and other basic services. 
 ## Features
